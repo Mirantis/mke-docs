@@ -6,7 +6,8 @@ MKE4 is an enterprise-grade, production-ready Kubernetes platform that is design
 
 ## Components
 
-MKE 4 is built on top of k0s, a lightweight Kubernetes distribution. See the [k0s documentation](https://k0sproject.io/docs/) for more information.
+MKE 4 is built on top of k0s, a lightweight Kubernetes distribution. Refer to
+the [k0s documentation](https://k0sproject.io/docs/) for more information.
 
 MKE 4 Alpha.1 is run on top of k0s v1.29.3. 
 
