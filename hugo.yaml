@@ -1,0 +1,107 @@
+# Configuration
+baseURL: "https://mke4-docs/"
+title: "Mirantis Kubernetes Engine 4"
+theme: hextra
+
+# enableRobotsTXT: true
+# enableGitInfo: true
+# enableEmoji: false
+# hasCJKLanguage: true
+
+# services:
+#   googleAnalytics:
+#     ID: G-MEASUREMENT_ID
+
+# outputs:
+#   home: [HTML]
+#   page: [HTML]
+#   section: [HTML, RSS]
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+
+enableInlineShortcodes: true
+
+menu:
+  main:
+    - identifier: docs
+      name: Docs
+      pageRef: /docs
+      weight: 1
+    - identifier: getting-started
+      name: Getting started
+      pageRef: /docs/getting-started
+      weight: 2
+    - identifier: tutorials
+      name: Tutorials
+      pageRef: /docs/tutorials
+      weight: 3
+    - name: Search
+      weight: 5
+      params:
+        type: search
+    - name: GitHub
+      weight: 6
+      url: "https://github.com/Mirantis/mke-docs"
+      params:
+        icon: github
+
+  sidebar:
+    - identifier: more
+      name: More
+      params:
+        type: separator
+      weight: 1
+    - name: MKE 3.7 documentation
+      weight: 2
+      url: "https://docs.mirantis.com/mke/3.7/overview.html"
+    - name: Mirantis products
+      weight: 3
+      url: "https://www.mirantis.com/"
+
+params:
+  navbar:
+    navbarPosition: "left"
+    displayTitle: true
+    displayLogo: true
+    logo:
+      path: images/logo.svg
+      dark: images/logo-dark.svg
+      # width: 40
+      # height: 20
+      # link: /
+    width: wide
+
+  page:
+    # full (100%), wide (90rem), normal (1280px)
+    width: normal
+
+  footer:
+    enable: true
+    displayCopyright: true
+    displayPoweredBy: true
+    width: normal
+
+  displayUpdatedDate: true
+  dateFormat: "January 2, 2006"
+
+  # Search
+  # flexsearch is enabled by default
+  search:
+    enable: true
+    type: flexsearch
+
+    flexsearch:
+      # index page by: content | summary | heading | title
+      index: content
+      # full | forward | reverse | strict
+      # https://github.com/nextapps-de/flexsearch/#tokenizer-prefix-search
+      tokenize: forward
+
+  editURL:
+    enable: true
+    base: "https://github.com/Mirantis/mke-docs"
