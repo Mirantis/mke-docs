@@ -1,0 +1,396 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mirantis Kubernetes Engine 4 – </title>
+    <link>http://localhost:1313/docs/release-notes/</link>
+    <description>Recent content on Mirantis Kubernetes Engine 4</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	  <atom:link href="http://localhost:1313/docs/release-notes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Features</title>
+      <link>http://localhost:1313/docs/release-notes/features/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/docs/release-notes/features/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The table that follows details MKE 4 features and their current status. In
+addition, where applicable, the table offers links to associated documentation.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Feature&lt;/th&gt;
+&lt;th&gt;Pre-Release&lt;/th&gt;
+&lt;th&gt;Status&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Authentication&lt;/td&gt;
+&lt;td&gt;alpha.1&lt;/td&gt;
+&lt;td&gt;MVP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Authorization&lt;/td&gt;
+&lt;td&gt;alpha.1&lt;/td&gt;
+&lt;td&gt;MVP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;../../operations/backup-restore&#34; &gt;Backup and restore&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;alpha.1&lt;/td&gt;
+&lt;td&gt;MVP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CIS Benchmark&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CLI&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Cloud Providers&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CoreDNS&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cAdvisor&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gMSA&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GPU Feature Discovery&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;../../operations/ingress&#34; &gt;Ingress&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;alpha.1&lt;/td&gt;
+&lt;td&gt;MVP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;../../concepts/architecture&#34; &gt;Kubernetes&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;alpha.1&lt;/td&gt;
+&lt;td&gt;MVP 1.29&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Life Cycle Management&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Licensing&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Load Balancing&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Logging, Monitoring and Alerting&lt;/td&gt;
+&lt;td&gt;alpha.1&lt;/td&gt;
+&lt;td&gt;MVP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;../../concepts/cni&#34; &gt;Networking (CNI)&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;alpha.2&lt;/td&gt;
+&lt;td&gt;MVP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Node Feature Discovery&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Offline Bundle&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;OpsCare&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Policy Controller&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Storage (CSI)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Support Dump&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Telemetry&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;TLS&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2FA&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;../../operations/dashboard&#34; &gt;Web UI&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;alpha.2.0&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Windows&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;4.0.0-alpha.2.0&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;400-alpha20&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#400-alpha20&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;MKE Dashboard&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;mke-dashboard&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#mke-dashboard&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Metrics including node performance with usage statistics&lt;/li&gt;
+&lt;li&gt;Basic Kubernetes management (View, Create, Update, and Delete):
+&lt;ul&gt;
+&lt;li&gt;Configurations: ConfigMaps&lt;/li&gt;
+&lt;li&gt;Controllers: ReplicaSets, ReplicationControllers, StatefulSets, Jobs, CronJobs, Daemonsets, and Deployments&lt;/li&gt;
+&lt;li&gt;Namespaces&lt;/li&gt;
+&lt;li&gt;Nodes&lt;/li&gt;
+&lt;li&gt;Pods&lt;/li&gt;
+&lt;li&gt;Services&lt;/li&gt;
+&lt;li&gt;ServiceAccounts&lt;/li&gt;
+&lt;li&gt;Storage: StorageClasses, PersistantVolumes + PersistantVolumeClaims&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;View with Kubernetes resources by namespace or all namespaces at once&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Namespace management&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;namespace-management&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#namespace-management&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Namespaces can now be managed by clicking on the active namespace in the side menu.
+This opens the namespace selector.&lt;/p&gt;
+&lt;p&gt;From there, if you want to manage your namespaces further (add, remove, etc), you
+can click the Manage namespaces button at the bottom left to view the list of namespaces.&lt;/p&gt;
+&lt;p&gt;To return to the main menu, click the &amp;ldquo;Dashboard&amp;rdquo; icon in the breadcrumbs or
+the back arrow next to the &amp;ldquo;active namespace&amp;rdquo; in the side navigation.&lt;/p&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../namespace-management.png&#34; alt=&#34;Namespace management preview&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h4&gt;Sign out, MKE Version, and documentation links&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;sign-out-mke-version-and-documentation-links&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#sign-out-mke-version-and-documentation-links&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;The MKE version is now indicated in a new menu at the top right of the dashboard.
+Here you will also find links to documentation and the &amp;ldquo;Sign out&amp;rdquo; option.&lt;/p&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../header-menu.png&#34; alt=&#34;New header menu&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h4&gt;In development&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;in-development&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#in-development&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;User management&lt;/li&gt;
+&lt;li&gt;User settings&lt;/li&gt;
+&lt;li&gt;Admin settings: authentication, ingress, backups, certificates, telemetry, and logging&lt;/li&gt;
+&lt;li&gt;Support bundle access&lt;/li&gt;
+&lt;li&gt;App notifications and alerts&lt;/li&gt;
+&lt;li&gt;Improved detail view of individual Kubernetes resources&lt;/li&gt;
+&lt;li&gt;Statuses for Kubernetes objects&lt;/li&gt;
+&lt;li&gt;&amp;hellip; and more&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Known issues</title>
+      <link>http://localhost:1313/docs/release-notes/known-issues/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/docs/release-notes/known-issues/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The MKE 4 known issues with available workarounds are described herein.&lt;/p&gt;
+&lt;h2&gt;[BOP-583] LDAP settings fail to migrate during upgrade from MKE 3&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;bop-583-ldap-settings-fail-to-migrate-during-upgrade-from-mke-3&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#bop-583-ldap-settings-fail-to-migrate-during-upgrade-from-mke-3&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;LDAP configurations are not stored in MKE 3 configuration files, and thus they
+are not included when you upgrade to MKE 4 from an MKE 3 installation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Workaround:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;When upgrading from MKE 3, you must manually add the LDAP configuration.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Make a request to &lt;code&gt;https://{{host}}/enzi/v0/config/auth/ldap&lt;/code&gt; on the MKE 3
+cluster prior to the migration. For more information, refer to the &lt;a href=&#34;https://docs.mirantis.com/mke/3.7/ops/administer-cluster/integrate-with-LDAP-directory/configure-ldap-integration.html#ldap-configuration-through-api&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MKE 3
+LDAP Configuration through API documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Convert the LDAP response to the MKE 4 LDAP settings.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Apply the translated LDAP settings to the cluster following migration.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;[BOP-708] OIDC authentication fails after mkectl upgrade&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;bop-708-oidc-authentication-fails-after-mkectl-upgrade&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#bop-708-oidc-authentication-fails-after-mkectl-upgrade&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Due to an issue with client secret migration, OIDC authentication fails
+following an upgrade performed with &lt;code&gt;mkectl&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Workaround:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Copy the MKE 4 configuration that prints at the end of migration.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Update the &lt;code&gt;authentication.oidc.clientSecret&lt;/code&gt; field to the secret field
+from your identity provider.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Apply the updated MKE 4 configuration.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;[BOP-898][BOP-899] Calico eBPF and IPVS modes are not supported&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;bop-898bop-899-calico-ebpf-and-ipvs-modes-are-not-supported&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#bop-898bop-899-calico-ebpf-and-ipvs-modes-are-not-supported&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Calico eBPF and IPVS mode are not yet supported for MKE 4. As such, upgrading
+from an MKE 3 cluster using either of those networking modes results in an
+error:&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;FATA&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0640&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Upgrade failed due to error: failed to run step &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;Upgrade Tasks&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;: unable to install BOP: unable to apply MKE4 config: failed to &lt;span class=&#34;nb&#34;&gt;wait&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; pods: failed to &lt;span class=&#34;nb&#34;&gt;wait&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; pods: failed to list pods: client rate limiter Wait returned an error: context deadline exceeded&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h2&gt;[BOP-905] Prometheus dashboard reports incorrect heavy memory use&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;bop-905-prometheus-dashboard-reports-incorrect-heavy-memory-use&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#bop-905-prometheus-dashboard-reports-incorrect-heavy-memory-use&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Prometheus dashboard displays heavy memory use that does not accurately
+reflect true memory status.&lt;/p&gt;
+&lt;h2&gt;[BOP-947] Managed user passwords are not migrated during upgrade from MKE 3&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;bop-947-managed-user-passwords-are-not-migrated-during-upgrade-from-mke-3&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#bop-947-managed-user-passwords-are-not-migrated-during-upgrade-from-mke-3&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The &lt;code&gt;admin&lt;/code&gt; password is migrated during upgrade from MKE 3, however all other
+managed user passwords are not migrated.&lt;/p&gt;
+&lt;h2&gt;[BOP-964] mke-operator in crashloopbackoff status&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;bop-964-mke-operator-in-crashloopbackoff-status&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#bop-964-mke-operator-in-crashloopbackoff-status&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The mke-operator-controller-manager is in crashloopbackoff status in MKE 4
+Alpha 2. You can safely ignore this, however, as it has no effect on MKE
+4.0.0-alpha.2.0 functionality.&lt;/p&gt;
+&lt;h2&gt;[BOP-982] Cannot change MKE 4 password using mkectl&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;bop-982-cannot-change-mke-4-password-using-mkectl&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#bop-982-cannot-change-mke-4-password-using-mkectl&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;You cannot change the password for an existing MKE 4 deployment by running
+&lt;code&gt;mkectl apply -f mke4.yaml --admin-password &amp;lt;password&amp;gt;&lt;/code&gt;, which is the
+expected behavior.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Workaround:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Use &lt;code&gt;kubectl&lt;/code&gt; to change the &lt;code&gt;Password&lt;/code&gt; object:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Obtain the list of users:&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ kubectl -n mke get passwords -o custom-columns&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;NAME:.metadata.name,EMAIL:.email&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;Example output:&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;NAME                    EMAIL
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mfsg22lozpzjzzeeeirsk   admin&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Reveal the Password object for the target user.&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ % km get password mfsg22lozpzjzzeeeirsk -oyaml&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;Example output:&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apiVersion: dex.coreos.com/v1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;email: admin
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hash: JDJhJDEwJFA5RUppWmVJLkRCMVlqMWJqZk5rUk9RQ1oybFFpOUhXUFhnYmIxdUFPSkpHeGFDWUl1OTcy
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kind: Password
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;metadata:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  creationTimestamp: &lt;span class=&#34;s2&#34;&gt;&amp;#34;2024-07-23T18:39:11Z&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  generation: &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  name: mfsg22lozpzjzzeeeirsk
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  namespace: mke
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  resourceVersion: &lt;span class=&#34;s2&#34;&gt;&amp;#34;3558&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  uid: 91a9e728-abfa-4daa-bdab-4c09cf888281
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;userID: 7668fdb9-a979-4645-b6cc-10985df77da6
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;username: admin&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Edit the &lt;code&gt;hash&lt;/code&gt; field with the desired password hash.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
