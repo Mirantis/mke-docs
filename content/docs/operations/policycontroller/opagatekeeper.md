@@ -38,7 +38,14 @@ spec:
 
 `exemptNamespaces` is the list of namespaces to completely exempt from policy enforcement. MKE adds some namespaces to the list by default, and they cannot be removed from the list.
 The list of MKE exempted namespaces are:
-- kube-system
+- mke
+- kube-system 
+- kube-public
+- kube-node-lease
+- k0s-system
+- k0s-autopilot
+- flux-system
+- blueprint-system
 
 ## Migration from MKE3
 
