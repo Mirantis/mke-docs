@@ -3,11 +3,14 @@ title: CloudProvider
 weight: 6
 ---
 
-Enabling CloudProvider allows your MKE cluster to integrate with cloud provider addons. Currently, only AWS is supported as an MKE managed cloud provider addon.
-To use other cloud providers, you must set MKE to run with "external" cloud provider and install the cloud provider yourself.
+Enabling `cloud-provider` allows your MKE cluster to integrate with cloud provider addons.
 
-## Pre-requisites
-Cloud Providers may have additional requirements. Please refer to the specific cloud provider documentation for more information.
+{{< callout type="note" >}}
+AWS is currently the only managed cloud service provider add-on supported by MKE 4. To use a different cloud service provider, you must set MKE 4 to run with "external" cloud provider and install the desired cloud provider.
+{{< /callout >}}
+
+## Prerequisites
+Refer to the documentation for your chosen cloud service provider to learn of any proprietary requirements.
 
 For using the MKE managed AWS Cloud Provider you will need to ensure your nodes have certain IAM policies. See the official AWS cloud provider [documentation](https://cloud-provider-aws.sigs.k8s.io/prerequisites/#iam-policies).
 
