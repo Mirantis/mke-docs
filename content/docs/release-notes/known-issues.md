@@ -108,23 +108,23 @@ Use ``kubectl`` to change the ``Password`` object:
 
 ## [BOP-1299] Disk Usage and Memory metrics are not shown correctly in the dashboard with disabled cAdvisor
 
-When cAdvisor is disabled, on the main page of the dashboard, "Disk Usage" and "Memory" metrics have zero values.
+When cAdvisor is disabled, the main page of the dashboard presents a `0` value for the **Disk Usage** and  **Memory** metrics.
 
 **Workaround:**
 
-Enable cAdvisor in the config file and apply the config with `mkectl apply`
+Enable cAdvisor in the MKE configuration file and run `mkectl apply`.
 
 ```yaml
 monitoring:
    enableCAdvisor: true
 ```
 
-## [BOP-1299] Max Used Disk and Max CPU labels are swapped in the dashboard
+## [BOP-1299] Max Used Disk and Max CPU labels are swapped in the MKE dashboard
 
 No workaround is available at this time.
 
-## [BOP-1307] Prometheus can be access without authentication
+## [BOP-1307] Prometheus can be accessed without authentication
 
-Anyone who knows MKE 4 URL can access Prometheus without authentication.
+Any party with knowledge of the MKE 4 URL can access Prometheus without authentication.
 
 No workaround is available at this time.

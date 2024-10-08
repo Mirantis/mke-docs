@@ -20,10 +20,10 @@ Detail for the MKE 4 monitor tools is provided in the following table:
 ## Prometheus
 
 [Prometheus](https://prometheus.io/) is an open-source monitoring and alerting
-toolkit that is designed for reliability and scalability. It collects and stores metrics
-as time series data, providing powerful query capabilities and a flexible alerting system.
+toolkit, designed for reliability and scalability, that collects and stores metrics
+as time series data. It offers powerful query capabilities and a flexible alerting system.
 
-Prometheus API is available at `https://<mke4_url>/prometheus/` 
+The Prometheus API is available at `https://<mke4_url>/prometheus/`
 
 To access the Prometheus dashboard:
 
@@ -72,7 +72,7 @@ To access the Grafana dashboard:
 [cAdvisor](https://github.com/google/cadvisor) is an open-source tool that collects, aggregates, processes, 
 and exports information about running containers.
 
-cAdvisor is disabled in MKE by default and may be enabled through the MKE configuration file:
+cAdvisor is disabled in MKE by default. You can enable the tool through the MKE configuration file:
 
 ```yaml
 monitoring:
