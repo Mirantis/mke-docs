@@ -100,7 +100,7 @@ test-20240507173309   test     Completed   2024-05-07 17:33:09 -0400 EDT   2024-
 
 To view detailed logs, log in to the MinIO UI.
 
-## Accessing the MinIO Console
+## Access the MinIO Console
 
 To access the MinIO Console:
 

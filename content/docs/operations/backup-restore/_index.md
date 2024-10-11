@@ -90,8 +90,8 @@ Refer to the following list for detail on all the configuration file `backup` fi
 For information on how to create backups and perform restores for both storage
 provider types, refer to:
 
-- [In-cluster storage provider](in-cluster)
 - [External storage provider](external)
+- [In-cluster storage provider](in-cluster)
 
 ## Existing limitations
 
