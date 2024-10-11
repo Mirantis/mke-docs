@@ -11,7 +11,7 @@ helps product teams in their efforts to enhance Mirantis products and
 services.
 
 {{< callout type="note" >}}
-    In case the license associated with the MKE cluster is invalid or expired, telemetry will be enabled by default and there will be no option to disable it.
+    Telemetry is automatically enabled for MKE 4 clusters that are running without a license, with a license that has expired, or with an invalid license. In all of such scenarios, you will only be able to disable telemetry once a valid license has been applied to the cluster.
 {{< /callout >}}
 
 ## Enable telemetry through the MKE CLI
