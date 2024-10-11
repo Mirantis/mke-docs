@@ -44,7 +44,7 @@ Grafana is enabled in MKE by default and may be disabled through the MKE configu
 
 ```yaml
 monitoring:
-   enableGrafana: true
+  enableGrafana: true
 ```
 
 To access the Grafana dashboard:
@@ -70,13 +70,13 @@ To access the Grafana dashboard:
 ## cAdvisor
 
 [cAdvisor](https://github.com/google/cadvisor) is an open-source tool that collects, aggregates, processes, 
-and exports information about running containers.
+and exports information in reference to running containers.
 
 cAdvisor is disabled in MKE by default. You can enable the tool through the MKE configuration file:
 
 ```yaml
 monitoring:
-   enableCAdvisor: true
+  enableCAdvisor: true
 ```
 
 ## Opscare (Under development)
@@ -90,5 +90,5 @@ Disabled by default, you can enable Mirantis Opscare through the MKE configurati
 
 ```yaml
 monitoring:
-   enableOpscare: true
+  enableOpscare: true
 ```

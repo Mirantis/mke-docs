@@ -108,7 +108,7 @@ Use ``kubectl`` to change the ``Password`` object:
 
 ## [BOP-1299] Disk Usage and Memory metrics are not shown correctly in the dashboard with disabled cAdvisor
 
-When cAdvisor is disabled, the main page of the dashboard presents a `0` value for the **Disk Usage** and  **Memory** metrics.
+When cAdvisor is disabled, the main page of the dashboard presents 0% as the value for the **Disk Usage** and  **Memory** metrics.
 
 **Workaround:**
 
@@ -116,7 +116,7 @@ Enable cAdvisor in the MKE configuration file and run `mkectl apply`.
 
 ```yaml
 monitoring:
-   enableCAdvisor: true
+  enableCAdvisor: true
 ```
 
 ## [BOP-1299] Max Used Disk and Max CPU labels are swapped in the MKE dashboard
