@@ -3,7 +3,7 @@ title: OPA Gatekeeper
 weight: 2
 ---
 
-MKE supports the use of OPA Gatekeeper for purposes of policy control.
+MKE 4 supports the use of OPA Gatekeeper for purposes of policy control.
 
 ## Concepts
 
@@ -24,7 +24,7 @@ Using OPA Gatekeeper, you can enforce a wide range of policies against your Kube
 
 ## Configuration
 
-To configure OPA Gatekeeper in MKE, set the following fields in the MKE configuration file
+To configure OPA Gatekeeper in MKE, set the following fields in the MKE 4 configuration file:
 
 ```yaml
 spec:
@@ -36,30 +36,35 @@ spec:
       - <Namespace2>
 ```
 
-`exemptNamespaces` is the list of namespaces to completely exempt from policy enforcement. MKE adds some namespaces to the list by default, and they cannot be removed from the list.
-The list of MKE exempted namespaces are:
-- mke
-- kube-system 
-- kube-public
-- kube-node-lease
-- k0s-system
-- k0s-autopilot
-- flux-system
-- blueprint-system
+The `exemptNamespaces` field lists the namespaces that are exempt from policy enforcement.
+The following namespaces are added by default, and thus cannot be removed:
 
-## Migration from MKE3
+- `mke`
+- `kube-system`
+- `kube-public`
+- `kube-node-lease`
+- `k0s-system`
+- `k0s-autopilot`
+- `flux-system`
+- `blueprint-system`
 
-If OPA Gatekeeper is enabled in MKE3, then the templates and constraints created previously are retained across the migration process. Also, the list of namespaces exempted from policy control are retained.
+## Migration from MKE 3
+
+If OPA Gatekeeper is enabled in MKE 3, the templates, constraints and list of
+namespaces exempted from policy control are retained through the migration process.
 
 ## Test OPA Gatekeeper
 
-- Once OPA Gatekeeper is enabled and the configuration is applied to the cluster, wait for the OPA Gatekeeper pods to enter the `Running` state:
+Before proceeding, make sure that OPA Gatekeeper is enabled and the configuration is applied to the cluster.
+
+To check if the OPA Gatekeeper pods have entered the `Running` state, run:
 
 ```bash
 kubectl get pod -n mke
 ```
 
-The output should look like:
+Example output:
+
 ```bash
 NAME                                             READY   STATUS    RESTARTS      AGE
 gatekeeper-audit-56d958d955-v6d7t                1/1     Running   2 (54s ago)   61s
@@ -69,13 +74,15 @@ gatekeeper-controller-manager-79c4f4bfc7-v8lx7   1/1     Running   0            
 ...
 ```
 
-- Create some constraint templates and constraints from the open source [Gatekeeper library]()
+To create constraint templates and constraints from the open source [Gatekeeper library](https://github.com/open-policy-agent/gatekeeper-library), run:
+
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper-library/master/library/pod-security-policy/allow-privilege-escalation/template.yaml
 kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper-library/master/library/pod-security-policy/allow-privilege-escalation/samples/psp-allow-privilege-escalation-container/constraint.yaml
 ```
 
-- Attempt to create pods that are disallowed by the newly created policies:
+To create pods that are disallowed by the newly created policies, run:
+
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper-library/master/library/pod-security-policy/allow-privilege-escalation/samples/psp-allow-privilege-escalation-container/example_disallowed.yaml
 ```
@@ -86,8 +93,6 @@ Error from server (Forbidden): error when creating "https://raw.githubuserconten
 ```
 
 ## MKE version comparison
-
-**OPA Gatekeeper configuration parameters**
 
 | MKE 3                                                              | MKE 4                                           |
 |--------------------------------------------------------------------|-------------------------------------------------|
