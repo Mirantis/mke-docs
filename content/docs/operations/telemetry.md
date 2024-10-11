@@ -10,6 +10,10 @@ use MKE. It also provides product usage statistics, which is key feedback that
 helps product teams in their efforts to enhance Mirantis products and
 services.
 
+{{< callout type="note" >}}
+    In case the license associated with the MKE cluster is invalid or expired, telemetry will be enabled by default and there will be no option to disable it.
+{{< /callout >}}
+
 ## Enable telemetry through the MKE CLI
 
 1. Access the MKE configuration file.
