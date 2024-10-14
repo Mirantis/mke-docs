@@ -14,7 +14,7 @@ You can configure these components through the MKE configuration file.
 
 ## kubelet
 
-the kubelet component runs on each node in a Kubernetes cluster, which serves as the primary administrative agent for each node, monitoring application servers and routing administrative requests to servers. You can configure kubelet for all cluster nodes through the `kubelet` section of the MKE configuration file, an example of which follows:
+The kubelet component runs on each node in a Kubernetes cluster, which serves as the primary administrative agent for each node, monitoring application servers and routing administrative requests to servers. You can configure kubelet for all cluster nodes through the `kubelet` section of the MKE configuration file, an example of which follows:
 
 ```yaml
 spec:
@@ -35,7 +35,7 @@ spec:
       memory: 2Gi
 ```
 
-You can further configure a kubelet using the `extraArgs` field. This YAML map creates runtime flags that are passed directly to the kubelet process, flags that are applied with the highest level of precedence.
+You can further configure a kubelet using the `extraArgs` field to define flags. This field accepts a list of key-value pairs, which are passed directly to the kubelet process at runtime.
 
 Example extraArgs field configuration:
 
@@ -43,7 +43,8 @@ Example extraArgs field configuration:
 spec:
   kubelet:
     extraArgs:
-      event-burst: 50
+      event-burst: 100
+      event-qps: 50
 ```
 
 You can also configure a kubelet with custom profiles. Such profiles offer greater control of the `KubeletConfiguration` and can be targeted to specific hosts.
@@ -69,7 +70,7 @@ spec:
     requestTimeout: 1m0s
 ```
 
-You can further configure a kubelet using the `extraArgs` field. This YAML map creates runtime flags that are passed directly to the kube-apiserver process.
+You can further configure kube-apiserver using the `extraArgs` field to define flags. This field accepts a list of key-value pairs, which are passed directly to the kube-apiserver process at runtime.
 
 ## kube-controller-manager
 
@@ -83,7 +84,7 @@ spec:
     terminatedPodGCThreshold: 12500
 ```
 
-You can further configure kube-controller-manager using the `extraArgs` field. This YAML map creates runtime flags that are passed directly to the kube-controller-manager process.
+You can further configure kube-controller-manager using the `extraArgs` field to define flags. This field accepts a list of key-value pairs, which are passed directly to the kube-controller-manager process at runtime.
 
 ## kube-scheduler
 
@@ -98,4 +99,4 @@ spec:
   scheduler:
 ```
 
-You can further configure kube-scheduler using the `extraArgs` field. This YAML map creates runtime flags that are passed directly to the kube-scheduler process.
+You can further configure kube-scheduler using the `extraArgs` field to define flags. This field accepts a list of key-value pairs, which are passed directly to the kube-scheduler process at runtime.
