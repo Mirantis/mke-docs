@@ -108,7 +108,7 @@ Use ``kubectl`` to change the ``Password`` object:
 
 ## [BOP-1299] Disk Usage and Memory metrics are not shown correctly in the dashboard with disabled cAdvisor
 
-When cAdvisor is disabled, the main page of the dashboard presents 0% as the value for the **Disk Usage** and  **Memory** metrics.
+When cAdvisor is disabled, the main page of the dashboard presents 0% as the value for the **Disk Usage** and **Memory** metrics.
 
 **Workaround:**
 
