@@ -10,11 +10,11 @@ to effectively develop and securely administer applications at scale,
 on private clouds, public clouds, and on bare metal.
 
 {{< cards >}}
-{{< card link="authentication/_index" title="Authentication" icon="lightning-bolt" >}}
-{{< card link="backup-restore/_index" title="Backup and restore" icon="lightning-bolt" >}}
-{{< card link="mke-virtualization/_index" title="MKE Virtualization" icon="lightning-bolt" >}}
-{{< card link="kubernetes/_index" title="Kubernetes Components" icon="lightning-bolt" >}}
-{{< card link="ingress/_index" title="Ingress controller" icon="lightning-bolt" >}}
+{{< card link="authentication" title="Authentication" icon="lightning-bolt" >}}
+{{< card link="backup-restore" title="Backup and restore" icon="lightning-bolt" >}}
+{{< card link="mke-virtualization" title="MKE Virtualization" icon="lightning-bolt" >}}
+{{< card link="kubernetes" title="Kubernetes Components" icon="lightning-bolt" >}}
+{{< card link="ingress" title="Ingress controller" icon="lightning-bolt" >}}
 {{< card link="monitoring" title="Monitoring" icon="lightning-bolt" >}}
 {{< card link="support-bundle" title="Support bundle" icon="lightning-bolt" >}}
 {{< card link="telemetry" title="Telemetry" icon="lightning-bolt" >}}
