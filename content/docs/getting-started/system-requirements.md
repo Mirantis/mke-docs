@@ -51,4 +51,4 @@ apiServer:
 The target port must match the HTTPS node port of the Ingress Controller,
 which is `33001` by default, but can be adjusted as needed. See the configuration
 details for `nodePorts` in the 
-[Ingress Controller configuration](../../operations/ingress#configuration)
+[Ingress Controller configuration](../../configuration/ingress#configuration)
