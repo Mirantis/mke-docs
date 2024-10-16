@@ -10,7 +10,7 @@ addition, where applicable, the table offers links to associated documentation.
 |------------------------------------------------------------------|---------|----------|
 | Authentication                                                   | alpha.1 | MVP      |  
 | Authorization                                                    | alpha.1 | MVP      |   
-| [Backup and restore](../../operations/backup-restore)            | alpha.1 | MVP      |
+| [Backup and restore](../../configuration/backup-restore)            | alpha.1 | MVP      |
 | CIS Benchmark                                                    |   |          |
 | CLI                                                              |   |          |
 | Cloud Providers                                                  |   |          |
@@ -18,7 +18,7 @@ addition, where applicable, the table offers links to associated documentation.
 | cAdvisor                                                         |   |          |
 | gMSA                                                             |   |          |
 | GPU Feature Discovery                                            |   |          |
-| [Ingress](../../operations/ingress)                              | alpha.1 | MVP      |  |
+| [Ingress](../../configuration/ingress)                              | alpha.1 | MVP      |  |
 | [Kubernetes](../../concepts/architecture)                        | alpha.1 | MVP 1.29 |  |
 | Life Cycle Management                                            |   |          |
 | Licensing                                                        |   |          |
@@ -34,7 +34,7 @@ addition, where applicable, the table offers links to associated documentation.
 | Telemetry                                                        |   |          |
 | TLS                                                              |   |          |
 | 2FA                                                              |   |          |
-| [Web UI](../../operations/dashboard)                             | alpha.2.0  |          |
+| [Web UI](../../configuration/dashboard)                             | alpha.2.0  |          |
 | Windows                                                          |   |          |
 
 

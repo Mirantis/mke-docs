@@ -21,7 +21,7 @@ You must have certain dependencies in place before you can configure
 authentication. These dependencies differ, depending on which authentication
 protocol you choose to deploy.
 
-- **Identity Provider (IdP):** To use OIDC or SAML, you must configure an identity provider. For examples of how to use Okta as an authentication service provider for either of these protocols, refer to [OIDC](../../operations/authentication/oidc-providers/oidc) or [SAML](../../operations/authentication/saml-providers/saml).
+- **Identity Provider (IdP):** To use OIDC or SAML, you must configure an identity provider. For examples of how to use Okta as an authentication service provider for either of these protocols, refer to [OIDC](../../configuration/authentication/oidc) or [SAML](../../configuration/authentication/saml).
 
 - **LDAP Server:** To use LDAP, you must have an LDAP server configured. A setup example for an OpenLDAP server is available at [LDAP](../../tutorials/authentication-provider-setup/ldap).
 
