@@ -69,25 +69,25 @@ Once you have enabled the cloud provider in your MKE configuration, and applied 
            - containerPort: 80
    EOF
 
-2. Create a service of type LoadBalancer
-```shell
-cat <<EOF | kubectl --kubeconfig ~/.mke/mke.kubeconf apply -f -
-apiVersion: v1
-kind: Service
-metadata:
-  name: nginx-service
-  annotations:
-    service.beta.kubernetes.io/aws-load-balancer-type: nlb
-spec:
-  selector:
-    app: nginx
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
-  type: LoadBalancer
-EOF
-```
+2. Create a service of type LoadBalancer:
+
+   ```shell
+   cat <<EOF | kubectl --kubeconfig ~/.mke/mke.kubeconf apply -f -
+   apiVersion: v1
+   kind: Service
+   metadata:
+     name: nginx-service
+     annotations:
+       service.beta.kubernetes.io/aws-load-balancer-type: nlb
+   spec:
+     selector:
+       app: nginx
+     ports:
+       - protocol: TCP
+         port: 80
+         targetPort: 80
+     type: LoadBalancer
+   EOF
 
 3. Check the status of the service
 ```shell
