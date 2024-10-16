@@ -66,7 +66,7 @@ documentation [Set Kubelet Parameters Via A Configuration
 File](https://kubernetes.io/docs/tasks/administer-cluster/kubelet-config-file/).
 
 The following example configuration creates a custom profile named `hardworker`
-that specifies thresholds for the garbage collection of images and eviction.
+that specifies thresholds for the garbage collection of images and eviction:
 
 ```yaml
 spec:
