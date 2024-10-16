@@ -4,7 +4,7 @@ weight: 3
 ---
 
 The Kubernetes API server validates and configures data for the API objects,
-which include pods, services, and replicationcontrollers, among others. The
+which include pods, services, and replication controllers, among others. The
 server performs REST operations while also serving as the frontend to the
 shared state of a cluster, through which the other components interact.
 
