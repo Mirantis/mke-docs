@@ -9,8 +9,8 @@ MKE 4 supports the use of OPA Gatekeeper for purposes of policy control.
 
 The OPA Constraint Framework introduces the following primary resources:
 
-- Constraint templates: OPA policy definitions, written in Rego
-- Constraints: The application of a constraint template to a given set of objects
+- Constraint templates - OPA policy definitions, written in Rego.
+- Constraints - the application of a constraint template to a given set of objects.
 
 Gatekeeper uses the Kubernetes API to integrate OPA into Kubernetes. Policies are defined in the form of Kubernetes CustomResourceDefinitions (CRDs) and are enforced with custom admission controller webhooks. These CRDs define constraint templates and constraints on the API server. Any time a request to create, delete, or update a resource is sent to the Kubernetes cluster API server, Gatekeeper validates that resource against the predefined policies. Gatekeeper also audits preexisting resource constraint violations against newly defined policies.
 
