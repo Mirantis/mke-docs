@@ -12,6 +12,7 @@ AWS is currently the only managed cloud service provider add-on supported by MKE
   cloudProvider:
     enabled: true
     provider: aws
+```
 {{< /callout >}}
 
 ## Prerequisites
@@ -30,15 +31,15 @@ To enable cloud provider support, which is disabled by default, change the `enab
     provider: aws
 ```
 
-The configuration parameters are detailed in the following table:
+The `cloudProvider` configuration parameters are detailed in the following table:
 
-| Field    | Description                                                                                                             | Default |
-|----------|-------------------------------------------------------------------------------------------------------------------------|---------|
-| enabled  | Enables cloud provider flags on mke components.                                                                         | false   |
-| provider | Either "aws" or "external". If "external" is specified the user is responsible for installing their own cloud provider. | ""      |
+| Field      | Description                                                                                                             | Default   |
+|------------|-------------------------------------------------------------------------------------------------------------------------|-----------|
+| `enabled`  | Enables cloud provider flags on MKE components.                                                                         | `false`   |
+| `provider` | Either `aws` or `external`. If "external" is specified the user is responsible for installing their own cloud provider. | ""    ``  |
 
 
-## Creating an NLB with AWS Cloud Provider
+## Create an NLB with AWS Cloud Provider
 
 An example is offered below of how to use cloud provider AWS to create a Network Load Balancer (NLB) in your MKE cluster. 
 
@@ -69,6 +70,7 @@ Once you have enabled the cloud provider through the MKE configuration file and 
            ports:
            - containerPort: 80
    EOF
+   ```
 
 2. Create a service of type LoadBalancer:
 
@@ -89,6 +91,7 @@ Once you have enabled the cloud provider through the MKE configuration file and 
          targetPort: 80
      type: LoadBalancer
    EOF
+   ```
 
 3. Check the status of the service:
 
@@ -97,11 +100,11 @@ Once you have enabled the cloud provider through the MKE configuration file and 
    NAME            TYPE           CLUSTER-IP     EXTERNAL-IP                                                                        PORT(S)        AGE
    kubernetes      ClusterIP      10.96.0.1      <none>                                                                             443/TCP        14m
    nginx-service   LoadBalancer   10.96.177.89   afdf81e0681274c52acbb7b45add87a1-637d0d850105ea92.elb.ca-central-1.amazonaws.com   80:32927/TCP   63s
+   ```
 
 The load balancer should now be visible in AWS console.
 
 ![aws-lb.png](aws-lb.png)
-   
 
 Once the load balancer finishes provisioning you should be able to access nginx through the external IP.
 
