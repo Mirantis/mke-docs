@@ -90,7 +90,7 @@ To create pods that are disallowed by the newly created policies, run:
 kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper-library/master/library/pod-security-policy/allow-privilege-escalation/samples/psp-allow-privilege-escalation-container/example_disallowed.yaml
 ```
 
-OPA Gatekeeper should disallow the creation of the pod:
+Example output:
 
 ```bash
 Error from server (Forbidden): error when creating "https://raw.githubusercontent.com/open-policy-agent/gatekeeper-library/master/library/pod-security-policy/allow-privilege-escalation/samples/psp-allow-privilege-escalation-container/example_disallowed.yaml": admission webhook "validation.gatekeeper.sh" denied the request: [psp-allow-privilege-escalation-container] Privilege escalation container is not allowed: nginx
