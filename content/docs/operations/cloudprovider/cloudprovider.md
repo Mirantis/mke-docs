@@ -37,7 +37,7 @@ To enable cloud provider support, which is disabled by default, change the `enab
 | provider | Either "aws" or "external". If "external" is specified the user is responsible for installing their own cloud provider. | ""      |
 
 
-## Example: Create an NLB with Cloud Provider AWS
+## Creating an NLB with AWS Cloud Provider
 
 Here is an example of how to use cloud provider AWS to create a Network Load Balancer (NLB) in your MKE cluster. 
 
