@@ -90,7 +90,7 @@ configuration file, whereas the profile name is an install time argument for
 the host.
 
 The following example configuration applies the `hardworker` custom profile to
-the `localhost` node.
+the `localhost` node:
 
 ```yaml
   hosts:
