@@ -62,7 +62,7 @@ MKE configuration file. Profiles must each have a unique name, and values can
 refer to fields in the kubelet configuration file.
 
 For detail on all possible values, refer to the official Kubernetes
-documentation [Set Kubelet Parameters Via a Configuration
+documentation [Set Kubelet Parameters Via A Configuration
 File](https://kubernetes.io/docs/tasks/administer-cluster/kubelet-config-file/).
 
 The following example configuration creates a custom profile named `hardworker`
