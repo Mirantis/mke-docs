@@ -39,9 +39,9 @@ To enable cloud provider support, which is disabled by default, change the `enab
 
 ## Creating an NLB with AWS Cloud Provider
 
-Here is an example of how to use cloud provider AWS to create a Network Load Balancer (NLB) in your MKE cluster. 
+An example is offered below of how to use cloud provider AWS to create a Network Load Balancer (NLB) in your MKE cluster. 
 
-Once you have enabled the cloud provider in your MKE configuration, and applied the mke configuration, you can create an NLB using the following steps:
+Once you have enabled the cloud provider through the MKE configuration file and have applied it, you can create an NLB as follows:
 
 
 1. Create a sample nginx deployment:
