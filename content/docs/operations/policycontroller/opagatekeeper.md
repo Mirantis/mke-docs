@@ -7,7 +7,7 @@ MKE 4 supports the use of OPA Gatekeeper for purposes of policy control.
 
 [Open Policy Agent (OPA)](https://open-policy-agent.github.io/gatekeeper/website/docs/) is an open source policy engine that facilitates policy-based control for cloud native environments. OPA introduces a high-level declarative language called Rego that decouples policy decisions from enforcement.
 
-The OPA Constraint Framework introduces two primary resources: constraint templates and constraints.
+The OPA Constraint Framework introduces the following primary resources:
 
 - Constraint templates: OPA policy definitions, written in Rego
 - Constraints: The application of a constraint template to a given set of objects
