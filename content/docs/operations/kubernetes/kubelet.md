@@ -61,7 +61,7 @@ You can specify custom profiles in the `kubelet.customProfiles` section of the
 MKE configuration file. Profiles must each have a unique name, and values can
 refer to fields in the kubelet configuration file.
 
-For detail on all possible values, refer to the official Kubrernetes
+For detail on all possible values, refer to the official Kubernetes
 documentation [Set Kubelet Parameters Via a Configuration
 File](https://kubernetes.io/docs/tasks/administer-cluster/kubelet-config-file/).
 
