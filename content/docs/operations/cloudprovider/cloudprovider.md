@@ -44,30 +44,30 @@ Here is an example of how to use cloud provider AWS to create a Network Load Bal
 Once you have enabled the cloud provider in your MKE configuration, and applied the mke configuration, you can create an NLB using the following steps:
 
 
-1. Create a sample nginx deployment
-```shell
-cat <<EOF | kubectl --kubeconfig ~/.mke/mke.kubeconf apply -f -
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: nginx-deployment
-spec:
-  replicas: 3  
-  selector:
-    matchLabels:
-      app: nginx
-  template:
-    metadata:
-      labels:
-        app: nginx
-    spec:
-      containers:
-      - name: nginx-container
-        image: nginx:latest
-        ports:
-        - containerPort: 80
-EOF
-```
+1. Create a sample nginx deployment:
+
+   ```shell
+   cat <<EOF | kubectl --kubeconfig ~/.mke/mke.kubeconf apply -f -
+   apiVersion: apps/v1
+   kind: Deployment
+   metadata:
+     name: nginx-deployment
+   spec:
+     replicas: 3  
+     selector:
+       matchLabels:
+         app: nginx
+     template:
+       metadata:
+         labels:
+           app: nginx
+       spec:
+         containers:
+         - name: nginx-container
+           image: nginx:latest
+           ports:
+           - containerPort: 80
+   EOF
 
 2. Create a service of type LoadBalancer
 ```shell
