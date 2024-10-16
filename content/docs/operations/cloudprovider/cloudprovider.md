@@ -1,5 +1,5 @@
 ---
-title: CloudProvider
+title: Cloud providers
 weight: 6
 ---
 
