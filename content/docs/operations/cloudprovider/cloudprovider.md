@@ -21,7 +21,7 @@ To use the MKE managed AWS Cloud Provider, you must first ensure that your nodes
 
 ## Configuration
 
-CloudProvider support is disabled by default. To enable CloudProvider support, configure
+To enable cloud provider support, which is disabled by default, change the `enabled` parameter under `cloudProvider` in the MKE configuration file to `true`:
 
 ```yaml
   cloudProvider:
