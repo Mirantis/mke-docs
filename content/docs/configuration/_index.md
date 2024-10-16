@@ -1,13 +1,9 @@
 ---
+title: Configuration
 weight: 3
 ---
 
-# Configuration
-
-This section provides the comprehensive information you need to run the MKE
-container orchestration platform. The guide is intended for anyone who needs
-to effectively develop and securely administer applications at scale,
-on private clouds, public clouds, and on bare metal.
+The information herein is designed to guide you in setting up, maintaining, and running MKE 4.
 
 {{< cards >}}
 {{< card link="authentication" title="Authentication" icon="lightning-bolt" >}}
