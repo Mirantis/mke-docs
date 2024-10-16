@@ -6,7 +6,12 @@ weight: 6
 With MKE 4, you can deploy a cloud provider to integrate your MKE cluster with cloud provider service APIs.
 
 {{< callout type="note" >}}
-AWS is currently the only managed cloud service provider add-on supported by MKE 4. To use a different cloud service provider, you must set MKE 4 to run with "external" cloud provider and install the desired cloud provider.
+AWS is currently the only managed cloud service provider add-on supported by MKE 4. To use a different cloud service provider, before installing that provider you must change the `provider` parameter under `cloudProvider` in the MKE configuration file to `external`:
+
+```yaml
+  cloudProvider:
+    enabled: true
+    provider: aws
 {{< /callout >}}
 
 ## Prerequisites
