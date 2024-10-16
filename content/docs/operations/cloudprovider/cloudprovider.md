@@ -97,7 +97,8 @@ Once you have enabled the cloud provider in your MKE configuration, and applied 
    kubernetes      ClusterIP      10.96.0.1      <none>                                                                             443/TCP        14m
    nginx-service   LoadBalancer   10.96.177.89   afdf81e0681274c52acbb7b45add87a1-637d0d850105ea92.elb.ca-central-1.amazonaws.com   80:32927/TCP   63s
 
-4. Load balancer should be created and visible in AWS console.
+The load balancer should now be visible in AWS console.
+
 ![aws-lb.png](aws-lb.png)
    
 
