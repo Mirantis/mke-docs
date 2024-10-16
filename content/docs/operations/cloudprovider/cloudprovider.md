@@ -30,7 +30,7 @@ To enable cloud provider support, which is disabled by default, change the `enab
     provider: aws
 ```
 
-**Configuration parameters**
+The configuration parameters are detailed in the following table:
 
 | Field    | Description                                                                                                             | Default |
 |----------|-------------------------------------------------------------------------------------------------------------------------|---------|
