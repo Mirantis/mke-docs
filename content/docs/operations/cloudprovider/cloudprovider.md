@@ -72,7 +72,7 @@ Once you have enabled the cloud provider through the MKE configuration file and 
    EOF
    ```
 
-2. Create a service of type LoadBalancer:
+2. Create a service of type `LoadBalancer`:
 
    ```shell
    cat <<EOF | kubectl --kubeconfig ~/.mke/mke.kubeconf apply -f -
