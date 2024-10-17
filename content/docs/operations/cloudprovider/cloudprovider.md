@@ -41,7 +41,7 @@ The `cloudProvider` configuration parameters are detailed in the following table
 
 ## Create an NLB with AWS Cloud Provider
 
-An example is offered below of how to use cloud provider AWS to create a Network Load Balancer (NLB) in your MKE cluster. 
+The example below illustrates how you can use cloud provider AWS to create a Network Load Balancer (NLB) in your MKE cluster. 
 
 Once you have enabled the cloud provider through the MKE configuration file and have applied it, you can create an NLB as follows:
 
