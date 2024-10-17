@@ -106,6 +106,6 @@ The load balancer should now be visible in the AWS console.
 
 ![aws-lb.png](aws-lb.png)
 
-Once the load balancer finishes provisioning you should be able to access nginx through the external IP.
+Once the load balancer finishes provisioning, you should be able to access nginx through the external IP.
 
 ![aws-lb-provisioned.png](aws-lb-provisioned.png)
