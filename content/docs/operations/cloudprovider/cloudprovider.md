@@ -11,7 +11,7 @@ AWS is currently the only managed cloud service provider add-on that MKE 4 suppo
 ```yaml
   cloudProvider:
     enabled: true
-    provider: aws
+    provider: external
 ```
 {{< /callout >}}
 
