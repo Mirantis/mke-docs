@@ -81,7 +81,6 @@ The following table includes details on all of the configurable `network` fields
 | Field | Description | Values |  Default |
 |-------|-------------|--------|----------|
 | `serviceCIDR` | Sets the IPv4 range of IP addresses for services in a Kubernetes cluster. | Valid IPv4 CIDR | `10.96.0.0/16` |
-| `nodePortRange` | Sets the allowed port range for Kubernetes services of the NodePort type. | Valid port range | `32768-35535` |
 | `providers` | Sets the provider for the active CNI. | `calico` | `calico` |
 
 ## Providers configuration
@@ -102,7 +101,8 @@ for the Calico provider.
 
 [^0]: For the available values, consult your provider documentation.
 
-## Limitations
-
-Components using `nodeports` may have their own specific way of specifying the port numbers for NodePorts,
-and these may need to be changed simultaneusly with the `nodePortRange`.
+## Notes
+mke4 uses a static port range for k8s nodeports [32768-35535]. 
+upgrade from mke3 to mke4 is only supported for clusters using the default k8s proxier (iptables)
+only kdd backed mke3 clusters are supported for upgrading to mke4
+once mke3 is successfully upgraded to mke4, it displays a list of ports that are no longer required to be opened on manager and/or worker nodes and could be blocked
