@@ -102,7 +102,7 @@ Once you have enabled the cloud provider through the MKE configuration file and 
    nginx-service   LoadBalancer   10.96.177.89   afdf81e0681274c52acbb7b45add87a1-637d0d850105ea92.elb.ca-central-1.amazonaws.com   80:32927/TCP   63s
    ```
 
-The load balancer should now be visible in AWS console.
+The load balancer should now be visible in the AWS console.
 
 ![aws-lb.png](aws-lb.png)
 
