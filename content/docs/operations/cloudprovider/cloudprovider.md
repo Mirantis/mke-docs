@@ -17,7 +17,7 @@ AWS is currently the only managed cloud service provider add-on that MKE 4 suppo
 
 ## Prerequisites
 
-Refer to the documentation for your chosen cloud service provider to learn of any proprietary requirements.
+Refer to the documentation for your chosen cloud service provider to ascertain any proprietary requirements.
 
 To use the MKE managed AWS Cloud Provider, you must first ensure that your nodes have certain IAM policies. For detailed information, refer to the official AWS Cloud Provider documentation [IAM Policies](https://cloud-provider-aws.sigs.k8s.io/prerequisites/#iam-policies).
 
