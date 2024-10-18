@@ -50,7 +50,7 @@ hosts.
 
 You can deploy custom profiles to configure kubelet on a per-node basis.
 
-A kubelet custom profile is comprised of a profile name and a set of values.
+A kubelet custom profile comprises a profile name and a set of values.
 The profile name is used to identify the profile and to target it to specific
 nodes in the cluster, while the values are merged into the final kubelet
 configuration that is applied to a target node.
