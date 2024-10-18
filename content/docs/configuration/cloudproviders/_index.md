@@ -1,6 +1,6 @@
 ---
 title: Cloud providers
-weight: 6
+weight: 9
 ---
 
 With MKE 4, you can deploy a cloud provider to integrate your MKE cluster with cloud provider service APIs.
