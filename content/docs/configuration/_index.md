@@ -17,5 +17,5 @@ The information herein is designed to guide you in setting up, maintaining, and 
 {{< card link="coredns-lameduck" title="CoreDNS Lameduck" icon="lightning-bolt" >}}
 {{< card link="dashboard" title="MKE Dashboard" icon="lightning-bolt" >}}
 {{< card link="nvidia-gpu" title="NVIDIA GPU Workloads" icon="lightning-bolt">}}
-{{< card link="nvidia-gpu" title="Policy Controller" icon="lightning-bolt" >}}
+{{< card link="policycontroller" title="Policy Controller" icon="lightning-bolt" >}}
 {{< /cards >}}
