@@ -20,6 +20,6 @@ spec:
   scheduler:
 ```
 
-You can further configure kube-scheduler using the `extraArgs` field to define
+You can further configure Kubernetes Scheduler using the `extraArgs` field to define
 flags. This field accepts a list of key-value pairs, which are passed directly
 to the kube-scheduler process at runtime.
