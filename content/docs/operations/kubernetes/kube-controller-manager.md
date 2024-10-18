@@ -20,6 +20,6 @@ spec:
     terminatedPodGCThreshold: 12500
 ```
 
-You can further configure kube-controller-manager using the `extraArgs` field
+You can further configure Kubernetes controller manager using the `extraArgs` field
 to define flags. This field accepts a list of key-value pairs, which are passed
 directly to the kube-controller-manager process at runtime.
