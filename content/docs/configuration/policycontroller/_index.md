@@ -1,6 +1,6 @@
 ---
 title: Policy Controller
-weight: 1
+weight: 7
 ---
 
 MKE 4 allows installation of third-party policy controllers for Kubernetes.
