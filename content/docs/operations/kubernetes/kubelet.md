@@ -86,7 +86,7 @@ spec:
 ### Apply a custom profile to a node
 
 Hosts can be assigned a custom profile through the `hosts` section of the MKE
-configuration file, whereas the profile name is an install time argument for
+configuration file, whereas the profile name is an installation time argument for
 the host.
 
 The following example configuration applies the `hardworker` custom profile to
