@@ -101,8 +101,9 @@ for the Calico provider.
 
 [^0]: For the available values, consult your provider documentation.
 
-## Notes
-mke4 uses a static port range for k8s nodeports [32768-35535]. 
-upgrade from mke3 to mke4 is only supported for clusters using the default k8s proxier (iptables)
-only kdd backed mke3 clusters are supported for upgrading to mke4
-once mke3 is successfully upgraded to mke4, it displays a list of ports that are no longer required to be opened on manager and/or worker nodes and could be blocked
+{{< callout type="note" >}}
+- MKE 4 uses a static port range for Kubernetes NodePorts, from  `32768` to `35535`. 
+- Only clusters that use the the default Kubernetes proxier `iptables` can be upgraded from MKE 3 to MKE 4.
+- Only KDD-backed MKE 3 clusters can be upgraded to MKE 4.
+- Following a successful MKE 3 to MKE 4 upgrade, a list displays that presents the ports that no longer need to be opened on manager or worker nodes. These ports can be blocked.
+{{< /callout >}}
