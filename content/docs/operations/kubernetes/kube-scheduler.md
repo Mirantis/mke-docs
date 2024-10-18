@@ -18,6 +18,8 @@ the MKE configuration file, an example of which follows:
 ```yaml
 spec:
   scheduler:
+    profilingEnabled: true
+    bindToAll: true
 ```
 
 You can further configure Kubernetes Scheduler using the `extraArgs` field to define
