@@ -7,7 +7,7 @@ Currently, the docs are published using GitHub actions on GitHub pages from the 
 
 To build and preview MKE 4 documentation:
 
-1. Install [Hugo](https://gohugo.io/installation/).
+1. Install [Hugo](https://gohugo.io/installation/) on your local system.
 
 2. Start the Hugo server from within your local `mke-docs` repository:
 
@@ -15,4 +15,4 @@ To build and preview MKE 4 documentation:
     hugo server
     ```
 
-3. View the local build of documentation at http://localhost:1313/mke-docs/.
+3. View the local documentation build at http://localhost:1313/mke-docs/.
