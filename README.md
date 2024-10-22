@@ -1,4 +1,4 @@
-# MKE 4 Developer Documentation
+# MKE 4 Documentation
 
 The `mke-docs` repository contains the MKE 4 documentation content and all
 the assets that are required to build the [MKE 4 documentation website](https://mirantis.github.io/mke-docs/),
