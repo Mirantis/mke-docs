@@ -5,9 +5,10 @@ the assets that are required to build the [MKE 4 documentation website](https://
 which uses Hugo with the [Hextra theme](https://imfing.github.io/hextra/).
 Currently, the docs are published using GitHub actions on GitHub pages from the `main` branch.
 
-## Build and preview MKE 4 documentation
+To build and preview MKE 4 documentation:
 
 1. Install [Hugo](https://gohugo.io/installation/).
+
 2. Start the Hugo server from within your local `mke-docs` repository:
 
     ```bash
