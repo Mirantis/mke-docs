@@ -12,5 +12,5 @@ deploying, managing, and scaling applications within a Kubernetes environment.
   {{< card link="architecture" title="Architecture" icon="cube" >}}
   {{< card link="configuration" title="Configurations" icon="adjustments" >}}
   {{< card link="blueprints" title="Blueprints" icon="template" >}}
-  {{< card link="blueprints" title="Container Network Interface" icon="cube-transparent" >}}
+  {{< card link="cni" title="Container Network Interface (CNI)" icon="cube-transparent" >}}
 {{< /cards >}}
