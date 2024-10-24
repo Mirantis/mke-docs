@@ -59,8 +59,8 @@ The following example configuration applies the `hardworker` custom profile to t
 
 ## Precedence of Kubelet configuration
 
-The Kubelet configuration of each node is created by merging several different
-configuration sources. For MKE 4, the order is as follows:
+The Kubelet configuration of each node is set through the merging of several
+different configuration sources. For MKE 4, the source merge order is as follows:
 
 1. Structured configuration values specified in the `kubelet` section of the MKE
    configuration, which is the lowest precedence.

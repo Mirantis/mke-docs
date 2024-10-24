@@ -4,7 +4,7 @@ weight: 4
 ---
 
 To start interacting with the cluster, use `kubectl` with the `mke` context.
-Though, to do that, you need to specify the configuration. Use `mkectl` to output
+Though to do that, you need to specify the configuration. Use `mkectl` to output
 the kubeconfig of the cluster to `~/mke/.mke.kubeconfig`.
 
 You can apply `.mke.kubeconfig` using any one of the following methods:

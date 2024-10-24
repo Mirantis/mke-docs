@@ -13,7 +13,7 @@ services.
 {{< callout type="info" >}}
    Telemetry is automatically enabled for MKE 4 clusters that are running
    without a license, with a license that has expired, or with an invalid
-   license. In all of such scenarios, you will only be able to disable
+   license. In all of such scenarios, you can only disable
    telemetry once a valid license has been applied to the cluster.
 {{< /callout >}}
 
