@@ -7,7 +7,7 @@ The Mirantis Kubernetes Engine 4 documentation set is provided to help system
 administrators and DevOps professionals to deploy MKE 4, covering key concepts
 and functionalities.
 
-Like the system sofware it seeks to represent, the MKE 4 documentation is also
+Like the system software it seeks to represent, the MKE 4 documentation is also
 a pre-release product, intended to evolve as MKE 4 evolves. As such, feedback on
 the comprehensiveness and quality of the content herein is both welcome and essential.
 

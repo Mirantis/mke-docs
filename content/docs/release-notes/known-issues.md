@@ -42,7 +42,10 @@ from an MKE 3 cluster using either of those networking modes results in an
 error:
 
 ```sh
-FATA[0640] Upgrade failed due to error: failed to run step [Upgrade Tasks]: unable to install BOP: unable to apply MKE4 config: failed to wait for pods: failed to wait for pods: failed to list pods: client rate limiter Wait returned an error: context deadline exceeded
+FATA[0640] Upgrade failed due to error: failed to run step [Upgrade Tasks]:
+unable to install BOP: unable to apply MKE4 config: failed to wait for pods:
+failed to wait for pods: failed to list pods: client rate limiter Wait returned
+an error: context deadline exceeded
 ```
 
 ## [BOP-905] Prometheus dashboard reports incorrect heavy memory use

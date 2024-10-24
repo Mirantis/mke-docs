@@ -4,7 +4,7 @@ weight: 5
 ---
 
 The example scenario illustrated herein pertains to the deployment of a CirrOS
-virtual machine, which is comprised by the following primary steps:
+virtual machine, which comprises the following primary steps:
 
 1. Launch a simple virtual machine
 2. Attach a disk to a virtual machine
@@ -81,7 +81,7 @@ virtual machine, which is comprised by the following primary steps:
    vm-cirros   1m8s   Stopped   False
    ```
 
-4. Start the CirrOS VM:
+4. Start the CirrOS virtual machine:
 
    ```bash
    virtctl start vm-cirros
@@ -95,7 +95,7 @@ virtual machine, which is comprised by the following primary steps:
 
 ## Attach a disk to a virtual machine
 
-{{< callout type="note" >}}
+{{< callout type="info" >}}
   The following example scenario uses the `HostPathProvisioner` component,
   which is deployed by default.
 {{< /callout >}}
@@ -175,7 +175,7 @@ virtual machine, which is comprised by the following primary steps:
 
 ## Attach a network interface to a virtual machine
 
-{{< callout type="note" >}}
+{{< callout type="info" >}}
   The following example scenario requires the presence of CNAO.
 {{< /callout >}}
 
@@ -221,7 +221,7 @@ virtual machine, which is comprised by the following primary steps:
    virtctl console vm-cirros
    ```
 
-5. Verify the VM interfaces:
+5. Verify the virtual machine interfaces:
 
    ```bash
    ip a

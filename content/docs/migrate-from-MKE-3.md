@@ -23,7 +23,7 @@ Verify that you have the following components in place before you begin upgradin
   ip-172-31-199-207.us-west-2.compute.internal   Ready    master   8m4s    v1.27.7-mirantis-1
   ```
 
-- The latest `mkectl` binary, installed on your local enviroment:
+- The latest `mkectl` binary, installed on your local environment:
 
   ```shell
   mkectl version
@@ -35,7 +35,7 @@ Verify that you have the following components in place before you begin upgradin
   Version: v4.0.0-alpha.1.0
   ```
 
-- `k0sctl` version `0.19.0`, installed on your local enviroment:
+- `k0sctl` version `0.19.0`, installed on your local environment:
 
   ```shell
   k0sctl version
@@ -95,7 +95,7 @@ are performed through the use of the `mkectl` tool:
   a hyperkube-based MKE 3 cluster to a k0s-based MKE 4 cluster.
 - Migrate manager nodes to k0s.
 - Migrate worker nodes to k0s.
-- Carry out post-upgrade cleanup, to remove MKE 3 components.
+- Carry out post-upgrade cleanup to remove MKE 3 components.
 - Output the new MKE 4 config file.
 
 To upgrade an MKE 3 cluster, use the `mkectl upgrade` command:

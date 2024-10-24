@@ -1,9 +1,9 @@
 ---
-title: Deploy Kubevirt
+title: Deploy KubeVirt
 weight: 4
 ---
 
-You can deploy Kubevirt using manifest files that are available from the
+You can deploy KubeVirt using manifest files that are available from the
 Mirantis Azure CDN:
 
 * https://binary-mirantis-com.s3.amazonaws.com/kubevirt/hyperconverged-cluster-operator/hco-operator-20240912172342.yaml

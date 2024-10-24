@@ -23,7 +23,7 @@ documentation](https://docs.k0sproject.io/v1.29.4+k0s.0/system-requirements/).
 
 ## Load balancer requirements
 
-The load balancer can be implemented in many different ways. You can use for example
+The load balancer can be implemented in many different ways. You can use, for example,
 HAProxy, NGINX, or the load balancer of your cloud provider.
 
 To ensure the MKE Dashboard functions properly, MKE requires a TCP load balancer.

@@ -6,7 +6,7 @@ weight: 2
 By default, MKE 4 stores backups and restores using the in-cluster storage
 provider, the [MinIO add-on](https://min.io/).
 
-{{< callout type="note" >}}
+{{< callout type="info" >}}
   MinIO is not currently backed by persistent storage. For persistent storage of backups, use an external storage provider or download the MinIO backups.
 {{< /callout >}}
 

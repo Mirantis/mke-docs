@@ -1,5 +1,5 @@
 ---
-title: Prepare Kubevirt deployment
+title: Prepare KubeVirt deployment
 weight: 2
 ---
 

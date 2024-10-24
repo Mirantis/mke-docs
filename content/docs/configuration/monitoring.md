@@ -15,7 +15,7 @@ Detail for the MKE 4 monitor tools is provided in the following table:
 | Prometheus      | enabled       | -                           | Collects and stores metrics                                                           |
 | Grafana         | enabled       | `monitoring.enableGrafana`  | Provides a web interface for viewing metrics and logs collected by Prometheus         |
 | cAdvisor        | disabled      | `monitoring.enableCAdvisor` | Provides additional container level metrics                                           |
-| Opscare         | disabled      | `monitoring.enableOpscare`  | (Under development) Supplies additional monitoring capabilities, such as Alertmanager |
+| OpsCare         | disabled      | `monitoring.enableOpscare`  | (Under development) Supplies additional monitoring capabilities, such as Alertmanager |
 
 ## Prometheus
 
@@ -79,14 +79,14 @@ monitoring:
   enableCAdvisor: true
 ```
 
-## Opscare (Under development)
+## OpsCare (Under development)
 
 [Mirantis OpsCare](https://www.mirantis.com/resources/opscare-datasheet/) is
-an advanced monitoring and alerting solution. Once it is integrated, Mirantis Opscare will enhance the monitoring
+an advanced monitoring and alerting solution. Once it is integrated, Mirantis OpsCare will enhance the monitoring
 capabilities of MKE 4 by incorporating additional tools and features, such as
 [Prometheus Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/).
 
-Disabled by default, you can enable Mirantis Opscare through the MKE configuration file.
+Disabled by default, you can enable Mirantis OpsCare through the MKE configuration file.
 
 ```yaml
 monitoring:

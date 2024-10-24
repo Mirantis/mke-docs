@@ -15,7 +15,7 @@ A blueprint comprises three sections:
 
 <dl>
   <dt><strong>Kubernetes Provider</strong></dt>
-  <dd>Details the settings for the provider. For the most part, the Kubernetes Provider section is is managed by <code>mkectl</code>, independently of the user's MKE configuration file. </dd>
+  <dd>Details the settings for the provider. For the most part, the Kubernetes Provider section is managed by <code>mkectl</code>, independently of the user's MKE configuration file. </dd>
   <dt><strong>Infrastructure</strong></dt>
   <dd>Provides details that are used for the Kubernetes cluster; the <code>hosts</code> section of the MKE configuration file.</dd>
   <dt><strong>Components</strong></dt>
