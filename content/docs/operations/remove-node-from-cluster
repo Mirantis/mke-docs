@@ -1,16 +1,17 @@
 ---
-title: Remove nodes from an MKE cluster
+title: Remove a node from an MKE 4 cluster
 weight: 6
 ---
 
 The method for removing nodes from an MKE cluster depends on whether the node is
 a control plane node or a worker node.
 
-## Remove a control plane node ##
+## Remove a control plane node
 
-For informaation on how to remove a control plane node from an MKE 4 cluster, refer to the k0s documentation, [Remove or replace a controller](https://docs.k0sproject.io/stable/remove_controller/).
+Refer to the k0s documentation, [Remove or replace a controller](https://docs.k0sproject.io/stable/remove_controller/)
+for informaation on how to remove a control plane node from an MKE 4 cluster.
 
-## Remove a worker node ##
+## Remove a worker node
 
 The removal of a worker node from an MKE 4 cluster is a simple delete
 operation.
