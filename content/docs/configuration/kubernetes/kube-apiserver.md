@@ -25,6 +25,7 @@ spec:
       enabled: false
     requestTimeout: 1m0s
 ```
+
 You can further configure the Kubernetes API server using the `extraArgs` field
 to define flags. This field accepts a list of key-value pairs, which are passed
 directly to the kube-apiserver process at runtime.
