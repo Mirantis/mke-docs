@@ -27,6 +27,7 @@ spec:
       ephemeral-storage: 4Gi
       memory: 2Gi
 ```
+
 You can further configure a kubelet using the `extraArgs` field to define
 flags. This field accepts a list of key-value pairs, which are passed directly
 to the kubelet process at runtime.
