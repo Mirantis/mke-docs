@@ -93,13 +93,16 @@ for the Calico provider.
 | `enabled` | Sets the name of the external storage provider. AWS is currently the only available option. | `true` | `true` |
 | `clusterCIDRIPv4` | Sets the IP pool in the Kubernetes cluster from which Pods are allocated. | Valid IPv4 CIDR | `192.168.0.0/16` |
 | `ipAutodetectionMethod` | Sets the autodetecting method for the IPv4 address for the host. | Provider specific[^0] | None |
-| `mode` | Sets the IPv4 overlay networking mode. | `ipip`, `vxlan` | `vxlan` |
+| `mode` | Sets the IPv4 overlay networking mode.[^1] | `ipip`, `vxlan` | `vxlan` |
 | `vxlanPort` | Sets the VXLAN port for the VXLAN mode. | Valid port number | `4789` |
 | `vxlanVNI` | Sets the VXLAN VNI for the VXLAN mode. | Valid VNI number | `10000` |
 | `CALICO_STARTUP_LOGLEVEL` | Sets the early log level for `calico/node`. | Provider specific[^0] | `DEBUG` |
 | `FELIX_LOGSEVERITYSCREEN` | Sets the log level for `calico/felix`. | Provider specific[^0] | `DEBUG` |
 
-[^0]: For the available values, consult your provider documentation.
+[^0]: Refer to your Calico provider documentation for the available
+    `ipAutodetectionMethod` values.
+
+[^1]: MKE 4 does not support `mode` field modifications following installation.
 
 {{< callout type="info" >}}
 - MKE 4 uses a static port range for Kubernetes NodePorts, from  `32768` to `35535`. 
