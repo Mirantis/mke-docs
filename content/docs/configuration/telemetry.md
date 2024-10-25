@@ -11,8 +11,7 @@ helps product teams in their efforts to enhance Mirantis products and
 services.
 
 {{< callout type="info" >}}
-    Enabling or disabling telemetry in MKE automatically applies the setting
-    to the k0s configuration. 
+    The MKE 4 telemetry enablement setting is automatically applied to the k0s configuration. 
 {{< /callout >}}
 
 {{< callout type="info" >}}
