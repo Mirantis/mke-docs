@@ -99,8 +99,7 @@ for the Calico provider.
 | `CALICO_STARTUP_LOGLEVEL` | Sets the early log level for `calico/node`. | Provider specific[^0] | `DEBUG` |
 | `FELIX_LOGSEVERITYSCREEN` | Sets the log level for `calico/felix`. | Provider specific[^0] | `DEBUG` |
 
-[^0]: Refer to your Calico provider documentation for the available
-    `ipAutodetectionMethod` values.
+[^0]: Refer to your Calico provider documentation for the available values.
 
 [^1]: MKE 4 does not support `mode` field modifications following installation.
 
