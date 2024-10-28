@@ -13,10 +13,7 @@ for information on how to remove a control plane node from an MKE 4 cluster.
 
 ## Remove a worker node
 
-The removal of a worker node from an MKE 4 cluster is a simple delete
-operation.
-
-1. Delete the worker node from the MKE 4 cluster:
+1. Delete the worker node from the cluster:
 
    ```bash
    kubectl --kubeconfig ~/.mke/mke.kubeconf delete node <worker_node_name>
