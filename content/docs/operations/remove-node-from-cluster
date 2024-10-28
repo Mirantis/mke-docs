@@ -9,7 +9,7 @@ a control plane node or a worker node.
 ## Remove a control plane node
 
 Refer to the k0s documentation, [Remove or replace a controller](https://docs.k0sproject.io/stable/remove_controller/)
-for informaation on how to remove a control plane node from an MKE 4 cluster.
+for information on how to remove a control plane node from an MKE 4 cluster.
 
 ## Remove a worker node
 
