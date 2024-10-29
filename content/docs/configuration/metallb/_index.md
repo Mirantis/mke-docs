@@ -52,6 +52,8 @@ the `enabled` parameter to `true`.
          namespace: metallb-system
    ```
 
+{{< callout type="info" >}} Free Range Routing (FRR) mode is disabled by default. {{< /callout >}}
+
 2. Set the `enabled` field to `true` to enable MetalLB.
 
 3. Apply the configuration:
