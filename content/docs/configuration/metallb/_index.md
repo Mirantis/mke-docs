@@ -89,15 +89,15 @@ The default configuration parameters for the MetalLB add-on are detailed in the 
 
 | Field                               | Description                                             | Default                                                                                   |
 |-------------------------------------|---------------------------------------------------------|-------------------------------------------------------------------------------------------|
-| kind                                | Type of add-on.                                         | chart                                                                                     |
-| enabled                             | Enablement state of add-on.                             | false                                                                                     |
-| name                                | Name of the add-on.                                     | metallb                                                                                   |
-| namespace                           | Namespace used for<br>deploying MetalLB.                   | metallb-system                                                                            |
-| chart.name                          | Name of the MetalLB Helm chart.                         | metallb                                                                                   |
-| chart.repo                          | MetalLB Helm repository.                                | https://metallb.github.io/metallb                                                         |
-| chart.version                       | Version of the MetalLB Helm chart.                      | 0.14.7                                                                                    |
-| chart.values.<br>controller.tolerations | Tolerations for the<br>MetalLB controller pod.             | YAML: <br><br> - key: node-role.kubernetes.io/master<br>   &nbsp; operator: Exists <br>  &nbsp;   effect: NoSchedule |
-| chart.values.<br>speaker.frr.enabled    | Enablement state of FRR<br>with regard to MetalLB speaker. | false                                                                                     |
+| `kind`                                | Type of add-on.                                         | `chart`                                                                                     |
+| `enabled`                             | Enablement state of add-on.                             | `false`                                                                                     |
+| `name`                                | Name of the add-on.                                     | `metallb`                                                                                   |
+| `namespace`                           | Namespace used for<br>deploying MetalLB.                   | `metallb-system`                                                                            |
+| `chart.name`                          | Name of the MetalLB Helm chart.                         | `metallb`                                                                                   |
+| `chart.repo`                          | MetalLB Helm repository.                                | `https://metallb.github.io/metallb`                                                         |
+| `chart.version`                       | Version of the MetalLB Helm chart.                      | `0.14.7`                                                                                    |
+| `chart.values.controller.tolerations` | Tolerations for the<br>MetalLB controller pod.             | YAML: <br><br> - key: node-role.kubernetes.io/master<br>   &nbsp; operator: Exists <br>  &nbsp;   effect: NoSchedule |
+| `chart.values.speaker.frr.enabled`    | Enablement state of FRR<br>with regard to MetalLB speaker. | `false`                                                                                     |
 
 An MKE version comparison for MetalLB configuration parameters is offered in the following table:
 
@@ -175,28 +175,27 @@ Refer to the upgrade summary for guidance in the creation of IP address pools. T
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
- name: example1
- namespace: metallb-system
+  name: example1
+  namespace: metallb-system
 spec:
- addresses:
- - 192.168.10.0/24
- - 192.168.1.0/24
+  addresses:
+  - 192.168.10.0/24
+  - 192.168.1.0/24
 ---
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
- name: example2
- namespace: metallb-system
+  name: example2
+  namespace: metallb-system
 spec:
- addresses:
- - 192.155.10.0/24
+  addresses:
+  - 192.155.10.0/24
 ---
 apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
 metadata:
- name: empty
- namespace: metallb-system
-```
+  name: empty
+  namespace: metallb-system```
 
 ## Uninstall MetalLB
 
