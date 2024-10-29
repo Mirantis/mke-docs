@@ -1,5 +1,5 @@
 ---
-title: Metallb load balancer
+title: MetalLB load balancer
 weight: 3
 ---
 
@@ -14,7 +14,6 @@ MetalLB is a load balancer designed for bare metal Kubernetes clusters that uses
 - `kube-proxy` running in `iptables` mode.
 
 - The absence of any cloud provider configuration.
-
 
 ## Configuration
 
@@ -95,10 +94,10 @@ The default configuration parameters for the MetalLB add-on are detailed in the 
 | `chart.name`                          | Name of the MetalLB Helm chart.                          | `metallb`                                                                                                               |
 | `chart.repo`                          | MetalLB Helm repository.                                 | https://metallb.github.io/metallb                                                                                     |
 | `chart.version`                       | Version of the MetalLB Helm chart.                       | `0.14.7`                                                                                                                |
-| `chart.values.controller.tolerations` | Tolerations for the MetalLB controller pod.              | ```yaml</br><br>- key: node-role.kubernetes.io/master</br><br>operator: Exists</br><br>effect: NoSchedule</br><br>``` |
-| `chart.values.speaker.frr.enabled`    | Enablement state of FRR with regard to metallb speaker.  | `false`                                                                                                                 |
+| `chart.values. controller.tolerations` | Tolerations for the MetalLB controller pod.              | ```yaml</br><br>- key: node-role.kubernetes.io/master</br><br>operator: Exists</br><br>effect: NoSchedule</br><br>``` |
+| `chart.values. speaker.frr.enabled`    | Enablement state of FRR with regard to MetalLB speaker.  | `false`                                                                                                                 |
 
-## MKE version comparison: Metallb configuration parameters
+## MKE version comparison: MetalLB configuration parameters
 
 | MKE-3                                                          | MKE-4                                   |
 |----------------------------------------------------------------|-----------------------------------------|
