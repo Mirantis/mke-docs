@@ -16,7 +16,7 @@ authentication:
     host: ldap.example.org:389
     insecureNoSSL: true
     bindDN: cn=admin,dc=example,dc=org
-    bindPW: admin
+    bindPW: password
     usernamePrompt: Email Address
     userSearch:
       baseDN: ou=People,dc=example,dc=org
