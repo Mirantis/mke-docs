@@ -195,7 +195,8 @@ apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
 metadata:
   name: empty
-  namespace: metallb-system```
+  namespace: metallb-system
+```
 
 ## Uninstall MetalLB
 
