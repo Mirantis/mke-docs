@@ -85,19 +85,19 @@ the `enabled` parameter to `true`.
 
 The default configuration parameters for the MetalLB add-on are detailed in the following table:
 
-| Field                               | Description                                             | Default                                                                                                               |
-|-------------------------------------|---------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
-| `kind`                                | Type of add-on.                                          | `chart`                                                                                                                 |
-| `enabled`                             | Enablement state of add-on.                              | `false`                                                                                                                 |
-| `name`                                | Name of the add-on.                                      | `metallb`                                                                                                               |
-| `namespace`                           | Namespace used for deploying MetalLB.                    | `metallb-system`                                                                                                        |
-| `chart.name`                          | Name of the MetalLB Helm chart.                          | `metallb`                                                                                                               |
-| `chart.repo`                          | MetalLB Helm repository.                                 | https://metallb.github.io/metallb                                                                                     |
-| `chart.version`                       | Version of the MetalLB Helm chart.                       | `0.14.7`                                                                                                                |
-| `chart.values. controller.tolerations` | Tolerations for the MetalLB controller pod.              | ```yaml</br><br>- key: node-role.kubernetes.io/master</br><br>operator: Exists</br><br>effect: NoSchedule</br><br>``` |
-| `chart.values. speaker.frr.enabled`    | Enablement state of FRR with regard to MetalLB speaker.  | `false`                                                                                                                 |
+| Field                               | Description                                             | Default                                                                                   |
+|-------------------------------------|---------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| kind                                | Type of add-on.                                         | chart                                                                                     |
+| enabled                             | Enablement state of add-on.                             | false                                                                                     |
+| name                                | Name of the add-on.                                     | metallb                                                                                   |
+| namespace                           | Namespace used for deploying MetalLB.                   | metallb-system                                                                            |
+| chart.name                          | Name of the MetalLB Helm chart.                         | metallb                                                                                   |
+| chart.repo                          | MetalLB Helm repository.                                | https://metallb.github.io/metallb                                                         |
+| chart.version                       | Version of the MetalLB Helm chart.                      | 0.14.7                                                                                    |
+| chart.values. controller.tolerations | Tolerations for the MetalLB controller pod.             | YAML: <br><br> - key: node-role.kubernetes.io/master<br>   &nbsp; operator: Exists <br>  &nbsp;   effect: NoSchedule |
+| chart.values. speaker.frr.enabled    | Enablement state of FRR with regard to MetalLB speaker. | false                                                                                     |
 
-## MKE version comparison: MetalLB configuration parameters
+An MKE version comparison for MetalLB configuration parameters is offered in the following table:
 
 | MKE-3                                                          | MKE-4                                   |
 |----------------------------------------------------------------|-----------------------------------------|
