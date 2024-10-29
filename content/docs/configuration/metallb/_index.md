@@ -52,7 +52,7 @@ the `enabled` parameter to `true`.
          namespace: metallb-system
    ```
 
-{{< callout type="info" >}} Free Range Routing (FRR) mode is disabled by default. {{< /callout >}}
+   {{< callout type="info" >}} Free Range Routing (FRR) mode is disabled by default. {{< /callout >}}
 
 2. Set the `enabled` field to `true` to enable MetalLB.
 
@@ -92,12 +92,12 @@ The default configuration parameters for the MetalLB add-on are detailed in the 
 | kind                                | Type of add-on.                                         | chart                                                                                     |
 | enabled                             | Enablement state of add-on.                             | false                                                                                     |
 | name                                | Name of the add-on.                                     | metallb                                                                                   |
-| namespace                           | Namespace used for deploying MetalLB.                   | metallb-system                                                                            |
+| namespace                           | Namespace used for<br>deploying MetalLB.                   | metallb-system                                                                            |
 | chart.name                          | Name of the MetalLB Helm chart.                         | metallb                                                                                   |
 | chart.repo                          | MetalLB Helm repository.                                | https://metallb.github.io/metallb                                                         |
 | chart.version                       | Version of the MetalLB Helm chart.                      | 0.14.7                                                                                    |
-| chart.values. controller.tolerations | Tolerations for the MetalLB controller pod.             | YAML: <br><br> - key: node-role.kubernetes.io/master<br>   &nbsp; operator: Exists <br>  &nbsp;   effect: NoSchedule |
-| chart.values. speaker.frr.enabled    | Enablement state of FRR with regard to MetalLB speaker. | false                                                                                     |
+| chart.values.<br>controller.tolerations | Tolerations for the<br>MetalLB controller pod.             | YAML: <br><br> - key: node-role.kubernetes.io/master<br>   &nbsp; operator: Exists <br>  &nbsp;   effect: NoSchedule |
+| chart.values.<br>speaker.frr.enabled    | Enablement state of FRR<br>with regard to MetalLB speaker. | false                                                                                     |
 
 An MKE version comparison for MetalLB configuration parameters is offered in the following table:
 
