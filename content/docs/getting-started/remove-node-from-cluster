@@ -1,6 +1,6 @@
 ---
 title: Remove a node from an MKE 4 cluster
-weight: 6
+weight: 5
 ---
 
 The method for removing nodes from an MKE cluster depends on whether the node is
