@@ -21,7 +21,7 @@ You configure MetalLB through the `Addons` section of the MKE 4 configuration
 file. The function is disabled by default, and thus to use MetalLB you must set
 the `enabled` parameter to `true`.
 
-1. Obtain the default configuration file.
+1. Obtain the default configuration file:
 
    ```bash
    mkectl init
