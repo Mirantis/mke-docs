@@ -108,7 +108,8 @@ An MKE version comparison for MetalLB configuration parameters is offered in the
 
 ## IP address pool configuration
 
-  <callout type="info"> Support for IP address pool configuration is deprecated in MKE 4, and thus you must now independently manage the configuration. </callout>
+  <callout type="info"> Support for IP address pool configuration is deprecated in
+  MKE 4, and as such the configuration must now be managed independently. </callout>
 
 ### Create IP address pools in a fresh installation
 
