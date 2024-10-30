@@ -169,7 +169,9 @@ ipaddress: [192.155.10.0/24]
 Please make sure that you create these pools after MKE4 installation is complete.
 ```
 
-Refer to the upgrade summary for guidance in the creation of IP address pools. To create the pools, you can use the template that follows or consult the official MetalLB documentation [Layer 2 configuration](https://metallb.universe.tf/configuration/#layer-2-configuration) for assistance.
+Refer to the upgrade summary for guidance in the creation of IP address pools. To create the pools,
+you can use the template that follows or consult the official MetalLB documentation
+[Layer 2 configuration](https://metallb.universe.tf/configuration/#layer-2-configuration) for assistance.
 
 ```yaml
 apiVersion: metallb.io/v1beta1
