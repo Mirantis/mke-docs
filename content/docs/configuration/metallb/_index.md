@@ -112,7 +112,8 @@ An MKE version comparison for MetalLB configuration parameters is offered in the
 
 ### Create IP address pools in a fresh installation
 
-  For information on how to create IP address pools, refer to the official MetalLB documentation, [Layer 2 configuration](https://metallb.universe.tf/configuration/#layer-2-configuration).
+  For information on how to create IP address pools, refer to the official MetalLB documentation,
+  [Layer 2 configuration](https://metallb.universe.tf/configuration/#layer-2-configuration).
 
 The following example configuration gives MetalLB control over IPs from 192.168.1.240 to 192.168.1.250, and configures Layer 2 mode.
 
