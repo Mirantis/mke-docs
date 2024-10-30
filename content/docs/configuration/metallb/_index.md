@@ -21,40 +21,43 @@ MetalLB is configured through the `addons` section of the MKE 4 configuration
 file. The function is disabled by default, and thus to use MetalLB you must set
 the `enabled` parameter to `true`.
 
+MetalLB example configuration:
+
+```yaml
+spec:
+  addons:
+    - chart:
+        name: metallb
+        repo: https://metallb.github.io/metallb
+        values: |
+          controller:
+            tolerations:
+              - key: node-role.kubernetes.io/master
+                operator: Exists
+                effect: NoSchedule
+          speaker:
+            frr:
+              enabled: false
+        version: 0.14.7
+      dryRun: false
+      enabled: true
+      kind: chart
+      name: metallb
+      namespace: metallb-system
+```
+
+{{< callout type="info" >}} The example above presents a MetalLB configuration
+that is deployed by a Helm chart within the cluster. Free Range Routing (FRR) mode is disabled by default. {{< /callout >}}
+
+To configure MetalLB:
+
 1. Obtain the default MKE 4 configuration file:
 
    ```bash
    mkectl init
    ```
 
-   The example that follows presents the MetalLB configuration section as it is used to deploy MetalLB as a Helm chart within the cluster:
-
-   ```yaml
-   spec:
-     addons:
-       - chart:
-           name: metallb
-           repo: https://metallb.github.io/metallb
-           values: |
-             controller:
-               tolerations:
-                 - key: node-role.kubernetes.io/master
-                   operator: Exists
-                   effect: NoSchedule
-             speaker:
-               frr:
-                 enabled: false
-           version: 0.14.7
-         dryRun: false
-         enabled: false
-         kind: chart
-         name: metallb
-         namespace: metallb-system
-   ```
-
-   {{< callout type="info" >}} Free Range Routing (FRR) mode is disabled by default. {{< /callout >}}
-
-2. Set the `enabled` field to `true` to enable MetalLB.
+2. Set the `enabled` parameter for `metallb` in the `addons` section to `true`.
 
 3. Apply the configuration:
 
