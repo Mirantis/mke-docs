@@ -18,7 +18,7 @@ documentation](https://docs.k0sproject.io/v1.29.4+k0s.0/system-requirements/).
   - Ubuntu 22.04 Linux
   - RHEL 8.10
   - Rocky Linux 9.4
-- Architecture: `amd64`
+- Architecture: `amd64` `arm64`
 - CNI: Calico
 
 ## Load balancer requirements
