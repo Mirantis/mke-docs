@@ -44,7 +44,7 @@ To automatically install the necessary dependencies, you can use an
        Expected output:
 
        ```shell
-       Version: v4.0.0-rc.3
+       Version: v4.0.0-rc.5
        ```
      {{< /tab >}}
 
@@ -89,7 +89,7 @@ By default, the script installs the following software:
 
 | Tool     | Default version   |
 |----------|-------------------|
-| `mkectl` | v4.0.0-rc.3       |
+| `mkectl` | v4.0.0-rc.5       |
 | `k0sctl` | 0.19.0            |
 | `kubectl`| v1.30.0           |
 
@@ -107,12 +107,12 @@ Download `mkectl` from the S3 bucket:
 
 | Distribution | Architecture | Download |
 |--------------|--------------|----------|
-| Linux        | arm64        | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-rc.3/mkectl_linux_arm64.tar.gz) |
-| Linux        | x86_64       | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-rc.3/mkectl_linux_x86_64.tar.gz) |
-| MacOS        | arm64        | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-rc.3/mkectl_darwin_arm64.tar.gz) |
-| MacOS        | x86_64       | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-rc.3/mkectl_darwin_x86_64.tar.gz) |
-| Windows      | arm64        | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-rc.3/mkectl_windows_arm64.zip) |
-| Windows      | x86_64       | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-rc.3/mkectl_windows_x86_64.zip) |
+| Linux        | arm64        | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-rc.5/mkectl_linux_arm64.tar.gz) |
+| Linux        | x86_64       | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-rc.5/mkectl_linux_x86_64.tar.gz) |
+| MacOS        | arm64        | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-rc.5/mkectl_darwin_arm64.tar.gz) |
+| MacOS        | x86_64       | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-rc.5/mkectl_darwin_x86_64.tar.gz) |
+| Windows      | arm64        | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-rc.5/mkectl_windows_arm64.zip) |
+| Windows      | x86_64       | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-rc.5/mkectl_windows_x86_64.zip) |
 
 The MKE CLI is a single binary that is capable of managing MKE clusters without
 any additional dependencies. Its use, though, requires that you have the
