@@ -159,7 +159,7 @@ limitation.
 **Example org/team/user structure from MKE 3:**
 
 ```
-├── entireCompany (org)
+├── entire-company (org)
 │   ├── development (team)
 │   │   ├── bob (user)
 │   ├── production (team)
