@@ -216,12 +216,14 @@ In the example above, the binding grants ``edit`` permissions only to the
 members of the development team, which only includes ``bob``.
 
 {{< callout type="warning" >}}
+
 Swarm roles do not directly translate to Kubernetes roles. During migration,
 any detected Swarm role is replaced with the ``none`` role,
 preserving the org/team/user structure.
 However, users must create roles with necessary permissions and
 replace the ``none`` roles as needed.
-{{< callout type="warning" >}}
+
+{{< /callout >}}
 
 ### Fresh cluster RBAC
 
