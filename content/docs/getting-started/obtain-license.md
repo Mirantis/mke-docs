@@ -76,17 +76,17 @@ to request a free trial license.
    kubectl -n mke get mkeconfig mke -ojsonpath="{.status.licenseStatus}" | jq 
    ```
 
-Example output:
-
-```json
-{
-  "expiration": "2027-10-10T07:00:00Z",
-  "licenseType": "Offline",
-  "maxEngines": 10,
-  "scanningEnabled": true,
-  "subject": "sf|0014W0000341gYFQAY|a2X4W000000ZeatUAC",
-  "tier": "Production"
-}
-```
+   Example output:
+   
+   ```json
+   {
+     "expiration": "2027-10-10T07:00:00Z",
+     "licenseType": "Offline",
+     "maxEngines": 10,
+     "scanningEnabled": true,
+     "subject": "sf|0014W0000341gYFQAY|a2X4W000000ZeatUAC",
+     "tier": "Production"
+   }
+   ```
 
 
