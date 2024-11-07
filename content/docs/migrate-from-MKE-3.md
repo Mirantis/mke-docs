@@ -145,171 +145,94 @@ restoring the MKE 3 cluster to its original state.
 
 ## RBAC Migrations
 
-The RBAC model MKE 4 uses differs significantly from the one in use by MKE 3.
+As MKE 4 no longer supports Swarm mode, the platform uses Kubernetes RBAC for
+authorization. Thus, the RBAC configuration for Swarm mode does not exist in
+MKE 4. 
 
-As MKE 4 no longer supports Swarm mode, the platform uses Kubernetes RBAC for authorization. Thus, the RBAC configuration for Swarm mode does not exist in MKE 4. The Swarm mode roles have Kubernetes RBAC roles associated with them, however, and the MKE 4 upgrade process migrates these
-Kubernetes roles and bindings to the new MKE 4 cluster.
+MKE 4 has replaced ``orgs`` and ``teams`` with Kubernetes ``AggregatedRoles``. 
+This new approach enables the same RBAC hierarchy as in MKE 3 
+using ``orgs`` and ``teams``, but without the restriction of the two-level
+limitation.
 
-The sections that follow detail the MKE 3 Swarm mode roles and their corresponding
-Kubernetes RBAC permissions:
+**Example org/team/user structure from MKE 3:**
 
-### View Only
+```
+├── entireCompany (org)
+│   ├── development (team)
+│   │   ├── bob (user)
+│   ├── production (team)
+│   │   ├── bob (user)
+│   │   ├── bill (user)
+│   ├── sales (team)
+```
 
-<details>
-<summary>get, list, watch</summary>
+The upgrade process translates an existing org/team/user structure in
+the following way.
 
-- CertificateSigningRequest
-- ClusterRoleBinding
-- ClusterRole
-- ComponentStatus
-- ConfigMap
-- ControllerRevision
-- CronJob
-- CustomResourceDefinition
-- DaemonSet
-- Deployment
-- Endpoint
-- Event
-- ExternalAdmissionHookConfiguration
-- HorizontalPodAutoscaler
-- Ingress
-- InitializerConfiguration
-- Job
-- LimitRange
-- Namespace
-- NetworkPolicy
-- Node
-- PersistentVolumeClaim
-- PersistentVolume
-- PodDisruptionBudget
-- PodPreset
-- Pod
-- PodTemplate
-- ReplicaSet
-- ReplicationController
-- ResourceQuota
-- RoleBinding
-- Role
-- ServiceAccount
-- Service
-- Stack
-- StatefulSet
-- StorageClass
-- ThirdPartyResource
-- User
+**Example of the same structure in MKE 4 created using ``AggregatedRoles``:**
 
-</details>
+```
+├── entireCompany:org (AggregatedRole)
+│   ├── development:team (AggregatedRole)
+│   │   ├── bob (user)
+│   ├── production:team (AggregatedRole)
+│   │   ├── bob (user)
+│   │   ├── bill (user)
+│   ├── sales:team (AggregatedRole)
+```
 
-### Restricted Control
+### Roles
 
-<details>
-<summary>get, list, watch</summary>
+Roles integrate into the org/team/user structure by being bound to the 
+aggregated roles. A role can be assigned at any level in the hierarchy,
+granting its permissions to all members at that level.
 
-- ClusterRoles
-- ClusterRoleBindings
-- Namespaces
-- Nodes
-- ResourceQuotas
-- NamespaceRoles
-- NamespaceRoleBindings
-- StorageClasses
-- Users
+**Example company binding:**
 
-</details>
+```
+├── entireCompany-org (AggregatedRole) -- entireCompany-org (RoleBinding) -- view (Role)
+│   ├── development:team (AggregatedRole)
+│   │   ├── bob (user)
+│   ├── production:team (AggregatedRole)
+│   │   ├── bob (user)
+│   │   ├── bill (user)
+│   ├── sales:team (AggregatedRole)
+```
 
-<details>
-<summary>create, delete, patch, update</summary>
 
-- CertificateSigningRequest
-- ComponentStatus
-- ConfigMap
-- ControllerRevision
-- CronJob
-- CustomResourceDefinition
-- DaemonSet
-- Deployment
-- Endpoint
-- Event
-- ExternalAdmissionHookConfiguration
-- HorizontalPodAutoscaler
-- Ingress
-- InitializerConfiguration
-- Job
-- LimitRange
-- NetworkPolicy
-- PersistentVolumeClaim
-- PersistentVolume
-- PodDisruptionBudget
-- PodPreset
-- Pod
-- PodTemplate
-- ReplicaSet
-- ReplicationController
-- RoleBinding
-- Role
-- Secret
-- ServiceAccount
-- Service
-- Stack
-- StatefulSet
-- ThirdPartyResource
+In the example above, all members of the ``entireCompany`` org have
+``view`` permissions. This includes the ``development:team``,
+``production:team``, ``sales:team``, ``bob``, and ``bill``.
 
-</details>
+**Example team binding:**
 
-### Full Control
+```
+├── entireCompany-org (AggregatedRole) -- entireCompany-org (RoleBinding) -- view (Role)
+│   ├── development:team (AggregatedRole)
+│   │   ├── bob (user)
+```
 
-<details>
-<summary>get, list, watch, create, delete, patch, update</summary>
+In the example above, the binding grants ``edit`` permissions only to the
+members of the development team, which only includes ``bob``.
 
-- CertificateSigningRequest
-- ClusterRoleBinding
-- ClusterRole
-- ComponentStatus
-- ConfigMap
-- ControllerRevision
-- CronJob
-- CustomResourceDefinition
-- DaemonSet
-- Deployment
-- Endpoint
-- Event
-- ExternalAdmissionHookConfiguration
-- HorizontalPodAutoscaler
-- Ingress
-- InitializerConfiguration
-- Job
-- LimitRange
-- Namespace
-- NetworkPolicy
-- Node
-- PersistentVolumeClaim
-- PersistentVolume
-- PodDisruptionBudget
-- PodPreset
-- Pod
-- PodTemplate
-- ReplicaSet
-- ReplicationController
-- ResourceQuota
-- RoleBinding
-- Role
-- ServiceAccount
-- Service
-- Stack
-- StatefulSet
-- StorageClass
-- ThirdPartyResource
-- User
+{{< callout type="warning" >}}
+Swarm roles do not directly translate to Kubernetes roles. During migration,
+any detected Swarm role is replaced with the ``none`` role,
+preserving the org/team/user structure.
+However, users must create roles with necessary permissions and
+replace the ``none`` roles as needed.
+{{< callout type="warning" >}}
 
-</details>
+### Fresh cluster RBAC
 
-### Scheduler
-
-No Kubernetes RBAC permissions correlate to the Scheduler role.
+A new cluster uses vanilla Kubernetes RBAC. 
+For further details, refer to the official Kubernetes documentation on
+[Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 ## CoreDNS Lameduck migration
 
-MKE 4 supports migration from MKE 3 systems that are running with CoreDNS and Lameduck enabled. Refer
+MKE 4 supports migration from MKE 3 systems that are running with CoreDNS and
+Lameduck enabled. Refer
 to the table below for a comparison of the CoreDNS Lameduck configuration
 parameters between MKE 3 and MKE 4:
 
