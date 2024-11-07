@@ -145,9 +145,11 @@ restoring the MKE 3 cluster to its original state.
 
 ## RBAC Migrations
 
-As MKE 4 no longer supports Swarm mode, the platform uses Kubernetes RBAC for
-authorization. Thus, the RBAC configuration for Swarm mode does not exist in
-MKE 4. 
+As MKE 4 no longer supports Swarm mode, the platform uses vanilla Kubernetes
+RBAC for authorization. Thus, the authorization configuration for Swarm mode
+does not exist in MKE 4.
+For further details, refer to the official Kubernetes documentation on
+[Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 MKE 4 has replaced ``orgs`` and ``teams`` with Kubernetes ``AggregatedRoles``. 
 This new approach enables the same RBAC hierarchy as in MKE 3 
@@ -172,43 +174,44 @@ the following way.
 **Example of the same structure in MKE 4 created using ``AggregatedRoles``:**
 
 ```
-├── entireCompany:org (AggregatedRole)
-│   ├── development:team (AggregatedRole)
+├── entireCompany-org (AggregatedRole)
+│   ├── development-team (AggregatedRole)
 │   │   ├── bob (user)
-│   ├── production:team (AggregatedRole)
+│   ├── production-team (AggregatedRole)
 │   │   ├── bob (user)
 │   │   ├── bill (user)
-│   ├── sales:team (AggregatedRole)
+│   ├── sales-team (AggregatedRole)
 ```
 
 ### Roles
 
-Roles integrate into the org/team/user structure by being bound to the 
-aggregated roles. A role can be assigned at any level in the hierarchy,
-granting its permissions to all members at that level.
+Roles are integrated into the org, team, and user structure by being bound to 
+the aggregated roles.
+What was previously an organisation or a team role will now have ``-org`` or
+``-team`` appended to its name. A role can be assigned at any level in the
+hierarchy, granting its permissions to all members at that level.
 
-**Example company binding:**
+**Example organization binding:**
 
 ```
 ├── entireCompany-org (AggregatedRole) -- entireCompany-org (RoleBinding) -- view (Role)
-│   ├── development:team (AggregatedRole)
+│   ├── development-team (AggregatedRole)
 │   │   ├── bob (user)
-│   ├── production:team (AggregatedRole)
+│   ├── production-team (AggregatedRole)
 │   │   ├── bob (user)
 │   │   ├── bill (user)
-│   ├── sales:team (AggregatedRole)
+│   ├── sales-team (AggregatedRole)
 ```
 
 
 In the example above, all members of the ``entireCompany`` org have
-``view`` permissions. This includes the ``development:team``,
-``production:team``, ``sales:team``, ``bob``, and ``bill``.
+``view`` permissions. This includes the ``development-team``,
+``production-team``, ``sales-team``, ``bob``, and ``bill``.
 
 **Example team binding:**
 
 ```
-├── entireCompany-org (AggregatedRole) -- entireCompany-org (RoleBinding) -- view (Role)
-│   ├── development:team (AggregatedRole)
+│   ├── development:team (AggregatedRole) -- development:team (RoleBinding) -- edit (Role)
 │   │   ├── bob (user)
 ```
 
@@ -217,19 +220,15 @@ members of the development team, which only includes ``bob``.
 
 {{< callout type="warning" >}}
 
-Swarm roles do not directly translate to Kubernetes roles. During migration,
-any detected Swarm role is replaced with the ``none`` role,
+Swarm roles are partially translated to Kubernetes roles. During migration,
+any detected Swarm role is replicated without permissions,
 preserving the org/team/user structure.
-However, users must create roles with necessary permissions and
-replace the ``none`` roles as needed.
+If no Swarm roles are detected, ``none`` roles are created as placeholders
+because Kubernetes requires each aggregated role to have at least one role.
+The ``none`` roles have no permissions and are only used to maintain the
+structural integrity.
 
 {{< /callout >}}
-
-### Fresh cluster RBAC
-
-A new cluster uses vanilla Kubernetes RBAC. 
-For further details, refer to the official Kubernetes documentation on
-[Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 ## CoreDNS Lameduck migration
 
