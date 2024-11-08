@@ -174,7 +174,7 @@ the following way.
 **Example of the same structure in MKE 4 created using ``AggregatedRoles``:**
 
 ```
-├── entireCompany-org (AggregatedRole)
+├── entire-company-org (AggregatedRole)
 │   ├── development-team (AggregatedRole)
 │   │   ├── bob (user)
 │   ├── production-team (AggregatedRole)
@@ -194,7 +194,7 @@ hierarchy, granting its permissions to all members at that level.
 **Example organization binding:**
 
 ```
-├── entireCompany-org (AggregatedRole) -- entireCompany-org (RoleBinding) -- view (Role)
+├── entire-company-org (AggregatedRole) -- entire-company-org (RoleBinding) -- view (Role)
 │   ├── development-team (AggregatedRole)
 │   │   ├── bob (user)
 │   ├── production-team (AggregatedRole)
@@ -204,7 +204,7 @@ hierarchy, granting its permissions to all members at that level.
 ```
 
 
-In the example above, all members of the ``entireCompany`` org have
+In the example above, all members of the ``entire-company`` org have
 ``view`` permissions. This includes the ``development-team``,
 ``production-team``, ``sales-team``, ``bob``, and ``bill``.
 
