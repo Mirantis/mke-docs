@@ -223,9 +223,9 @@ members of the development team, which only includes ``bob``.
 Swarm roles are partially translated to Kubernetes roles. During migration,
 any detected Swarm role is replicated without permissions,
 preserving the org/team/user structure.
-If no Swarm roles are detected, ``none`` roles are created as placeholders
+If no Swarm roles are detected, ``none`` role is created as a placeholder
 because Kubernetes requires each aggregated role to have at least one role.
-The ``none`` roles have no permissions and are only used to maintain the
+The ``none`` role has no permissions and is only used to maintain the
 structural integrity.
 
 {{< /callout >}}
