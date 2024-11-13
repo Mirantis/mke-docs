@@ -3,16 +3,16 @@ title: Licensing MKE4
 weight: 2
 ---
 
-After you [Install the MKE image](install-MKE-CLI.md), proceed with downloading
-your MKE license as described below. This section also contains steps to apply
-your new license using the MKE web UI and configuration file.
-
 {{< callout type="warning" >}}
 
 You must have a valid license to lawfully run MKE4. For more
 information, refer to [Mirantis Agreements and Terms](https://legal.mirantis.com/).
 
 {{< /callout >}}
+
+After you [Install the MKE image](install-MKE-CLI.md), proceed with downloading
+your MKE license as described below. This section also contains steps to apply
+your new license using the MKE web UI and configuration file.
 
 ## Obtain your MKE4 license
 
