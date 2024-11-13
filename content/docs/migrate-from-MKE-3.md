@@ -150,7 +150,7 @@ RBAC authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac
 As such, the Swarm authorization configuration that is in place for MKE 3 is not present in MKE 4.
 
 
-###Groups
+### Groups
 
 To enable the same RBAC hierarchy as in MKE 3 with ``orgs`` and ``teams`` groups, but
 without the two-level limitation, MKE 4 replaces ``orgs`` and ``teams`` with
