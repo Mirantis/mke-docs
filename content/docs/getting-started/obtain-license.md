@@ -1,5 +1,5 @@
 ---
-title: Obtain the license
+title: Licensing MKE4
 weight: 2
 ---
 
@@ -9,12 +9,12 @@ your new license using the MKE web UI and configuration file.
 
 {{< callout type="warning" >}}
 
-Users are not authorized to run MKE without a valid license. For more
+You must have a valid license to lawfully run MKE4. For more
 information, refer to [Mirantis Agreements and Terms](https://legal.mirantis.com/).
 
 {{< /callout >}}
 
-## Download your MKE license
+## Obtain your MKE4 license
 
 1. Open an email from Mirantis Support with the subject Welcome to Mirantis’
    CloudCare Portal and follow the instructions for logging in.
@@ -23,44 +23,42 @@ information, refer to [Mirantis Agreements and Terms](https://legal.mirantis.com
    have not yet been added as a Designated Contact. To remedy this, contact
    your Designated Administrator.
 
-3. In the top navigation bar, click **Environments**.
+2. Click **Environments** in the top navigation bar of the MKE web UI.
 
-4. Click the **Cloud Name** associated with the license you want to download.
+3. Click the **Cloud Name** that is associated with the license you want to download.
 
-5. Scroll down to **License Information** and click the **License File URL**. 
+4. Scroll down to **License Information** and click the **License File URL**. 
    A new tab opens in your browser.
 
-6. Click **View file** to download your license file.
+5. Click **View file** to download your license file.
 
 {{< callout type="info" >}}
 
-Though MKE is generally a subscription-only service, Mirantis offers a free
-trial license by request. Use our [contact form](https://www.mirantis.com/contact)
-to request a free trial license.
+Though MKE4 is generally a subscription-only service, you can obtain a free trial license from Mirantis. Make your request using the [Mirantis contact form](https://www.mirantis.com/contact).
 
 {{< /callout >}}
 
-## Set the license in MKE web UI
+## Set the license
 
-1. Log in to your MKE instance using an administrator account.
+1. Log in to the MKE web UI with an administrator account.
 
-2. In the left panel, navigate to **Admin Settings** -> **License**. 
+2. In the left-side navigation panel, navigate to **Admin Settings** -> **License**. 
 3. Paste the token as a string into a **license key** text box, or click
    **Choose File** and select a license key (.lic) file from a modal.
 
    ![Add a license](img/add-a-license.png)
 
-4. Click **Save settings**. MKE will automatically update with the new settings.
+4. Click **Save settings** to update the MKE4 license.
 
 ## Set the license in the configuration
 
-1. Set the license token under ``spec.license.token`` in the MKE 4
+1. Set the license under ``spec.license.token`` in the MKE4
    configuration file:
 
     ```yaml
     spec:
       license:
-        token: <your-license-token>
+        token: <your-license-file>
     ```
 
 2. Apply the license:
@@ -69,7 +67,7 @@ to request a free trial license.
    mkectl apply
    ```
 
-3. Check the license status, users can see the status of the ``mkeconfig``
+3. Check the license status:
    resource:
 
    ```commandline
