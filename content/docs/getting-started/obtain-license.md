@@ -16,12 +16,9 @@ information, refer to [Mirantis Agreements and Terms](https://legal.mirantis.com
 
 ## Obtain your MKE4 license
 
-1. Open an email from Mirantis Support with the subject Welcome to Mirantis’
-   CloudCare Portal and follow the instructions for logging in.
-
-2. If you did not receive the CloudCare Portal email, it is likely that you
-   have not yet been added as a Designated Contact. To remedy this, contact
-   your Designated Administrator.
+1. Locate the Welcome to Mirantis' CloudCare Portal email sent to you from Mirantis
+   Support. If you do not have the email, confirm with your Designated Administrator
+   that you have added as a Designated Contact.
 
 2. Click **Environments** in the top navigation bar of the MKE web UI.
 
@@ -41,10 +38,11 @@ Though MKE4 is generally a subscription-only service, you can obtain a free tria
 ## Set the license
 
 1. Log in to the MKE web UI with an administrator account.
-
-2. In the left-side navigation panel, navigate to **Admin Settings** -> **License**. 
-3. Paste the token as a string into a **license key** text box, or click
-   **Choose File** and select a license key (.lic) file from a modal.
+2. In the left-side navigation panel, navigate to **Admin Settings** -> **License**.
+3. Insert the license into the **license key** field. To do this, click
+   **Choose File** and navigate to the ``.lic`` file you previously downloaded.
+   Alternately, you can copy-paste the contents of the ``.lic`` file into the
+   field as a text string.
 
    ![Add a license](img/add-a-license.png)
 
