@@ -10,12 +10,9 @@ information, refer to [Mirantis Agreements and Terms](https://legal.mirantis.com
 
 {{< /callout >}}
 
-After you [Install the MKE image](install-MKE-CLI.md), proceed with downloading
-your MKE license as described below. This section also contains steps to apply
-your new license using the MKE web UI and configuration file.
-
 ## Obtain your MKE4 license
 
+[Install the MKE image](install-MKE-CLI.md) prior to downloading your MKE4 license.
 1. Locate the Welcome to Mirantis' CloudCare Portal email sent to you from Mirantis
    Support. If you do not have the email, confirm with your Designated Administrator
    that you have added as a Designated Contact.
@@ -66,7 +63,6 @@ Though MKE4 is generally a subscription-only service, you can obtain a free tria
    ```
 
 3. Check the license status:
-   resource:
 
    ```commandline
    kubectl -n mke get mkeconfig mke -ojsonpath="{.status.licenseStatus}" | jq 
