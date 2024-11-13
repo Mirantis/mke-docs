@@ -145,18 +145,22 @@ restoring the MKE 3 cluster to its original state.
 
 ## RBAC Migrations
 
-As MKE 4 no longer supports Swarm mode, the platform uses vanilla Kubernetes
-RBAC for authorization. Thus, the authorization configuration for Swarm mode
-does not exist in MKE 4.
+As MKE 4 does not support Swarm mode, the platform uses standard [Kubernetes
+RBAC authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
+As such, the Swarm authorization configuration that is in place for MKE 3 is not present in MKE 4.
 For further details, refer to the official Kubernetes documentation on
 [Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
-MKE 4 has replaced ``orgs`` and ``teams`` with Kubernetes ``AggregatedRoles``. 
-This new approach enables the same RBAC hierarchy as in MKE 3 
-using ``orgs`` and ``teams``, but without the restriction of the two-level
-limitation.
 
-**Example org/team/user structure from MKE 3:**
+###Groups
+
+To enable the same RBAC hierarchy as in MKE 3 with ``orgs`` and ``teams`` groups, but
+without the two-level limitation, MKE 4 replaces ``orgs`` and ``teams`` with
+the Kubernetes ``AggregatedRoles``. 
+
+**MKE version comparison: Authorization structures**
+
+MKE 3:
 
 ```
 ├── entire-company (org)
@@ -168,11 +172,7 @@ limitation.
 │   ├── sales (team)
 ```
 
-The upgrade process translates an existing org/team/user structure in
-the following way.
-
-**Example of the same structure in MKE 4 created using ``AggregatedRoles``:**
-
+MKE 4:
 ```
 ├── entire-company-org (AggregatedRole)
 │   ├── development-team (AggregatedRole)
@@ -185,11 +185,12 @@ the following way.
 
 ### Roles
 
-Roles are integrated into the org, team, and user structure by being bound to 
-the aggregated roles.
-What was previously an organisation or a team role will now have ``-org`` or
-``-team`` appended to its name. A role can be assigned at any level in the
-hierarchy, granting its permissions to all members at that level.
+Roles are bound to the aggregated roles for integration into the org, team, and user structure.
+Thus, what was previously an organization or a team role will have ``-org`` or ``-team``
+appended to its name.
+
+A role can be assigned at any level in the hierarchy, with its permissions granted to all members
+at that same level.
 
 **Example organization binding:**
 
@@ -204,7 +205,7 @@ hierarchy, granting its permissions to all members at that level.
 ```
 
 
-In the example above, all members of the ``entire-company`` org have
+In the example above, all members of the ``entire-company`` org group have
 ``view`` permissions. This includes the ``development-team``,
 ``production-team``, ``sales-team``, ``bob``, and ``bill``.
 
@@ -221,11 +222,11 @@ members of the development team, which only includes ``bob``.
 {{< callout type="warning" >}}
 
 Swarm roles are partially translated to Kubernetes roles. During migration,
-any detected Swarm role is replicated without permissions,
+any detected Swarm role is replicated without permissions, thus
 preserving the org/team/user structure.
-If no Swarm roles are detected, ``none`` role is created as a placeholder
-because Kubernetes requires each aggregated role to have at least one role.
-The ``none`` role has no permissions and is only used to maintain the
+If no Swarm roles are detected, a ``none`` role is created as a placeholder,
+as Kubernetes requires each aggregated role to have at least one role.
+This ``none`` role has no permissions, with its only purpose being to maintain
 structural integrity.
 
 {{< /callout >}}
