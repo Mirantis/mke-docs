@@ -156,29 +156,18 @@ To enable the same RBAC hierarchy as in MKE 3 with ``orgs`` and ``teams`` groups
 without the two-level limitation, MKE 4 replaces ``orgs`` and ``teams`` with
 the Kubernetes ``AggregatedRoles``. 
 
-**MKE version comparison: Authorization structures**
-
-MKE 3:
+**Authorization structure comparison:**
 
 ```
-├── entire-company (org)
-│   ├── development (team)
-│   │   ├── bob (user)
-│   ├── production (team)
-│   │   ├── bob (user)
-│   │   ├── bill (user)
-│   ├── sales (team)
-```
+MKE 3:                           MKE 4:
 
-MKE 4:
-```
-├── entire-company-org (AggregatedRole)
-│   ├── development-team (AggregatedRole)
-│   │   ├── bob (user)
-│   ├── production-team (AggregatedRole)
-│   │   ├── bob (user)
-│   │   ├── bill (user)
-│   ├── sales-team (AggregatedRole)
+├── entire-company (org)         ├── entire-company-org (AggregatedRole)
+│   ├── development (team)       ├── development-team (AggregatedRole)
+│   │   ├── bob (user)           │   ├── bob (user)
+│   ├── production (team)        ├── production-team (AggregatedRole)
+│   │   ├── bob (user)│          │   ├── bob (user)
+│   │   ├── bill (user)          │   ├── bill (user)
+│   ├── sales (team)             ├── sales-team (AggregatedRole)
 ```
 
 ### Roles
