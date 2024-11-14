@@ -14,30 +14,23 @@ obtain it from the release archives and install it manually.
 {{< tabs items="Krew installation,Manual installation" >}}
 
     {{< tab >}}
-    1. Install the support bundle plugin.
-       Follow the steps based on whether you have the Krew plugin manager installed:
-
-       - To install both Krew and the support bundle plugin in one step, run:
-
-       ```commandline
-       curl https://krew.sh/support-bundle | bash
-       ```
-       Next, skip to step 3, as the installation command automatically adds the
-       plugin path to your ``PATH`` environment variable.
-
-       - If Krew is already installed, install the support bundle plugin with:
+    1. Optional. Install the Krew plugin manager if is not yet installed on your
+       system. For detailed instruction, refer to the official Krew documentaiton
+       [Installing](https://krew.sigs.k8s.io/docs/user-guide/setup/install/).
+    
+    2. Install the support bundle plugin:
         
        ```commandline
        kubectl krew install support-bundle
-       ```
 
-    2. Append the ``$HOME/.krew/bin`` directory to your ``$PATH`` environment variable:
+
+    3. Append the ``$HOME/.krew/bin`` directory to your ``$PATH`` environment variable:
 
        ```commandline
        export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
        ```
 
-    3. Verify the support bundle plugin installation:
+    4. Verify the support bundle plugin installation:
 
        1. Restart your shell.
 
