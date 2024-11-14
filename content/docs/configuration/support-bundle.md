@@ -31,7 +31,7 @@ from the release archives.
        kubectl krew install support-bundle
        ```
 
-    2. Append the ``$HOME/.krew/bin`` directory to your ``PATH`` environment variable:
+    2. Append the ``$HOME/.krew/bin`` directory to your ``$PATH`` environment variable:
 
        ```commandline
        export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
