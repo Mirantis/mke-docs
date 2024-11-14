@@ -76,7 +76,7 @@ Though MKE4 is generally a subscription-only service, you can obtain a free tria
      "licenseType": "Offline",
      "maxEngines": 10,
      "scanningEnabled": true,
-     "subject": "sf|0014W0000341gYFQAY|a2X4W000000ZeatUAC",
+     "subject": "example",
      "tier": "Production"
    }
    ```
