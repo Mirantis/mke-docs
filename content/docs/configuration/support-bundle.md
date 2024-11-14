@@ -9,7 +9,7 @@ kubectl extension support bundle plugin installed.
 ## Install the support bundle plugin
 
 You can install the support bundle plugin using Krew plugin manager, or you can
-obtain it from the release archives and install it manually.
+obtain the support bundle plugin from the release archives and install it manually.
 
 {{< tabs items="Krew installation,Manual installation" >}}
 
@@ -55,7 +55,10 @@ obtain it from the release archives and install it manually.
 
 {{< /tabs >}}
 
-## Upgrade support bundle
+## Upgrade a support bundle
+
+The instruction for upgrading the support bundle plugin corresponds to the
+method that was used to install the plugin. 
 
 {{< tabs items="Krew upgrade,Manual upgrade" >}}
 
@@ -76,7 +79,7 @@ obtain it from the release archives and install it manually.
     curl -L https://github.com/replicatedhq/troubleshoot/releases/latest/download/support-bundle_linux_amd64.tar.gz | tar xzvf -
     ```
 
-    2. Replace existing plugin with the downloaded one:
+    2. Replace the existing plugin with the new version:
 
     ```commandline
     sudo mv ./support-bundle /usr/local/bin/kubectl-support_bundle
