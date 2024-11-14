@@ -16,7 +16,7 @@ information, refer to [Mirantis Agreements and Terms](https://legal.mirantis.com
 
 1. Locate the Welcome to Mirantis' CloudCare Portal email sent to you from Mirantis
    Support. If you do not have the email, confirm with your Designated Administrator
-   that you have added as a Designated Contact.
+   that you have been added as a Designated Contact.
 
 2. Click **Environments** in the top navigation bar of the MKE web UI.
 
