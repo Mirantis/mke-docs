@@ -125,13 +125,8 @@ method that was used to install the plugin.
 
     The example ``your-support-bundle.yaml`` file that follows:
     
-    - Captures cluster information.
-    - Includes sets of cluster resources that are added automatically and cannot be removed:
-
-      - [clusterInfo](https://troubleshoot.sh/docs/collect/cluster-info/) -
-        collects basic information about the cluster
-      - [clusterResources](https://troubleshoot.sh/docs/collect/cluster-resources/)
-        enumerates all available resources in the cluster
+    - Collects basic information about the cluster.
+    - Enumerates all available resources in the cluster.
     - Collects logs from the ``blueprint-controller-manager`` and
       ``blueprint-operator-webhook`` pods, in the ``logs/`` directory of the output.
     
