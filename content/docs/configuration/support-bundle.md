@@ -40,9 +40,9 @@ obtain the support bundle plugin from the release archives and install it manual
     
     {{< tab >}}
     
-    If you do not want to install the plugin using Krew or want a simpler
-    way to install the plugin in an air gap environment, you can install the
-    plugin manually from the release archives.
+    You can manually install the support bundle plugin from the release archives.
+    A key advantage this method offers is that it facilitates the installation
+    in air gap environments.
     
     Run the following command to download and unarchive the latest release,
     and move the plugin to your ``$PATH``:
@@ -60,7 +60,7 @@ obtain the support bundle plugin from the release archives and install it manual
 The instruction for upgrading the support bundle plugin corresponds to the
 method that was used to install the plugin. 
 
-{{< tabs items="Krew upgrade,Manual upgrade" >}}
+{{< tabs items="Krew installation,Manual installation" >}}
 
     {{< tab >}}
     Run the following krew command to upgrade your existing support-bundle:
