@@ -8,7 +8,8 @@ kubectl extension support bundle plugin installed.
 
 ## Install the support bundle plugin
 
-You can install the support bundle plugin using Krew plugin manager, or you can obtain it from the release archives and install it manually.
+You can install the support bundle plugin using Krew plugin manager, or you can
+obtain it from the release archives and install it manually.
 
 {{< tabs items="Krew installation,Manual installation" >}}
 
@@ -36,7 +37,11 @@ You can install the support bundle plugin using Krew plugin manager, or you can 
        export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
        ```
 
-    3. Restart your shell and run ``kubectl krew`` to verify the installation.
+    3. Verify the support bundle plugin installation:
+
+       1. Restart your shell.
+
+       2. Run the ``kubectl krew`` command.
     
     {{< /tab >}}
     
@@ -57,17 +62,41 @@ You can install the support bundle plugin using Krew plugin manager, or you can 
 
 {{< /tabs >}}
 
-## Upgrade support bundle using Krew
+## Upgrade support bundle
 
-Run the following krew command to upgrade your existing support-bundle:
+{{< tabs items="Krew upgrade,Manual upgrade" >}}
 
-```commandline
-kubectl krew upgrade support-bundle
-```
+    {{< tab >}}
+    Run the following krew command to upgrade your existing support-bundle:
+   
+    ```commandline
+    kubectl krew upgrade support-bundle
+    ```
+    {{< /tab >}}
+
+    {{< tab >}}
+    Run the following commands to manually upgrade your existing support-bundle:
+    
+    1. Download the latest version of the plugin:
+
+    ```commandline
+    curl -L https://github.com/replicatedhq/troubleshoot/releases/latest/download/support-bundle_linux_amd64.tar.gz | tar xzvf -
+    ```
+
+    2. Replace existing plugin with the downloaded one:
+
+    ```commandline
+    sudo mv ./support-bundle /usr/local/bin/kubectl-support_bundle
+    ```
+
+    {{< /tab >}}
+
+{{< /tabs >}}
 
 ## Uninstall a support bundle
 
-The instruction for uninstalling the support bundle plugin corresponds to the method that was used to install the plugin. 
+The instruction for uninstalling the support bundle plugin corresponds to the
+method that was used to install the plugin. 
 
 {{< tabs items="Krew installation,Manual installation" >}}
 
@@ -97,7 +126,12 @@ The instruction for uninstalling the support bundle plugin corresponds to the me
     The example ``your-support-bundle.yaml`` file that follows:
     
     - Captures cluster information.
-    - Sets of cluster resources.
+    - Includes sets of cluster resources that are added automatically and cannot be removed:
+
+      - [clusterInfo](https://troubleshoot.sh/docs/collect/cluster-info/) -
+        collects basic information about the cluster
+      - [clusterResources](https://troubleshoot.sh/docs/collect/cluster-resources/)
+        enumerates all available resources in the cluster
     - Collects logs from the ``blueprint-controller-manager`` and
       ``blueprint-operator-webhook`` pods, in the ``logs/`` directory of the output.
     
