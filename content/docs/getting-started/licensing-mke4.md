@@ -32,7 +32,7 @@ Though MKE4 is generally a subscription-only service, you can obtain a free tria
 
 {{< /callout >}}
 
-## Set the license
+## Add the license
 
 1. Log in to the MKE web UI with an administrator account.
 2. In the left-side navigation panel, navigate to **Admin Settings** -> **License**.
