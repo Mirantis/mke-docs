@@ -3,15 +3,14 @@ title: Support bundle
 weight: 4
 ---
 
-The support bundle plugin, a kubectl extension, is required to generate support
-bundles directly from the command line.
+To generate support bundles directly from the command line, you must have the
+kubectl extension support bundle plugin installed.
 
-## Install the support bundle
+## Install the support bundle plugin
 
-You can install the support bundle plugin using Krew plugin manager or manually
-from the release archives.
+You can install the support bundle plugin using Krew plugin manager, or you can obtain it from the release archives and install it manually.
 
-{{< tabs items="Install using Krew,Install manually" >}}
+{{< tabs items="Krew installation,Manual installation" >}}
 
     {{< tab >}}
     1. Install the support bundle plugin.
@@ -60,18 +59,17 @@ from the release archives.
 
 ## Upgrade support bundle using Krew
 
-To upgrade your existing support-bundle plugin using Krew run:
+Run the following krew command to upgrade your existing support-bundle:
 
 ```commandline
 kubectl krew upgrade support-bundle
 ```
 
-## Uninstall support bundle
+## Uninstall a support bundle
 
-Choose the method used during a plugin installation process, and follow the
-steps to uninstall the support bundle:
+The instruction for uninstalling the support bundle plugin corresponds to the method that was used to install the plugin. 
 
-{{< tabs items="Uninstall using Krew,Uninstall manually" >}}
+{{< tabs items="Krew installation,Manual installation" >}}
 
     {{< tab >}}
     Run the following command to remove the support bundle plugin:
@@ -81,9 +79,9 @@ steps to uninstall the support bundle:
     ```
     {{< /tab >}}
     {{< tab >}}
-    1. Delete the support-bundle binary file from the location where it was placed
-      during installation. 
-    2. Run the following command to remove the support bundle:
+    1. Delete the `support-bundle` binary file from where it was placed
+      at installation. 
+    2. Remove the support bundle:
     
       ```commandline
       sudo rm /usr/local/bin/kubectl-support_bundle
@@ -92,19 +90,16 @@ steps to uninstall the support bundle:
   
 {{< /tabs >}}
 
-## Define data for collecting
+## Create a support bundle
 
-1. Define what the support bundle should collect and, optionally, analyze,
-   by creating a YAML file that outlines the support bundle configuration
+1. Construct a YAML file to set the support bundle configuration.
 
-    The following example configuration:
+    The example ``your-support-bundle.yaml`` file that follows:
     
     - Captures cluster information.
     - Sets of cluster resources.
     - Collects logs from the ``blueprint-controller-manager`` and
       ``blueprint-operator-webhook`` pods, in the ``logs/`` directory of the output.
-    
-    Example ``support-bundle-worker.yaml`` file:
     
     ```yaml
       apiVersion: troubleshoot.sh/v1beta2
@@ -125,18 +120,17 @@ steps to uninstall the support bundle:
               name: logs/blueprint-system
     ```
 
-2. Generate the support bundle by pointing to your specification file using
-   the following command:
+2. Generate the support bundle:
 
     ```commandline
     kubectl support-bundle ./path-to-your-support-bundle.yaml
     ```
 
-   By default, it collects cluster information and cluster resources.
+   By default, the support bundle collects cluster information and cluster resources.
     
-   For a full list of available in-cluster collectors, refer to the
-   [All Collectors](https://troubleshoot.sh/docs/collect/all/)
-   in the official Troubleshoot documentation.
+   For a comprehensive list of available in-cluster collectors, refer to the official
+   Troubleshoot [All Collectors](https://troubleshoot.sh/docs/collect/all/)
+   documentation.
 
 ## Collect host information using the k0s-provided YAML file
 
