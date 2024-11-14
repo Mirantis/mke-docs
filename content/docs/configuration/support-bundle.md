@@ -14,13 +14,18 @@ from the release archives.
 {{< tabs items="Install using Krew,Install manually" >}}
 
     {{< tab >}}
-    1. Install Krew plugin manager and the support bundle plugin at the same time:
+    1. Install the support bundle plugin.
+       Follow the steps based on whether you have the Krew plugin manager installed:
+
+       - To install both Krew and the support bundle plugin in one step, run:
 
        ```commandline
        curl https://krew.sh/support-bundle | bash
        ```
-    
-       If you already have Krew installed, run the following command to install the plug-in:
+       Next, skip to step 3, as the installation command automatically adds the
+       plugin path to your ``PATH`` environment variable.
+
+       - If Krew is already installed, install the support bundle plugin with:
         
        ```commandline
        kubectl krew install support-bundle
@@ -38,9 +43,12 @@ from the release archives.
     
     {{< tab >}}
     
-    If you do not want to install the plugin using ``krew`` or want an easier way to install the plugin in an air gap environment, you can install the plugin manually from the release archives.
+    If you do not want to install the plugin using Krew or want a simpler
+    way to install the plugin in an air gap environment, you can install the
+    plugin manually from the release archives.
     
-    Run the following command to download and unarchive the latest release, and move the plugin to your ``$PATH``:
+    Run the following command to download and unarchive the latest release,
+    and move the plugin to your ``$PATH``:
     
     ```commandline
     curl -L https://github.com/replicatedhq/troubleshoot/releases/latest/download/support-bundle_linux_amd64.tar.gz | tar xzvf -
