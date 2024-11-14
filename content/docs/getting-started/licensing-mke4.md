@@ -48,7 +48,7 @@ Though MKE4 is generally a subscription-only service, you can obtain a free tria
 
 ## Set the license in the configuration
 
-1. Set the license under ``spec.license.token`` in the MKE4
+1. Insert the license into ``spec.license.token`` in the MKE4
    configuration file:
 
     ```yaml
