@@ -1,37 +1,36 @@
 ---
-title: Features
+title: MKE4 Features
 weight: 1
 ---
 
-The table that follows details MKE 4 features and their current status. In
-addition, where applicable, the table offers links to associated documentation.
+The table that follows details MKE 4 features and their current status.
 
 | Feature                                                          |  Status   | 
 |------------------------------------------------------------------|-----------|
-| Authentication                                                   | Done      |  
-| Authorization                                                    | Done      |   
+| [Authentication](../../configuration/authentication)             | Done      |
+| [Authorization](../../migrate-from-mke-3/#rbac-migrations)       | Done      |
 | [Backup and restore](../../configuration/backup-restore)         | Done      |
 | CIS Benchmark                                                    | Not planned for 4.0.0           |
-| CLI                                                              | Done      |
-| Cloud Providers                                                  | AWS only  |
-| CoreDNS                                                          | Done      |
-| cAdvisor                                                         | Done      |
+| [CLI](../../getting-started/install-MKE-CLI)                     | Done      |
+| [Cloud Providers](../../configuration/cloudproviders)            | AWS only  |
+| [CoreDNS Lameduck](../../configuration/coredns-lameduck)         | Done      |
+| [cAdvisor](../../configuration/monitoring/#cadvisor)             | Done      |
 | gMSA                                                             | Not planned for 4.0.0            |
 | GPU Feature Discovery                                            | Done      |
 | [Ingress](../../configuration/ingress)                           | Done      |
-| [Kubernetes](../../concepts/architecture)                        | 1.31 Done |
+| [Kubernetes](../../concepts/architecture)                        | 1.31      |
 | Life Cycle Management                                            | Not planned for 4.0.0          |
-| Licensing                                                        | Planned for rc.3          |
-| Load Balancing                                                   | Done      |
-| Logging, Monitoring and Alerting                                 | Done      |  
-| [Networking (CNI)](../../concepts/cni)                           | Calico MVP Supported      |  
-| Node Feature Discovery                                           | Done      |
+| Licensing                                                        | Done      |
+| [Load Balancing](../../configuration/metallb)                    | Done      |
+| Logging, Monitoring and Alerting                                 | Done      |
+| [Networking (CNI)](../../concepts/cni)                           | Calico MVP Supported      |
+| [Node Feature Discovery (NFD)](../../configuration/node-feature-discovery)   | Done      |
 | Offline Bundle                                                   | Not planned for 4.0.0           |
 | OpsCare                                                          | Not planned for 4.0.0           |
-| Policy Controller                                                | Done      |
+| [Policy Controller](../../configuration/policycontroller)        | Done      |
 | Storage (CSI)                                                    | Not planned for 4.0.0          |
 | Support Dump                                                     | Documentation Only           |
-| Telemetry                                                        | Done      |
+| [Telemetry](../../configuration/telemetry)  |                    | Done      |
 | 2FA                                                              | Not planned for 4.0.0          |
 | [Web UI](../../configuration/dashboard)                          | Done      |
 | Windows                                                          | Not planned for 4.0.0            |

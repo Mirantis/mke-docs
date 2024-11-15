@@ -4,12 +4,11 @@ weight: 4
 
 # Release notes
 
-Welcome to the release notes for our latest software update. This section provides
-a comprehensive overview of the new features, enhancements, bug fixes, and any known
-issues. Our goal is to keep you informed about the changes and improvements, ensuring
-you can make the most of the new capabilities and optimizations.
+The MKE4 release notes provide a comprehensive overview of new features,
+enhancements, addressed issues, major middleware component versions, known
+issues, and security concerns.
 
 {{< cards >}}
   {{< card link="features" title="Features" icon="lightning-bolt" >}}
-  {{< card link="known-issues" title="Known issues" icon="support" >}}
+  {{< card link="4.0.0" title="4.0.0" icon="lightning-bolt" >}}
 {{< /cards >}}

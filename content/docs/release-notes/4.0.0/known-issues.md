@@ -1,6 +1,6 @@
 ---
 title: Known issues
-weight: 2
+weight: 4
 ---
 
 The MKE 4 known issues with available workarounds are described herein.
