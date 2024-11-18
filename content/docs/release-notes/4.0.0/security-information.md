@@ -1,6 +1,6 @@
 ---
 title: Security information
-weight: 5
+weight: 6
 ---
 
 MKE 4.0.0 is an initial version release, and as such there are no security
