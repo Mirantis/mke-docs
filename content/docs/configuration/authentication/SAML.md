@@ -13,7 +13,6 @@ authentication:
   saml:
     enabled: true
     ssoURL: https://dev64105006.okta.com/app/dev64105006_mke4saml_1/epkdtszgindywD6mF5s7/sso/saml
-    redirectURI: http://www.example.com/dex/callback
     usernameAttr: name
     emailAttr: email
 ```
@@ -35,7 +34,6 @@ refer to [Setting up Okta as a SAML provider](../../../tutorials/authentication-
 | `ca`                              | Certificate Authority (CA) alternative to `caData` to use when validating the signature of the SAML response. Must be manually mounted in a local accessible by dex.                                       |
 | `caData`                          | CA alternative to `ca`, which you can use to place the certificate data directly into the config file.                                                                                                     |
 | `ssoURL`                          | URL to provide to users to sign into MKE 4 with SAML. Provided by the IdP.                                                                                                                                 |
-| `redirectURI`                     | Callback URL for dex to which users are returned to following successful IdP authentication.                                                                                                               |
 | `insecureSkipSignatureValidation` | Optional. Use to skip the signature validation. For testing purposes only.                                                                                                                                 |
 | `usernameAttr`                    | Username attribute in the returned assertions, to map to ID token claims.                                                                                                                                  |
 | `emailAttr`                       | Email attribute in the returned assertions, to map to ID token claims.                                                                                                                                     |
