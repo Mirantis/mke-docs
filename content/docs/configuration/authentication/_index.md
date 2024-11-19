@@ -36,7 +36,6 @@ authentication protocol, set its `enabled` configuration option to `true`.
 
 ```yaml
 authentication:
-  enabled: true
   ldap:
     enabled: false
   oidc:
@@ -49,7 +48,6 @@ You can use the `expiry` section of the configuration file to set the expiration
 
 ```yaml
 authentication:
-  enabled: true
   expiry:
     refreshTokens: {}
 ```

@@ -10,7 +10,6 @@ OIDC example configuration:
 
 ```yaml
 authentication:
-  enabled: true
   oidc:
     enabled: true
     issuer: https://dev-94406016.okta.com
