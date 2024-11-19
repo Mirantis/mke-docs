@@ -8,19 +8,11 @@ To configure an Okta application to serve as your [SAML authentication](../../..
 1. Navigate to (Okta)[https://www.okta.com/] and sign in to your account dashboard.
 2. Select **SAML 2.0** for **Sign-in method**.
 3. Enter an **App name** that is easy to remember.
-4. Configure the host for your redirect URLs:
-   - Single sign-on URL: `http://{MKE hostname}/dex/callback`
-   - Audience URI (SP Entity ID): `http://{MKE hostname}/dex/callback`
-   - Attribute statements:
-     - Name: email
-       <br>Value: user.email
-     - Name: name
-       <br>Value: user.login
-5. Click **Save**.
-6. Click **Finish**.
-7. Navigate to the **Assignments** tab:
-8. Click **Assign** -> **Assign to people**.
-9. Click the blue **Assign** button that corresponds to the account you want to use for authentication.
+4. Click **Save**.
+5. Click **Finish**.
+6. Navigate to the **Assignments** tab:
+7. Click **Assign** -> **Assign to people**.
+8. Click the blue **Assign** button that corresponds to the account you want to use for authentication.
 
    - Okta generates the `ssoURL` and certificate under the `Sign On` tab.
    - The `ssoURL` is the MetadataURL with the final metadata removed from the path.
@@ -63,7 +55,6 @@ Example `ssoMetadataURL` information:
 <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
 <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
 <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://dev-64105006.okta.com/app/dev-63105106_mke_2/exk75pi5do2MzU1t95r7/sso/saml"/>
-<md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://dev-63105106.okta.com/app/dev-63105106_mke_2/exk75pi5do2MzU1t95r7/sso/saml"/>
 </md:IDPSSODescriptor>
 </md:EntityDescriptor>
 ```
@@ -81,7 +72,6 @@ authentication:
   saml:
     enabled: true
     ssoURL: https://dev64105006.okta.com/app/dev64105006_mke4saml_1/epkdtszgindywD6mF5s7/sso/saml
-    redirectURI: https://{MKE host}/dex/callback
     usernameAttr: name
     emailAttr: email
     caData: |
@@ -111,7 +101,6 @@ The table that follows provides detail on how to obtain the information for the 
 |    Parameter   | Detail                                                                                                                                                                                                                                                                                                         |
 |:--------------:|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  `ssoURL`      | Obtain the `ssoURL` and certificate information from Okta:<br>  1. Navigate to **Applications -> Applications -> Your application**.<br>  2. Click the **Sign On** tab.<br>  3. Click the **View SAML setup instructions** link. The `ssoURL` displays in the `Identity Provider Single Sign-On URL` section. |
-| `redirectURI`  | The external address of your cluster, with `/dex/callback` appended.                                                                                                                                                                                                                                           |
 | `usernameAttr` | Attribute that maps the username to the MKE user.                                                                                                                                                                                                                                                            |
 | `emailAttr`    | Attribute that maps the email address to the MKE user.                                                                                                                                                                                                                                                         |
 | `caData`       | Obtain the Certificate information from Okta:<br>  1. Navigate to **Applications -> Applications -> Your application**.<br>  2. Click the **Sign On** tab.<br>  3. Click the **View SAML setup instructions** link. The certificate displays in the `X.509 Certificate` section.                              |
