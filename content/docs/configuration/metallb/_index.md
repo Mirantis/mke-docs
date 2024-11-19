@@ -205,6 +205,33 @@ metadata:
   namespace: metallb-system
 ```
 
+### Request specific IP address pools
+
+With MetalLB, you can request assignment from a specific address pool, if you
+prefer a particular address IP address type but do not require an exact
+address. To do this, add `metallb.universe.tf/address-pool` to your
+service, setting the annotation value to the name of your chosen address pool. 
+
+MetalLB example configuration:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  annotations:
+    metallb.universe.tf/address-pool: production-public-ips
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: nginx
+  type: LoadBalancer
+```
+
+For more information, refer to the official MetalLB documentation [Requesting specific IPs](https://metallb.universe.tf/usage/index.html#requesting-specific-ips).
+
 ## Uninstall MetalLB
 
 1. Obtain the MKE 4 configuration file.
