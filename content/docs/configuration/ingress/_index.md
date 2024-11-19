@@ -41,6 +41,28 @@ detailed in the following table.
 | ports                           | Sets the port for the internalHTTP/HTTPS listener.                                                                                                                                                                                                                                                                                                                                              | HTTP: 80, HTTPS: 443                                                               |
 | disableHttp                     | Disables the HTTP listener.                                                                                                                                                                                                                                                                                                                                                                     | false                                                                              |
 
+### Node ports operation for MKE 3 to MKE 4 upgrade
+
+The handling of node ports during an upgrade from MKE 3 to MKE 4 differs,
+depending on several factors, as illustrated below:
+
+|MKE 3&nbsp;NodePort&nbsp;Range | 	Ingress&nbsp;Controller in MKE 3 |	Ingress NodePorts&nbsp;in&nbsp;MKE 4                                                             |
+|----------------------|-----------------------------|---------------------------------------------------------------------------------------------|
+|Default              | 	Enabled                     |	Uses the ports set in MKE 3.                                           |
+|Default              |	Disabled	                    |   Default ports:<br><br>HTTP: 33000<br>HTTPS: 33001                                               |
+|Custom	              |  Enabled	                    |   Uses the ports set in MKE 3.                                           |
+|Custom	              |  Disabled	                    |   Reserves the first two static ports from the NodePort range for the Ingress Controller. |
+
+
+{{< callout type="info" >}}
+
+The calculation of the static NodePort range is calculated based on the official Kubernetes
+documentation [How can you avoid NodePort Service port conflicts?](https://kubernetes.io/blog/2023/05/11/nodeport-dynamic-and-static-allocation/#how-can-you-avoid-nodeport-service-port-conflicts).
+
+{{< /callout >}}
+
+Thus, if the NodePort range is `30000-32767`, the NodePorts for the ingress controller will be `30000` and `30001`.
+
 ### Affinity
 
 You can specify node affinities using the
