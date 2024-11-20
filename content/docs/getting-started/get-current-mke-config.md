@@ -3,7 +3,7 @@ title: Get the current MKE configuration file
 weight: 6
 ---
 
-To obtain the current MKE 4 configuration file from your MKE 4 cluster, run the `config get` command:
+To obtain the current MKE 4 configuration file from your MKE 4 cluster, run:
 
 ```shell
 mkectl --kubeconfig ~/.mke/mke.kubeconf config get
