@@ -1,0 +1,43 @@
+---
+title: Basic authentication
+weight: 1
+---
+
+By default, an admin user is created whenevr you create a fresh cluster, with the username `admin` and a randomly-generated password. This password is printed out after successfully creating the cluster.
+
+{{< callout type="info" >}}
+The password is printed following the successful creation of the cluster.
+It is not stored anywhere on the cluster, and it is not possible to retrieve it
+later. Thus, if the password is not saved in the install output logs, you must recreate the cluster to gain access.
+{{< /callout >}}
+
+## Manage users
+
+1. Log in to the MKE Dashboard as an administrator.
+
+2. Navigate to **Access Control** --> **Users**.
+
+### Create users
+
+1. Click the **Create User** button to access the **User Creation** page.
+
+2. Enter the perinent information into the following fields:
+
+* username
+* password
+* confirm password
+
+If you are creating another admin user, check the admin box to make the user an admin.
+
+name
+The name of the user is also available but this is an optional field and not used by anything in the MKE system.
+
+## Change a password
+
+To change a users, click on the user's name in the list to change to the user's page. In the top right of the user's page, click the Update Password button. You will be asked to enter the new password and confirm the new password.
+
+#3 Delete users
+
+To delete a user, you must first check the box on the left of the user on the user management page. Once it is checked, the actions dropdown in the top right of the page will now have the option to remove the user. This method allows multiple users to be removed at once.
+
+You may also click on the user's name to change to the user's page with all of their specific information. Click on Delete in the top right of their page to remove the user from the system.
