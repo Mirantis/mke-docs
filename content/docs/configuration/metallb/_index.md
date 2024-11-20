@@ -208,7 +208,7 @@ metadata:
 ### Request specific IP address pools
 
 With MetalLB, you can request assignment from a specific address pool, if you
-prefer a particular address IP address type but do not require an exact
+prefer a particular IP address type but do not require an exact
 address. To do this, add `metallb.universe.tf/address-pool` to your
 service, setting the annotation value to the name of your chosen address pool. 
 
