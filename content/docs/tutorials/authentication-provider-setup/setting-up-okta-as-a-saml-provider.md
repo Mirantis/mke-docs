@@ -81,7 +81,6 @@ authentication:
   saml:
     enabled: true
     ssoURL: https://dev64105006.okta.com/app/dev64105006_mke4saml_1/epkdtszgindywD6mF5s7/sso/saml
-    redirectURI: https://{MKE host}/dex/callback
     usernameAttr: name
     emailAttr: email
     caData: |
@@ -111,7 +110,6 @@ The table that follows provides detail on how to obtain the information for the 
 |    Parameter   | Detail                                                                                                                                                                                                                                                                                                         |
 |:--------------:|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  `ssoURL`      | Obtain the `ssoURL` and certificate information from Okta:<br>  1. Navigate to **Applications -> Applications -> Your application**.<br>  2. Click the **Sign On** tab.<br>  3. Click the **View SAML setup instructions** link. The `ssoURL` displays in the `Identity Provider Single Sign-On URL` section. |
-| `redirectURI`  | The external address of your cluster, with `/dex/callback` appended.                                                                                                                                                                                                                                           |
 | `usernameAttr` | Attribute that maps the username to the MKE user.                                                                                                                                                                                                                                                            |
 | `emailAttr`    | Attribute that maps the email address to the MKE user.                                                                                                                                                                                                                                                         |
 | `caData`       | Obtain the Certificate information from Okta:<br>  1. Navigate to **Applications -> Applications -> Your application**.<br>  2. Click the **Sign On** tab.<br>  3. Click the **View SAML setup instructions** link. The certificate displays in the `X.509 Certificate` section.                              |

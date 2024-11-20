@@ -32,7 +32,6 @@ For information on how to obtain the field values, refer to [Setting up Okta as 
 | `issuer`       | OIDC provider root URL.                                              |
 | `clientID`     | ID from the IdP application configuration.                           |
 | `clientSecret` | Secret from the IdP application configuration.                       |
-| `redirectURI`  | URI to which the provider will return successful authentications to. |
 
 For more information, refer to the official DEX documentation
 [OIDC configuration](https://dexidp.io/docs/connectors/oidc/#configuration).
