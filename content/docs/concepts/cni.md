@@ -104,11 +104,14 @@ for the Calico provider.
 [^1]: MKE4 does not support `mode` field modifications following installation.
 
 {{< callout type="info" >}}
-- MKE4 does not support Calico Enterprise. 
 - MKE4 uses a static port range for Kubernetes NodePorts, from  `32768` to `35535`. 
+- Following a successful MKE3 to MKE4 upgrade, a list displays that presents the ports that no longer need to be opened on manager or worker nodes. These ports can be blocked.
+{{< /callout >}}
+
+## Limitations
+
+- MKE4 does not support Calico Enterprise. 
 - Only clusters that use the default Kubernetes proxier `iptables` can be upgraded from MKE3 to MKE4.
 - As MKE4 uses KDD as a networking datastore, you may notice degraded
   networking performance degradation on cluster sizes in excess of 100 nodes.
 - Only KDD-backed MKE3 clusters can be upgraded to MKE4.
-- Following a successful MKE3 to MKE4 upgrade, a list displays that presents the ports that no longer need to be opened on manager or worker nodes. These ports can be blocked.
-{{< /callout >}}
