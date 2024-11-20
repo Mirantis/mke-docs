@@ -10,6 +10,6 @@ weight: 4
 
 {{< cards >}}
   {{< card link="known-issues" title="Known issues" icon="support" >}}
-  {{< card link="major-component-versions" title="Major component versions"
+  {{< card link="major-component-versions" title="Middleware component versions"
   icon="support" >}}
 {{< /cards >}}
