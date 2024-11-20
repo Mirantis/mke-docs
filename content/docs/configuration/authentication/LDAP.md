@@ -10,7 +10,6 @@ LDAP example configuration:
 
 ```yaml
 authentication:
-  enabled: true
   ldap:
     enabled: true
     host: ldap.example.org:389

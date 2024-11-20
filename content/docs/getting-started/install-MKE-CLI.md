@@ -22,7 +22,7 @@ To automatically install the necessary dependencies, you can use an
    and `K0SCTL_VERSION` as required. For example:
 
    ```shell
-   sudo K0SCTL_VERSION=0.19.0 /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/MirantisContainers/mke-release/refs/heads/main/install.sh)"
+   sudo K0SCTL_VERSION=0.19.4 /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/MirantisContainers/mke-release/refs/heads/main/install.sh)"
    ```
 
    If you prefer to run the script in the debug mode for more detailed output and logging,
@@ -56,7 +56,7 @@ To automatically install the necessary dependencies, you can use an
        Expected output:
 
        ```shell
-       version: v0.19.0
+       version: v0.19.4
        commit: b061291
        ```
 
@@ -90,7 +90,7 @@ By default, the script installs the following software:
 | Tool     | Default version   |
 |----------|-------------------|
 | `mkectl` | v4.0.0-rc.5       |
-| `k0sctl` | 0.19.0            |
+| `k0sctl` | 0.19.4            |
 | `kubectl`| v1.30.0           |
 
 The `install.sh` script detects whether `kubectl` is already installed on your
@@ -121,5 +121,5 @@ following tools on your system:
 | Tool     | Version          | Download |
 |----------|------------------|----------|
 | kubectl  | 1.30.0 or later  | [download](https://kubernetes.io/docs/tasks/tools/#kubectl) |
-| k0sctl   | 0.19.0 or later  | [download](https://github.com/k0sproject/k0sctl/releases) |
+| k0sctl   | 0.19.4 or later  | [download](https://github.com/k0sproject/k0sctl/releases) |
 

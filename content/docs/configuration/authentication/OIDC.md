@@ -10,13 +10,11 @@ OIDC example configuration:
 
 ```yaml
 authentication:
-  enabled: true
   oidc:
     enabled: true
     issuer: https://dev-94406016.okta.com
     clientID: 0oedtjcjrjWab3zlD5d4
     clientSecret: DFA9NYLfE1QxwCSFkZunssh2HCx16kDl41k9tIBtFZaNcqyEGle8yZPtMBesyomD
-    redirectURI: http://dex.example.com/dex/callback
 ```
 
 ## Configure OIDC service for MKE

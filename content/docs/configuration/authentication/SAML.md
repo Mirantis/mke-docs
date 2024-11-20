@@ -13,7 +13,6 @@ authentication:
   saml:
     enabled: true
     ssoURL: https://dev64105006.okta.com/app/dev64105006_mke4saml_1/epkdtszgindywD6mF5s7/sso/saml
-    redirectURI: http://www.example.com/dex/callback
     usernameAttr: name
     emailAttr: email
 ```
