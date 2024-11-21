@@ -67,8 +67,7 @@ Alpha 2. You can safely ignore this, however, as it has no effect on MKE
 ## [BOP-982] Cannot change MKE 4 password using mkectl
 
 You cannot change the password for an existing MKE 4 deployment by running
-``mkectl apply -f mke4.yaml --admin-password <password>``, which is the
-expected behavior.
+``mkectl apply -f mke4.yaml --admin-password <password>``.
 
 **Workaround:**
 
@@ -88,7 +87,7 @@ Use ``kubectl`` to change the ``Password`` object:
 2. Reveal the Password object for the target user.
 
    ```sh
-   $ % km get password mfsg22lozpzjzzeeeirsk -oyaml
+   $ kubectl -n mke get password mfsg22lozpzjzzeeeirsk -oyaml
    ```
 
    Example output:
