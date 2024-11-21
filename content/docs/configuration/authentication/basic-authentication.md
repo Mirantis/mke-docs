@@ -44,7 +44,7 @@ the MKE system.
 
 2. Navigate to **Access Control** --> **Users** to access the **user** page.
 
-3. Click on the username for the user whose password you want to change. The
+3. Click the username for the user whose password you want to change. The
    page for that particular user will display.
 
 4. Click **Update password** at the top right of the user page to access the
