@@ -65,7 +65,9 @@ the MKE system.
    delete. You can tick multiple boxes to delete multiple users at the same time.
 
 4. Click the **actions** dropdown at the far top right of the page and select
-   **remove**.
+   **remove**. A **Delete** confirmation dialog will display.
+
+5. Click **Delete** to remove the user from the MKE system.
 
 Alternately, you can delete a user from their dedicated user page:
 
