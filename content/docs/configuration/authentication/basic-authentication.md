@@ -22,7 +22,7 @@ the MKE system.
 
 3. Click the **Create User** button at the far right to access the **User Creation** page.
 
-4. Enter the perinent information into the following fields:
+4. Enter the pertinent information into the following fields:
 
    * **username**
    * **password**
