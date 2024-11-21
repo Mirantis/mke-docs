@@ -3,7 +3,9 @@ title: Basic authentication
 weight: 1
 ---
 
-By default, whenever you create a fresh cluster an admin user is created, with the username `admin` and a randomly-generated password. This password is printed out after successfully creating the cluster.
+By default, whenever you create a fresh cluster, an admin user is created,
+with the username `admin` and a randomly generated password.
+This password is printed out following the successful creation of the cluster.
 
 {{< callout type="info" >}}
 The password is printed following the successful creation of the cluster.
