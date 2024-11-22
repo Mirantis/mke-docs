@@ -44,6 +44,8 @@ authentication:
     enabled: false
 ```
 
+## Set Expiration
+
 You can use the `expiry` section of the configuration file to set the expiration time for refresh and id tokens, in the format of number + time unit format. For example, `1h` to designate one hour.
 
 ```yaml
