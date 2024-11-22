@@ -47,3 +47,46 @@ Refer to [Container Network Interface](../cni) for the network configuration det
 <!-- ### Control plane -->
 
 <!-- [Discuss the control plane component and its function] -->
+
+
+### Architecture Diagram
+```mermaid
+flowchart TB
+    subgraph cluster
+        subgraph Kubernetes
+            k0s
+            Calico
+            Authorization
+        end
+    MKEConfig[MKE Config]
+    MKEConfig-->MOP
+    MOP[MKE Operator]
+    MOP-->BOP
+    BOP[Blueprint Operator]
+    BOP-->components
+    BOP-->addons
+    subgraph components
+        Dex
+        Nginx
+        Minio
+        CoreDNS
+        GPU[Nvidia GPU Discovery]
+        Licensing
+        MetalLB
+        Prometheus
+        NFD[Node Feature Discovery]
+        dashboard[Dashboard Server]
+    end
+    subgraph addons
+        workloads
+        unsupported[unsupported components]
+    end
+    end
+    ui[UI Dashboard]
+    ui<-->MKEConfig
+    mkectl[mkectl]
+    mkectl<-->MKEConfig
+    mkectl-->k0s
+    mkectl-->Calico
+```
+
