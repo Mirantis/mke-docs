@@ -69,6 +69,12 @@ Verify that you have the following components in place before you begin upgradin
       keyPath: <path-to-ssh-key>
   ```
 
+- A ``calico_kdd`` flag is set to ``true`` in the ``toml`` flag:
+
+  ```yaml
+  calico_kdd = true
+  ```
+
 ## Migrate configuration
 
 In migrating to MKE 4 from MKE 3, you can directly transfer settings using `mkectl`.
@@ -230,3 +236,31 @@ parameters between MKE 3 and MKE 4:
 | [cluster_config.core_dns_lameduck_config.enabled]  | dns.lameduck.enabled  |
 | [cluster_config.core_dns_lameduck_config.duration] | dns.lameduck.duration |
 
+
+## Troubleshoot migration
+
+You can address various potential MKE migration issues using the tips and
+suggestions detailed herein.
+
+### Unsupported configuration for MKE4 upgrade
+
+During the upgrade of MKE3, which uses the ``etcdv3`` backend, you may
+encounter the following error:
+
+```bash
+$ mkectl upgrade --hosts-path hosts.yaml --mke3-admin-username admin --mke3-admin-password orcaorcaorca -l debug --config-out new-mke4.yaml --external-address "147.75.202.233"
+...
+Error: unable to generate upgrade config: unsupported configuration for mke4 upgrade: mke3 cluster is using etcdv3 and not kdd backend for calico
+```
+
+To resolve the issue, ensure that the ``calico_kdd`` flag in the ``toml`` flag
+is set to ``true``.
+
+Example output:
+
+```bash
+$ AUTHTOKEN=$(curl --silent --insecure --data '{"username":"'$MKE_USERNAME'","password":"'$MKE_PASSWORD'"}' https://$MKE_HOST/auth/login | jq --raw-output .auth_token)
+
+$ curl --silent --insecure -X PUT -H "accept: application/toml" -H "Authorization: Bearer $AUTHTOKEN" --upload-file 'mke-config.toml' https://$MKE_HOST/api/ucp/config-toml
+{"message":"Calico datastore migration from etcd to kdd successful"}
+```
