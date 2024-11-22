@@ -3,8 +3,6 @@ title: MKE Dashboard
 weight: 6
 ---
 
-{{< callout type="info" >}} Available since 4.0.0-alpha.2.0 {{< /callout >}}
-
 The MKE Dashboard add-on provides a web UI that you can use to manage
 Kubernetes resources:
 
