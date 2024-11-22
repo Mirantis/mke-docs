@@ -46,7 +46,7 @@ Found 2 pods, using pod/coredns-5d78c9869d-7qfnd
 .:53
 [INFO] plugin/reload: Running configuration SHA512 = 591cf328cccc12bc490481273e738df59329c62c0b729d94e8b61db9961c2fa5f046dd37f1cf888b953814040d180f52594972691cd6ff41be96639138a43908
 CoreDNS-1.10.1
-linux/arm64, go1.20, 055b2c3
+go1.20, 055b2c3
 
 [INFO] Reloading
 [INFO] plugin/reload: Running configuration SHA512 = 26fe33ee13757f04c8c9a1caebd7c6f0614306c92089ea215f1a8663f95ff1e673d4fa5de544b31492231923d4679370ce8735823ce3b5e65e5c23a9029c4512
