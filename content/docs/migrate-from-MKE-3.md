@@ -69,6 +69,30 @@ Verify that you have the following components in place before you begin upgradin
       keyPath: <path-to-ssh-key>
   ```
 
+- Calico KDD (Kubernetes Datastore Driver), enabled:
+
+  1. Verify that the MKE 3.x instance being upgraded to MKE 4 is 3.7.12 or
+     later.
+
+  2. Obtain the MKE 3 configuration file.
+
+  3. In the `cluster_config` section of the MKE 3 configuration file, set the
+     `calico_kdd` parameter to `true`.
+
+  4. Apply the modified MKE 3 configuration file:
+
+     ```shell
+     mkectl apply  -f <mke-configuration-file>.yaml
+     ```
+
+{{< callout type="info" >}} The conversion of the Calico datastore from etcd to
+KDD may take up to 30 minutes, depending on the size of the cluster. On
+completion, the following confirmation will display:
+
+```shell
+{"message":"Calico datastore migration from etcd to kdd successful"}
+```
+
 ## Migrate configuration
 
 In migrating to MKE 4 from MKE 3, you can directly transfer settings using `mkectl`.
