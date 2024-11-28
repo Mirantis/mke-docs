@@ -9,7 +9,7 @@ This section instructs you on how to migrate your existing MKE 3.7 cluster to th
 
 Verify that you have the following components in place before you begin upgrading MKE3 to MKE 4:
 
-- A running MKE 3.7.x cluster:
+- An active MKE 3.7.x cluster running version 3.7.12 or later:
 
   ```shell
   kubectl get nodes
@@ -70,8 +70,7 @@ Verify that you have the following components in place before you begin upgradin
   ```
 
 - A ``calico_kdd`` flag is set to ``true`` in the MKE 3 ``toml`` configuration 
-  file and applied to the MKE 3 cluster. Note that MKE must be 
-  on version 3.7.12 or later:
+  file and applied to the MKE 3 cluster:
 
   ```yaml
   calico_kdd = true
