@@ -69,7 +69,9 @@ Verify that you have the following components in place before you begin upgradin
       keyPath: <path-to-ssh-key>
   ```
 
-- A ``calico_kdd`` flag is set to ``true`` in the ``toml`` flag:
+- A ``calico_kdd`` flag is set to ``true`` in the MKE 3 ``toml`` configuration 
+  file and applied to the MKE 3 cluster. Note that MKE must be 
+  on version 3.7.12 or later:
 
   ```yaml
   calico_kdd = true
@@ -242,19 +244,22 @@ parameters between MKE 3 and MKE 4:
 You can address various potential MKE migration issues using the tips and
 suggestions detailed herein.
 
-### Unsupported configuration for MKE4 upgrade
+### MKE 3 ``etcdv3`` backend is unsupported for MKE 4 upgrade
 
-During the upgrade of MKE3, which uses the ``etcdv3`` backend, you may
-encounter the following error:
+During the upgrade from MKE 3 to MKE 4, which defaults to the ``etcdv3`` backend,
+you may encounter the following error:
 
 ```bash
-$ mkectl upgrade --hosts-path hosts.yaml --mke3-admin-username admin --mke3-admin-password orcaorcaorca -l debug --config-out new-mke4.yaml --external-address "147.75.202.233"
+mkectl upgrade --hosts-path hosts.yaml --mke3-admin-username admin --mke3-admin-password <mke_admin_password> -l debug --config-out new-mke4.yaml --external-address <mke4_external_address>
 ...
 Error: unable to generate upgrade config: unsupported configuration for mke4 upgrade: mke3 cluster is using etcdv3 and not kdd backend for calico
 ```
 
-To resolve the issue, ensure that the ``calico_kdd`` flag in the ``toml`` flag
-is set to ``true``.
+To resolve the issue ensure that:
+
+- The MKE 3 is on version 3.7.12 or later.
+- The ``calico_kdd`` flag in the MKE 3 ``toml`` configuration file is set to `true`.
+- The configuration is applied to the MKE 3 cluster.
 
 Example output:
 
