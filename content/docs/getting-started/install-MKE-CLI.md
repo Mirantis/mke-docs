@@ -105,18 +105,17 @@ You can now proceed with MKE cluster creation.
 
 Download `mkectl` from the S3 bucket:
 
-| Distribution | Architecture | Download |
-|--------------|--------------|----------|
-| Linux        | x86_64       | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-rc.5/mkectl_linux_x86_64.tar.gz) |
-| MacOS        | x86_64       | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-rc.5/mkectl_darwin_x86_64.tar.gz) |
-| Windows      | x86_64       | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-rc.5/mkectl_windows_x86_64.zip) |
+| Distribution | Architecture | Download                                                                                                          |
+| ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------- |
+| Linux        | x86_64       | [download](https://github.com/mirantiscontainers/mke-release/releases/latest/download/mkectl_linux_x86_64.tar.gz) |
+| MacOS        | x86_64       | [download](https://github.com/mirantiscontainers/mke-release/releases/latest/download/mkectl_darwin_arm64.tar.gz) |
+| Windows      | x86_64       | [download](https://github.com/mirantiscontainers/mke-release/releases/latest/download/mkectl_windows_x86_64.zip)  |
 
 The MKE CLI is a single binary that is capable of managing MKE clusters without
 any additional dependencies. Its use, though, requires that you have the
 following tools on your system:
 
-| Tool     | Version          | Download |
-|----------|------------------|----------|
-| kubectl  | 1.30.0 or later  | [download](https://kubernetes.io/docs/tasks/tools/#kubectl) |
-| k0sctl   | 0.19.4 or later  | [download](https://github.com/k0sproject/k0sctl/releases) |
-
+| Tool    | Version         | Download                                                    |
+| ------- | --------------- | ----------------------------------------------------------- |
+| kubectl | 1.30.0 or later | [download](https://kubernetes.io/docs/tasks/tools/#kubectl) |
+| k0sctl  | 0.19.4 or later | [download](https://github.com/k0sproject/k0sctl/releases)   |
