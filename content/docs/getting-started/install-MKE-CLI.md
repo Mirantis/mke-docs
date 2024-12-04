@@ -16,7 +16,7 @@ To automatically install the necessary dependencies, you can use an
 
    ```shell
    sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/MirantisContainers/mke-release/refs/heads/main/install.sh)"
-    ```
+   ```
 
    If you want to override default dependency versions, pass the `MKECTL_VERSION`, `KUBECTL_VERSION`
    and `K0SCTL_VERSION` as required. For example:
@@ -36,68 +36,74 @@ To automatically install the necessary dependencies, you can use an
 
    {{< tabs items="mkectl,k0sctl,kubectl" >}}
 
-    {{< tab >}}
-      ```shell
-       mkectl version
-       ```
+   {{< tab >}}
 
-       Expected output:
+   ```shell
+   mkectl version
+   ```
 
-       ```shell
-       Version: v4.0.0-rc.5
-       ```
-     {{< /tab >}}
+   Expected output:
 
-     {{< tab >}}
-       ```shell
-       k0sctl version
-       ```
+   ```shell
+   Version: v4.0.0-rc.5
+   ```
 
-       Expected output:
+   {{< /tab >}}
 
-       ```shell
-       version: v0.19.4
-       commit: b061291
-       ```
+   {{< tab >}}
 
-       If you passed the `K0SCTL_VERSION=0.17.4` as illustrated above,
-       the example output would be:
+   ```shell
+   k0sctl version
+   ```
 
-       ```shell
-       version: v0.17.4
-       commit: 372a589
-       ```
-    {{< /tab >}}
+   Expected output:
 
-    {{< tab >}}
-      ```shell
-      kubectl version
-      ```
+   ```shell
+   version: v0.19.4
+   commit: b061291
+   ```
 
-      Expected output:
+   If you passed the `K0SCTL_VERSION=0.17.4` as illustrated above,
+   the example output would be:
 
-      ```shell
-      Client Version: v1.30.0
-      Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
-      Server Version: v1.30.3+k0s
-      ```
+   ```shell
+   version: v0.17.4
+   commit: 372a589
+   ```
+
+   {{< /tab >}}
+
+   {{< tab >}}
+
+   ```shell
+   kubectl version
+   ```
+
+   Expected output:
+
+   ```shell
+   Client Version: v1.30.0
+   Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
+   Server Version: v1.30.3+k0s
+   ```
+
    {{< /tab >}}
 
 {{< /tabs >}}
 
 By default, the script installs the following software:
 
-| Tool     | Default version   |
-|----------|-------------------|
-| `mkectl` | v4.0.0-rc.5       |
-| `k0sctl` | 0.19.4            |
-| `kubectl`| v1.30.0           |
+| Tool      | Default version |
+| --------- | --------------- |
+| `mkectl`  | v4.0.0-rc.5     |
+| `k0sctl`  | 0.19.4          |
+| `kubectl` | v1.30.0         |
 
 The `install.sh` script detects whether `kubectl` is already installed on your
 system and will not overwrite it. It also detects the operating system and the
 underlying architecture, based on which it will install the `k0sctl`, `kubectl`
 and `mkectl` binaries in `/usr/local/bin`. Thus, you must ensure that
-` /usr/local/bin` is in your `PATH` environment variable.
+`/usr/local/bin` is in your `PATH` environment variable.
 
 You can now proceed with MKE cluster creation.
 
