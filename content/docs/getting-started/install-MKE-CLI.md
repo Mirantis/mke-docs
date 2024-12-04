@@ -45,7 +45,7 @@ To automatically install the necessary dependencies, you can use an
    Expected output:
 
    ```shell
-   Version: v4.0.0-rc.5
+   Version: v4.0.0
    ```
 
    {{< /tab >}}
@@ -95,7 +95,7 @@ By default, the script installs the following software:
 
 | Tool      | Default version |
 | --------- | --------------- |
-| `mkectl`  | v4.0.0-rc.5     |
+| `mkectl`  | v4.0.0          |
 | `k0sctl`  | 0.19.4          |
 | `kubectl` | v1.30.0         |
 
