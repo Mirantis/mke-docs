@@ -5,7 +5,7 @@ weight: 1
 
 ## Prerequisites
 
-In addition to the MKE [dependencies](../../../getting-started/install-MKE-CLI),
+In addition to the MKE [dependencies](../../../getting-started/install-mke-cli),
 you need to do the following:
 
 - Install [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
