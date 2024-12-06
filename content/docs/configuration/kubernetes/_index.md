@@ -9,6 +9,7 @@ MKE 4 uses K0s to deploy core Kubernetes components, including:
 - [kube-apiserver](../../configuration/kubernetes/kube-apiserver)
 - [kube-controller-manager](../../configuration/kubernetes/kube-controller-manager)
 - [kube-scheduler](../../configuration/kubernetes/kube-scheduler)
+- [etcd](../../configuration/kubernetes/etcd)
 
 You can configure all of the Kubernetes components through the MKE
 configuration file.
