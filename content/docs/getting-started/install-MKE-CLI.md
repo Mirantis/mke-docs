@@ -16,7 +16,7 @@ To automatically install the necessary dependencies, you can use an
 
    ```shell
    sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/MirantisContainers/mke-release/refs/heads/main/install.sh)"
-    ```
+   ```
 
    If you want to override default dependency versions, pass the `MKECTL_VERSION`, `KUBECTL_VERSION`
    and `K0SCTL_VERSION` as required. For example:
@@ -36,68 +36,74 @@ To automatically install the necessary dependencies, you can use an
 
    {{< tabs items="mkectl,k0sctl,kubectl" >}}
 
-    {{< tab >}}
-      ```shell
-       mkectl version
-       ```
+   {{< tab >}}
 
-       Expected output:
+   ```shell
+   mkectl version
+   ```
 
-       ```shell
-       Version: v4.0.0-rc.5
-       ```
-     {{< /tab >}}
+   Expected output:
 
-     {{< tab >}}
-       ```shell
-       k0sctl version
-       ```
+   ```shell
+   Version: v4.0.0
+   ```
 
-       Expected output:
+   {{< /tab >}}
 
-       ```shell
-       version: v0.19.4
-       commit: b061291
-       ```
+   {{< tab >}}
 
-       If you passed the `K0SCTL_VERSION=0.17.4` as illustrated above,
-       the example output would be:
+   ```shell
+   k0sctl version
+   ```
 
-       ```shell
-       version: v0.17.4
-       commit: 372a589
-       ```
-    {{< /tab >}}
+   Expected output:
 
-    {{< tab >}}
-      ```shell
-      kubectl version
-      ```
+   ```shell
+   version: v0.19.4
+   commit: b061291
+   ```
 
-      Expected output:
+   If you passed the `K0SCTL_VERSION=0.17.4` as illustrated above,
+   the example output would be:
 
-      ```shell
-      Client Version: v1.30.0
-      Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
-      Server Version: v1.30.3+k0s
-      ```
+   ```shell
+   version: v0.17.4
+   commit: 372a589
+   ```
+
+   {{< /tab >}}
+
+   {{< tab >}}
+
+   ```shell
+   kubectl version
+   ```
+
+   Expected output:
+
+   ```shell
+   Client Version: v1.30.0
+   Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
+   Server Version: v1.30.3+k0s
+   ```
+
    {{< /tab >}}
 
 {{< /tabs >}}
 
 By default, the script installs the following software:
 
-| Tool     | Default version   |
-|----------|-------------------|
-| `mkectl` | v4.0.0-rc.5       |
-| `k0sctl` | 0.19.4            |
-| `kubectl`| v1.30.0           |
+| Tool      | Default version |
+| --------- | --------------- |
+| `mkectl`  | v4.0.0          |
+| `k0sctl`  | 0.19.4          |
+| `kubectl` | v1.30.0         |
 
 The `install.sh` script detects whether `kubectl` is already installed on your
 system and will not overwrite it. It also detects the operating system and the
 underlying architecture, based on which it will install the `k0sctl`, `kubectl`
 and `mkectl` binaries in `/usr/local/bin`. Thus, you must ensure that
-` /usr/local/bin` is in your `PATH` environment variable.
+`/usr/local/bin` is in your `PATH` environment variable.
 
 You can now proceed with MKE cluster creation.
 
@@ -105,18 +111,17 @@ You can now proceed with MKE cluster creation.
 
 Download `mkectl` from the S3 bucket:
 
-| Distribution | Architecture | Download |
-|--------------|--------------|----------|
-| Linux        | x86_64       | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-rc.5/mkectl_linux_x86_64.tar.gz) |
-| MacOS        | x86_64       | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-rc.5/mkectl_darwin_x86_64.tar.gz) |
-| Windows      | x86_64       | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-rc.5/mkectl_windows_x86_64.zip) |
+| Distribution | Architecture | Download                                                                                                          |
+| ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------- |
+| Linux        | x86_64       | [download](https://github.com/mirantiscontainers/mke-release/releases/latest/download/mkectl_linux_x86_64.tar.gz) |
+| MacOS        | x86_64       | [download](https://github.com/mirantiscontainers/mke-release/releases/latest/download/mkectl_darwin_arm64.tar.gz) |
+| Windows      | x86_64       | [download](https://github.com/mirantiscontainers/mke-release/releases/latest/download/mkectl_windows_x86_64.zip)  |
 
 The MKE CLI is a single binary that is capable of managing MKE clusters without
 any additional dependencies. Its use, though, requires that you have the
 following tools on your system:
 
-| Tool     | Version          | Download |
-|----------|------------------|----------|
-| kubectl  | 1.30.0 or later  | [download](https://kubernetes.io/docs/tasks/tools/#kubectl) |
-| k0sctl   | 0.19.4 or later  | [download](https://github.com/k0sproject/k0sctl/releases) |
-
+| Tool    | Version         | Download                                                    |
+| ------- | --------------- | ----------------------------------------------------------- |
+| kubectl | 1.30.0 or later | [download](https://kubernetes.io/docs/tasks/tools/#kubectl) |
+| k0sctl  | 0.19.4 or later | [download](https://github.com/k0sproject/k0sctl/releases)   |

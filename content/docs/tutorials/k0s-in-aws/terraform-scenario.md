@@ -5,7 +5,7 @@ weight: 1
 
 ## Prerequisites
 
-In addition to the MKE [dependencies](../../../getting-started/install-MKE-CLI),
+In addition to the MKE [dependencies](../../../getting-started/install-mke-cli),
 you need to do the following:
 
 - Install [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
@@ -79,22 +79,23 @@ by selecting the desired region from the dropdown menu in the top-right corner.
 
 3. Edit the `apiServer.externalAddress` in the configuration file
 
-    ```sh
-    terraform output -raw lb_dns_name | { read lb; yq -i ".apiServer.externalAddress = \"$lb\"" mke4.yaml; }
-    ```
-    
-    If you do not have the `yq` tool installed, edit the `mke4.yaml` file manually
-    setting `apiServer.externalAddress` to the output of the `terraform output -raw lb_dns_name` command.
+   ```sh
+   terraform output -raw lb_dns_name | { read lb; yq -i ".apiServer.externalAddress = \"$lb\"" mke4.yaml; }
+   ```
+
+   If you do not have the `yq` tool installed, edit the `mke4.yaml` file manually
+   setting `apiServer.externalAddress` to the output of the `terraform output -raw lb_dns_name` command.
 
 4. Create the MKE cluster:
 
    ```shell
    mkectl apply -f mke4.yaml
    ```
+
    {{< callout type="info" >}}
    Upon successful completion of the MKE 4 installation, a username and password
    will be automatically generated and displayed once for you to use.
-  
+
    To explicitly set a password value, run `mkectl apply -f mke4.yaml --admin-password <password>` .
    {{< /callout >}}
 
@@ -103,7 +104,7 @@ by selecting the desired region from the dropdown menu in the top-right corner.
 To clean up and tear down infrastructure that is no longer needed, ensuring that all resources
 managed by Terraform are properly deleted, navigate to the Terraform folder and run:
 
-``` bash
+```bash
 terraform destroy --auto-approve
 ```
 

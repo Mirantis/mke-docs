@@ -5,26 +5,26 @@ weight: 4
 
 To start interacting with the cluster, use `kubectl` with the `mke` context.
 Though to do that, you need to specify the configuration. Use `mkectl` to output
-the kubeconfig of the cluster to `~/mke/.mke.kubeconfig`.
+the kubeconfig of the cluster to `~/mke/.mke.kubeconf`.
 
-You can apply `.mke.kubeconfig` using any one of the following methods:
+You can apply `.mke.kubeconf` using any one of the following methods:
 
-* Set the `KUBECONFIG` environment variable to point to `~/.mke/mke.kubeconfig`:
+- Set the `KUBECONFIG` environment variable to point to `~/.mke/mke.kubeconf`:
 
   ```shell
   export KUBECONFIG=~/.mke/<cluster name>.kubeconfig
   ```
 
-* Append the contents to the default kubeconfig:
+- Append the contents to the default kubeconfig:
 
   ```shell
-  cat ~/.mke/mke.kubeconfig >> ~/.kube/config
+  cat ~/.mke/mke.kubeconf >> ~/.kube/config
   ```
 
-* Specify the kubeconfig as a command argument:
+- Specify the kubeconfig as a command argument:
 
   ```shell
-  kubectl --kubeconfig ~/.mke/mke.kubeconfig
+  kubectl --kubeconfig ~/.mke/mke.kubeconf
   ```
 
 Example output:
