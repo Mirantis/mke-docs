@@ -95,8 +95,8 @@ Verify that you have the following components in place before you begin upgradin
      ```
 
 {{< callout type="info" >}} The conversion of the Calico datastore from etcd to
-KDD may take up to 30 minutes, depending on the size of the cluster. On
-completion, the following confirmation will display:
+KDD typically takes about 20 seconds per node, depending on the size of the cluster. On
+completion, the following confirmation displays:
 
 ```shell
 {"message":"Calico datastore migration from etcd to kdd successful"}
