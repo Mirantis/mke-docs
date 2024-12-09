@@ -9,7 +9,7 @@ This section instructs you on how to migrate your existing MKE 3.7 cluster to th
 
 Verify that you have the following components in place before you begin upgrading MKE 3 to MKE 4:
 
-- A running MKE 3.7.x cluster running version 3.7.12 or later:
+- An MKE cluster running the latest 3.7.x or 3.8.x release:
 
   ```shell
   kubectl get nodes
