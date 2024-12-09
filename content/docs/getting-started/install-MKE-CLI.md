@@ -115,7 +115,6 @@ Download `mkectl` from the S3 bucket:
 | ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------- |
 | Linux        | x86_64       | [download](https://github.com/mirantiscontainers/mke-release/releases/latest/download/mkectl_linux_x86_64.tar.gz) |
 | MacOS        | x86_64       | [download](https://github.com/mirantiscontainers/mke-release/releases/latest/download/mkectl_darwin_arm64.tar.gz) |
-| Windows      | x86_64       | [download](https://github.com/mirantiscontainers/mke-release/releases/latest/download/mkectl_windows_x86_64.zip)  |
 
 The MKE CLI is a single binary that is capable of managing MKE clusters without
 any additional dependencies. Its use, though, requires that you have the
