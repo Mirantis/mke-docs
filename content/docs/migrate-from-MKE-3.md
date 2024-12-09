@@ -78,10 +78,17 @@ Verify that you have the following components in place before you begin upgradin
 
 - Calico KDD (Kubernetes Datastore Driver), enabled:
 
-  1. Verify that the MKE 3.x instance being upgraded to MKE 4 is 3.7.12 or
+  1. Verify that the MKE 3.x instance is being upgraded to MKE 4 is 3.7.12 or
      later.
 
-  2. Obtain the MKE 3 configuration file.
+  2. Obtain the MKE 3 configuration file:
+ 
+     ```
+     $ export MKE_USERNAME=<mke-username>
+     $ export MKE_PASSWORD=<mke-password>
+     $ export MKE_HOST=<mke-fqdm-or-ip-address>
+     $ curl --silent --insecure -X GET "https://$MKE_HOST/api/ucp/config-toml" -H "accept: application/toml" -H "Authorization: Bearer $AUTHTOKEN" > mke-config.toml
+     ```
 
   3. In the `cluster_config` section of the MKE 3 configuration file, set the
      `calico_kdd` parameter to `true`.
