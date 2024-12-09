@@ -7,7 +7,7 @@ This section instructs you on how to migrate your existing MKE 3.7 cluster to th
 
 ## Prerequisites
 
-Verify that you have the following components in place before you begin upgrading MKE3 to MKE 4:
+Verify that you have the following components in place before you begin upgrading MKE 3 to MKE 4:
 
 - A running MKE 3.7.x cluster running version 3.7.12 or later:
 
