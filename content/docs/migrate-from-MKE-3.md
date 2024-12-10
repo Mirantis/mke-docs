@@ -7,9 +7,9 @@ This section instructs you on how to migrate your existing MKE 3.7 cluster to th
 
 ## Prerequisites
 
-Verify that you have the following components in place before you begin upgrading MKE3 to MKE 4:
+Verify that you have the following components in place before you begin upgrading MKE 3 to MKE 4:
 
-- A running MKE 3.7.x cluster:
+- An MKE cluster running the latest 3.7.x or 3.8.x release:
 
   ```shell
   kubectl get nodes
@@ -68,6 +68,47 @@ Verify that you have the following components in place before you begin upgradin
       user: <ssh-user>
       keyPath: <path-to-ssh-key>
   ```
+
+- A ``calico_kdd`` flag is set to ``true`` in the MKE 3 configuration
+  file and applied to the MKE 3 cluster:
+
+  ```yaml
+  calico_kdd = true
+  ```
+
+- Calico KDD (Kubernetes Datastore Driver), enabled:
+
+  1. Verify that the MKE 3.x instance being upgraded to MKE 4 is running version 3.7.12 or
+     later.
+
+  2. Obtain the MKE 3 configuration file:
+ 
+     ```
+     $ export MKE_USERNAME=<mke-username>
+     $ export MKE_PASSWORD=<mke-password>
+     $ export MKE_HOST=<mke-fqdm-or-ip-address>
+     $ curl --silent --insecure -X GET "https://$MKE_HOST/api/ucp/config-toml" -H "accept: application/toml" -H "Authorization: Bearer $AUTHTOKEN" > mke-config.toml
+     ```
+
+  3. In the `cluster_config` section of the MKE 3 configuration file, set the
+     `calico_kdd` parameter to `true`.
+
+  4. Apply the modified MKE 3 configuration file:
+
+     ```shell
+     $ AUTHTOKEN=$(curl --silent --insecure --data '{"username":"'$MKE_USERNAME'","password":"'$MKE_PASSWORD'"}' https://$MKE_HOST/auth/login | jq --raw-output .auth_token)
+     $ curl --silent --insecure -X PUT -H "accept: application/toml" -H "Authorization: Bearer $AUTHTOKEN" --upload-file 'mke-config.toml' https://$MKE_HOST/api/ucp/config-toml
+     {"message":"Calico datastore migration from etcd to kdd successful"}
+     ```
+
+{{< callout type="info" >}} The conversion of the Calico datastore from etcd to
+KDD typically takes about 20 seconds per node, depending on the size of the cluster. On
+completion, the following confirmation displays:
+
+```shell
+{"message":"Calico datastore migration from etcd to kdd successful"}
+```
+{{< /callout >}}
 
 ## Migrate configuration
 
@@ -227,3 +268,42 @@ parameters between MKE 3 and MKE 4:
 | -------------------------------------------------- | --------------------- |
 | [cluster_config.core_dns_lameduck_config.enabled]  | dns.lameduck.enabled  |
 | [cluster_config.core_dns_lameduck_config.duration] | dns.lameduck.duration |
+
+## Troubleshoot migration
+
+You can address various potential MKE migration issues using the tips and
+suggestions detailed herein.
+
+### MKE 3 ``etcdv3`` backend is unsupported for MKE 4 upgrade
+
+During the upgrade from MKE 3 to MKE 4, which defaults to the ``etcdv3``
+backend, you may receive the following error:
+
+```bash
+mkectl upgrade --hosts-path hosts.yaml --mke3-admin-username admin --mke3-admin-password <mke_admin_password> -l debug --config-out new-mke4.yaml --external-address <mke4_external_address>
+...
+Error: unable to generate upgrade config: unsupported configuration for mke4 upgrade: mke3 cluster is using etcdv3 and not kdd backend for calico
+```
+
+To resolve the issue, ensure that:
+
+- The MKE 3 source is version 3.7.12 or later.
+- The ``calico_kdd`` flag in the MKE 3 configuration file is set to `true`.
+- The configuration is applied to the MKE 3 cluster.
+
+{{< callout type="info" >}}
+
+A KDD mode migration is irreversible. Thus, to reduce risk, when migrating
+enterprise clusters, it is recommended that you work directly with Mirantis to
+plan the process and monitor it through to completion.
+
+{{< /callout >}}
+
+Example output:
+
+```bash
+$ AUTHTOKEN=$(curl --silent --insecure --data '{"username":"'$MKE_USERNAME'","password":"'$MKE_PASSWORD'"}' https://$MKE_HOST/auth/login | jq --raw-output .auth_token)
+
+$ curl --silent --insecure -X PUT -H "accept: application/toml" -H "Authorization: Bearer $AUTHTOKEN" --upload-file 'mke-config.toml' https://$MKE_HOST/api/ucp/config-toml
+{"message":"Calico datastore migration from etcd to kdd successful"}
+```
