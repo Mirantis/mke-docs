@@ -1,5 +1,5 @@
 ---
-title: Allow services deployment on Kubernetes MKE manager or MSR nodes
+title: Allow services deployment on Kubernetes MKE manager
 weight: 2
 ---
 
