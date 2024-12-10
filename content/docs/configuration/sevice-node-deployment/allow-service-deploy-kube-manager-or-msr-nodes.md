@@ -39,7 +39,7 @@ Add a toleration to the Pod specification for existing workloads
 
    ```
    tolerations:
-   - key: "com.docker.ucp.manager"
+   - key: "node-role.kubernetes.io/master"
    operator: "Exists"
    ```
 
@@ -54,7 +54,7 @@ Example of system response:
 
 ```
 {
-"key": "com.docker.ucp.manager",
+"key": "node-role.kubernetes.io/master",
 "operator": "Exists"
 }
 ```

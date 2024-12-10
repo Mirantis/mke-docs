@@ -26,7 +26,7 @@ Example of system response:
 ```
 {
   "effect": "NoSchedule",
-  "key": "com.docker.ucp.manager"
+  "key": "node-role.kubernetes.io/master"
 }
 ```
 
