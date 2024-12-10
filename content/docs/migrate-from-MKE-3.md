@@ -108,6 +108,7 @@ completion, the following confirmation displays:
 ```shell
 {"message":"Calico datastore migration from etcd to kdd successful"}
 ```
+{{< /callout >}}
 
 ## Migrate configuration
 
