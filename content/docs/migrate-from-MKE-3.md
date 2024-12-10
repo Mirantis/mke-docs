@@ -83,7 +83,7 @@ Verify that you have the following components in place before you begin upgradin
 
   2. Obtain the MKE 3 configuration file:
  
-     ```
+     ```shell
      $ export MKE_USERNAME=<mke-username>
      $ export MKE_PASSWORD=<mke-password>
      $ export MKE_HOST=<mke-fqdm-or-ip-address>
