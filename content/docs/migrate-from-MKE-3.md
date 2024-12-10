@@ -287,7 +287,7 @@ Error: unable to generate upgrade config: unsupported configuration for mke4 upg
 To resolve the issue, ensure that:
 
 - The MKE 3 source is version 3.7.12 or later.
-- The ``calico_kdd`` flag in the MKE 3  configuration file is set to `true`.
+- The ``calico_kdd`` flag in the MKE 3 configuration file is set to `true`.
 - The configuration is applied to the MKE 3 cluster.
 
 {{< callout type="info" >}}
