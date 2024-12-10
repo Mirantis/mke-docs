@@ -61,7 +61,7 @@ Example of system response:
 
 {{< callout type="note" >}}
 
-A ``NoSchedule`` taint is present on MKE manager and MSR nodes, and if you
+A ``NoSchedule`` taint is present on MKE manager nodes, and if you
 disable scheduling on managers and/or workers a toleration for that taint
 will not be applied to the deployments. As such, you should not schedule on
 these nodes, except when the Kubernetes workload is deployed in the
