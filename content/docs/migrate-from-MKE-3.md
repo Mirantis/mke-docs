@@ -78,7 +78,7 @@ Verify that you have the following components in place before you begin upgradin
 
 - Calico KDD (Kubernetes Datastore Driver), enabled:
 
-  1. Verify that the MKE 3.x instance is being upgraded to MKE 4 is 3.7.12 or
+  1. Verify that the MKE 3.x instance being upgraded to MKE 4 is running version 3.7.12 or
      later.
 
   2. Obtain the MKE 3 configuration file:
