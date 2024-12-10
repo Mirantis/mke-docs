@@ -4,7 +4,7 @@ weight: 1
 ---
 
 By default, MKE clusters use [Kubernetes taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
-to prevent user workloads from deploying to MKE manager or MSR nodes.
+to prevent user workloads from deploying to MKE manager nodes.
 
 {{< callout type="note" >}}
 
