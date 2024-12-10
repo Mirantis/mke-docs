@@ -40,7 +40,7 @@ Add a toleration to the Pod specification for existing workloads
    ```
    tolerations:
    - key: "node-role.kubernetes.io/master"
-   operator: "Exists"
+     operator: "Exists"
    ```
 
 2. Run the following command to confirm the successful application of the
