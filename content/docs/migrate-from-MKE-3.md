@@ -87,8 +87,7 @@ starting the upgrade process. {{< /callout >}}
 
 ### Kubernetes Custom Flags
 
-MKE 3 supports applying additional flags to Kubernetes components with the following fields in the configuration file,
-each specified as a list of strings.
+MKE 3 and MKE 4 both support the application of additional flags to Kubernetes components that have the following fields in the MKE configuration file, each specified as a list of strings:
 ```
 custom_kube_api_server_flags
 custom_kube_controller_manager_flags
@@ -118,10 +117,9 @@ spec:
 
 MKE 3 supports a map of kubelet flag profiles to specific nodes using the `custom_kubelet_flags_profiles` setting in the toml configuration file.
 
-MKE 4 does not support kubelet flag profiles, but you can map `KubeletConfiguration` values to specific
-nodes using [Kubelet custom profiles](../configuration/kubernetes/kubelet.md#kubelet-custom-profiles).
-MKE 4 supports migration of MKE 3 kubelet flag profiles to kubelet custom profiles.
-Conversion of flags to `KubeletConfiguration` values is best-effort and any flags that cannot be
+MKE 4 does not support kubelet flag profiles, but you can use [Kubelet custom profiles](../configuration/kubernetes/kubelet.md#kubelet-custom-profiles) to map `KubeletConfiguration` values to specific nodes. MKE 4 does supports the migration of MKE 3 kubelet flag profiles to kubelet custom profiles.
+
+The conversion of flags to `KubeletConfiguration` values is best-effort ,and any flags that cannot be
 converted are listed in the upgrade summary. Hosts with a custom flag profile label are marked for the
 corresponding kubelet custom profile.
 
