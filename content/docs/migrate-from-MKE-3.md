@@ -100,18 +100,20 @@ MKE 4 supports an `extraArgs` field for each of these components, though, which 
 
 Example of custom flags conversion:
 
-MKE 3 configuration file:
-```
-[cluster_config.custom_kube_api_server_flags] = ["--enable-garbage-collector=false"]
-```
+- MKE 3 configuration file:
 
-MKE 4 configuration file:
-```
-spec:
-  apiServer:
-    extraArgs:
-      enable-garbage-collector: false
-```
+  ```
+  [cluster_config.custom_kube_api_server_flags] = ["--enable-garbage-collector=false"]
+  ```
+
+- MKE 4 configuration file:
+
+  ```
+  spec:
+    apiServer:
+      extraArgs:
+        enable-garbage-collector: false
+  ```
 
 ### Kubelet Custom Flag Profiles
 
