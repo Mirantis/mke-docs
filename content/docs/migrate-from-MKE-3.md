@@ -97,9 +97,7 @@ custom_kube_scheduler_flags
 custom_kube_proxy_flags
 ```
 
-MKE 4 supports an 'extraArgs' field for each of these components, accepting a map of key-value pairs.
-MKE 4 will convert these custom flags to the corresponding `extraArgs` field during the upgrade.
-Any flags that cannot be automatically converted will be listed in the upgrade summary.
+MKE 4 supports an `extraArgs` field for each of these components, though, which accepts a map of key-value pairs. During upgrade from MKE 3, MKE 4 converts these custom flags to the corresponding `extraArgs` field. Any flags that cannot be automatically converted are listed in the upgrade summary.
 
 #### Example of custom flags conversion
 
