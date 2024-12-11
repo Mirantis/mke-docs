@@ -3,9 +3,9 @@ title: Service node deployment
 weight: 10
 ---
 
-You can configure MKE to allow users to deploy and run services in worker
-nodes only, to ensure that all cluster management functionality remains
-performant and to enhance cluster security.
+By default, user workloads cannot run in manager nodes, to ensure that cluster
+management functionality remains performant and to enhance cluster security.
+You can, however, override this behavior.
 
 {{< callout type="warning" >}}
 
@@ -70,13 +70,3 @@ Example of system response:
 "operator": "Exists"
 }
 ```
-
-{{< callout type="caution" >}}
-
-A ``NoSchedule`` taint is present on MKE manager nodes, and if you
-disable scheduling on managers and/or workers a toleration for that taint
-will not be applied to the deployments. As such, you should not schedule on
-these nodes, except when the Kubernetes workload is deployed in the
-``kube-system`` namespace.
-
-{{< /callout >}}
