@@ -7,9 +7,9 @@ This section instructs you on how to migrate your existing MKE 3.7 cluster to th
 
 ## Prerequisites
 
-Verify that you have the following components in place before you begin upgrading MKE3 to MKE 4:
+Verify that you have the following components in place before you begin upgrading MKE 3 to MKE 4:
 
-- A running MKE 3.7.x cluster:
+- An MKE cluster running the latest 3.7.x or 3.8.x release:
 
   ```shell
   kubectl get nodes
@@ -69,6 +69,47 @@ Verify that you have the following components in place before you begin upgradin
       keyPath: <path-to-ssh-key>
   ```
 
+- A ``calico_kdd`` flag is set to ``true`` in the MKE 3 configuration
+  file and applied to the MKE 3 cluster:
+
+  ```yaml
+  calico_kdd = true
+  ```
+
+- Calico KDD (Kubernetes Datastore Driver), enabled:
+
+  1. Verify that the MKE 3.x instance being upgraded to MKE 4 is running the
+     latest 3.7.x or 3.8.x release.
+
+  2. Obtain the MKE 3 configuration file:
+ 
+     ```shell
+     $ export MKE_USERNAME=<mke-username>
+     $ export MKE_PASSWORD=<mke-password>
+     $ export MKE_HOST=<mke-fqdm-or-ip-address>
+     $ curl --silent --insecure -X GET "https://$MKE_HOST/api/ucp/config-toml" -H "accept: application/toml" -H "Authorization: Bearer $AUTHTOKEN" > mke-config.toml
+     ```
+
+  3. In the `cluster_config` section of the MKE 3 configuration file, set the
+     `calico_kdd` parameter to `true`.
+
+  4. Apply the modified MKE 3 configuration file:
+
+     ```shell
+     $ AUTHTOKEN=$(curl --silent --insecure --data '{"username":"'$MKE_USERNAME'","password":"'$MKE_PASSWORD'"}' https://$MKE_HOST/auth/login | jq --raw-output .auth_token)
+     $ curl --silent --insecure -X PUT -H "accept: application/toml" -H "Authorization: Bearer $AUTHTOKEN" --upload-file 'mke-config.toml' https://$MKE_HOST/api/ucp/config-toml
+     {"message":"Calico datastore migration from etcd to kdd successful"}
+     ```
+
+{{< callout type="info" >}} The conversion of the Calico datastore from etcd to
+KDD typically takes about 20 seconds per node, depending on the size of the cluster. On
+completion, the following confirmation displays:
+
+```shell
+{"message":"Calico datastore migration from etcd to kdd successful"}
+```
+{{< /callout >}}
+
 ## Migrate configuration
 
 In migrating to MKE 4 from MKE 3, you can directly transfer settings using `mkectl`.
@@ -82,7 +123,7 @@ mkectl init --mke3-config </path/to/mke3-config.toml>
 ```
 
 {{< callout type="info" >}} To upgrade an MKE 3 cluster with GPU enabled,
-ensure you complete the [GPU prerequisites](/docs/configuration/gpu/#prerequisites) before
+ensure you complete the [GPU prerequisites](../configuration/nvidia-gpu/#prerequisites) before
 starting the upgrade process. {{< /callout >}}
 
 ### Kubernetes Custom Flags
@@ -189,12 +230,11 @@ As MKE 4 does not support Swarm mode, the platform uses standard [Kubernetes
 RBAC authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 As such, the Swarm authorization configuration that is in place for MKE 3 is not present in MKE 4.
 
-
 ### Groups
 
-To enable the same RBAC hierarchy as in MKE 3 with ``orgs`` and ``teams`` groups, but
-without the two-level limitation, MKE 4 replaces ``orgs`` and ``teams`` with
-the Kubernetes ``AggregatedRoles``. 
+To enable the same RBAC hierarchy as in MKE 3 with `orgs` and `teams` groups, but
+without the two-level limitation, MKE 4 replaces `orgs` and `teams` with
+the Kubernetes `AggregatedRoles`.
 
 **Authorization structure comparison:**
 
@@ -213,7 +253,7 @@ MKE 3:                           MKE 4:
 ### Roles
 
 Roles are bound to the aggregated roles for integration into the org, team, and user structure.
-Thus, what was previously an organization or a team role will have ``-org`` or ``-team``
+Thus, what was previously an organization or a team role will have `-org` or `-team`
 appended to its name.
 
 A role can be assigned at any level in the hierarchy, with its permissions granted to all members
@@ -231,10 +271,9 @@ at that same level.
 │   ├── sales-team (AggregatedRole)
 ```
 
-
-In the example above, all members of the ``entire-company`` org group have
-``view`` permissions. This includes the ``development-team``,
-``production-team``, ``sales-team``, ``bob``, and ``bill``.
+In the example above, all members of the `entire-company` org group have
+`view` permissions. This includes the `development-team`,
+`production-team`, `sales-team`, `bob`, and `bill`.
 
 **Example team binding:**
 
@@ -243,17 +282,17 @@ In the example above, all members of the ``entire-company`` org group have
 │   │   ├── bob (user)
 ```
 
-In the example above, the binding grants ``edit`` permissions only to the
-members of the development team, which only includes ``bob``.
+In the example above, the binding grants `edit` permissions only to the
+members of the development team, which only includes `bob`.
 
 {{< callout type="warning" >}}
 
 Swarm roles are partially translated to Kubernetes roles. During migration,
 any detected Swarm role is replicated without permissions, thus
 preserving the org/team/user structure.
-If no Swarm roles are detected, a ``none`` role is created as a placeholder,
+If no Swarm roles are detected, a `none` role is created as a placeholder,
 as Kubernetes requires each aggregated role to have at least one role.
-This ``none`` role has no permissions, with its only purpose being to maintain
+This `none` role has no permissions, with its only purpose being to maintain
 structural integrity.
 
 {{< /callout >}}
@@ -266,7 +305,45 @@ to the table below for a comparison of the CoreDNS Lameduck configuration
 parameters between MKE 3 and MKE 4:
 
 | MKE 3                                              | MKE 4                 |
-|----------------------------------------------------|-----------------------|
+| -------------------------------------------------- | --------------------- |
 | [cluster_config.core_dns_lameduck_config.enabled]  | dns.lameduck.enabled  |
 | [cluster_config.core_dns_lameduck_config.duration] | dns.lameduck.duration |
 
+## Troubleshoot migration
+
+You can address various potential MKE migration issues using the tips and
+suggestions detailed herein.
+
+### MKE 3 ``etcdv3`` backend is unsupported for MKE 4 upgrade
+
+During the upgrade from MKE 3 to MKE 4, which defaults to the ``etcdv3``
+backend, you may receive the following error:
+
+```bash
+mkectl upgrade --hosts-path hosts.yaml --mke3-admin-username admin --mke3-admin-password <mke_admin_password> -l debug --config-out new-mke4.yaml --external-address <mke4_external_address>
+...
+Error: unable to generate upgrade config: unsupported configuration for mke4 upgrade: mke3 cluster is using etcdv3 and not kdd backend for calico
+```
+
+To resolve the issue, ensure that:
+
+- The MKE 3 source is the latest 3.7.x or 3.8.x release.
+- The ``calico_kdd`` flag in the MKE 3 configuration file is set to `true`.
+- The configuration is applied to the MKE 3 cluster.
+
+{{< callout type="info" >}}
+
+A KDD mode migration is irreversible. Thus, to reduce risk, when migrating
+enterprise clusters, it is recommended that you work directly with Mirantis to
+plan the process and monitor it through to completion.
+
+{{< /callout >}}
+
+Example output:
+
+```bash
+$ AUTHTOKEN=$(curl --silent --insecure --data '{"username":"'$MKE_USERNAME'","password":"'$MKE_PASSWORD'"}' https://$MKE_HOST/auth/login | jq --raw-output .auth_token)
+
+$ curl --silent --insecure -X PUT -H "accept: application/toml" -H "Authorization: Bearer $AUTHTOKEN" --upload-file 'mke-config.toml' https://$MKE_HOST/api/ucp/config-toml
+{"message":"Calico datastore migration from etcd to kdd successful"}
+```
