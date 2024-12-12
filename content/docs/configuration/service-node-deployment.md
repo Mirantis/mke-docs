@@ -47,7 +47,7 @@ For details, refer to [Restrict services deployment to Kubernetes worker nodes](
 To add a toleration to the Pod specification for existing workloads:
 
 1. Add the following toleration to the Pod specification, either through the
-   MKE web UI or using the `kubectl edit <object> <workload>` command:
+   MKE web UI or using the `kubectl edit <resource> <name>` command:
 
    ```
    tolerations:
