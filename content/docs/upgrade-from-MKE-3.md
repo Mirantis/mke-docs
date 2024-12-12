@@ -120,7 +120,7 @@ Verify that you have the following components in place before you begin upgradin
       keyPath: <path-to-ssh-key>
   ```
 
-- A ``calico_kdd`` flag is set to ``true`` in the MKE 3 configuration
+- A `calico_kdd` flag is set to `true` in the MKE 3 configuration
   file and applied to the MKE 3 cluster:
 
   ```yaml
@@ -133,12 +133,12 @@ Verify that you have the following components in place before you begin upgradin
      latest 3.7.x or 3.8.x release.
 
   2. Obtain the MKE 3 configuration file:
- 
+
      ```shell
-     $ export MKE_USERNAME=<mke-username>
-     $ export MKE_PASSWORD=<mke-password>
-     $ export MKE_HOST=<mke-fqdm-or-ip-address>
-     $ curl --silent --insecure -X GET "https://$MKE_HOST/api/ucp/config-toml" -H "accept: application/toml" -H "Authorization: Bearer $AUTHTOKEN" > mke-config.toml
+     export MKE_USERNAME=<mke-username>
+     export MKE_PASSWORD=<mke-password>
+     export MKE_HOST=<mke-fqdm-or-ip-address>
+     curl --silent --insecure -X GET "https://$MKE_HOST/api/ucp/config-toml" -H "accept: application/toml" -H "Authorization: Bearer $AUTHTOKEN" > mke-config.toml
      ```
 
   3. In the `cluster_config` section of the MKE 3 configuration file, set the
@@ -414,9 +414,9 @@ parameters between MKE 3 and MKE 4:
 You can address various potential MKE upgrade issues using the tips and
 suggestions detailed herein.
 
-### MKE 3 ``etcdv3`` backend is unsupported for MKE 4 upgrade
+### MKE 3 `etcdv3` backend is unsupported for MKE 4 upgrade
 
-During the upgrade from MKE 3 to MKE 4, which defaults to the ``etcdv3``
+During the upgrade from MKE 3 to MKE 4, which defaults to the `etcdv3`
 backend, you may receive the following error:
 
 ```bash
@@ -428,7 +428,7 @@ Error: unable to generate upgrade config: unsupported configuration for mke4 upg
 To resolve the issue, ensure that:
 
 - The MKE 3 source is the latest 3.7.x or 3.8.x release.
-- The ``calico_kdd`` flag in the MKE 3 configuration file is set to `true`.
+- The `calico_kdd` flag in the MKE 3 configuration file is set to `true`.
 - The configuration is applied to the MKE 3 cluster.
 
 {{< callout type="info" >}}
