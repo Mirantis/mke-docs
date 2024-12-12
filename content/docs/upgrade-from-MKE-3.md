@@ -159,6 +159,29 @@ completion, the following confirmation displays:
 ```shell
 {"message":"Calico datastore upgrade from etcd to kdd successful"}
 ```
+
+{{< /callout >}}
+
+## Prepare the MKE 3 backup
+
+Before you upgrade to MKE 4, verify that you have a backup of the MKE 3 cluster. Also, review the
+[MKE 3 disaster recovery documentation](https://docs.mirantis.com/mke/3.8/ops/disaster-recovery.html),
+as it pertains to backing up MKE 3.
+
+{{< callout type="info" >}}
+
+The upgrade migration process will also remove the Swarm cluster.
+This includes removing all Swarm nodes, services, tasks, configs, secrets, and networks.
+
+{{< /callout >}}
+
+As for non-MKE components, be sure to back these up separately, checking both manager and worker nodes.
+
+{{< callout type="warning" >}}
+
+Non-MKE 3 components, such as bespoke containers and volumes, may be at risk of being deleted
+rather than migrated to MKE 4.
+
 {{< /callout >}}
 
 ## Perform the migration
