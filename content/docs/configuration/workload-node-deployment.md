@@ -3,7 +3,7 @@ title: Workload node deployment
 weight: 10
 ---
 
-By default, user workloads cannot run in manager nodes, to ensure that cluster
+By default, user workloads cannot run in manager nodes. This is to ensure that cluster
 management functionality remains performant and to enhance cluster security.
 You can, however, override this behavior.
 
