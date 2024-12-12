@@ -1,9 +1,16 @@
 ---
-title: Available features
+title: Features Summary
 weight: 1
 ---
 
-Key features that are available in MKE 4 are detailed in the following table:
+The feature summary offers a high-level view of MKE 4 product functionality, as
+well as information on features that Mirantis is working to include in future
+releases of of the software.
+
+Available features
+------------------
+
+Features that are available in MKE 4 are detailed in the following table:
 
 | Feature                           | Detail                                                                                                                                                                                                                                                                                                 | Learn more                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 |-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -26,3 +33,44 @@ Key features that are available in MKE 4 are detailed in the following table:
 | Support Bundle                    | Support bundles for MKE 4 can be generated directly from the command line.                                                                                                                                                                                                                              | [Create a support bundle](../../configuration/support-bundle#create-a-support-bundle)                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Telemetry                         | MKE 4 can be set to automatically record and transmit data to Mirantis through an encrypted channel, for monitoring and analysis purposes.                                                                                                                                                              | [Enable telemetry through the MKE CLI](../../configuration/telemetry/#enable-telemetry-through-the-mke-cli),   [Enable telemetry through the MKE web UI](../../configuration/telemetry/#enable-telemetry-through-the-mke-web-ui)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
+Features under development
+--------------------------
+
+Features that Mirantis is working to integrate in upcoming releases include:
+
+* 2FA
+* Additional cloud providers
+* Audit logging
+* CIS Benchmarks
+* Client bundle
+* Custom admission controllers: OPA/GK or Kyverno EE or CE only
+* etcd enhancements
+* gMSA
+* Image pruning
+* KMS/Vault
+* Life Cycle Management for components
+* Networking: Cillum
+* Networking: Multus
+* Node Local DNS
+* Offline Bundle
+* OpsCare Plus
+* Scheduled backups
+* STIG
+* Storage (CSI)
+* Windows
+
+Unavailable features
+--------------------
+
+Mirantis does not support the following functions:
+
+* kube-router
+* Networking: IPVS, eBPF, Unmanaged CNI
+* Profiling on Kubernetes and MKE components
+* Custom feedback UI
+* Account Lockout
+* User session properties
+* gMSA
+* SCIIM
+* Swarm
+* DCT (Docker Content Trust)
