@@ -9,7 +9,7 @@ You can, however, override this behavior.
 
 {{< callout type="warning" >}}
 
-If for whatever reason a user deploys a malicious service that can affect
+If for whatever reason a user deploys a malicious workload that can affect
 the node on which it is running, that service will not be able to strike any
 other nodes in the cluster or have any impact on cluster management
 functionality.
