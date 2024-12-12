@@ -16,7 +16,7 @@ functionality.
 
 {{< /callout >}}
 
-Restrict services deployment to Kubernetes worker nodes
+Restrict workload deployment to Kubernetes worker nodes
 -------------------------------------------------------
 
 By default, MKE clusters use [Kubernetes taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
