@@ -36,30 +36,39 @@ Features that are available in MKE 4 are detailed in the following table:
 Features under development
 --------------------------
 
-Features that Mirantis is working to integrate in upcoming releases include:
+New features that Mirantis plans to introduce in upcoming MKE 4 releases
+include:
 
-* 2FA
 * Additional cloud providers
-* Audit logging
-* CIS Benchmarks
-* Client bundle
 * Custom admission controllers: OPA/GK or Kyverno EE or CE only
-* etcd enhancements
 * gMSA
-* Image pruning
-* KMS/Vault
 * Life Cycle Management for components
 * Networking: Cillum
-* Networking: Multus
-* Node Local DNS
 * Offline Bundle
-* OpsCare Plus
 * Scheduled backups
 * STIG
-* Storage (CSI)
-* Windows
 
-Unavailable features
+In addition, Mirantis is working to integrate various key MKE 3 features into
+MKE 4, including:
+
+* [Two-factor authentication (2FA)](https://docs.mirantis.com/mke/3.8/ops/administer-cluster/two-factor-authentication.html?highlight=2fa)
+* [Audit
+  logging](https://docs.mirantis.com/mke/3.8/ops/administer-cluster/mke-audit-logging.html)
+* [etcd enhancements](https://docs.mirantis.com/mke/3.8/ops/administer-cluster/manage-etcd.html)
+* [CIS Benchmarks](https://docs.mirantis.com/mke/3.8/cis-benchmarks.html)
+* [Client
+  bundle](https://docs.mirantis.com/mke/3.8/ops/access-cluster/download-configure-client-bundle.html)
+* [Image
+  pruning](https://docs.mirantis.com/mke/3.8/ops/administer-cluster/schedule-image-pruning.html?highlight=image%20pruning)
+* [KMS/Vault](https://docs.mirantis.com/mke/3.8/ops/administer-cluster/mke-kms-plugin-support.html?highlight=kms)
+* [Networking: Multus](https://docs.mirantis.com/mke/3.8/install/predeployment/configure-networking/multus-cni-installation-enablement.html?highlight=multus)
+* [Node Local DNS](https://kubernetes.io/docs/tasks/administer-cluster/nodelocaldns/)
+* [OpsCare Plus](https://docs.mirantis.com/mke/3.8/ops/administer-cluster/configure-opscare.html)
+* [Storage
+  (CSI)](https://docs.mirantis.com/mke/3.8/ops/deploy-apps-k8s/persistent-storage.html)
+* Windows function
+
+Unsupported features
 --------------------
 
 Mirantis does not support the following functions:
