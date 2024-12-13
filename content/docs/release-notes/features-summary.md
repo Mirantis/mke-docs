@@ -41,7 +41,6 @@ include:
 
 * Additional cloud providers
 * Custom admission controllers: OPA/GK or Kyverno EE or CE only
-* gMSA
 * Life Cycle Management for components
 * Networking: Cillum
 * Offline Bundle
