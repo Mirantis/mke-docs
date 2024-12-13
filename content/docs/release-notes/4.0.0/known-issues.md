@@ -130,3 +130,11 @@ No workaround is available at this time.
 Any party with knowledge of the MKE 4 URL can access Prometheus without authentication.
 
 No workaround is available at this time.
+
+## [BOP-1528] Once applied, the apiserver.externalAddress parameter cannot be cleared
+
+MKE cannot clear the `apiserver.externalAddress` parameter once it has been
+applied in the MKE 4 configuration file, as this can cause the MKE cluster to
+malfunction.
+
+No workaround is available at this time.
