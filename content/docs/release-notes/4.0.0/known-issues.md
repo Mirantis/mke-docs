@@ -133,7 +133,7 @@ No workaround is available at this time.
 
 ## [BOP-891] Upgrade to MKE 4 fails if kubeconfig file is present in source MKE 3.x
 
-Upgrade to MKE 4 fails if ~/.mke/mke.kubeconf is present in the
+Upgrade to MKE 4 fails if the `~/.mke/mke.kubeconf` file is present in the
 source MKE 3.x system.
 
 **Workaround:**
