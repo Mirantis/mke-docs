@@ -30,10 +30,10 @@ certificates to access MKE from the CLI.
     All keys and certificates must be uploaded in PEM format.
     {{< /callout >}}
     
-    | Type               | Description                                                                                                                                                                                                                                                  |
-    |--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Private key        | The unencrypted private key for MKE. This key must correspond to the public key used in the server certificate. This key does not use a password.<br/><br/>Click **Upload Key** to upload a PEM file.                                                        |
-    | Server certificate | The MKE public key certificate, which establishes a chain of trust up to the root CA certificate. It is followed by the certificates of any intermediate certificate authorities.<br/><br/>Click **Upload Certificate** to upload a PEM file.                |
+    | Type               | Description   |
+    |--------------------|---------------|
+    | Private key        | The unencrypted private key for MKE. This key must correspond to the public key used in the server certificate. This key does not use a password.<br/><br/>Click **Upload Key** to upload a PEM file.                                                       |
+    | Server certificate | The MKE public key certificate, which establishes a chain of trust up to the root CA certificate. It is followed by the certificates of any intermediate certificate authorities.<br/><br/>Click **Upload Certificate** to upload a PEM file.               |
     | CA certificate     | The public key certificate of the root certificate authority that issued the MKE server certificate. If you do not have a CA certificate, use the top-most intermediate certificate instead.<br/><br/>Click **Upload CA Certificate** to upload a PEM file. |
 
 4. Click **Save**.
