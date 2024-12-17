@@ -34,7 +34,6 @@ to each controller through the following ports:
 | Listen port | Target port | Purpose             | Configurable         |
 | ----------- | ----------- | ------------------- | -------------------- |
 | 6443        | 6443        | Kubernetes API      | {{< icon "ban" >}}   |
-| 8132        | 8132        | Konnectivity        | {{< icon "ban" >}}   |
 | 9443        | 9443        | Controller join API | {{< icon "ban" >}}   |
 | 443         | 33001       | Ingress Controller  | {{< icon "check" >}} |
 
