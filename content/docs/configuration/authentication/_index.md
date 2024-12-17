@@ -68,3 +68,17 @@ The following table shows all of the available fields for the `expiry` section.
 | `expiry.refreshTokens.absoluteLifetime`  | Absolute time frame of a refresh token.                                  |
 | `expiry.refreshTokens.disableRotation`   | Disable every-request rotation.                                          |
 | `expiry.refreshTokens.reuseInterval`     | Interval for obtaining the same refresh token from the refresh endpoint. |
+
+## Unsupported functions
+
+Authentication functions that are not supported in MKE 4 include:
+
+* OIDC proxies
+* SAML proxies
+* JIT provisioning in LDAP
+* SAML logins in LDAP
+* Simple pagination in LDAP
+* Disablement of referral chasing in LDAP
+* Sync LDAP users
+* MFA
+* enzi endpoints
