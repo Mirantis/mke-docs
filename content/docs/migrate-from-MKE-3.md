@@ -78,12 +78,12 @@ Verify that you have the following components in place before you begin upgradin
 
 - Calico KDD (Kubernetes Datastore Driver), enabled:
 
-  1. Verify that the MKE 3.x instance being upgraded to MKE 4 is running version 3.7.12 or
-     later.
+  1. Verify that the MKE 3.x instance being upgraded to MKE 4 is running the
+     latest 3.7.x or 3.8.x release.
 
   2. Obtain the MKE 3 configuration file:
  
-     ```
+     ```shell
      $ export MKE_USERNAME=<mke-username>
      $ export MKE_PASSWORD=<mke-password>
      $ export MKE_HOST=<mke-fqdm-or-ip-address>
@@ -287,7 +287,7 @@ Error: unable to generate upgrade config: unsupported configuration for mke4 upg
 
 To resolve the issue, ensure that:
 
-- The MKE 3 source is version 3.7.12 or later.
+- The MKE 3 source is the latest 3.7.x or 3.8.x release.
 - The ``calico_kdd`` flag in the MKE 3 configuration file is set to `true`.
 - The configuration is applied to the MKE 3 cluster.
 
