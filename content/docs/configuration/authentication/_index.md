@@ -81,4 +81,3 @@ Authentication functions that are not supported in MKE 4 include:
 * Disablement of referral chasing in LDAP
 * Sync LDAP users
 * MFA
-* enzi endpoints
