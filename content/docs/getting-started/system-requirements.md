@@ -15,6 +15,7 @@ documentation](https://docs.k0sproject.io/v1.29.4+k0s.0/system-requirements/).
 ## Software requirements
 
 - Operating systems:
+  - Ubuntu 20.04 Linux
   - Ubuntu 22.04 Linux
   - RHEL 8.10
   - Rocky Linux 9.4
