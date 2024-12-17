@@ -139,3 +139,11 @@ source MKE 3.x system.
 **Workaround:**
 
 Make a backup of the old `~/.mke/mke.kubeconf` file and then delete it.
+
+## [BOP-1528] Once applied, the apiserver.externalAddress parameter cannot be cleared
+
+MKE cannot clear the `apiserver.externalAddress` parameter once it has been
+applied in the MKE 4 configuration file, as this can cause the MKE cluster to
+malfunction.
+
+No workaround is available at this time.
