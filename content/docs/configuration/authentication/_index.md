@@ -75,9 +75,9 @@ Authentication functions that are not supported in MKE 4 include:
 
 * OIDC proxies
 * SAML proxies
-* JIT provisioning in LDAP
-* SAML logins in LDAP
-* Simple pagination in LDAP
-* Disablement of referral chasing in LDAP
-* Sync LDAP users
-* MFA
+* LDAP disablement of referral chasing
+* LDAP JIT provisioning
+* LDAP SAML logins
+* LDAP simple pagination
+* LDAP user sync
+* MFA (Multi-Factor Authentication)
