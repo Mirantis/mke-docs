@@ -83,25 +83,58 @@ spec:
             nodefs.inodesFree: 5%
 ```
 
+{{< callout type="warning" >}}
+When creating the custom profile, ensure the following:
+
+- Crosscheck `featureGates` in the custom profile against the official
+  Kubernetes [list of removed feature gates](https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates-removed/).
+  Adding a removed feature gate will prevent the kubelet from starting. 
+- Add `allowedUnsafeSysctls` as namespaced `sysctls`. Non-namespaced `sysctls`
+  are unsupported by the kubelet and will also prevent it from starting.
+{{< /callout >}}
+
 ### Apply a custom profile to a node
 
 Hosts can be assigned a custom profile through the `hosts` section of the MKE
-configuration file, whereas the profile name is an installation time argument for
-the host.
+configuration file, whereas the profile name is an installation time argument
+for the host.
 
 The following example configuration applies the `hardworker` custom profile to
 the `localhost` node:
 
 ```yaml
-  hosts:
-  - role: single
-    ssh:
-      address: localhost
-      keyPath: ~/.ssh/id_rsa
-      port: 22
-      user: root
-      installFlags:
-        - --profile=hardworker
+hosts:
+- role: single
+  installFlags:
+    - --profile=hardworker
+  ssh:
+    address: localhost
+    keyPath: ~/.ssh/id_rsa
+    port: 22
+    user: root
+```
+
+### Debug worker profiles
+
+When an invalid worker profile is provided, the kubelet assigned to use it may
+fail to start. If nodes appear in the `NotReady` state after applying a worker
+profile, it is likely due to an incorrect worker profile configuration.
+
+To debug your worker profile:
+
+1. SSH into the corresponding `NotReady` node.
+2. Check the logs of k0sworker system service `journalctl -u k0sworker`. 
+3. If the worker node does not show any errors, SSH into a manager node.
+4. Check the logs of the k0scontroller system service
+   `journalctl -u k0scontroller`. 
+5. Repeat the process for every manager node until you find kubelet or worker
+   profile-related errors.
+
+Example of a k0scontroller error caused by an incorrect value for the
+`memoryThrottlingFactor` parameter in the worker profile:
+
+```bash
+k0s[1619032]: time="2024-11-11 22:25:03" level=error msg="Failed to recover from previously failed reconciliation" component=workerconfig.Reconciler error="failed to generate resources for worker configuration: failed to decode worker profile \"hardworker\": error unmarshaling JSON: while decoding JSON: json: cannot unmarshal string into Go struct field KubeletConfiguration.memoryThrottlingFactor of type float64"
 ```
 
 ## Precedence of kubelet configuration
