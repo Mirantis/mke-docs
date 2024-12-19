@@ -13,11 +13,9 @@ You can configure MKE to use your own TLS certificates. As a result, your
 browser and other client tools will trust your MKE installation.
 
 Mirantis recommends that you make this change outside of peak business hours.
-Your applications will continue to run normally, but existing MKE client
-certificates will become invalid, and thus users will have to download new
-certificates to access MKE from the CLI.
+Your applications will continue to run normally. However, the Ingress Controller will restart, and if you use it to expose your applications to the outside world, they may be unavailable for a short time.
 
-## Set TLS certificate using MKE web UI
+## Use the MKE web UI to align your TLS certificates and keys
 
 1. Log in to the MKE web UI as an administrator.
 
@@ -38,21 +36,16 @@ certificates to access MKE from the CLI.
 
 4. Click **Save**.
 
-After replacing the TLS certificates, users cannot authenticate with their old
-client certificate bundles. Instruct users to access the MKE web UI and
-download new client certificate bundles.
 
-## Set TLS certificate using CLI
+## Use the CLI to align your TLS certificates and keys
 
 To set up the certificate with commandline and `mkectl`:
 
-1. Create a new TLS certificate and key signed by a trusted CA.
+1. Create a new TLS certificate and key signed by a trusted CA. These must include:
+   - external IP address
+   - IP addresses for all manager nodes in the list of allowed hosts
 
-   It must include:
-   - the external address
-   - the IP addresses of all manager nodes in the list of allowed hosts
-
-   To get the list of all required hosts, run the following command:
+   To get the list of all required hosts, run the following command from the folder where your config file is located:
 
    ```bash
    HOSTS=$(yq '[(.spec.apiServer.externalAddress, .spec.hosts.[] | select(.role == "controller+worker") | .ssh.address)] | join(" ")' <MKE CONFIGURATION FILE NAME>)
@@ -87,13 +80,13 @@ To set up the certificate with commandline and `mkectl`:
    ```
 
 4. In the configuration, set the `defaultSslCertificate` of the Ingress
-   Controller to the secret name from a previous step.
+   Controller to the previously established secret name.
 
    ```bash
    yq -i '.spec.ingressController.extraArgs.defaultSslCertificate = "mke/<USER-PROVIDED-INGRESS-CERT>"' <MKE CONFIGURATION FILE NAME>
    ```
 
-   Example Ingress Controller section in the MKE configuration file:
+   Example MKE configuration file `ingressController` section:
     
    ```yaml
    spec:
