@@ -19,6 +19,8 @@ short period of unavailability.
 
 ## Use the MKE web UI to align TLS artifacts
 
+To configure MKE with the MKE web UI to use your own TLS certificates and keys:
+
 1. Log in to the MKE web UI as an administrator.
 
 2. In the left-side navigation panel, navigate to your **Username** >
@@ -50,6 +52,8 @@ short period of unavailability.
 4. Click **Save**.
 
 ## Use the CLI to align TLS artifacts
+
+To configure MKE with the CLI to use your own TLS certificates and keys:
 
 1. Create a new TLS certificate and key signed by a trusted CA. These must include:
    - external IP address
