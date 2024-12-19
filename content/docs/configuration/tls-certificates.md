@@ -17,7 +17,7 @@ Your applications will continue to run normally. However, the Ingress
 Controller will restart, and applications exposed through it may experience a
 short period of unavailability.
 
-## Use the MKE web UI to align your TLS certificates and keys
+## Use the MKE web UI to align TLS artifacts
 
 1. Log in to the MKE web UI as an administrator.
 
@@ -49,7 +49,7 @@ short period of unavailability.
 
 4. Click **Save**.
 
-## Use the CLI to align your TLS certificates and keys
+## Use the CLI to align TLS artifacts
 
 1. Create a new TLS certificate and key signed by a trusted CA. These must include:
    - external IP address
