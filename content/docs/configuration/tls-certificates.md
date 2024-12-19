@@ -13,7 +13,9 @@ You can configure MKE to use your own TLS certificates. As a result, your
 browser and other client tools will trust your MKE installation.
 
 Mirantis recommends that you make this change outside of peak business hours.
-Your applications will continue to run normally. However, the Ingress Controller will restart, and if you use it to expose your applications to the outside world, they may be unavailable for a short time.
+Your applications will continue to run normally. However, the Ingress
+Controller will restart, and applications exposed through it may experience a
+short period of unavailability.
 
 ## Use the MKE web UI to align your TLS certificates and keys
 
@@ -25,7 +27,18 @@ Your applications will continue to run normally. However, the Ingress Controller
 3. Upload your certificates and keys based on the following table.
 
     {{< callout type="info" >}}
-    All keys and certificates must be uploaded in PEM format.
+    All keys and certificates must be uploaded in PEM format, and the
+    certificates must include:
+    - external IP address
+    - IP addresses for all manager nodes in the list of allowed hosts
+
+    To obtain the list of all required hosts, run the following command from the
+    directory containing your configuration file:
+
+    ```bash
+    HOSTS=$(yq '[(.spec.apiServer.externalAddress, .spec.hosts.[] | select(.role == "controller+worker") | .ssh.address)] | join(" ")' <MKE CONFIGURATION FILE NAME>)
+    echo $HOSTS
+    ```
     {{< /callout >}}
     
     | Type               | Description   |
@@ -36,24 +49,23 @@ Your applications will continue to run normally. However, the Ingress Controller
 
 4. Click **Save**.
 
-
 ## Use the CLI to align your TLS certificates and keys
-
-To set up the certificate with commandline and `mkectl`:
 
 1. Create a new TLS certificate and key signed by a trusted CA. These must include:
    - external IP address
    - IP addresses for all manager nodes in the list of allowed hosts
 
-   To get the list of all required hosts, run the following command from the folder where your config file is located:
+   To obtain the list of all required hosts, run the following command from the
+   directory containing your configuration file:
 
    ```bash
    HOSTS=$(yq '[(.spec.apiServer.externalAddress, .spec.hosts.[] | select(.role == "controller+worker") | .ssh.address)] | join(" ")' <MKE CONFIGURATION FILE NAME>)
    echo $HOSTS
    ```
+   
+2. Encode certificate material.
 
-
-2. Encode certificate material:
+   **MacOS:**
 
    ```bash
    CA_CERT=$(cat ca.pem | base64 -b0)
@@ -61,7 +73,13 @@ To set up the certificate with commandline and `mkectl`:
    SERVER_KEY=$(cat key.pem | base64 -b0)
    ```
 
-   If you are using Linux, use `base64 -w0` instead.
+   **Linux:**
+
+   ```bash
+   CA_CERT=$(cat ca.pem | base64 -w0)
+   SERVER_CERT=$(cat cert.pem | base64 -w0)
+   SERVER
+   ```
 
 3. Create a secret with the new certificate material:
 
