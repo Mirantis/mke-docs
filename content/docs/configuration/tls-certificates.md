@@ -23,10 +23,9 @@ To configure MKE with the MKE web UI to use your own TLS certificates and keys:
 
 1. Log in to the MKE web UI as an administrator.
 
-2. In the left-side navigation panel, navigate to your **Username** >
-   **Admin Settings** > **Certificates**.
+2. In the left-side navigation panel, navigate to **Admin Settings** > **Certificates**.
 
-3. Upload your certificates and keys based on the following table.
+3. Upload your certificates and keys.
 
     {{< callout type="info" >}}
     All keys and certificates must be uploaded in PEM format, and the
