@@ -89,8 +89,9 @@ When creating the custom profile, ensure the following:
 - Crosscheck `featureGates` in the custom profile against the official
   Kubernetes [list of removed feature gates](https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates-removed/).
   Adding a removed feature gate will prevent the kubelet from starting. 
-- Add `allowedUnsafeSysctls` as namespaced `sysctls`. Non-namespaced `sysctls`
-  are unsupported by the kubelet and will also prevent it from starting.
+- When setting `allowedUnsafeSysctls` include only namespaced `sysctls`.
+  Non-namespaced `sysctls` are unsupported by the kubelet and will also prevent
+  it from starting.
 {{< /callout >}}
 
 ### Apply a custom profile to a node
