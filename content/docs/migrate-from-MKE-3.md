@@ -69,7 +69,7 @@ Verify that you have the following components in place before you begin upgradin
       keyPath: <path-to-ssh-key>
   ```
 
-- A ``calico_kdd`` flag is set to ``true`` in the MKE 3 configuration
+- A `calico_kdd` flag is set to `true` in the MKE 3 configuration
   file and applied to the MKE 3 cluster:
 
   ```yaml
@@ -82,12 +82,12 @@ Verify that you have the following components in place before you begin upgradin
      latest 3.7.x or 3.8.x release.
 
   2. Obtain the MKE 3 configuration file:
- 
+
      ```shell
-     $ export MKE_USERNAME=<mke-username>
-     $ export MKE_PASSWORD=<mke-password>
-     $ export MKE_HOST=<mke-fqdm-or-ip-address>
-     $ curl --silent --insecure -X GET "https://$MKE_HOST/api/ucp/config-toml" -H "accept: application/toml" -H "Authorization: Bearer $AUTHTOKEN" > mke-config.toml
+     export MKE_USERNAME=<mke-username>
+     export MKE_PASSWORD=<mke-password>
+     export MKE_HOST=<mke-fqdm-or-ip-address>
+     curl --silent --insecure -X GET "https://$MKE_HOST/api/ucp/config-toml" -H "accept: application/toml" -H "Authorization: Bearer $AUTHTOKEN" > mke-config.toml
      ```
 
   3. In the `cluster_config` section of the MKE 3 configuration file, set the
@@ -108,6 +108,29 @@ completion, the following confirmation displays:
 ```shell
 {"message":"Calico datastore migration from etcd to kdd successful"}
 ```
+
+{{< /callout >}}
+
+## Prepare the MKE 3 backup
+
+Before you upgrade to MKE 4, verify that you have a backup of the MKE 3 cluster. Also, review the
+[MKE 3 disaster recovery documentation](https://docs.mirantis.com/mke/3.8/ops/disaster-recovery.html),
+as it pertains to backing up MKE 3.
+
+{{< callout type="info" >}}
+
+The upgrade migration process will also remove the Swarm cluster.
+This includes removing all Swarm nodes, services, tasks, configs, secrets, and networks.
+
+{{< /callout >}}
+
+As for non-MKE components, be sure to back these up separately, checking both manager and worker nodes.
+
+{{< callout type="warning" >}}
+
+Non-MKE 3 components, such as bespoke containers and volumes, may be at risk of being deleted
+rather than migrated to MKE 4.
+
 {{< /callout >}}
 
 ## Migrate configuration
@@ -274,9 +297,9 @@ parameters between MKE 3 and MKE 4:
 You can address various potential MKE migration issues using the tips and
 suggestions detailed herein.
 
-### MKE 3 ``etcdv3`` backend is unsupported for MKE 4 upgrade
+### MKE 3 `etcdv3` backend is unsupported for MKE 4 upgrade
 
-During the upgrade from MKE 3 to MKE 4, which defaults to the ``etcdv3``
+During the upgrade from MKE 3 to MKE 4, which defaults to the `etcdv3`
 backend, you may receive the following error:
 
 ```bash
@@ -288,7 +311,7 @@ Error: unable to generate upgrade config: unsupported configuration for mke4 upg
 To resolve the issue, ensure that:
 
 - The MKE 3 source is the latest 3.7.x or 3.8.x release.
-- The ``calico_kdd`` flag in the MKE 3 configuration file is set to `true`.
+- The `calico_kdd` flag in the MKE 3 configuration file is set to `true`.
 - The configuration is applied to the MKE 3 cluster.
 
 {{< callout type="info" >}}
