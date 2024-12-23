@@ -29,17 +29,17 @@ To configure MKE with the MKE web UI to use your own TLS certificates and keys:
 
     {{< callout type="info" >}}
     All keys and certificates must be uploaded in PEM format, and the
-    certificates must include:
+    certificates must include the following SANs:
     - external IP address
-    - IP addresses for all manager nodes in the list of allowed hosts
+    - IP addresses for all manager nodes
 
-    To obtain the list of all required hosts, run the following command from the
-    directory containing your configuration file:
+      To obtain the list of all required hosts, run the following command from
+      the directory containing the `mke4.yaml` file:
 
-    ```bash
-    HOSTS=$(yq '[(.spec.apiServer.externalAddress, .spec.hosts.[] | select(.role == "controller+worker") | .ssh.address)] | join(" ")' <MKE CONFIGURATION FILE NAME>)
-    echo $HOSTS
-    ```
+      ```bash
+      HOSTS=$(yq '[(.spec.apiServer.externalAddress, .spec.hosts.[] | select(.role == "controller+worker") | .ssh.address)] | join(" ")' mke4.yaml)
+      echo $HOSTS
+      ```
     {{< /callout >}}
     
     | Type               | Description   |
@@ -54,17 +54,18 @@ To configure MKE with the MKE web UI to use your own TLS certificates and keys:
 
 To configure MKE with the CLI to use your own TLS certificates and keys:
 
-1. Create a new TLS certificate and key signed by a trusted CA. These must include:
+1. All keys and certificates must be uploaded in PEM format, and the
+   certificates must include the following SANs:
    - external IP address
-   - IP addresses for all manager nodes in the list of allowed hosts
+   - IP addresses for all manager nodes
 
-   To obtain the list of all required hosts, run the following command from the
-   directory containing your configuration file:
+     To obtain the list of all required hosts, run the following command from
+     the directory containing the `mke4.yaml` file:
 
-   ```bash
-   HOSTS=$(yq '[(.spec.apiServer.externalAddress, .spec.hosts.[] | select(.role == "controller+worker") | .ssh.address)] | join(" ")' <MKE CONFIGURATION FILE NAME>)
-   echo $HOSTS
-   ```
+     ```bash
+     HOSTS=$(yq '[(.spec.apiServer.externalAddress, .spec.hosts.[] | select(.role == "controller+worker") | .ssh.address)] | join(" ")' mke4.yaml)
+     echo $HOSTS
+     ```
    
 2. Encode certificate material.
 
@@ -104,7 +105,7 @@ To configure MKE with the CLI to use your own TLS certificates and keys:
    Controller to the previously established secret name.
 
    ```bash
-   yq -i '.spec.ingressController.extraArgs.defaultSslCertificate = "mke/<USER-PROVIDED-INGRESS-CERT>"' <MKE CONFIGURATION FILE NAME>
+   yq -i '.spec.ingressController.extraArgs.defaultSslCertificate = "mke/user-provided-ingress-cert"' mke4.yaml
    ```
 
    Example MKE configuration file `ingressController` section:
