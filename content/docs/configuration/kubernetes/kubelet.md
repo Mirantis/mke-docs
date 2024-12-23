@@ -84,12 +84,12 @@ spec:
 ```
 
 {{< callout type="warning" >}}
-When creating the custom profile, ensure the following:
+To ensure your custom profile works correctly:
 
-- Crosscheck `featureGates` in the custom profile against the official
+- Cross-check `featureGates` in the custom profile against the official
   Kubernetes [list of removed feature gates](https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates-removed/).
   Adding a removed feature gate will prevent the kubelet from starting. 
-- When setting `allowedUnsafeSysctls` include only namespaced `sysctls`.
+- Include only namespaced `sysctls` when you configure `allowedUnsafeSysctls`.
   Non-namespaced `sysctls` are unsupported by the kubelet and will also prevent
   it from starting.
 {{< /callout >}}
@@ -127,9 +127,8 @@ To debug a worker profile:
 2. Check the logs of k0sworker system service `journalctl -u k0sworker` for errors. 
 3. If the worker node does not show any errors, SSH into a manager node.
 4. Check the logs of the k0scontroller system service
-   `journalctl -u k0scontroller` for errors. 
-5. Repeat the process for every manager node until you find kubelet or worker
-   profile-related errors.
+   `journalctl -u k0scontroller` for errors. Repeat the process for every
+   manager node until you find errors related to kubelet or to worker profiles.
 
 Example of a k0scontroller error caused by an incorrect value for the
 `memoryThrottlingFactor` parameter in the worker profile:
