@@ -96,7 +96,7 @@ When creating the custom profile, ensure the following:
 
 ### Apply a custom profile to a node
 
-Hosts can be assigned a custom profile through the `hosts` section of the MKE
+You can assign a custom profile through the `hosts` section of the MKE
 configuration file, whereas the profile name is an installation time argument
 for the host.
 
@@ -117,17 +117,17 @@ hosts:
 
 ### Debug worker profiles
 
-When an invalid worker profile is provided, the kubelet assigned to use it may
-fail to start. If nodes appear in the `NotReady` state after applying a worker
+If an invalid worker profile is provided, the kubelet assigned to use the profile may
+fail to start. If a node takes on the `NotReady` state following the application of a worker
 profile, it is likely due to an incorrect worker profile configuration.
 
-To debug your worker profile:
+To debug a worker profile:
 
 1. SSH into the corresponding `NotReady` node.
-2. Check the logs of k0sworker system service `journalctl -u k0sworker`. 
+2. Check the logs of k0sworker system service `journalctl -u k0sworker` for errors. 
 3. If the worker node does not show any errors, SSH into a manager node.
 4. Check the logs of the k0scontroller system service
-   `journalctl -u k0scontroller`. 
+   `journalctl -u k0scontroller` for errors. 
 5. Repeat the process for every manager node until you find kubelet or worker
    profile-related errors.
 
