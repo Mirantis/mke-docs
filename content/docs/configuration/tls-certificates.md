@@ -3,7 +3,7 @@ title: TLS certificates
 weight: 10
 ---
 
-To ensure all communications between clients and MKE are encrypted, all MKE
+To ensure all communications between clients and MKE are encrypted, MKE
 services are exposed using HTTPS. By default, this is done using self-signed
 TLS certificates that are not trusted by client tools such as web browsers.
 Thus, when you try to access MKE, your browser warns that it does not trust MKE
@@ -12,7 +12,7 @@ or that MKE has an invalid certificate.
 You can configure MKE to use your own TLS certificates. As a result, your
 browser and other client tools will trust your MKE installation.
 
-Mirantis recommends that you make this change outside of peak business hours.
+Mirantis recommends that you make TLS certificate changes outside of peak business hours.
 Your applications will continue to run normally. However, the Ingress
 Controller will restart, and applications exposed through it may experience a
 short period of unavailability.
@@ -34,7 +34,7 @@ To configure MKE with the MKE web UI to use your own TLS certificates and keys:
     - IP addresses for all manager nodes
 
       To obtain the list of all required hosts, run the following command from
-      the directory containing the `mke4.yaml` file:
+      the directory that contains the `mke4.yaml` file:
 
       ```bash
       HOSTS=$(yq '[(.spec.apiServer.externalAddress, .spec.hosts.[] | select(.role == "controller+worker") | .ssh.address)] | join(" ")' mke4.yaml)
@@ -60,7 +60,7 @@ To configure MKE with the CLI to use your own TLS certificates and keys:
    - IP addresses for all manager nodes
 
      To obtain the list of all required hosts, run the following command from
-     the directory containing the `mke4.yaml` file:
+     the directory that contains the `mke4.yaml` file:
 
      ```bash
      HOSTS=$(yq '[(.spec.apiServer.externalAddress, .spec.hosts.[] | select(.role == "controller+worker") | .ssh.address)] | join(" ")' mke4.yaml)
