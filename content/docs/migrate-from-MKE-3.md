@@ -181,8 +181,17 @@ client bundle. The docker swarm cluster will no longer be accessible as well.
 
 {{< /callout >}}
 
+### Migration failure
+
 In the event of an upgrade failure, the upgrade process rolls back,
 restoring the MKE 3 cluster to its original state.
+
+## Revert the migration
+
+To revert upgraded cluster back to MKE 3, you need to:
+
+- [uninstall MKE 4](../getting-started/uninstall-cluster)
+- [restore MKE 3 from a backup](https://docs.mirantis.com/mke/current/ops/disaster-recovery.html)
 
 ## RBAC Migrations
 
