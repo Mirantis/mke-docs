@@ -95,7 +95,11 @@ provider types, refer to:
 
 ## Existing limitations
 
-- MKE 4 does not currently support scheduled backups.
+- MKE 4 does not currently support:
+
+  - scheduled backups
+  - backup to NFS storage
+  - backup to local disks
 
 - Backups must currently be restored in the same cluster in which the backup
   was taken. As such, you cannot restore a backup to a new set of nodes.

@@ -23,7 +23,7 @@ To learn more, refer to [k0s documentation](https://docs.k0sproject.io/v1.29.3+k
 By default, Calico is installed as the Container Network Interface (CNI) plugin,
 with the following configuration:
 
-- IPv4 only, with a fixed Pod CIDR of `10.244.0.0/16`.
+- IPv4 only, with a fixed Pod CIDR of `192.168.0.0/16`.
 - The datastore mode set to `kdd`.
 - `kube-proxy` set to `iptables` mode.
 - A `vxlan` backend, which uses the default port of `4789` for traffic and default virtual network ID of `4096`.
