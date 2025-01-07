@@ -188,10 +188,12 @@ restoring the MKE 3 cluster to its original state.
 
 ## Revert the migration
 
-To revert upgraded cluster back to MKE 3, you need to:
+To revert a cluster upgraded to MKE 4 back to MKE 3:
 
-- [uninstall MKE 4](../getting-started/uninstall-cluster)
-- [restore MKE 3 from a backup](https://docs.mirantis.com/mke/current/ops/disaster-recovery.html)
+1. [Uninstall MKE 4](../getting-started/uninstall-cluster).
+
+2. [Restore MKE 3 from a backup](https://docs.mirantis.com/mke/current/ops/disaster-recovery.html).
+
 
 ## RBAC Migrations
 
