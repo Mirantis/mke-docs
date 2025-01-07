@@ -21,4 +21,5 @@ The information herein is designed to guide you in setting up, maintaining, and 
 icon="cog" >}}
 {{< card link="node-feature-discovery" title="Node Feature Discovery (NFD)" icon="cog" >}}
 {{< card link="cloudproviders" title="Cloud Providers" icon="cog" >}}
+{{< card link="tls-certificates" title="TLS certificates" icon="cog" >}}
 {{< /cards >}}
