@@ -13,8 +13,8 @@ steps.
 ### Meet the system requirements
 
 Ensure that your system meets the necessary hardware and software
-requirements for installing and running an MKE cluster. For comprehensive
-detail, refer to the  [System requirements](system-requirements).
+requirements for installing and running an MKE cluster. For full
+details, refer to the  [System requirements](system-requirements).
 
 ### Install the MKE CLI and other dependencies
 
