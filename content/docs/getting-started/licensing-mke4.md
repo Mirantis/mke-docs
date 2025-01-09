@@ -1,5 +1,5 @@
 ---
-title: Licensing MKE4
+title: Licensing MKE 4
 weight: 2
 ---
 
