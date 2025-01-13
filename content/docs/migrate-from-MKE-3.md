@@ -162,7 +162,7 @@ MKE 3 supports a map of kubelet flag profiles to specific nodes using the `custo
 
 MKE 4 does not support kubelet flag profiles, but you can use [Kubelet custom profiles](../configuration/kubernetes/kubelet.md#kubelet-custom-profiles) to map `KubeletConfiguration` values to specific nodes. MKE 4 does supports the migration of MKE 3 kubelet flag profiles to kubelet custom profiles.
 
-The conversion of flags to `KubeletConfiguration` values is best-effort ,and any flags that cannot be
+The conversion of flags to `KubeletConfiguration` values is best-effort, and any flags that cannot be
 converted are listed in the upgrade summary. Hosts with a custom flag profile label are marked for the
 corresponding kubelet custom profile.
 
