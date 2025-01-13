@@ -5,7 +5,7 @@ weight: 6
 
 etcd is a consistent, distributed key-value store that provides a reliable way to store data that needs to be accessed by a distributed system or cluster of machines. It handles leader elections during network partitions and can tolerate machine failure, even in the leader node.
 
-For MKE, etcd serves as the Kubernetes backing store for all cluster data, with an etcd replica deployed on each MKE manager node. This is a primary reason why Mirantis recommends that you deploy an odd number of MKE manager nodes, as etcd uses the Raft consensus algorithm and thus requires that a quorum of nodes agree on any updates to the cluster state.
+For MKE, etcd serves as the Kubernetes backing store for all cluster data, with an etcd replica deployed on each MKE manager node. This is a primary reason why Mirantis recommends that you deploy an odd number of MKE manager nodes, as etcd uses the Raft consensus algorithm and thus requires that a quorum of nodes agrees on any updates to the cluster state.
 
 For detailed information, refer to the official [etcd documentation](https://etcd.io/docs/).
 
