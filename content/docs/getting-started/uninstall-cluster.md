@@ -3,15 +3,14 @@ title: Uninstall a cluster
 weight: 6
 ---
 
-Run the `reset` command to destroy the MKE cluster that was previously created with
-the `apply` command:
+1. Destroy the last MKE cluster you created using the `reset` command:
 
-```shell
-mkectl reset -f mke.yaml
-```
+   ```shell
+   mkectl reset -f mke.yaml
+   ```
 
-You will be prompted to confirm the deletion of the cluster. To
-skip this step, use the `--force` flag with the `reset` command.
+2. Confirm cluster deletion. To skip this step, use the `--force` flag with
+   the `reset` command.
 
 Example output:
 
