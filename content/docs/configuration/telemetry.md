@@ -25,7 +25,7 @@ services.
 ## Enable telemetry through the MKE CLI
 
 1. Access the MKE configuration file.
-2. Set the `telemetry.enabled` field to `true`.
+2. Set the `spec.tracking.enabled` field to `true`.
 
    ```yaml
    spec:

@@ -1,5 +1,5 @@
 ---
-title: Get the current MKE configuration file
+title: Obtain the current MKE configuration file
 weight: 6
 ---
 
