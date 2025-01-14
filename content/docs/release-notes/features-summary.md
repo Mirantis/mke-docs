@@ -72,7 +72,6 @@ Unsupported features
 
 Mirantis does not support the following functions:
 
-* kube-router
 * Networking: IPVS, eBPF, Unmanaged CNI
 * Profiling on Kubernetes and MKE components
 * Custom feedback UI
