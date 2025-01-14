@@ -9,8 +9,7 @@ weight: 6
    mkectl reset -f mke.yaml
    ```
 
-2. Confirm cluster deletion. To skip this step, use the `--force` flag with
-   the `reset` command.
+2. Confirm cluster deletion.
 
 Example output:
 
