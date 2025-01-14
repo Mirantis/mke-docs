@@ -40,9 +40,9 @@ New features that Mirantis plans to introduce in upcoming MKE 4 releases
 include:
 
 * Additional cloud providers
-* Custom admission controllers: OPA/GK or Kyverno EE or CE only
+* Custom admission controllers: OPA Gatekeeper or Kyverno EE or CE only
 * Life Cycle Management for components
-* Networking: Cillum
+* Networking: Cillium
 * Offline Bundle
 * Scheduled backups
 * STIG
@@ -79,6 +79,6 @@ Mirantis does not support the following functions:
 * Account Lockout
 * User session properties
 * gMSA
-* SCIIM
+* SCIM
 * Swarm
 * DCT (Docker Content Trust)
