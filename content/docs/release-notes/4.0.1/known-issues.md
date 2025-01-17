@@ -103,23 +103,6 @@ Use ``kubectl`` to change the ``Password`` object:
    username: admin
 3. Edit the ``hash`` field with the desired password hash.
 
-## [BOP-1299] Disk Usage and Memory metrics are not shown correctly in the dashboard with disabled cAdvisor
-
-When cAdvisor is disabled, the main page of the dashboard presents 0% as the value for the **Disk Usage** and **Memory** metrics.
-
-**Workaround:**
-
-Enable cAdvisor in the MKE configuration file and run `mkectl apply`.
-
-```yaml
-monitoring:
-  enableCAdvisor: true
-```
-
-## [BOP-1299] Max Used Disk and Max CPU labels are swapped in the MKE dashboard
-
-No workaround is available at this time.
-
 ## [BOP-891] Upgrade to MKE 4 fails if kubeconfig file is present in source MKE 3.x
 
 Upgrade to MKE 4 fails if the `~/.mke/mke.kubeconf` file is present in the
