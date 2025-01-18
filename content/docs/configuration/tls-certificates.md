@@ -82,7 +82,7 @@ To configure MKE with the CLI to use your own TLS certificates and keys:
    ```bash
    CA_CERT=$(cat ca.pem | base64 -w0)
    SERVER_CERT=$(cat cert.pem | base64 -w0)
-   SERVER
+   SERVER_KEY=$(cat key.pem | base64 -w0)
    ```
 
 3. Create a secret with the new certificate material:
