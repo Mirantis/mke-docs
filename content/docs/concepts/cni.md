@@ -91,7 +91,7 @@ for the Calico provider.
 | Field   | Description  | Values        |  Default     |
 |---------|--------------|---------------|--------------|
 | `enabled` | Sets the name of the external storage provider. AWS is currently the only available option. | `true` | `true` |
-| `clusterCIDRIPv4` | Sets the IP pool in the Kubernetes cluster from which Pods are allocated. | Valid IPv4 CIDR | `192.168.0.0/16` |
+| `clusterCIDRIPv4` | Sets the IP pool in the Kubernetes cluster from which Pods are allocated. | Valid IPv4 CIDR | `192.168.0.0/16` <br><br>You can easily modify `clusterCIDRIPv4` prior to cluster deployment. Contact Mirantis Support, however, if you need to modify `clusterCIDRIPv4` once your cluster has been deployed.|
 | `ipAutodetectionMethod` | Sets the autodetecting method for the IPv4 address for the host. | Provider specific[^0] | None |
 | `mode` | Sets the IPv4 overlay networking mode.[^1] | `ipip`, `vxlan` | `vxlan` |
 | `vxlanPort` | Sets the VXLAN port for the VXLAN mode. | Valid port number | `4789` |
