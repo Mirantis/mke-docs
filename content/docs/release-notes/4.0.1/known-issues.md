@@ -21,20 +21,6 @@ LDAP Configuration through API documentation](https://docs.mirantis.com/mke/3.7/
 2. Convert the LDAP response to the MKE 4 LDAP settings.
 3. Apply the translated LDAP settings to the cluster following migration.
 
-## [BOP-708] OIDC authentication fails after mkectl upgrade
-
-Due to an issue with client secret migration, OIDC authentication fails
-following an upgrade performed with `mkectl`.
-
-**Workaround:**
-
-1. Copy the MKE 4 configuration that prints at the end of migration.
-
-2. Update the `authentication.oidc.clientSecret` field to the secret field
-   from your identity provider.
-
-3. Apply the updated MKE 4 configuration.
-
 ## [BOP-898][BOP-899] Calico eBPF and IPVS modes are not supported
 
 Calico eBPF and IPVS mode are not yet supported for MKE 4. As such, upgrading
@@ -58,50 +44,6 @@ managed user passwords are not migrated.
 The mke-operator-controller-manager is in crashloopbackoff status in MKE 4
 Alpha 2. You can safely ignore this, however, as it has no effect on MKE
 4.0.0-alpha.2.0 functionality.
-
-## [BOP-982] Cannot change MKE 4 password using mkectl
-
-You cannot change the password for an existing MKE 4 deployment by running
-``mkectl apply -f mke4.yaml --admin-password <password>``.
-
-**Workaround:**
-
-Use ``kubectl`` to change the ``Password`` object:
-
-1. Obtain the list of users:
-
-   ```sh
-   $ kubectl -n mke get passwords -o custom-columns=NAME:.metadata.name,EMAIL:.email
-   ```
-
-   Example output:
-
-   ```sh
-   NAME                    EMAIL
-   mfsg22lozpzjzzeeeirsk   admin
-2. Reveal the Password object for the target user.
-
-   ```sh
-   $ kubectl -n mke get password mfsg22lozpzjzzeeeirsk -oyaml
-   ```
-
-   Example output:
-
-   ```sh
-   apiVersion: dex.coreos.com/v1
-   email: admin
-   hash: JDJhJDEwJFA5RUppWmVJLkRCMVlqMWJqZk5rUk9RQ1oybFFpOUhXUFhnYmIxdUFPSkpHeGFDWUl1OTcy
-   kind: Password
-   metadata:
-     creationTimestamp: "2024-07-23T18:39:11Z"
-     generation: 1
-     name: mfsg22lozpzjzzeeeirsk
-     namespace: mke
-     resourceVersion: "3558"
-     uid: 91a9e728-abfa-4daa-bdab-4c09cf888281
-   userID: 7668fdb9-a979-4645-b6cc-10985df77da6
-   username: admin
-3. Edit the ``hash`` field with the desired password hash.
 
 ## [BOP-891] Upgrade to MKE 4 fails if kubeconfig file is present in source MKE 3.x
 
