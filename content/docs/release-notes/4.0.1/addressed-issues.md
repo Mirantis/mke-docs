@@ -12,8 +12,8 @@ Issues addressed in the MKE 4.0.1 patch release include:
 - [BOP-1613] Fixed an issue in the MKE web UI wherein the breadcrumbs on the
   Settings > License page were incorrectly linked.
 
-- [BOP-708] Fixed an issue wherein OIDC authentication would fail following
-  mkectl upgrade.
+- [BOP-708] Fixed an issue wherein the OIDC client secret was not migrated
+  during an mkectl upgrade.
 
 - [BOP-947] Fixed an issue wherein managed user passwords were not migrated as
   part of an upgrade from MKE 3.
