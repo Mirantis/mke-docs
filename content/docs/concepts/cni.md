@@ -76,7 +76,19 @@ network:
 
 ## Network configuration
 
-The following table includes details on all of the configurable `network` fields.
+MKE 4 dministrators use Tigera Operator to configure the networking for their
+Kubernetes cluster. The networking is configured using a YAML file that
+administrators apply to their cluster using the `mkectl apply` command
+
+{{< callout type="info" >}}
+Previously, CNI cofiguration for bootstrapping or post-bootstrapping was
+performed using MKE. Now, however, MKE CNI configuration is only applicable for
+bootstrapping the cluster, with all necessary subsequent CNI configuration
+changes taking place through direct interaction with Tigera Operator.
+{{< /callout >}}
+
+The following table includes details on all of the configurable `network`
+fields.
 
 | Field | Description | Values |  Default |
 |-------|-------------|--------|----------|
@@ -92,8 +104,10 @@ for the Calico provider.
 |---------|--------------|---------------|--------------|
 | `enabled` | Sets the name of the external storage provider. AWS is currently the only available option. | `true` | `true` |
 | `clusterCIDRIPv4` | Sets the IP pool in the Kubernetes cluster from which Pods are allocated. | Valid IPv4 CIDR | `192.168.0.0/16` <br><br>You can easily modify `clusterCIDRIPv4` prior to cluster deployment. Contact Mirantis Support, however, if you need to modify `clusterCIDRIPv4` once your cluster has been deployed.|
+| `enablewireguard` | Sets whehter  traffic encryption over an underlay network is permitted. | `false` | `false` |
 | `ipAutodetectionMethod` | Sets the autodetecting method for the IPv4 address for the host. | Provider specific[^0] | None |
 | `mode` | Sets the IPv4 overlay networking mode.[^1] | `ipip`, `vxlan` | `vxlan` |
+| `overlay` | Set to enable inter workload communication across networks that are not aware of workload IPs | `Always`, `CrossSubnet`, `Never` | `Always` |
 | `vxlanPort` | Sets the VXLAN port for the VXLAN mode. | Valid port number | `4789` |
 | `vxlanVNI` | Sets the VXLAN VNI for the VXLAN mode. | Valid VNI number | `10000` |
 | `CALICO_STARTUP_LOGLEVEL` | Sets the early log level for `calico/node`. | Provider specific[^0] | `DEBUG` |
