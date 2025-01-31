@@ -1,9 +1,10 @@
 ---
 title: Migrate from MKE 3.x
-weight: 4
+weight: 1
 ---
 
-This section instructs you on how to migrate your existing MKE 3.7 cluster to the MKE 4.x version.
+Instruction on how to migrate your existing MKE 3.7 cluster to the MKE 4.x
+version is provided herein.
 
 ## Prerequisites
 
