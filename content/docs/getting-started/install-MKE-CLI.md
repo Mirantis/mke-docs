@@ -109,18 +109,19 @@ You can now proceed with MKE cluster creation.
 
 ## Install manually
 
-Download `mkectl` from the S3 bucket:
+1. Verify the presence of the following tools on your system:
 
-| Distribution | Architecture | Download                                                                                                          |
-| ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------- |
-| Linux        | x86_64       | [download](https://github.com/mirantiscontainers/mke-release/releases/latest/download/mkectl_linux_x86_64.tar.gz) |
-| MacOS        | x86_64       | [download](https://github.com/mirantiscontainers/mke-release/releases/latest/download/mkectl_darwin_arm64.tar.gz) |
+   | Tool    | Version         | Download                                                    |
+   | ------- | --------------- | ----------------------------------------------------------- |
+   | kubectl | 1.30.0 or later | [download](https://kubernetes.io/docs/tasks/tools/#kubectl) |
+   | k0sctl  | 0.19.4 or later | [download](https://github.com/k0sproject/k0sctl/releases)   |
 
-The MKE CLI is a single binary that is capable of managing MKE clusters without
-any additional dependencies. Its use, though, requires that you have the
-following tools on your system:
 
-| Tool    | Version         | Download                                                    |
-| ------- | --------------- | ----------------------------------------------------------- |
-| kubectl | 1.30.0 or later | [download](https://kubernetes.io/docs/tasks/tools/#kubectl) |
-| k0sctl  | 0.19.4 or later | [download](https://github.com/k0sproject/k0sctl/releases)   |
+2. Download `mkectl` from the S3 bucket:
+
+   | Distribution | Architecture | Download                                                                                                          |
+   | ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------- |
+   | Linux        | x86_64       | [download](https://github.com/mirantiscontainers/mke-release/releases/latest/download/mkectl_linux_x86_64.tar.gz) |
+   | MacOS        | x86_64       | [download](https://github.com/mirantiscontainers/mke-release/releases/latest/download/mkectl_darwin_arm64.tar.gz) |
+
+3. Copy the `mkectl` binary to `/usr/local/bin/`.
