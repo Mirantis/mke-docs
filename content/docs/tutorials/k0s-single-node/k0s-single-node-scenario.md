@@ -8,15 +8,15 @@ Do not deploy the cluster that results from this tutorial in a production enviro
 {{< /callout >}}
 
 ## Prerequisites
-In addition to the MKE [dependencies](../../../getting-started/install-mke-cli) and MKE [System requirements](../../../getting-started/system-requirements)
-you need to do the following:
-- Provide a virtual machine locally or on any provider with an accessible IP 
-- Open ports (at least):
-  - 80 (HTTP)
-  - 443 (HTTPs)
-  - 6443 (Kubernetes API)
-  - 22 (SSH)
-- Configure SSH access via SSH-key
+In addition to ensuring that the MKE [dependencies](../../../getting-started/install-mke-cli) and MKE [system requirements](../../../getting-started/system-requirements) are met, perform the following actions:
+
+- Provide a virtual machine, either locally or on a provider that has an accessible IP address
+- Open the following ports:
+  - `80` (HTTP)
+  - `443` (HTTPs)
+  - `6443` (Kubernetes API)
+  - `22` (SSH)
+- Configure SSH access by way of an SSH-key
 
 {{< callout type="info" >}}
 This can be automated with any tool you're familar with eq.: Terraform, Ansible etc.
