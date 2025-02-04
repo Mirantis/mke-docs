@@ -3,11 +3,8 @@ title: Create a Kubernetes cluster in single node and install MKE
 weight: 1
 ---
 
-This tutorial provides the most simple setup for testing purposes or any very compact deployment. 
-
-{{< callout type="info" >}}
-
-This should not be used in production! 
+{{< callout type="warning" >}}
+Do not deploy the cluster that results from this tutorial in a production environment. It is intended for testing purposes only.
 {{< /callout >}}
 
 ## Prerequisites
