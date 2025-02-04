@@ -25,7 +25,7 @@ This can be automated with any tool you're familar with eq.: Terraform, Ansible 
 
 ## Install MKE on k0s
 
-1. Generate a sample `mke4.yaml` file:
+1. Generate a sample configuration file named `mke4.yaml`:
 
    ```shell
    mkectl init > mke4.yaml
