@@ -76,7 +76,7 @@ This can be automated with any tool you're familar with eq.: Terraform, Ansible 
 
 5. Install and configure Load Balancer: 
  
-    If you chose an external loadbalancer eq. ELB or Octavia please check instructions [here](https://docs.mirantis.com/mke-docs/docs/getting-started/system-requirements/#load-balancer-requirements).
+    To configure an external load balancer, such as ELB or Octavia, refer to the [Load balancer requirements](../../getting-started/system-requirements#load-balancer-requirements) for detailed information.
 
     {{< callout type="info" >}}
     If you work with MKE <4.0.1 there is a bug while you working with ip instead of FQDN with you external load balancer.
