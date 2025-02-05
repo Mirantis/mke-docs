@@ -18,10 +18,6 @@ In addition to ensuring that the MKE [dependencies](../../../getting-started/ins
   - `22` (SSH)
 - Configure SSH access by way of an SSH-key
 
-{{< callout type="info" >}}
-This can be automated with any tool you're familar with eq.: Terraform, Ansible etc.
-
-{{< /callout >}}
 
 ## Install MKE on k0s
 
@@ -47,7 +43,7 @@ This can be automated with any tool you're familar with eq.: Terraform, Ansible 
 3. Edit the `apiServer` section in the configuration file to add the `externalAddress` and `sans` parameters, which are needed to generate the correct certificate: 
 
    * `externalAddress`: The public/floating IP of the node
-   * `sans`: The IP addresses with which you want to connect,
+   * `sans`: The IP addresses with which you want to connect 
 
     ```yaml
     apiServer:
@@ -70,7 +66,12 @@ This can be automated with any tool you're familar with eq.: Terraform, Ansible 
    ```
 
    {{< callout type="info" >}}
-   A username and password are automatically generated and displayed upon successful completion of the MKE 4 cluster. To explicitly set a password that differs from the one automatically generated, run: 
+   A username and password are automatically generated and displayed upon successful completion of the MKE 4 cluster. 
+   To explicitly set a password that differs from the one automatically generated, run: 
+   ```shell
+   mkectl apply -f mke4.yaml --admin-password <PW>
+   ```
+   {{< /callout >}}
    
   
 
@@ -79,12 +80,12 @@ This can be automated with any tool you're familar with eq.: Terraform, Ansible 
     To configure an external load balancer, such as ELB or Octavia, refer to the [Load balancer requirements](../../getting-started/system-requirements#load-balancer-requirements) for detailed information.
 
     {{< callout type="info" >}}
-    If you work with MKE <4.0.1 there is a bug while you working with ip instead of FQDN with you external load balancer.
-
+    If you are running MKE <4.0.1 you need to edit the certificate object:
     ```shell
     kubectl edit certificate -n mke mke-ingress-cert
     ```
-    and add your load balancer IP or public address to the ipAddresses section
+    Add your load balancer IP or public address to the ipAddresses section, with a regular FQDN this is not required.
+
 
     {{< /callout >}}
 
@@ -146,9 +147,5 @@ This can be automated with any tool you're familar with eq.: Terraform, Ansible 
 
 
 6. Access the dashboard \
-  You can access the dashboard with your browser \
-  ```https://<IP>```
-
-  {{< callout type="info" >}}
-  Please be aware that those are self-signed certificates so you need to accept the warning your browser will show you.
-  {{< /callout >}}   
+  Access the MKE Dashboard using your browser at ```https://<IP>```. 
+  Be aware that as the certificates are self-signed, you must accept the displayed warning.
