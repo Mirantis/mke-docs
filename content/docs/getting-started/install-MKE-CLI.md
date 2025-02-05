@@ -91,7 +91,7 @@ To automatically install the necessary dependencies, you can use an
 
 {{< /tabs >}}
 
-<!-- Remember to update the dependency versions below -->
+<!-- Remember to update the dependency versions and to keep them in sync with the versions cited in the Install Manually section below. -->
 
 By default, the script installs the following software:
 
@@ -100,8 +100,6 @@ By default, the script installs the following software:
 | `mkectl`  | v4.0.0          |
 | `k0sctl`  | 0.19.4          |
 | `kubectl` | v1.30.0         |
-
-<!-- Remember to update the dependency versions above -->
 
 The `install.sh` script detects whether `kubectl` is already installed on your
 system and will not overwrite it. It also detects the operating system and the
@@ -115,15 +113,12 @@ You can now proceed with MKE cluster creation.
 
 1. Verify the presence of the following tools on your system:
 
-   <!-- Remember to update the dependency versions below -->
-
+   <!-- Remember to update the dependency versions and to keep them in sync with the versions cited in the Install Automtaically section above. -->
 
    | Tool    | Version         | Download                                                    |
    | ------- | --------------- | ----------------------------------------------------------- |
    | kubectl | 1.30.0 or later | [download](https://kubernetes.io/docs/tasks/tools/#kubectl) |
    | k0sctl  | 0.19.4 or later | [download](https://github.com/k0sproject/k0sctl/releases)   |
-
-<!-- Remember to update the dependency versions above -->
 
 2. Download the `mkectl` biinary from the S3 bucket:
 
