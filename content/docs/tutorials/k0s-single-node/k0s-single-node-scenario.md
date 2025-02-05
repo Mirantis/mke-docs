@@ -44,8 +44,11 @@ This can be automated with any tool you're familar with eq.: Terraform, Ansible 
          port: 22
          user: ubuntu #If you use Ubuntu for your VM this is the default user
     ```
-3. Edit the `apiServer` section in the configuration file (mke4.yml) and add externalAddress and sans. \
-   The **externalAddress** should be the public/floating IP of the node and the **sans** should contain all IP addresses you want to connect with, this is required to generate the correct certificate.
+3. Edit the `apiServer` section in the configuration file to add the `externalAddress` and `sans` parameters, which are needed to generate the correct certificate: 
+
+   * `externalAddress`: The public/floating IP of the node
+   * `sans`: The IP addresses with which you want to connect,
+
     ```yaml
     apiServer:
       externalAddress: "<external IP of the VM>"
@@ -67,14 +70,11 @@ This can be automated with any tool you're familar with eq.: Terraform, Ansible 
    ```
 
    {{< callout type="info" >}}
-   Upon successful completion of the MKE 4 installation, a username and password
-   will be automatically generated and displayed once for you to use.
-
-   To explicitly set a password value, run `mkectl apply -f mke4.yaml --admin-password <password>` .
-   {{< /callout >}}   
+   A username and password are automatically generated and displayed upon successful completion of the MKE 4 cluster. To explicitly set a password that differs from the one automatically generated, run: 
+   
   
 
-5. Install and configure Load Balancer: 
+5. Install and configure a load balancer.
  
     To configure an external load balancer, such as ELB or Octavia, refer to the [Load balancer requirements](../../getting-started/system-requirements#load-balancer-requirements) for detailed information.
 
@@ -90,7 +90,7 @@ This can be automated with any tool you're familar with eq.: Terraform, Ansible 
 
 
 
-    Please chose the appropriate package manager for your operating system, in this example we're using apt (Debian/Ubuntu)
+    Example, using APT for Debian/Ubuntu
 
 
     ```shell
