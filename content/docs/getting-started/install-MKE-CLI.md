@@ -120,7 +120,7 @@ You can now proceed with MKE cluster creation.
    | kubectl | 1.30.0 or later | [download](https://kubernetes.io/docs/tasks/tools/#kubectl) |
    | k0sctl  | 0.19.4 or later | [download](https://github.com/k0sproject/k0sctl/releases)   |
 
-2. Download the `mkectl` biinary from the S3 bucket:
+2. Download the `mkectl` binary from the S3 bucket:
 
    | Distribution | Architecture | Download                                                                                                          |
    | ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------- |
