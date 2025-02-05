@@ -91,6 +91,8 @@ To automatically install the necessary dependencies, you can use an
 
 {{< /tabs >}}
 
+<!-- Remember to update the dependency versions below -->
+
 By default, the script installs the following software:
 
 | Tool      | Default version |
@@ -98,6 +100,8 @@ By default, the script installs the following software:
 | `mkectl`  | v4.0.0          |
 | `k0sctl`  | 0.19.4          |
 | `kubectl` | v1.30.0         |
+
+<!-- Remember to update the dependency versions above -->
 
 The `install.sh` script detects whether `kubectl` is already installed on your
 system and will not overwrite it. It also detects the operating system and the
@@ -111,17 +115,31 @@ You can now proceed with MKE cluster creation.
 
 1. Verify the presence of the following tools on your system:
 
+   <!-- Remember to update the dependency versions below -->
+
+
    | Tool    | Version         | Download                                                    |
    | ------- | --------------- | ----------------------------------------------------------- |
    | kubectl | 1.30.0 or later | [download](https://kubernetes.io/docs/tasks/tools/#kubectl) |
    | k0sctl  | 0.19.4 or later | [download](https://github.com/k0sproject/k0sctl/releases)   |
 
+<!-- Remember to update the dependency versions above -->
 
-2. Download `mkectl` from the S3 bucket:
+2. Download the `mkectl` biinary from the S3 bucket:
 
    | Distribution | Architecture | Download                                                                                                          |
    | ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------- |
    | Linux        | x86_64       | [download](https://github.com/mirantiscontainers/mke-release/releases/latest/download/mkectl_linux_x86_64.tar.gz) |
    | MacOS        | x86_64       | [download](https://github.com/mirantiscontainers/mke-release/releases/latest/download/mkectl_darwin_arm64.tar.gz) |
 
-3. Copy the `mkectl` binary to `/usr/local/bin/`.
+3. Ensure that the `mkectl` binary is executable:
+
+   ```
+   chmod +x mkectl
+   ```
+
+4. Copy the `mkectl` binary to `/usr/local/bin/`:
+
+   ```
+   mv mkectl /usr/local/bin/
+   ```
