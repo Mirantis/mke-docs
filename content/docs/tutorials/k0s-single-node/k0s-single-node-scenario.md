@@ -31,7 +31,8 @@ This can be automated with any tool you're familar with eq.: Terraform, Ansible 
    mkectl init > mke4.yaml
    ```
 
-2. Edit the `hosts` section in `mke4.yaml`. 
+2. Edit the `hosts` section in `mke4.yaml`.
+
    Example configuration of the `hosts` section:
 
     ```yaml
