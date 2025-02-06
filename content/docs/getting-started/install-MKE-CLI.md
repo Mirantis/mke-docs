@@ -91,6 +91,8 @@ To automatically install the necessary dependencies, you can use an
 
 {{< /tabs >}}
 
+<!-- Remember to update the dependency versions and to keep them in sync with the versions cited in the Install Manually section below. -->
+
 By default, the script installs the following software:
 
 | Tool      | Default version |
@@ -109,18 +111,30 @@ You can now proceed with MKE cluster creation.
 
 ## Install manually
 
-Download `mkectl` from the S3 bucket:
+1. Verify the presence of the following tools on your system:
 
-| Distribution | Architecture | Download                                                                                                          |
-| ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------- |
-| Linux        | x86_64       | [download](https://github.com/mirantiscontainers/mke-release/releases/latest/download/mkectl_linux_x86_64.tar.gz) |
-| MacOS        | x86_64       | [download](https://github.com/mirantiscontainers/mke-release/releases/latest/download/mkectl_darwin_arm64.tar.gz) |
+   <!-- Remember to update the dependency versions and to keep them in sync with the versions cited in the Install Automtaically section above. -->
 
-The MKE CLI is a single binary that is capable of managing MKE clusters without
-any additional dependencies. Its use, though, requires that you have the
-following tools on your system:
+   | Tool    | Version         | Download                                                    |
+   | ------- | --------------- | ----------------------------------------------------------- |
+   | kubectl | 1.30.0 or later | [download](https://kubernetes.io/docs/tasks/tools/#kubectl) |
+   | k0sctl  | 0.19.4 or later | [download](https://github.com/k0sproject/k0sctl/releases)   |
 
-| Tool    | Version         | Download                                                    |
-| ------- | --------------- | ----------------------------------------------------------- |
-| kubectl | 1.30.0 or later | [download](https://kubernetes.io/docs/tasks/tools/#kubectl) |
-| k0sctl  | 0.19.4 or later | [download](https://github.com/k0sproject/k0sctl/releases)   |
+2. Download the `mkectl` binary from the S3 bucket:
+
+   | Distribution | Architecture | Download                                                                                                          |
+   | ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------- |
+   | Linux        | x86_64       | [download](https://github.com/mirantiscontainers/mke-release/releases/latest/download/mkectl_linux_x86_64.tar.gz) |
+   | MacOS        | x86_64       | [download](https://github.com/mirantiscontainers/mke-release/releases/latest/download/mkectl_darwin_arm64.tar.gz) |
+
+3. Ensure that the `mkectl` binary is executable:
+
+   ```
+   chmod +x mkectl
+   ```
+
+4. Copy the `mkectl` binary to `/usr/local/bin/`:
+
+   ```
+   mv mkectl /usr/local/bin/
+   ```
