@@ -110,7 +110,7 @@ In the example procedure, a `tcp-echo` service that is running in the default na
 5. Apply the MKE configuration file:
 
    ```shell
-   mkectl apply  -f mke.yaml
+   mkectl apply  -f mke4.yaml
    ```
 
 6. Test the TCP service by sending the text `hello world`:
@@ -268,7 +268,7 @@ In the example procedure, a `udp-listener` service running in the default namesp
 5. Apply the MKE configuration file:
 
    ```shell
-   mkectl apply  -f mke.yaml
+   mkectl apply  -f mke4.yaml
    ```
 
 6. Test the UDP service by sending the UDP Datagram Message:
