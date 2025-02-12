@@ -3,6 +3,14 @@ title: Add and remove cluster nodes
 weight: 5
 ---
 
+{{< callout type="info" >}}
+
+To avoid unexpected complications, make sure that you have an MKE 4 cluster
+up and running before you follow the procedures herein for adding and
+removing nodes.
+
+{{< /callout >}}
+
 ## Add nodes to an MKE 4 cluster
 
 1. [Obtain the MKE configuration file for your cluster](../get-current-mke-config).

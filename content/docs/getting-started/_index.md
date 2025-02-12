@@ -49,10 +49,10 @@ nodes](add-and-remove-cluster-nodes), [how to obtain the current MKE 4
 configuration file](get-current-mke-config), and [how to uninstall a
 cluster](uninstall-cluster).
 
-   {{< callout type="info" >}}
+{{< callout type="info" >}}
 
-   For detail and set up information for the various MKE 4 features, refer to
-   the [Configuration](../configuration) documentation, as well as
-   the topics offered in [Tutorials](../tutorials).
+For detail and set up information for the various MKE 4 features, refer to
+the [Configuration](../configuration) documentation, as well as
+the topics offered in [Tutorials](../tutorials).
 
-   {{< /callout >}}
+{{< /callout >}}
