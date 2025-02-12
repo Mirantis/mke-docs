@@ -11,16 +11,12 @@ weight: 5
    MKE configuration file in the following format:
 
    ```
-   ...
-   hosts:
-       ...
-       - role: worker
-         ssh:
-           address: <address>
-           keyPath: <key location
-           port: <ssh port>
-           user: <username>
-   ...
+   - role: worker
+     ssh:
+       address: <address>
+       keyPath: <key location
+       port: <ssh port>
+       user: <username>
    ```
 
 3. Run `mkectl apply` command to add the new node.
