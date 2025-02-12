@@ -43,11 +43,11 @@ container orchestration and management.
 
 {{% /steps %}}
 
-In addition, this **Getting started** section offers such other key MKE 4
-information as
-[how to add and remove cluster nodes](adding-and-removing-cluster-nodes),
-[how to obtain the current MKE 4 configuration file](get-current-mke-config),
-and [how to uninstall a cluster](uninstall-cluster).
+In addition, this **Getting started** section offers other key MKE 4
+information, such as [how to add and remove cluster
+nodes](add-and-remove-cluster-nodes), [how to obtain the current MKE 4
+configuration file](get-current-mke-config), and [how to uninstall a
+cluster](uninstall-cluster).
 
    {{< callout type="info" >}}
 

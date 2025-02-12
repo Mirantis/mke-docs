@@ -1,13 +1,14 @@
 ---
-title: Adding and removing cluster nodes
+title: Add and remove cluster nodes
 weight: 5
 ---
 
-## Add a node to an MKE 4 cluster
+## Add nodes to an MKE 4 cluster
 
-1. Make sure you have the host information for the new node on hand. You will
-   plug this information into the MKE configuration file in the following
-   format:
+1. [Obtain the MKE configuration file for your cluster](../get-current-mke-config).
+
+2. Append the host information for the new node to the `hosts` section of the
+   MKE configuration file in the following format:
 
    ```
    ...
@@ -22,19 +23,11 @@ weight: 5
    ...
    ```
 
-2. Obtain the MKE configuration file from your cluster:
+3. Run `mkectl apply` command to add the new node.
 
-   ```
-   mkectl config get
-   ```
+## Remove nodes from an MKE 4 cluster
 
-3. Update the `mke4.yaml` file with the host information for the new node.
-
-4. Run `mkectl apply` command to add the new node.
-
-## Remove a node from an MKE 4 cluster
-
-The method for removing nodes from an MKE cluster difers, depending on whether
+The method for removing nodes from an MKE cluster differs, depending on whether
 the node is a control plane node or a worker node.
 
 ### Remove a control plane node
@@ -57,3 +50,9 @@ for information on how to remove a control plane node from an MKE 4 cluster.
    k0s reset
    reboot
    ```
+3. [Obtain the MKE configuration file for your cluster](../get-current-mke-config).
+
+4. Delete the host information for the deleted node from the `hosts` section
+   of the MKE configuration file, to circumvent any potential mkectl issues.
+
+5. Run `mkectl apply` command.
