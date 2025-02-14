@@ -3,7 +3,68 @@ title: Migrate from MKE 3.x
 weight: 4
 ---
 
-This section instructs you on how to migrate your existing MKE 3.7 cluster to the MKE 4.x version.
+Comprehensive information is offered herein on how to migrate your existing MKE
+3.7 cluster to the MKE 4.x version.
+
+{{< callout type="important" >}}
+
+In the event of migration failure, the cluster will rollback to your previous
+MKE 3 configuration. Should this occur, Mirantis recommends that you retain the
+upgrade logs from the terminal.
+
+{{< /callout >}}
+
+Following a successful migration:
+- Any swarm workloads will no longer exist.
+- It is necessary to download new kubeconfig files from k0s.
+- The UCP Controller API will no longer be active or supported, and thus the
+  MKE 3 client bundle will become invalid.
+- The terminal prints a summary of the process.
+
+  {{< details title="Example: Migration Summary" closed="true" >}}
+
+  ```
+  Upgrade Summary
+  ---------------
+
+  Configuration file
+  ---------------
+  All MKE 3 TOML settings were successfully converted into MKE 4 YAML settings.
+
+  Authentication
+  ---------------
+  Users found in the MKE3 cluster: 1
+
+  All users were migrated to the MKE4 cluster successfully.
+
+  Authorization
+  ---------------
+  Organizations found in the MKE3 cluster: 1
+  Teams found in the MKE3 cluster: 0
+
+  All organizations and teams were translated to aggregated roles in the MKE4 cluster successfully.
+
+  Ports
+  ---------------
+  The following MKE3 ports are no longer used by MKE4 and (unless otherwise needed) may be made unavailable on all nodes: [2377,6444,7946,9055,12376,12378,12379,12380,12381,12382,12383,12384,12385,12386,12387,12388,12389,12391,12392,179,12390,2376,443]
+
+  MCR
+  ---------------
+  MCR may safely be uninstalled
+
+  MKE3 Cleanup
+  ---------------
+  MKE 3.7.15 was uninstalled from the cluster successfully.
+  ```
+
+  {{< /details >}}
+
+Be aware that any workloads running in your MKE 3 system will not be available
+during the migration process.
+
+The upgrade period depends on the size of your cluster. You can track the
+progress of your migration by way of the terminal, which displays step-by-step
+logs on the current state of migration.
 
 ## Prerequisites
 
@@ -23,6 +84,9 @@ Verify that you have the following components in place before you begin upgradin
   ip-172-31-199-207.us-west-2.compute.internal   Ready    master   8m4s    v1.27.7-mirantis-1
   ```
 
+- A backup of the MKE cluster. For comprehensive instruction on how to create
+  an MKE 3 back up, refer to [Back up MKE](https://docs.mirantis.com/mke/current/ops/disaster-recovery/back-up-mke.html).
+
 - The latest `mkectl` binary, installed on your local environment:
 
   ```shell
@@ -32,7 +96,7 @@ Verify that you have the following components in place before you begin upgradin
   Example output:
 
   ```shell
-  Version: v4.0.0-alpha.1.0
+  Version: v4.0.0
   ```
 
 - `k0sctl` version `0.19.0`, installed on your local environment:
@@ -44,8 +108,8 @@ Verify that you have the following components in place before you begin upgradin
   Example output:
 
   ```shell
-  version: v0.19.0
-  commit: 9246ddc
+  version: v0.19.4
+  commit: a06d3f6
   ```
 
 - A `hosts.yaml` file, to provide the information required by `mkectl` to
@@ -207,11 +271,9 @@ sudo k0s kc get nodes
 Example output:
 
 ```shell
-NAME                                           STATUS   ROLES    AGE   VERSION
-ip-172-31-103-202.us-west-2.compute.internal   Ready    master   29m   v1.29.3+k0s
-ip-172-31-104-233.us-west-2.compute.internal   Ready    master   29m   v1.29.3+k0s
-ip-172-31-191-216.us-west-2.compute.internal   Ready    <none>   29m   v1.29.3+k0s
-ip-172-31-199-207.us-west-2.compute.internal   Ready    master   30m   v1.29.3+k0s
+NAME                                           STATUS   ROLES           AGE   VERSION
+ip-172-31-111-4.us-west-1.compute.internal     Ready    control-plane   45h   v1.31.2+k0s
+ip-172-31-216-253.us-west-1.compute.internal   Ready    <none>          45h   v1.31.2+k0s
 ```
 
 {{< callout type="info" >}}
