@@ -3,24 +3,19 @@ title: Multus
 weight: 11
 ---
 
+Multus CNI is a container network interface (CNI) plugin that enables the
+attachment of multiple network interfaces to a single Pod.
+
 In Kubernetes, by default, a Pod is only connected to a single network
-interface, which is the default network. Multus CNI functions as a meta-plugin,
-allowing Pods to have multiple network interfaces for multi-homed connectivity.
-For more details, visit the Multus CNI repository on GitHub.
+interface, which is the default network. With Multus CNI, though, Pods can have
+multiple network interfaces for multi-homed connectivity. For more information,
+refer to the [Multus CNI GitHub repository](https://github.com/k8snetworkplumbingwg/multus-cni).
 
-## Configuration
+## Enable Multus
 
-Multus can be enabled through the `network.multus.enabled` section of the MKE 4 configuration file. The function is disabled by default, and thus to use Multus you must set the `enabled` parameter to `true`.
-
-Multus example configuration:
-
-```
-network:
-  multus:
-    enabled: true
-```
-
-To configure Multus:
+Multus is disabled in MKE 4 by default. To enable the function, you must obtain
+the MKE 4 configuration file, locate the `network.multus.enabled` section, set
+the `enabled` parameter to `true`, and apply the new configuration.
 
 1. Obtain the default MKE 4 configuration file:
 
@@ -28,7 +23,14 @@ To configure Multus:
    mkectl init
    ```
 
-2. Set the enabled parameter for multus in the `network` section to `true`.
+2. Navigate to the `network` section of the configuration file, and set the
+   `enabled` parameter for multus to `true`.
+
+   ```
+   network:
+     multus:
+       enabled: true
+   ```
 
 3. Apply the configuration:
 
@@ -59,20 +61,20 @@ In MKE 4, you can disable Multus at any time, as opposed to MKE 3 where once
 Multus is installed it cannot be disabled.
 {{< /callout >}}
 
-## Using different CNI plugin
+## Add a network interface
 
-To Install a different CNI plugin, run the following command on all nodes in the cluster.
+1. Run the following command on all of the nodes in the cluster:
 
-```
-CNI_PLUGIN_VERSION=v1.3.0
-CNI_ARCH=amd64
-curl -sL
-https://github.com/containernetworking/plugins/releases/download/${CNI_PLUGIN_VERSION}/cni-plugins-linux-${CNI_ARCH}-${CNI_PLUGIN_VERSION}.tgz
-| sudo tar xvz -C /opt/cni/bin/
-```
+   ```
+   CNI_PLUGIN_VERSION=v1.3.0
+   CNI_ARCH=amd64
+   curl -sL
+   https://github.com/containernetworking/plugins/releases/download/${CNI_PLUGIN_VERSION}/cni-plugins-linux-${CNI_ARCH}-${CNI_PLUGIN_VERSION}.tgz
+   | sudo tar xvz -C /opt/cni/bin/
+   ```
 
-2. Determine the primary network interface for the node. You will need this
-   information to create the NetworkAttachmentDefinitions file.
+2. Determine the primary network interface for the node. You will use this
+   information to create the `NetworkAttachmentDefinitions` file.
 
    {{< callout type="info" >}}
    The name of the primary interface can vary with the underlying network adapter.
@@ -86,7 +88,7 @@ https://github.com/containernetworking/plugins/releases/download/${CNI_PLUGIN_VE
    eth0 is the primary network interface for most Linux distributions.
    {{< /callout >}}
 
-   Sample output
+   Sample output:
 
    ```
    Kernel IP routing table
@@ -97,7 +99,7 @@ https://github.com/containernetworking/plugins/releases/download/${CNI_PLUGIN_VE
    192.168.17.0    0.0.0.0         255.255.255.192 U     0      0        0 *
    ```
 
-3. Create `NetworkAttachmentDefinitions` to specify other networks.
+3. Create the `NetworkAttachmentDefinitions` file, to specify other networks:
 
    ```
    cat <<EOF | kubectl create -f -
@@ -127,7 +129,7 @@ https://github.com/containernetworking/plugins/releases/download/${CNI_PLUGIN_VE
    EOF
    ```
 
-4. Verify the creation of the the network attachment definition.
+4. Verify the creation of the the network attachment definition:
 
    ```
    kubectl get network-attachment-definition
@@ -135,7 +137,7 @@ https://github.com/containernetworking/plugins/releases/download/${CNI_PLUGIN_VE
    ens5-network   44s
    ```
 
-5. Create a multi-homed Pod
+5. Create a multi-homed Pod:
 
    ```
    cat <<EOF | kubectl create -f -
@@ -155,7 +157,7 @@ https://github.com/containernetworking/plugins/releases/download/${CNI_PLUGIN_VE
    EOF
    ```
 
-6. Check the network interfaces of the Pod.
+6. Verify the network interfaces of the Pod:
 
    ```
    kubectl exec -it pod-additional-network -- ip a
