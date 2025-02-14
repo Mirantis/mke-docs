@@ -22,4 +22,5 @@ icon="cog" >}}
 {{< card link="node-feature-discovery" title="Node Feature Discovery (NFD)" icon="cog" >}}
 {{< card link="cloudproviders" title="Cloud Providers" icon="cog" >}}
 {{< card link="tls-certificates" title="TLS certificates" icon="cog" >}}
+{{< card link="multus" title="Multus" icon="cog" >}}
 {{< /cards >}}
