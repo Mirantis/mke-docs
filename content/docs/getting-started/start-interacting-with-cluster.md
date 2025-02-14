@@ -41,5 +41,5 @@ To modify the cluster configuration, edit the YAML configuration file and
 rerun the `apply` command:
 
 ```shell
-mkectl apply -f mke.yaml
+mkectl apply -f mke4.yaml
 ```
