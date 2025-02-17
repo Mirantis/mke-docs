@@ -4,68 +4,90 @@ weight: 6
 ---
 
 Mirantis Kubernetes Engine (MKE) supports running workloads on NVIDIA GPU nodes.
-Current support is limited to NVIDIA GPUs. MKE uses the NVIDIA GPU Operator
-to manage GPU resources on the cluster.
+Current support is limited to NVIDIA GPUs.
 
-To enable GPU support, MKE installs the NVIDIA GPU Operator on your cluster.
+To manage your GPU resources and enable GPU support, MKE installs the NVIDIA
+GPU Operator on your cluster. The use of this resource causes the following
+resources to be installed and configured on each node:
 
-## Prerequisites
+* GPU Operator driver
+* Toolkit
+* container runtime
 
-Before you can enable NVIDIA GPU support in MKE, you must install the following components on each GPU-enabled node:
+{{< callout type="info" >}}
+GPU Feature Discovery (GFD) is enabled by default.
+{{< /callout >}}
 
-- The device [driver for your GPU](https://www.nvidia.com/en-us/drivers/)
-- [NVIDIA GPU toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
-- [NVIDIA container runtime](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#configuring-containerd-for-kubernetes) for containerd, using the command `sudo nvidia-ctk runtime configure --runtime=containerd --config /etc/k0s/containerd.d/nvidia.toml`
+{{< callout type="important" >}}
+Pod startup requires several minutes. During this period, the Pods will seem to
+be in a state of failure.
+{{< /callout >}}
 
 ## Configuration
 
-NVIDIA GPU support is disabled by default. To enable NVIDIA GPU support, configure
-the `nvidiaGPU` section of the MKE configuration file under `devicePlugins`:
+NVIDIA GPU support is disabled in MKE 4 by default.
 
-```yaml
-devicePlugins:
-  nvidiaGPU:
-    enabled: true
-```
+**To enable NVIDIA GPU support:**
 
-## Running GPU Workloads
+1. Obtain the default MKE 4 configuration file:
 
-Run a simple GPU workload that reports detected NVIDIA GPU devices:
+   ```
+   mkectl init
+   ```
 
-```yaml
-cat <<EOF | kubectl apply -f -
-apiVersion: v1
-kind: Pod
-metadata:
-  name: gpu-pod
-spec:
-  restartPolicy: Never
-  containers:
-    - name: cuda-container
-      image: nvcr.io/nvidia/cloud-native/gpu-operator-validator:v22.9.0
-      resources:
-        limits:
-          nvidia.com/gpu: 1 # requesting 1 GPU
-  tolerations:
-  - key: nvidia.com/gpu
-    operator: Exists
-    effect: NoSchedule
-EOF
-```
+2. Navigate to the `devicePlugins.nvidiaGPU` section of the configuration
+   file, and set the `enabled` parameter to `true`.
 
-Verify the successful completion of the pod:
+   ```yaml
+   devicePlugins:
+     nvidiaGPU:
+       enabled: true
+   ```
 
-```bash
-kubectl get pods | grep "gpu-pod"
-```
+3. Apply the configuration:
 
-Example output:
+   ```
+   mkectl apply -f <mke-configuration-file>
+   ```
 
-```bash
-NAME                        READY   STATUS    RESTARTS   AGE
-gpu-pod                     0/1     Completed 0          7m56s
-```
+4. Verify the successful deployment of MetalLB in the cluster:
 
-## Upgrading
+   <!-- COMMAND AND EXAMPLE OUTPUT NEEDED, as in Multus topic -->
 
-To upgrade an MKE 3 cluster with GPU enabled, make sure that you complete the [GPU prerequisites](/mke-docs/docs/configuration/nvidia-gpu/#prerequisites) before you start the upgrade process. Failing to do this will cause the upgrade process to detect the GPU configuration in MKE 3 and incorrectly transfer it to MKE 4.
+## Run GPU Workloads
+
+1. Run a simple GPU workload that reports detected NVIDIA GPU devices:
+
+   ```yaml
+   cat <<EOF | kubectl apply -f -
+   apiVersion: v1
+   kind: Pod
+   metadata:
+     name: gpu-pod
+   spec:
+     restartPolicy: Never
+     containers:
+       - name: cuda-container
+         image: nvcr.io/nvidia/cloud-native/gpu-operator-validator:v22.9.0
+         resources:
+           limits:
+             nvidia.com/gpu: 1 # requesting 1 GPU
+     tolerations:
+     - key: nvidia.com/gpu
+       operator: Exists
+       effect: NoSchedule
+   EOF
+   ```
+
+2. Verify the successful completion of the Pod:
+
+   ```bash
+   kubectl get pods | grep "gpu-pod"
+   ```
+
+   Example output:
+
+   ```bash
+   NAME                        READY   STATUS    RESTARTS   AGE
+   gpu-pod                     0/1     Completed 0          7m56s
+   ```
