@@ -35,19 +35,19 @@ multiple instances, each with their own high-bandwidth memory, cache, and
 compute cores. Thus, you can securely run multiple workloads in parallel
 without them interfering with one another.
 
-{{< callout type="info" >}}
-Although MIG provides the flexibility to create partitions of various sizes,
-MKE 4 currently supports scenarios in which all GPU partitions are the same size.
-{{< /callout >}}
+{{< callout type="info" >}} Although MIG provides the flexibility to create
+partitions of various sizes, MKE 4 currently only supports scenarios in which
+all GPU partitions are the same size. {{< /callout >}}
 
-For comprehensive information on Multi-Instance GPU, refer to the [official NVIDIA documentation](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/gpu-operator-mig.html#about-multi-instance-gpu).
+For comprehensive information on Multi-Instance GPU, refer to the
+[official NVIDIA MIG documentation](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/gpu-operator-mig.html#about-multi-instance-gpu).
 
 MIG is disabled by default in MKE 4. To enable the MIG function:
 
 1. Obtain the default MKE 4 configuration file:
 
    ```
-   mkectl init
+   mkectl init > mke4.yaml
    ```
 
 2. Navigate to the `devicePlugins.nvidiaGPU.mig` section of the configuration
