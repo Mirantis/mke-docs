@@ -28,6 +28,53 @@ devicePlugins:
     enabled: true
 ```
 
+## Multi-Instance GPU (MIG) functionality
+
+With the Multi-Instance GPU (MIG) setting, you can partition a GPU into
+multiple instances, each with their own high-bandwidth memory, cache, and
+compute cores. Thus, you can securely run multiple workloads in parallel
+without them interfering with one another.
+
+{{< callout type="info" >}} Although MIG provides the flexibility to create
+partitions of various sizes, MKE 4 currently only supports scenarios in which
+all GPU partitions are the same size. {{< /callout >}}
+
+For comprehensive information on Multi-Instance GPU, refer to the
+[official NVIDIA MIG documentation](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/gpu-operator-mig.html#about-multi-instance-gpu).
+
+MIG is disabled by default in MKE 4. To enable the MIG function:
+
+1. Obtain the default MKE 4 configuration file:
+
+   ```
+   mkectl init > mke4.yaml
+   ```
+
+2. Navigate to the `devicePlugins.nvidiaGPU.mig` section of the configuration
+   file, and set the `enabled` parameter to `true`.
+
+   ```yaml
+   devicePlugins:
+     nvidiaGPU:
+       enabled: true
+       mig:
+         enabled: true
+   ```
+
+3. Apply the configuration:
+
+   {{< callout type="warning" >}}
+   Enabling MIG on a running GPU will cause all Pods to immediately reboot.
+   {{< /callout >}}
+
+   ```
+   mkectl apply -f <mke-configuration-file>
+   ```
+
+4. Optional. You can apply a profile to a node using the `nvidia.com/mig.config:
+   <MIG profile>`. Refer to the official NVIDIA documentation [Supported MIG
+   Profiles](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/#supported-mig-profiles) for more information.
+
 ## Running GPU Workloads
 
 Run a simple GPU workload that reports detected NVIDIA GPU devices:
