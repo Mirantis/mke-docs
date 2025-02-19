@@ -24,123 +24,10 @@ MKE streamlines the cluster deployment through the use of a single YAML file, wh
 details the desired cluster configuration. This approach simplifies the setup
 process and ensures consistency in cluster deployments.
 
-{{< details title="Example: A ready-to-deploy MKE configuration file" closed="true" >}}
-
-   ```yaml
-   hosts:
-     - ssh:
-         address: 1.1.1.1  # external IP of the first node
-         keyPath: /path/to/ssh/key.pem
-         port: 22
-         user: username
-       role: controller+worker
-     - ssh:
-         address: 2.2.2.2  # external IP of the second node
-         keyPath: /path/to/ssh/key.pem
-         port: 22
-         user: username
-       role: worker
-   hardening:
-     enabled: true
-   authentication:
-     enabled: true
-     saml:
-       enabled: false
-     oidc:
-       enabled: false
-     ldap:
-       enabled: false
-   backup:
-     enabled: true
-     storage_provider:
-       type: InCluster
-       in_cluster_options:
-         exposed: true
-   tracking:
-     enabled: true
-   trust:
-     enabled: true
-   logging:
-     enabled: true
-   audit:
-     enabled: true
-   license:
-     refresh: true
-   apiServer:
-     externalAddress: mke.example.com
-     sans: []
-   ingressController:
-     enabled: true
-     replicaCount: 2
-     extraArgs:
-       httpPort: 80
-       httpsPort: 443
-       enableSslPassthrough: false
-       defaultSslCertificate: mke/auth-https.tls
-   monitoring:
-     enableGrafana: true
-     enableOpscare: false
-   network:
-     kubeProxy:
-       disabled: false
-       mode: iptables
-       metricsbindaddress: 0.0.0.0:10249
-       iptables:
-         masqueradebit: null
-         masqueradeall: false
-         localhostnodeports: null
-         syncperiod:
-           duration: 0s
-         minsyncperiod:
-           duration: 0s
-       ipvs:
-         syncperiod:
-           duration: 0s
-         minsyncperiod:
-           duration: 0s
-         scheduler: ""
-         excludecidrs: []
-         strictarp: false
-         tcptimeout:
-           duration: 0s
-         tcpfintimeout:
-           duration: 0s
-         udptimeout:
-           duration: 0s
-       nodeportaddresses: []
-     nllb:
-       disabled: true
-     cplb:
-       disabled: true
-     providers:
-       - provider: calico
-         enabled: true
-         CALICO_DISABLE_FILE_LOGGING: true
-         CALICO_STARTUP_LOGLEVEL: DEBUG
-         FELIX_LOGSEVERITYSCREEN: DEBUG
-         clusterCIDRIPv4: 192.168.0.0/16
-         deployWithOperator: false
-         enableWireguard: false
-         ipAutodetectionMethod: null
-         mode: vxlan
-         overlay: Always
-         vxlanPort: 4789
-         vxlanVNI: 10000
-         windowsNodes: false
-       - provider: kuberouter
-         enabled: false
-         deployWithOperator: false
-       - provider: custom
-         enabled: false
-         deployWithOperator: false
-   ```
-
-{{< /details >}}
-
 1. Generate the YAML file for your installation:
 
    ```shell
-   mkectl init > mke.yaml
+   mkectl init > mke4.yaml
    ```
 
 2. In the generated configuration file:
@@ -162,28 +49,33 @@ process and ensures consistency in cluster deployments.
 
 ## Create a cluster
 
-1. Verify that there are no existing MKE clusters. You must not attempt to create
-   a new cluster until you have first deleted the existing cluster. If you do make
-   such an attempt, even through the use of a different configuration file, you will
-   permanently lose access to the first cluster through `mkectl`.
-   
-   For information on how to delete a cluster, refer to [Uninstall a cluster](../uninstall-cluster).
+{{< callout type="warning" >}}
 
-2. Create a new cluster using `mkectl apply` command with the generated YAML
-   configuration file:
+Before you create a new MKE cluster you must first verify that a cluster does
+not already exist in the system. If you attempt to create a cluster where a
+cluster is already present, even through the use of a different configuration
+file, you will lose the ability to use `mkectl` to access the original cluster.
 
-   ```shell
-   mkectl apply -f mke.yaml
-   ```
+For information on how to delete a cluster, refer to [Uninstall a
+cluster](../uninstall-cluster).
 
-   {{< callout type="warning" >}}
+{{< /callout >}}
 
-   The `mkectl apply` command configures the `mke` context in the default kubeconfig
-   file located at `~/.kube/config`. If the default kubeconfig is changed, and the `mke`
-   context becomes invalid or unavailable, `mkectl` will not manage the cluster until
-   the kubeconfig is restored.
+To create a new cluster, run the `mkectl apply` command with the generated YAML
+configuration file:
 
-   {{< /callout >}}
+```shell
+mkectl apply -f mke4.yaml
+```
 
-Now, you can start interacting with the newly created cluster using `kubectl` with
-the `mke` context.
+{{< callout type="info" >}}
+
+The `mkectl apply` command configures the `mke` context in the default
+kubeconfig file located at `~/.kube/config`. If the default kubeconfig is
+changed, and the `mke` context becomes invalid or unavailable, `mkectl` will
+not be able to manage the cluster until the kubeconfig is restored.
+
+{{< /callout >}}
+
+Once the new cluster is viable, you can start interacting with it using
+`kubectl` with the `mke` context.
