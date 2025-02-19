@@ -22,7 +22,7 @@ removing nodes.
    - role: worker
      ssh:
        address: <address>
-       keyPath: <key location
+       keyPath: <key location>
        port: <ssh port>
        user: <username>
    ```
