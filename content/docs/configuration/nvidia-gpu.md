@@ -24,6 +24,13 @@ Though it is not required, you can run the following command at any point to ver
 ```
 sudo lspci | grep -i nvidia
 ```
+
+Example output:
+
+```
+00:1e.0 3D controller: NVIDIA Corporation TU104GL [Tesla T4] (rev a1)
+```
+
 {{< /callout >}}
 
 ## Configuration
@@ -109,7 +116,7 @@ Run the following command once the Pod has reached `Completed` status:
 kubectl logs pod/cuda-vectoradd
 ```
 
-Example results:
+Example output:
 
 ```
 [Vector addition of 50000 elements]
