@@ -164,7 +164,7 @@ Multus is installed it cannot be disabled.
    kubectl exec -it pod-additional-network -- ip a
    ```
 
-   Sample Output:
+   Sample output:
 
    ```
    LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue qlen 1000
