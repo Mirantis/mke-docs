@@ -3,7 +3,7 @@ title: Multus
 weight: 11
 ---
 
-Multus CNI is a container network interface (CNI) plugin that enables the
+Multus is a container network interface (CNI) plugin that enables the
 attachment of multiple network interfaces to a single Pod.
 
 In Kubernetes, by default, a Pod is only connected to a single network
