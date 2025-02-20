@@ -9,6 +9,8 @@ Kubernetes platform that is designed to be secure, scalable, and reliable.
 You can manage the entire MKE cluster through the MKE configuration file.
 Refer to [Configuration](../configuration) for details.
 
+![MKE Architecture](img/mke-architecture.drawio.png)
+
 ## Components
 
 MKE 4 is built on top of k0s, a lightweight Kubernetes distribution.
