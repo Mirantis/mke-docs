@@ -6,7 +6,7 @@ weight: 11
 Multus is a container network interface (CNI) plugin that enables the
 attachment of multiple network interfaces to a single Pod.
 
-In Kubernetes, by default, a Pod is only connected to a single network
+By default, Pods in Kubernetes are connected to a single network
 interface, which is the default network. With Multus CNI, though, Pods can have
 multiple network interfaces for multi-homed connectivity. For more information,
 refer to the [Multus CNI GitHub repository](https://github.com/k8snetworkplumbingwg/multus-cni).
