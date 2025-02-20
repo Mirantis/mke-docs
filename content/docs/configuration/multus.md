@@ -63,7 +63,8 @@ Multus is installed it cannot be disabled.
 
 ## Add a network interface
 
-1. Run the following command on all of the nodes in the cluster:
+1. Run the following command on all of the nodes in the cluster to
+   download and extract the CNI plugin:
 
    ```
    CNI_PLUGIN_VERSION=v1.3.0
