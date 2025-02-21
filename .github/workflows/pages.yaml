@@ -57,7 +57,8 @@ jobs:
       - name: Upload artifact
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_CI_BOUNDLESS }}
-        uses: actions/upload-pages-artifact@v2
+        # Version depends on actions/deploy-pages version below
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
@@ -72,4 +73,5 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        # Version depends on actions/upload-pages-artifact version below
+        uses: actions/deploy-pages@v4

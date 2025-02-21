@@ -31,6 +31,7 @@ services.
    spec:
      tracking:
        enabled: true
+       clusterLabel: <optional-label-to-include-with-analytics>
    ```
 
 3. Run the  `mkectl apply` command to apply the new settings.
