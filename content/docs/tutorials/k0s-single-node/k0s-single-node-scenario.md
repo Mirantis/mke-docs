@@ -140,5 +140,4 @@ In addition to ensuring that the MKE [dependencies](../../../getting-started/ins
     ````
 
 
-6. Access the MKE Dashboard using your browser at ```https://<IP>```. 
-  Be aware that as the certificates are self-signed, you must accept the displayed warning.
+6. Access the MKE Dashboard at ```https://<IP>```. Be aware that as the certificates are self-signed, you must accept the displayed warning.
