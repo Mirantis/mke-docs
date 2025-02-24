@@ -73,20 +73,21 @@ In addition to ensuring that the MKE [dependencies](../../../getting-started/ins
    ```
    {{< /callout >}}
    
-  5. Install and configure a load balancer.
- 
-    To configure an external load balancer, such as ELB or Octavia, refer to the [Load balancer requirements](../../getting-started/system-requirements#load-balancer-requirements) for detailed information.
+  5. Install and configure a load balancer/proxy.
 
     {{< callout type="info" >}}
-    If you are running an MKE installation prior to 4.0.1, unless you are using a regular FQDN you must add your load balancer IP or public address to the `ipAddresses` section of the certificate object:
 
-    ```shell
-    kubectl edit certificate -n mke mke-ingress-cert
-    ```
+    - To configure an external load balancer, such as ELB or Octavia, refer to the [Load balancer requirements](../../getting-started/system-requirements#load-balancer-requirements) for detailed information.
+
+    - If you are running an MKE installation prior to 4.0.1, unless you are using a regular FQDN you must add your load balancer IP/proxy or public address to the `ipAddresses` section of the certificate object:
+
+      ```shell
+      kubectl edit certificate -n mke mke-ingress-cert
+      ```
 
     {{< /callout >}}
-    Example, using APT for Debian/Ubuntu:
 
+    Example, using APT for Debian/Ubuntu:
 
     ```shell
     apt update && apt install haproxy
