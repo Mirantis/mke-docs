@@ -89,56 +89,59 @@ In addition to ensuring that the MKE [dependencies](../../../getting-started/ins
 
     Example, using APT for Debian/Ubuntu:
 
-    ```shell
-    apt update && apt install haproxy
-    ```
+    a. Update and install HAProxy:
 
-    open the haproxy config file (Ubuntu: /etc/haproxy/haproxy.conf) and edit/add to frontend and backend section. 
+       ```shell
+       apt update && apt install haproxy
+       ```
 
-    ```shell
-    global
-        log /dev/log    local0 
-        log /dev/log    local1 notice
-        chroot /var/lib/haproxy
-        stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
-        stats timeout 30s
-        user haproxy
-        group haproxy
-        daemon
+    b. Open the `haproxy.conf` file (Ubuntu: /etc/haproxy/haproxy.conf) and append the frontend and backend sections: 
+
+       ```shell
+       global
+           log /dev/log    local0 
+           log /dev/log    local1 notice
+           chroot /var/lib/haproxy
+           stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
+           stats timeout 30s
+           user haproxy
+           group haproxy
+           daemon
 
 
 
-    defaults
-        log     global
-        mode    tcp
-        option  httplog
-        option  dontlognull
-        timeout connect 5000
-        timeout client  50000
-        timeout server  50000
-        errorfile 400 /etc/haproxy/errors/400.http
-        errorfile 403 /etc/haproxy/errors/403.http
-        errorfile 408 /etc/haproxy/errors/408.http
-        errorfile 500 /etc/haproxy/errors/500.http
-        errorfile 502 /etc/haproxy/errors/502.http
-        errorfile 503 /etc/haproxy/errors/503.http
-        errorfile 504 /etc/haproxy/errors/504.http
+       defaults
+           log     global
+           mode    tcp
+           option  httplog
+           option  dontlognull
+           timeout connect 5000
+           timeout client  50000
+           timeout server  50000
+           errorfile 400 /etc/haproxy/errors/400.http
+           errorfile 403 /etc/haproxy/errors/403.http
+           errorfile 408 /etc/haproxy/errors/408.http
+           errorfile 500 /etc/haproxy/errors/500.http
+           errorfile 502 /etc/haproxy/errors/502.http
+           errorfile 503 /etc/haproxy/errors/503.http
+           errorfile 504 /etc/haproxy/errors/504.http
 
-    frontend proxy
-        bind *:443
-        mode tcp
-        option tcplog
-        maxconn 10000
-        use_backend mke
+       frontend proxy
+           bind *:443
+           mode tcp
+           option tcplog
+           maxconn 10000
+           use_backend mke
 
-    backend mke
-        server mke <server IP>:33001 verify none check
+       backend mke
+           server mke <server IP>:33001 verify none check
                                                      
-    ```
-    Now restart the HAProxy daemon:
-    ```shell
-    systemctl restart haproxy
-    ````
+       ```
 
+    c. Restart the HAProxy daemon:
+
+       ```shell
+       systemctl restart haproxy
+       ````
 
 6. Access the MKE Dashboard at ```https://<IP>```. Be aware that as the certificates are self-signed, you must accept the displayed warning.
