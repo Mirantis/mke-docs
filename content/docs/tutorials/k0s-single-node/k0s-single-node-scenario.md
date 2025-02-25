@@ -1,6 +1,6 @@
 ---
 title: Create a Kubernetes cluster in single node and install MKE
-weight: 1
+weight: 5
 ---
 
 {{< callout type="warning" >}}
