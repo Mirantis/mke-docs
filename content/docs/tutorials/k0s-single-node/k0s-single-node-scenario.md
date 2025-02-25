@@ -43,7 +43,9 @@ are met, perform the following actions:
          port: 22
          user: ubuntu #If you use Ubuntu for your VM this is the default user
     ```
-3. Edit the `apiServer` section in the configuration file to add the `externalAddress` and `sans` parameters, which are needed to generate the correct certificate: 
+3. Edit the `apiServer` section in the configuration file to add the
+   `externalAddress` and `sans` parameters, which are necessary to generate the 
+   correct certificate: 
 
    * `externalAddress`: The public/floating IP of the node
    * `sans`: The IP addresses with which you want to connect 
