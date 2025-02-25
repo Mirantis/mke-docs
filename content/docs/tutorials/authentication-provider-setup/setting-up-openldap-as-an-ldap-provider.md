@@ -1,6 +1,6 @@
 ---
 title: Setting up OpenLDAP as an LDAP provider
-weight: 3
+weight: 5
 ---
 
 To create a basic OpenLDAP server to test

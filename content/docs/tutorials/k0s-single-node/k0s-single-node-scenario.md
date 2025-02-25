@@ -1,6 +1,6 @@
 ---
 title: Create a Kubernetes cluster in single node and install MKE
-weight: 5
+weight: 2
 ---
 
 {{< callout type="warning" >}}
@@ -82,7 +82,7 @@ are met, perform the following actions:
 
     {{< callout type="info" >}}
 
-    - To configure an external load balancer, such as ELB or Octavia, refer to the [Load balancer requirements](../../getting-started/system-requirements#load-balancer-requirements) for detailed information.
+    - To configure an external load balancer, such as ELB or Octavia, refer to the [Load balancer requirements](../../../getting-started/system-requirements/#load-balancer-requirements).
 
     - If you are running an MKE installation prior to 4.0.1, unless you are using a regular FQDN you must add your load balancer IP/proxy or public address to the `ipAddresses` section of the certificate object:
 
@@ -96,58 +96,60 @@ are met, perform the following actions:
 
     a. Update and install HAProxy:
 
-       ```shell
-       apt update && apt install haproxy
-       ```
+      ```shell
+      apt update && apt install haproxy
+      ```
 
-    b. Open the `haproxy.conf` file (Ubuntu: /etc/haproxy/haproxy.conf) and append the frontend and backend sections: 
+    b. Locate and open the `haproxy.conf` file (Ubuntu: /etc/haproxy/haproxy.conf).
+    
+    c. Append the frontend and backend sections of the `haproxy.conf` file: 
 
-       ```shell
-       global
-           log /dev/log    local0 
-           log /dev/log    local1 notice
-           chroot /var/lib/haproxy
-           stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
-           stats timeout 30s
-           user haproxy
-           group haproxy
-           daemon
+      ```shell
+      global
+          log /dev/log    local0 
+          log /dev/log    local1 notice
+          chroot /var/lib/haproxy
+          stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
+          stats timeout 30s
+          user haproxy
+          group haproxy
+          daemon
 
 
 
-       defaults
-           log     global
-           mode    tcp
-           option  httplog
-           option  dontlognull
-           timeout connect 5000
-           timeout client  50000
-           timeout server  50000
-           errorfile 400 /etc/haproxy/errors/400.http
-           errorfile 403 /etc/haproxy/errors/403.http
-           errorfile 408 /etc/haproxy/errors/408.http
-           errorfile 500 /etc/haproxy/errors/500.http
-           errorfile 502 /etc/haproxy/errors/502.http
-           errorfile 503 /etc/haproxy/errors/503.http
-           errorfile 504 /etc/haproxy/errors/504.http
+      defaults
+          log     global
+          mode    tcp
+          option  httplog
+          option  dontlognull
+          timeout connect 5000
+          timeout client  50000
+          timeout server  50000
+          errorfile 400 /etc/haproxy/errors/400.http
+          errorfile 403 /etc/haproxy/errors/403.http
+          errorfile 408 /etc/haproxy/errors/408.http
+          errorfile 500 /etc/haproxy/errors/500.http
+          errorfile 502 /etc/haproxy/errors/502.http
+          errorfile 503 /etc/haproxy/errors/503.http
+          errorfile 504 /etc/haproxy/errors/504.http
 
-       frontend proxy
-           bind *:443
-           mode tcp
-           option tcplog
-           maxconn 10000
-           use_backend mke
+      frontend proxy
+          bind *:443
+          mode tcp
+          option tcplog
+          maxconn 10000
+          use_backend mke
 
-       backend mke
-           server mke <server IP>:33001 verify none check
-                                                     
-       ```
+      backend mke
+          server mke <server IP>:33001 verify none check
+                                                    
+      ```
 
-    c. Restart the HAProxy daemon:
+    d. Restart the HAProxy daemon:
 
-       ```shell
-       systemctl restart haproxy
-       ````
+      ```shell
+      systemctl restart haproxy
+      ````
 
 6. Access the MKE Dashboard at `https://<IP>`. Be aware that as the
    certificates are self-signed, you must accept the displayed warning.
