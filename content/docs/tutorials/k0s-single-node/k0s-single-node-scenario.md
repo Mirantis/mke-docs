@@ -78,7 +78,7 @@ are met, perform the following actions:
    ```
    {{< /callout >}}
    
-  5. Install and configure a load balancer/proxy.
+5. Install and configure a load balancer/proxy.
 
     {{< callout type="info" >}}
 
