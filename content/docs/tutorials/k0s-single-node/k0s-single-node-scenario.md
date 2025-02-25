@@ -147,4 +147,5 @@ are met, perform the following actions:
        systemctl restart haproxy
        ````
 
-6. Access the MKE Dashboard at ```https://<IP>```. Be aware that as the certificates are self-signed, you must accept the displayed warning.
+6. Access the MKE Dashboard at `https://<IP>`. Be aware that as the
+   certificates are self-signed, you must accept the displayed warning.
