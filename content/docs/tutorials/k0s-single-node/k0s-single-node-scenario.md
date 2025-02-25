@@ -9,7 +9,9 @@ environment. It is intended for testing purposes only.
 {{< /callout >}}
 
 ## Prerequisites
-In addition to ensuring that the MKE [dependencies](../../../getting-started/install-mke-cli) and MKE [system requirements](../../../getting-started/system-requirements) are met, perform the following actions:
+In addition to ensuring that the MKE [dependencies](../../../getting-started/install-mke-cli)
+and MKE [system requirements](../../../getting-started/system-requirements)
+are met, perform the following actions:
 
 - Provide a virtual machine, either locally or on a provider that has an accessible IP address
 - Open the following ports:
