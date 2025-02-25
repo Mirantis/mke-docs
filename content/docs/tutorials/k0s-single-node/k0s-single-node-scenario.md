@@ -4,7 +4,8 @@ weight: 5
 ---
 
 {{< callout type="warning" >}}
-Do not deploy the cluster that results from this tutorial in a production environment. It is intended for testing purposes only.
+Do not deploy the cluster that results from this tutorial in a production
+environment. It is intended for testing purposes only.
 {{< /callout >}}
 
 ## Prerequisites
