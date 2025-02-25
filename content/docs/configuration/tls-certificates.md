@@ -1,6 +1,6 @@
 ---
 title: TLS certificates
-weight: 10
+weight: 9
 ---
 
 To ensure all communications between clients and MKE are encrypted, MKE
