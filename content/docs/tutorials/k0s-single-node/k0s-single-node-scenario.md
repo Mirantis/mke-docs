@@ -100,7 +100,7 @@ are met, perform the following actions:
       apt update && apt install haproxy
       ```
 
-    b. Locate and open the `haproxy.conf` file (Ubuntu: /etc/haproxy/haproxy.conf).
+    b. Locate and open the `haproxy.conf` file (Ubuntu: `/etc/haproxy/haproxy.conf`).
     
     c. Append the frontend and backend sections of the `haproxy.conf` file: 
 
