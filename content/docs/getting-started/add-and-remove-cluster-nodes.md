@@ -49,7 +49,7 @@ information on how to remove a control plane node from an MKE 4 cluster.
    ```
 
 2. Run the following command sequence on the node itself, to uninstall
-   Kubernetes:
+   k0s:
 
    ```bash
    k0s stop
