@@ -1,6 +1,6 @@
 ---
 title: Setting up Okta as a SAML provider
-weight: 2
+weight: 4
 ---
 
 To configure an Okta application to serve as your [SAML authentication](../../../../docs/configuration/authentication/saml) provider for MKE 4:
