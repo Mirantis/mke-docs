@@ -36,8 +36,9 @@ the node is a control plane node or a worker node.
 
 ### Remove a control plane node
 
-Refer to the k0s documentation, [Remove or replace a controller](https://docs.k0sproject.io/stable/remove_controller/)
-for information on how to remove a control plane node from an MKE 4 cluster.
+Refer to the k0s documentation, [Remove or replace a
+controller](https://docs.k0sproject.io/stable/remove_controller/) for
+information on how to remove a control plane node from an MKE 4 cluster.
 
 ### Remove a worker node
 
@@ -47,16 +48,22 @@ for information on how to remove a control plane node from an MKE 4 cluster.
    kubectl --kubeconfig ~/.mke/mke.kubeconf delete node <worker_node_name>
    ```
 
-2. Run the following command sequence on the node itself:
+2. Run the following command sequence on the node itself, to uninstall
+   Kubernetes:
 
    ```bash
    k0s stop
    k0s reset
    reboot
    ```
+
 3. [Obtain the MKE configuration file for your cluster](../get-current-mke-config).
 
 4. Delete the host information for the deleted node from the `hosts` section
    of the MKE configuration file, to circumvent any potential mkectl issues.
 
-5. Run `mkectl apply` command.
+5. Apply the configuration:
+
+   ```
+   mkectl apply -f <mke-configuration-file>
+   ```
