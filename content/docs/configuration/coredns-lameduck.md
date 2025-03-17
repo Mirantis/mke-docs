@@ -24,7 +24,7 @@ the `lameduck` section of the MKE configuration file under `dns`:
 | Field                      | Description                                                             | Default |
 |----------------------------|-------------------------------------------------------------------------|---------|
 | enabled                    | Enables the lameduck health function.<br/>  Valid values: true, false.  | false   |
-| duration                   | Length of time during which lameduck will run, expessed with integers and time suffixes, such as s for seconds and m for minutes.                                            | 7s      |
+| duration                   | Length of time during which lameduck will run, expressed with integers and time suffixes, such as s for seconds and m for minutes.                                            | 7s      |
 
 
 <callout type="info"> MKE 4 does not support the use of the `kubectl edit` command to edit the CoreDNS config map outside of MKE for the purpose of configuring the lameduck function. Any such changes will be overwritten by the values set in the MKE configuration file whenever you execute the `mkectl apply` command.</callout>
