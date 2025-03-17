@@ -53,7 +53,7 @@ the `lameduck` section of the MKE configuration file under `dns`:
    [INFO] plugin/reload: Running configuration SHA512 = 26fe33ee13757f04c8c9a1caebd7c6f0614306c92089ea215f1a8663f95ff1e673d4fa5de544b31492231923d4679370ce8735823ce3b5e65e5c23a9029c4512
    [INFO] Reloading complete
    ```
-4. View the ConfigMap to verify that the configuration has been applied:
+4. View the ConfigMap to verify the configuration that was applied:
 
    ```bash
    kubectl describe configmap coredns -n kube-system
@@ -105,6 +105,6 @@ the `lameduck` section of the MKE configuration file under `dns`:
 
 | Parameter                                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                |
 |-------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| dns.lameduck.enabled     |  Set to `true` to enable lameduck function.                                                                                                                                                                                                                                                                                                                                                                   |
+| dns.lameduck.enabled     |  Set to `true` to enable lameduck functionality.                                                                                                                                                                                                                                                                                                                                                                   |
 | dns.lameduck.duration    |  Amount of time in which to delay the shutdown of the CoreDNS Pod.                                                                                                                                                                                                                                                                                                                                                                                       |
 
