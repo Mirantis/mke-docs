@@ -110,22 +110,47 @@ setup using the tests detailed below:
 
 ### Run a GPU Workload
 
-Run the following command once the Pod has reached `Completed` status:
+1. Create the workload:
 
-```
-kubectl logs pod/cuda-vectoradd
-```
+   ```
+   cat <<EOF | kubectl apply -f -
+   apiVersion: v1
+   kind: Pod
+   metadata:
+     name: cuda-vectoradd
+   spec:
+     restartPolicy: OnFailure
+     containers:
+     - name: cuda-vectoradd
+       image: "nvcr.io/nvidia/k8s/cuda-sample:vectoradd-cuda11.7.1-ubuntu20.04"
+       resources:
+         limits:
+           nvidia.com/gpu: 1
+   EOF
+    ```
 
-Example output:
+2. Run the following command once the Pod has reached `Completed` status:
 
-```
-[Vector addition of 50000 elements]
-Copy input data from the host memory to the CUDA device
-CUDA kernel launch with 196 blocks of 256 threads
-Copy output data from the CUDA device to the host memory
-Test PASSED
-Done
-```
+   ```
+   kubectl logs pod/cuda-vectoradd
+   ```
+
+   Example output:
+
+   ```
+   [Vector addition of 50000 elements]
+   Copy input data from the host memory to the CUDA device
+   CUDA kernel launch with 196 blocks of 256 threads
+   Copy output data from the CUDA device to the host memory
+   Test PASSED
+   Done
+   ```
+
+3. Clean up the Pod:
+
+   ```
+   kubectl delete -f cuda-vectoradd.yaml
+   ```
 
 ### Count GPUs
 
