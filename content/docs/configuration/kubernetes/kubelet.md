@@ -103,14 +103,20 @@ the `localhost` node:
 
 ```yaml
 hosts:
-- role: single
-  installFlags:
-    - --profile=hardworker
-  ssh:
-    address: localhost
-    keyPath: ~/.ssh/id_rsa
-    port: 22
-    user: root
+  - role: controller+worker
+    ssh:
+      address: 52.37.200.22
+      keyPath: /home/moshiur/Documents/Github/mke/deployments/mke3/ssh_keys/mke3.pem
+      port: 22
+      user: ubuntu
+  - role: worker
+    ssh:
+      address: 18.236.186.188
+      keyPath: /home/moshiur/Documents/Github/mke/deployments/mke3/ssh_keys/mke3.pem
+      port: 22
+      user: ubuntu
+      installFlags:
+        - --profile=hardworker
 ```
 
 ### Debug worker profiles
