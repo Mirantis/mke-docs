@@ -115,8 +115,8 @@ hosts:
       keyPath: ~/.ssh/id_rsa
       port: 22
       user: ubuntu
-      installFlags:
-        - --profile=worker_profile_1
+    installFlags:
+      - --profile=worker_profile_1
 ```
 
 ### Debug worker profiles
