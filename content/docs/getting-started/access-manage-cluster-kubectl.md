@@ -1,5 +1,5 @@
 ---
-title: Access and Manage the cluster with kubelet
+title: Access and Manage the cluster with kubectl
 weight: 5
 ---
 
@@ -29,41 +29,40 @@ and MKE 3 client bundles:
 | Create by admins for other users                                                                                                         | <center>✅</center>                         | <center>✅</center>                       |
 | Create by admins for themselves                                                                                                          | <center>✅</center>                         | <center>✅</center>                       |
 | Create by non-admins for other users                                                                                                     | <center>❌</center>                       | <center>❌</center>                       |
-| View previously created bundles                                                                                                          | <center>✅</center>                         | <center>❌</center>                       |
-| Revoke previously created bundles                                                                                                        | <center>✅</center>                         | <center>❌</center>                       |
-| Set expiration time of certificates                                                                                                      | <center>❌</center>                         | <center>✅</center>                       |
-| Can be generated from MKE UI                                                                                                             | <center>✅</center>                         | <center>❌</center>                       |
-| Non-admin certs are issued by a <br>separate CA that is trusted by <br>kube API server, but not trusted <br>by other components like kubelet | <center>✅</center>                         | <center>❌</center>                       |
+| View previously created bundles                                                                                                          | <center>❌</center>                         | <center>✅</center>                       |
+| Revoke previously created bundles                                                                                                        | <center>❌</center>                         | <center>✅</center>                       |
+| Set expiration time of certificates                                                                                                      | <center>✅</center>                         | <center>❌</center>                       |
+| Can be generated from MKE UI                                                                                                             | <center>❌</center>                         | <center>✅</center>                       |
+| Non-admin certs are issued by a <br>separate CA that is trusted by <br>kube API server, but not trusted <br>by other components like kubelet | <center>❌</center>                         | <center>✅</center>                       |
 
 ## Create a kubeconfig file
 
 {{< callout type="important" >}} Only users with admin permissions can create
 kubeconfig files for specific users.{{< /callout >}}
 
-Run the procedure following procedure from the MKE 4 cluster that you
+Verify the installation of [openssl](https://github.com/openssl/openssl) and
+[kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).
+
+Use your terminal to run the following procedure from the MKE 4 cluster that you
 previously configured with the `mkectl apply` command.
 
-1. Verify the installation of [openssl](https://github.com/openssl/openssl) and
-   [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).
-
-2. Configure the username:
+1. Configure the username:
 
    ```
    USERNAME=<specific-username>
    ```
 
-3. Configure the number of days until expiry:
+2. Configure the number of days until expiry:
 
    ```
    EXPIRES_IN_DAYS=<integer>
    ```
 
-   Be sure to indicate a reasonable number of days, such as `7`, as you cannot
-   later revoke the certificates used by the new kubeconfig file.
+   Be sure to indicate the minimum required number of days at the very least,
+   for example `7`, as you cannot later revoke the certificates used by the new
+   kubeconfig file.
 
-   <!-- We say 'reasonable', but this term is quite vague. Sometimes vague is good, of course, but if there is a range of numbers we can offer it would be more precise...or if we can illustrate why a particular large number is a bad idea... -->
-
-4. Set the `EXPIRES_IN_SECONDS=` and `KUBECONFIG=` variables. Mirantis
+3. Set the `EXPIRES_IN_SECONDS=` and `KUBECONFIG=` variables. Mirantis
    recommends that you use the variables settings shown in the example
    codeblock that follows.
 
@@ -72,8 +71,8 @@ previously configured with the `mkectl apply` command.
    KUBECONFIG=~/.mke/mke.kubeconf
    ```
 
-5. Run the following script to generate a kubeconfig file
-   named `<username>.kubeconfig`.
+4. Run the following script to generate a kubeconfig file named
+   `<username>.kubeconfig`.
 
    ```
    export KUBECONFIG
@@ -111,9 +110,8 @@ previously configured with the `mkectl apply` command.
    rm $USERNAME.crt $USERNAME.csr $USERNAME.key
    ```
 
-6. Send the generated `<username>.kubeconfig` file to the target user, who
-   can thereafter use it to access the MKE 4 cluster with the `kubectl
-   --kubeconfig` command.
+Once the `<username>.kubeconfig` file is generated, send it to the target user,
+who can thereafter use it to access the MKE 4 cluster with the `kubectl --kubeconfig` command.
 
 ## List or revoke kubeconfig files
 
