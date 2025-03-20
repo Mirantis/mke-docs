@@ -1,6 +1,6 @@
 ---
 title: Obtain the current MKE configuration file
-weight: 6
+weight: 7
 ---
 
 To obtain the current MKE 4 configuration file for your MKE 4 cluster, run:

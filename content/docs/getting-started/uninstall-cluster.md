@@ -1,6 +1,6 @@
 ---
 title: Uninstall a cluster
-weight: 6
+weight: 8
 ---
 
 1. Destroy the last MKE cluster you created using the `reset` command:

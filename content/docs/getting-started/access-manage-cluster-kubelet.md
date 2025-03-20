@@ -1,15 +1,13 @@
 ---
-title: kubectl
+title: Access and Manage the cluster with kubelet
 weight: 5
 ---
-
-<!-- For discussion: Need to decide if this is a proper placement for the topic, or if it should be bundled up with the MKE Dashboard topic under a "Access and manage the cluster" top level topic, or some other solution. -->
 
 {{< callout type="warning" >}} For security purposes, ensure that kubelet is
 not accessible from outside of the cluster, as the certificates issued through
 the procedures herein can be used to access it. {{< /callout >}}
 
-In addition to the MKE Dashboard, you can access and manipulate your MKE 4
+In addition to the MKE Dashboard, you can access and manage your MKE 4
 cluster using kubectl with a [kubeconfig file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/).
 
 In MKE 4, the kubeconfig file provides everything you need, as all of the
@@ -31,7 +29,6 @@ and MKE 3 client bundles:
 | Create by admins for other users                                                                                                         | <center>✅</center>                         | <center>✅</center>                       |
 | Create by admins for themselves                                                                                                          | <center>✅</center>                         | <center>✅</center>                       |
 | Create by non-admins for other users                                                                                                     | <center>❌</center>                       | <center>❌</center>                       |
-| Create by non-admins for themselves                                                                                                      | <center>✅</center>                         | <center>❌</center>                       |
 | View previously created bundles                                                                                                          | <center>✅</center>                         | <center>❌</center>                       |
 | Revoke previously created bundles                                                                                                        | <center>✅</center>                         | <center>❌</center>                       |
 | Set expiration time of certificates                                                                                                      | <center>❌</center>                         | <center>✅</center>                       |
@@ -46,32 +43,37 @@ kubeconfig files for specific users.{{< /callout >}}
 Run the procedure following procedure from the MKE 4 cluster that you
 previously configured with the `mkectl apply` command.
 
-<!-- How does this fit in here: "Alternatively, you can run
-the script if another admin previously issued you a kubeconfig file with admin-level permissions." -->
-
 1. Verify the installation of [openssl](https://github.com/openssl/openssl) and
    [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).
 
-2. Set the following variables:
+2. Configure the username:
 
-   <!-- Text is needed to touch up on how the user sets these variables. Here we just say "Do it!" without any mention of the process. It may be second-nature to the user, but we still have to indicate how it is done. -->
+   ```
+   USERNAME=<specific-username>
+   ```
 
-   * `USERNAME=`
-   * `EXPIRES_IN_DAYS=`
+3. Configure the number of days until expiry:
 
-   By default, `EXPIRES_IN_DAYS=` is set to `7`. If you change the default
-   value, make sure it is set to a reasonable value as it is not possible to
+   ```
+   EXPIRES_IN_DAYS=<integer>
+   ```
+
+   Be sure to indicate a reasonable number of days, such as `7`, as you cannot
    later revoke the certificates used by the new kubeconfig file.
 
-   <!--Is this a default value that is pre-set, or is it the value that we are suggesting be set? -->
+   <!-- We say 'reasonable', but this term is quite vague. Sometimes vague is good, of course, but if there is a range of numbers we can offer it would be more precise...or if we can illustrate why a particular large number is a bad idea... -->
 
-   {{< callout type="info" >}} The value for the `EXPIRES_IN_SECONDS=` variable
-   is automatically calculated as ((EXPIRES_IN_DAYS * 24 * 60 * 60)), and the
-   `KUBECONFIG=` variable is set by default to the MKE 4 clusters location that
-   was created by the `mkectl apply` command at cluster creation. {{< /callout >}}
+4. Set the `EXPIRES_IN_SECONDS=` and `KUBECONFIG=` variables. Mirantis
+   recommends that you use the variables settings shown in the example
+   codeblock that follows.
 
-3. Run the following command sequence to generate a kubeconfig file in the
-   `<username>.kubeconfig` directory.
+   ```
+   EXPIRES_IN_SECONDS=$((EXPIRES_IN_DAYS * 24 * 60 * 60))
+   KUBECONFIG=~/.mke/mke.kubeconf
+   ```
+
+5. Run the following script to generate a kubeconfig file
+   named `<username>.kubeconfig`.
 
    ```
    export KUBECONFIG
@@ -109,7 +111,7 @@ the script if another admin previously issued you a kubeconfig file with admin-l
    rm $USERNAME.crt $USERNAME.csr $USERNAME.key
    ```
 
-4. Send the generated `<username>.kubeconfig` file to the target user, who
+6. Send the generated `<username>.kubeconfig` file to the target user, who
    can thereafter use it to access the MKE 4 cluster with the `kubectl
    --kubeconfig` command.
 

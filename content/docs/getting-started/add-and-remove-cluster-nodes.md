@@ -1,6 +1,6 @@
 ---
 title: Add and remove cluster nodes
-weight: 5
+weight: 6
 ---
 
 {{< callout type="info" >}}
