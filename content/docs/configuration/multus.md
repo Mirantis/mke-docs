@@ -35,10 +35,10 @@ the `enabled` parameter to `true`, and apply the new configuration.
 3. Apply the configuration:
 
    ```
-   mkectl apply -f <mke-configuration-file>
+   mkectl apply -f mke4.yaml
    ```
 
-4. Verify the successful deployment of MetalLB in the cluster:
+4. Verify the successful deployment of Multus in the cluster:
 
    ```
    kubectl get daemonset,pods -n kube-system -l app=multus
@@ -63,44 +63,45 @@ Multus is installed it cannot be disabled.
 
 ## Add a network interface
 
-1. Run the following command on all of the nodes in the cluster to
-   download and extract the CNI plugin:
+1. SSH in to each cluster node to install the CNI and to determine the primary
+   network:
 
-   ```
-   CNI_PLUGIN_VERSION=v1.3.0
-   CNI_ARCH=amd64
-   curl -sL
-   https://github.com/containernetworking/plugins/releases/download/${CNI_PLUGIN_VERSION}/cni-plugins-linux-${CNI_ARCH}-${CNI_PLUGIN_VERSION}.tgz
-   | sudo tar xvz -C /opt/cni/bin/
-   ```
+   **To download and extract the CNI plugin:**
 
-2. Determine the primary network interface for the node. You will use this
-   information to create the `NetworkAttachmentDefinitions` file.
+      ```
+      CNI_PLUGIN_VERSION=v1.3.0
+      CNI_ARCH=amd64
+      curl -sL https://github.com/containernetworking/plugins/releases/download/${CNI_PLUGIN_VERSION}/cni-plugins linux-${CNI_ARCH}-${CNI_PLUGIN_VERSION}.tgz | sudo tar xvz -C /opt/cni/bin/
+      ```
 
-   {{< callout type="info" >}}
-   The name of the primary interface can vary with the underlying network adapter.
-   {{< /callout >}}
+   **To determine the primary network interface for the node:**
 
-   ```
-   route
-   ```
+   You will use the primary network interface information to create the `NetworkAttachmentDefinitions` file.
 
-   {{< callout type="info" >}}
-   eth0 is the primary network interface for most Linux distributions.
-   {{< /callout >}}
+      {{< callout type="info" >}}
+      The name of the primary interface can vary with the underlying network adapter.
+      {{< /callout >}}
 
-   Sample output:
+      ```
+      route
+      ```
 
-   ```
-   Kernel IP routing table
-   Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
-   default         ip-172-31-0-1.u 0.0.0.0         UG    100    0        0 ens5
-   172.31.0.0      0.0.0.0         255.255.0.0     U     100    0        0 ens5
-   ip-172-31-0-1.u 0.0.0.0         255.255.255.255 UH    100    0        0 ens5
-   192.168.17.0    0.0.0.0         255.255.255.192 U     0      0        0 *
-   ```
+      {{< callout type="info" >}}
+      eth0 is the primary network interface for most Linux distributions.
+      {{< /callout >}}
 
-3. Create the `NetworkAttachmentDefinitions` file, to specify other networks:
+      Example output:
+
+      ```
+      Kernel IP routing table
+      Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+      default         ip-172-31-0-1.u 0.0.0.0         UG    100    0        0 ens5
+      172.31.0.0      0.0.0.0         255.255.0.0     U     100    0        0 ens5
+      ip-172-31-0-1.u 0.0.0.0         255.255.255.255 UH    100    0        0 ens5
+      192.168.17.0    0.0.0.0         255.255.255.192 U     0      0        0 *
+      ```
+
+2. Create the `NetworkAttachmentDefinitions` file, to specify other networks:
 
    ```
    cat <<EOF | kubectl create -f -
@@ -130,15 +131,20 @@ Multus is installed it cannot be disabled.
    EOF
    ```
 
-4. Verify the creation of the the network attachment definition:
+3. Verify the creation of the the network attachment definition:
 
    ```
    kubectl get network-attachment-definition
+   ```
+
+   Example output:
+
+   ```
    NAME           AGE
    ens5-network   44s
    ```
 
-5. Create a multi-homed Pod:
+4. Create a multi-homed Pod:
 
    ```
    cat <<EOF | kubectl create -f -
@@ -158,13 +164,13 @@ Multus is installed it cannot be disabled.
    EOF
    ```
 
-6. Verify the network interfaces of the Pod:
+5. Verify the network interfaces of the Pod:
 
    ```
    kubectl exec -it pod-additional-network -- ip a
    ```
 
-   Sample output:
+   Example output:
 
    ```
    LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue qlen 1000
@@ -202,5 +208,5 @@ Multus is installed it cannot be disabled.
 3. Apply the configuration:
 
    ```
-   mkectl apply -f <mke-configuration-file>
+   mkectl apply -f mke4.yaml
    ```
