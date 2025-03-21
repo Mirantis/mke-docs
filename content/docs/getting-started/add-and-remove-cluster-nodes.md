@@ -65,5 +65,5 @@ information on how to remove a control plane node from an MKE 4 cluster.
 5. Apply the configuration:
 
    ```
-   mkectl apply -f <mke-configuration-file>
+   mkectl apply -f mke4.yaml
    ```
