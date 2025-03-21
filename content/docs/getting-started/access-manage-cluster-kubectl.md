@@ -70,7 +70,7 @@ previously configured with the `mkectl apply` command.
    KUBECONFIG=~/.mke/mke.kubeconf
    ```
 
-5. Run the following script to generate a kubeconfig file named
+4. Run the following script to generate a kubeconfig file named
    `<username>.kubeconfig`:
 
    ```
