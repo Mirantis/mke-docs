@@ -1,5 +1,5 @@
 ---
-title: Access and Manage the cluster with kubectl
+title: Access and manage the cluster with kubectl
 weight: 5
 ---
 
@@ -40,7 +40,7 @@ and MKE 3 client bundles:
 {{< callout type="important" >}} Only users with admin permissions can create
 kubeconfig files for specific users.{{< /callout >}}
 
-Verify the installation of [openssl](https://github.com/openssl/openssl) and
+Verify the installation of [OpenSSL](https://github.com/openssl/openssl) and
 [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).
 
 Use your terminal to run the following procedure from the MKE 4 cluster that you
@@ -63,16 +63,15 @@ previously configured with the `mkectl apply` command.
    kubeconfig file.
 
 3. Set the `EXPIRES_IN_SECONDS=` and `KUBECONFIG=` variables. Mirantis
-   recommends that you use the variables settings shown in the example
-   codeblock that follows.
+   recommends that you use the settings shown in the following example code block:
 
    ```
    EXPIRES_IN_SECONDS=$((EXPIRES_IN_DAYS * 24 * 60 * 60))
    KUBECONFIG=~/.mke/mke.kubeconf
    ```
 
-4. Run the following script to generate a kubeconfig file named
-   `<username>.kubeconfig`.
+5. Run the following script to generate a kubeconfig file named
+   `<username>.kubeconfig`:
 
    ```
    export KUBECONFIG
