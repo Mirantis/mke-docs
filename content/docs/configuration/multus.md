@@ -63,10 +63,10 @@ Multus is installed it cannot be disabled.
 
 ## Add a network interface
 
-1. SSH in to each cluster node to install the Multus CNI and to determine the
-   primary network:
+1. SSH in to each cluster node to install the CNI and to determine the primary
+   network:
 
-   1. To download and extract the CNI plugin:
+   **To download and extract the CNI plugin:**
 
       ```
       CNI_PLUGIN_VERSION=v1.3.0
@@ -74,8 +74,9 @@ Multus is installed it cannot be disabled.
       curl -sL https://github.com/containernetworking/plugins/releases/download/${CNI_PLUGIN_VERSION}/cni-plugins linux-${CNI_ARCH}-${CNI_PLUGIN_VERSION}.tgz | sudo tar xvz -C /opt/cni/bin/
       ```
 
-   2. Determine the primary network interface for the node. You will use this
-      information to create the `NetworkAttachmentDefinitions` file.
+   **To determine the primary network interface for the node:**
+
+   You will use the primary network interface information to create the `NetworkAttachmentDefinitions` file.
 
       {{< callout type="info" >}}
       The name of the primary interface can vary with the underlying network adapter.
@@ -89,7 +90,7 @@ Multus is installed it cannot be disabled.
       eth0 is the primary network interface for most Linux distributions.
       {{< /callout >}}
 
-      Sample output:
+      Example output:
 
       ```
       Kernel IP routing table
