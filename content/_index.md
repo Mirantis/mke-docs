@@ -49,7 +49,7 @@ layout: hextra-home
   >}}
 
   {{< hextra/feature-card
-    title="Migration from MKE 3.x"
+    title="Upgrade from MKE 3.x"
     subtitle="Existing MKE 3.x users can easily upgrade in place to MKE 4 without any downtime. MKE 4 has feature parity with MKE 3.x, plus additional capabilities"
   >}}
 
