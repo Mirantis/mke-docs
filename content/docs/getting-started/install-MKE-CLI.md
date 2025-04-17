@@ -101,7 +101,7 @@ You can now proceed with MKE cluster creation.
 
    {{< callout type="info" >}}
 
-   If the mirantis tap is already present and you want to update it, run:
+   If the `mirantis` tap is already present and you want to update it, run:
 
    ```shell
    brew update
