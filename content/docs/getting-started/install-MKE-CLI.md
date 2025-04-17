@@ -91,7 +91,7 @@ and `mkectl` binaries in `/usr/local/bin`. Thus, you must ensure that
 
 You can now proceed with MKE cluster creation.
 
-## Install using homebrew
+## Install using Homebrew
 
 1. Add the `mirantis` repository to your local taps:
 
