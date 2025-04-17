@@ -93,7 +93,7 @@ You can now proceed with MKE cluster creation.
 
 ## Install using homebrew
 
-1. Add the mirantis tap to your local taps:
+1. Add the `mirantis` repository to your local taps:
 
    ```shell
    brew tap mirantis/tap
