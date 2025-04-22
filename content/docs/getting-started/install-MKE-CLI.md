@@ -55,6 +55,38 @@ underlying architecture, based on which it will install the `mkectl` binaries in
 
 You can now proceed with MKE cluster creation.
 
+## Install using Homebrew
+
+1. Add the `mirantis` repository to your local taps:
+
+   ```shell
+   brew tap mirantis/tap
+   ```
+
+   {{< callout type="info" >}}
+
+   If the `mirantis` tap is already present and you want to update it, run:
+
+   ```shell
+   brew update
+   ```
+
+   {{< /callout >}}
+
+2. Install `mkectl`:
+
+   - To install the latest `mkectl` version:
+
+     ```shell
+     brew install mkectl
+     ```
+
+   - To install a specific `mkectl` version:
+
+     ```shell
+     brew install mkectl@<version-number>
+     ```
+
 ## Install manually
 
 1. Download the `mkectl` binary from the S3 bucket:

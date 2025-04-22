@@ -62,7 +62,7 @@ To configure MetalLB:
 3. Apply the configuration:
 
    ```bash
-   mkectl apply -f <mke-configuration-file>
+   mkectl apply -f mke4.yaml
    ```
 
 4. Verify the successful deployment of MetalLB in the cluster:
@@ -239,11 +239,11 @@ For more information, refer to the official MetalLB documentation [Requesting sp
 2. Set the `enabled` field to `false` to disable MetalLB.
 
    ```bash
-   mkectl <mke-configuration-file>
+   mkectl mke4.yaml
    ```
 
 3. Apply the configuration:
 
    ```bash
-   mkectl apply -f <mke-configuration-file>
+   mkectl apply -f mke4.yaml
    ```
