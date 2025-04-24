@@ -17,7 +17,7 @@ You can download the MKE 4 artifacts from the releases page.
 
 ## Dependencies ##
 
-- skopeo 1.6.1 or later
+- [skopeo](https://github.com/containers/skopeo) 1.6.1 or later
 - An OCI-based private registry that is accessible from all cluster nodes.
 - All MKE 4 artifacts and images must be publicly accessible, with no required authentication.
 - The registry must use HTTPS, and the TLS certificates of the registry server
