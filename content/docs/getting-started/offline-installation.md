@@ -92,7 +92,7 @@ adding the following flags to the `mkectl upgrade` command:
 
 {{< callout type="info" >}}
 
-For detail on the `mkectl upgrade` command flags, refer to the mke4.yml
+For detail on the `mkectl upgrade` command flags, refer to the `mke4.yaml`
 configuation file settings descriptions offered above for new installations.
 
 {{< /callout >}}
