@@ -29,7 +29,7 @@ must be signed by a publicly trusted Certificate Authority.
 1. Download the offline bundle from the releases page:
 
    ```bash
-   wget https://packages.mirantis.com/caas/mke_bundle_v4.1.0.tar.gz -O mke_bundle_v4.1.0.tar.gz
+   curl -L https://packages.mirantis.com/caas/mke_bundle_v4.1.0.tar.gz -o mke_bundle_v4.1.0.tar.gz
    ```
 
 2. Transfer the bundle file to a machine that can access your private registry.
