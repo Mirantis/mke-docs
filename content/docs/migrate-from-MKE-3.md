@@ -254,7 +254,8 @@ mkectl upgrade --hosts-path <path-to-hosts-yaml> \
 ```
 
 The external address is the domain name of the load balancer. For details,
-see [System requirements: Load balancer requirements](../getting-started/system-requirements#load-balancer-requirements).
+see [System requirements: Load balancer
+requirements](../getting-started/system-requirements#load-balancer-requirements).
 
 The `--config-out` flag allows you to specify a path where the MKE 4 configuration
 file will be automatically created and saved during migration. If not specified,
@@ -282,6 +283,20 @@ The MKE 3 cluster will no longer be accessible through the previously created
 client bundle. The docker swarm cluster will no longer be accessible as well.
 
 {{< /callout >}}
+
+### Offline upgrade
+
+To perform an offline upgrade from MKE 3 to MKE 4k, add the following flags to the `mkectl upgrade` command:
+
+* `--image-registry=<registry_full_path>`
+* `--chart-registry=oci://<registry_full_path>`
+* `--mke3-airgapped=true`
+
+| Setting                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `.spec.registries.imageRegistry.URL` | Sets your registry address with a project path that contains your MKE 4 images. For example, `private-registry.example.com:8080/mke`. <br><br>The setting must not end with a slash `/`.<br><br>The port is optional.                                                                                                                                                                                                                                                                   |
+| `.spec.registries.chartRegistry.URL` | Sets your registry address with a project path that contains your MKE 4 helm charts in OCI format. For example, `oci://private-registry.example.com:8080/mke`.<br><br>The setting must always start with `oci://`, and it must not end with a slash `/` .<br><br>If you uploaded the bundle as previously described, the registry address and path will be the same for chart and image registry, with the only difference being the `oci://` prefix in the chart registry URL. |
+| `.spec.airgap.enabled = true`        | Indicates that your environment is airgapped.                                                                                                                                                                                                                                                                                                                   |
 
 ### Migration failure
 

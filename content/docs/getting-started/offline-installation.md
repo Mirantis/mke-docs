@@ -78,7 +78,15 @@ You can download the MKE 4 artifacts from the [mke-release GitHub repo](https://
    done;
    ```
 
-## New Installation ##
+## Installation ##
+
+{{< callout type="info" >}}
+
+For information on performing an upgrade to an existing installation in an
+airgap environment, refer to [Offline
+upgrade](../../migrate-from-mke-3/#offline-upgrade).
+
+{{< /callout >}}
 
 1. Refer to the [Create a Cluster](../create-cluster/#initialize-deployment) procedure for detail on
 how to create a `mke4.yaml` configuration file.
@@ -91,25 +99,7 @@ how to create a `mke4.yaml` configuration file.
    | `.spec.registries.chartRegistry.URL` | Sets your registry address with a project path that contains your MKE 4 helm charts in OCI format. For example, `oci://private-registry.example.com:8080/mke`.<br><br>The setting must always start with `oci://`, and it must not end with a slash `/` .<br><br>If you uploaded the bundle as previously described, the registry address and path will be the same for chart and image registry, with the only difference being the `oci://` prefix in the chart registry URL. |
    | `.spec.airgap.enabled = true`        | Indicates that your environment is airgapped.                                                                                                                                                                                                                                                                                                                   |
 
-
 3. Run the `mkectl apply` command.
-
-## Upgrade ##
-
-To perform an offline upgrade from MKE 3 to MKE 4k, you adhere to the
-procedure as described in [Migrate from MKE 3.x](../../migrate-from-mke-3),
-adding the following flags to the `mkectl upgrade` command:
-
-* `--image-registry=<registry_full_path>`
-* `--chart-registry=oci://<registry_full_path>`
-* `--mke3-airgapped=true`
-
-{{< callout type="info" >}}
-
-For detail on the `mkectl upgrade` command flags, refer to the `mke4.yaml`
-configuation file settings descriptions offered above for new installations.
-
-{{< /callout >}}
 
 ## MKE 4 versus MKE 3 ##
 
