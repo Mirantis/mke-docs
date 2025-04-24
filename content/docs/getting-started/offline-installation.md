@@ -5,7 +5,7 @@ weight: 3
 
 The installation and upgrade procedures for MKE 4k reflect those of the online
 scenario. While the online installation, though, typically uses
-`registry.mirantis.com` as the primary OCI registry as the repository for MKE
+`registry.mirantis.com` as the primary OCI registry for MKE
  4k materials, with the offline scenario you instead specify a private
 registry from which to pull the MKE 4k artifacts, images, and charts.
 
