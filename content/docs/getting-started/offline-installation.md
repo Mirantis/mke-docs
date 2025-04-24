@@ -11,7 +11,7 @@ registry from which to pull the MKE 4k artifacts, images, and charts.
 
 {{< callout type="info" >}}
 
-You can download the MKE 4 artifacts from the releases page.
+You can download the MKE 4 artifacts from the [mke-release GitHub repo](https://github.com/MirantisContainers/mke-release/releases).
 
 {{< /callout >}}
 
@@ -19,30 +19,44 @@ You can download the MKE 4 artifacts from the releases page.
 
 - [skopeo](https://github.com/containers/skopeo) 1.6.1 or later
 - An OCI-based private registry that is accessible from all cluster nodes.
-- All MKE 4 artifacts and images must be publicly accessible, with no required authentication.
-- The registry must use HTTPS, and the TLS certificates of the registry server
-must be signed by a publicly trusted Certificate Authority.
-- The registry must support multi-level nesting, for image names
+  - All MKE 4 artifacts and images must be publicly accessible, with no required authentication.
+  - The registry must use HTTPS, and the TLS certificates of the registry server
+  must be signed by a publicly trusted Certificate Authority. Private certificate authorities or self-signed certificates are not currently supported.
+  - The registry must support multi-level nesting. For example,
+    `registry.com/level-one/level-two/level-three/image-name:latest`. Some
+    registries only allow one level of nesting, such as
+    `registry.com/level-one/image:latest`, so verify that your registry
+    supports deeper nesting for image names.
 
 ## Preparation ##
 
-1. Download the offline bundle from the releases page:
+1. Download the offline bundle, either from the [mke-release GitHub
+   repo](https://github.com/MirantisContainers/mke-release/releases), or
+   from the command line as follows:
 
-   ```bash
-   curl -L https://packages.mirantis.com/caas/mke_bundle_v4.1.0.tar.gz -o mke_bundle_v4.1.0.tar.gz
-   ```
+     ```bash
+     curl -L https://packages.mirantis.com/caas/mke_bundle_v4.1.0.tar.gz -o mke_bundle_v4.1.0.tar.gz
+     ```
 
 2. Transfer the bundle file to a machine that can access your private registry.
 
 3. On the machine with registry access, set the environment variables:
 
    ```bash
-   export REGISTRY_ADDRESS="<registry_address>"  # Registry hostname and optionally port, e.g. "private-registry.example.com:8080". Must NOT end with a slash '/'
-   export REGISTRY_PROJECT_PATH="<registry-path>"  # Path to the registry project that will store all MKE 4 artifacts. Must NOT end with a slash '/'. E.g. "mke". Registry address and path should make the full registry path. With the examples above, the full path will be REGISTRY_ADDRESS + "/" + REGISTRY_PROJECT_PATH == "private-registry.example.com:8080/mke"
-   export REGISTRY_USERNAME="<username>"  # Username of the account allowed to push
-   export REGISTRY_PASSWORD="<password>"  # Password for the same account
-   export BUNDLE_NAME="mke_bundle_v4.1.0-rc.1.tar.gz"  # The name of previously downloaded bundle file. The file must be located in the same directory where you run the preparation steps
+   export REGISTRY_ADDRESS='<registry_address>'
+   export REGISTRY_PROJECT_PATH='<registry-path>'
+   export REGISTRY_USERNAME='<username>'
+   export REGISTRY_PASSWORD='<password>'
+   export BUNDLE_NAME='mke_bundle_v<mke-4-version>.tar.gz'
    ```
+
+| Environment variable                             | Description                                                                                                                                                                                                                                                                                 |
+|--------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| REGISTRY_ADDRESS=' <registry_address> '          | Registry hostname (required) and port (optional). The value must not end with a slash '/'.<br><br>Example: `private-registry.example.com:8080`                                                                                                                                              |
+| REGISTRY_PROJECT_PATH= '<registry-path>'         | Path to the registry project that will store all MKE 4 artifacts. The registry address and path should comprise the full registry path. The value must not end with a slash '/'.<br><br>Example: `REGISTRY_ADDRESS + '/' + REGISTRY_PROJECT_PATH == 'private-registry.example.com:8080/mke` |
+| REGISTRY_USERNAME= '<username>'                  | Username for the account that is allowed to push.                                                                                                                                                                                                                                           |
+| REGISTRY_PASSWORD= '<password>'                  | Password for the account that is allowed to push.                                                                                                                                                                                                                                           |
+| BUNDLE_NAME= 'mke_bundle_v<mke4-version>.tar.gz' | The name of previously downloaded bundle file, which must be located in the same directory in which you run the preparation steps.                                                                                                                                                          |
 
 4. Upload the MKE 4k images and helm charts to your private registry:
 
