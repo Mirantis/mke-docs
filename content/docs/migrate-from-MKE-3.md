@@ -286,7 +286,10 @@ client bundle. The docker swarm cluster will no longer be accessible as well.
 
 ### Offline upgrade
 
-To perform an offline upgrade from MKE 3 to MKE 4k, add the following flags to the `mkectl upgrade` command:
+To perform an offline upgrade from MKE 3 to MKE 4k, [prepare your environment
+as described in Offline
+installation](../getting-started/offline-installation/#preparation), and add
+the following flags to the `mkectl upgrade` command:
 
 * `--image-registry=<registry_full_path>`
 * `--chart-registry=oci://<registry_full_path>`

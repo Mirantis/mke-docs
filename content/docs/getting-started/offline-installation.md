@@ -7,7 +7,7 @@ The installation and upgrade procedures for MKE 4k reflect those of the online
 scenario. While the online installation, though, typically uses
 `registry.mirantis.com` as the primary OCI registry for MKE
  4k materials, with the offline scenario you instead specify a private
-registry from which to pull the MKE 4k artifacts, images, and charts.
+registry from which to pull the MKE 4k images and charts.
 
 {{< callout type="info" >}}
 
@@ -35,7 +35,7 @@ You can download the MKE 4 artifacts from the [mke-release GitHub repo](https://
    from the command line as follows:
 
      ```bash
-     curl -L https://packages.mirantis.com/caas/mke_bundle_v4.1.0.tar.gz -o mke_bundle_v4.1.0.tar.gz
+     curl -L https://packages.mirantis.com/caas/mke_bundle_v<mke-4-version>.tar.gz -o mke_bundle_v<mke-4-version>.tar.gz
      ```
 
 2. Transfer the bundle file to a machine that can access your private registry.
@@ -60,7 +60,7 @@ You can download the MKE 4 artifacts from the [mke-release GitHub repo](https://
 
 4. Upload the MKE 4k images and helm charts to your private registry:
 
-   ```
+   ```bash
    # Login to the registry
    skopeo login "$REGISTRY_ADDRESS" -u "$REGISTRY_USERNAME" -p "$REGISTRY_PASSWORD"
 
@@ -82,7 +82,7 @@ You can download the MKE 4 artifacts from the [mke-release GitHub repo](https://
 
 {{< callout type="info" >}}
 
-For information on performing an upgrade to an existing installation in an
+For information on performing an upgrade to an existing MKE 3 installation in an
 airgap environment, refer to [Offline
 upgrade](../../migrate-from-mke-3/#offline-upgrade).
 
