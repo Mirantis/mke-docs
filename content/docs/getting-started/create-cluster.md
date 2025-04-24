@@ -5,8 +5,7 @@ weight: 3
 
 {{< callout type="info" >}}
 
-For information on how to create a cluster in an airgapped environment, refer
-to  airgap MKE 4 installation, refer to [Offline installation](../offline-installation).
+For information on how to create a cluster in an airgapped environment, refer to [Offline installation](../offline-installation).
 
 {{< /callout >}}
 
