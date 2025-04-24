@@ -19,7 +19,7 @@ You can download the MKE 4 artifacts from the [mke-release GitHub repo](https://
 
 - [skopeo](https://github.com/containers/skopeo) 1.6.1 or later
 - An OCI-based private registry that is accessible from all cluster nodes.
-  - All MKE 4 artifacts and images must be publicly accessible, with no required authentication.
+  - All MKE 4 images and charts must be publicly accessible, with no required authentication.
   - The registry must use HTTPS, and the TLS certificates of the registry server
   must be signed by a publicly trusted Certificate Authority. Private certificate authorities or self-signed certificates are not currently supported.
   - The registry must support multi-level nesting. For example,
