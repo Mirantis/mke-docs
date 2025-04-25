@@ -71,7 +71,7 @@ The following table includes details on all of the configurable `network` fields
 
 ### Kube-router
 
-Configuration for the kube-router CNI can be done by referring to the
+Configuration for the Kube-router CNI can be done by referring to the
 documentation in https://github.com/cloudnativelabs/kube-router/blob/master/docs/user-guide.md#command-line-options. 
 
 Two parameters [cidrV4 and v] are used to specify the ipv4 cidr and log level for the cluster.
