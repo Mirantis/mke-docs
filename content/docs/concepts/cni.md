@@ -90,11 +90,7 @@ for the Calico provider.
 | `linuxDataplane` | Sets the dataplane for Calico CNI. | Iptables | Iptables|
 | `loglevel` | Sets the log level for the CNI components. | Info, Debug | Info|
 
-The above configuration should suffice if you are OK with the default networking configuration and/or
-desire to minimize efforts around network configuration. However if you want the ability to configure
-networking beyond the above, MKE4 also exposes maximal configuration for the Calico provider. This allows
-you to configure networking to the fullest extent allowed by the Calico CNI. To do this, you need to use
-the values.yaml key. An example networking would then look like the following:
+The default network configuration described herein offers a serviceable, low maintenance solution. If, however, you want more control over your network configuration environment, MKE 4 exposes maximal configuration for the Calico CNI through which you can configure your networking to the fullest extent allowed by the provider. For this, you will use the `values.yaml` key, in which case an example networking would resemble the following:
 
 ```yaml
  network:
