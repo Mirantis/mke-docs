@@ -67,7 +67,7 @@ The following table includes details on all of the configurable `network` fields
 | `serviceCIDR` | Sets the IPv4 range of IP addresses for services in a Kubernetes cluster. | Valid IPv4 CIDR | `10.96.0.0/16` |
 | `providers` | Sets the provider for the active CNI. | `calico` | `calico` |
 
-## Providers configuration
+## CNI providers configuration
 
 ### Kuberouter CNI
 
