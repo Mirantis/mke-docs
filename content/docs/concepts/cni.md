@@ -78,7 +78,7 @@ Two parameters [cidrV4 and v] are used to specify the ipv4 cidr and log level fo
 Any other parameters specified in the extraConfig section of the CNI are passed as-is in the form 
 of a key value pair by appending '--' before the key.
 
-### Calico CNI
+### Calico OSS
 
 The following table includes details on the configurable settings
 for the Calico provider.
