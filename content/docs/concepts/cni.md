@@ -154,7 +154,7 @@ The default network configuration described herein offers a serviceable, low mai
 {{< callout type="important" >}}
 
 - You must choose whether to specify an exact YAML specification for the Helm installation of Tigera Operator during the initial cluster installation.
-- The supplied yaml for `values.yaml` must include the exact first line `kubeletVolumePluginPath: /var/lib/k0s/kubelet`, otherwise the MKE 4 installation will fail.
+- The supplied YAML for `values.yaml` must include the exact first line `kubeletVolumePluginPath: /var/lib/k0s/kubelet`, otherwise the MKE 4 installation will fail.
 
 {{< /callout >}}
 
