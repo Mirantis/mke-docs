@@ -3,7 +3,7 @@ title: Container Network Interface
 weight: 4
 ---
 
-MKE supports both the Kuberouter and Calico OSS Container Network Interface (CNI) plugins,
+MKE supports both the Kube-router and Calico OSS Container Network Interface (CNI) plugins,
 to enable the networking functionalities needed for container communication
 and management within a cluster.
 
