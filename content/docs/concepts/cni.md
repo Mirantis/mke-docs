@@ -157,8 +157,7 @@ The default network configuration described herein offers a serviceable, low mai
       Calico OSS documentation for tigera-operator to prepare the required contents in values.yaml. MKE4 does not mangle the yaml provided in values.yaml before passing it to the Helm installer
 [^3]: Refer to https://docs.tigera.io/calico/latest/reference/installation/api#operator.tigera.io/v1.Installation for installation contents in values.yaml
 [^4]: Refer to https://docs.tigera.io/calico/latest/reference/resources/felixconfig for defaultFelixConfiguration contents in values.yaml
-[^5]: The network configuration generated after migrating an existing MKE3 cluster will always use yaml. However because such cluster have at least one existing ip pool, the cidr and dataplane 
-      values will be specified outside of the yaml as shown below:
+The network configuration generated as a result of upgrading to MKE 4 from an existing MKE 3 cluster always uses yaml. As such clusters have at least one existing IP pool, however, the CIDR and dataplane values are specified outside of the yaml, as illustrated below:
 
 ```yaml
   network:
