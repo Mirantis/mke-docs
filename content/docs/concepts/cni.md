@@ -151,12 +151,23 @@ The default network configuration described herein offers a serviceable, low mai
       provider: kuberouter
 ```
 
-[^0]: The choice of whether to specify exact yaml spec for Helm installation of tigera-operator must be made while initially installing the cluster
-[^1]: MKE4 installation will fail if the supplied yaml for values.yaml does not include the exact first line `kubeletVolumePluginPath: /var/lib/k0s/kubelet`
-[^2]  The full values.yaml spec for the Helm chart used to install tigera-operator can be seen in https://github.com/projectcalico/calico/blob/master/charts/tigera-operator/values.yaml. Refer to 
-      Calico OSS documentation for tigera-operator to prepare the required contents in values.yaml. MKE4 does not mangle the yaml provided in values.yaml before passing it to the Helm installer
-[^3]: Refer to https://docs.tigera.io/calico/latest/reference/installation/api#operator.tigera.io/v1.Installation for installation contents in values.yaml
-[^4]: Refer to https://docs.tigera.io/calico/latest/reference/resources/felixconfig for defaultFelixConfiguration contents in values.yaml
+{{< callout type="important" >}}
+
+- You must choose whether to specify an exact YAML specification for the Helm installation of Tigera Operator during the initial cluster installation.
+- The supplied yaml for `values.yaml` must include the exact first line `kubeletVolumePluginPath: /var/lib/k0s/kubelet`, otherwise the MKE 4 installation will fail.
+
+{< /callout >}}
+
+{{< callout type="info" >}} Refer to the official Tigera Operator documentation
+for:
+
+- [Information on how to prepare the required content for the `values.yaml` specification](https://docs.tigera.io/calico/latest/getting-started/kubernetes/windows-calico/operator)
+- The [`values.yaml` information content](https://docs.tigera.io/calico/latest/reference/installation/api#operator.tigera.io/v1.Installation)
+- The [`defaultFelixConfiguration` content for the `values.yaml` specification(https://docs.tigera.io/calico/latest/reference/resources/felixconfig)
+
+You can  view the full `values.yaml` specification for the Helm chart needed to install Tigera Operator at the [Project Calico GitHub](https://github.com/projectcalico/calico/blob/master/charts/tigera-operator/values.yaml).
+
+{{< /callout >}}
 The network configuration generated as a result of upgrading to MKE 4 from an existing MKE 3 cluster always uses yaml. As such clusters have at least one existing IP pool, however, the CIDR and dataplane values are specified outside of the yaml, as illustrated below:
 
 ```yaml
