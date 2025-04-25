@@ -165,7 +165,7 @@ for:
 - The [`values.yaml` information content](https://docs.tigera.io/calico/latest/reference/installation/api#operator.tigera.io/v1.Installation)
 - The [`defaultFelixConfiguration` content for the `values.yaml` specification(https://docs.tigera.io/calico/latest/reference/resources/felixconfig)
 
-You can  view the full `values.yaml` specification for the Helm chart needed to install Tigera Operator at the [Project Calico GitHub](https://github.com/projectcalico/calico/blob/master/charts/tigera-operator/values.yaml).
+You can view the full `values.yaml` specification for the Helm chart needed to install Tigera Operator at the [Project Calico GitHub](https://github.com/projectcalico/calico/blob/master/charts/tigera-operator/values.yaml).
 
 {{< /callout >}}
 The network configuration generated as a result of upgrading to MKE 4 from an existing MKE 3 cluster always uses yaml. As such clusters have at least one existing IP pool, however, the CIDR and dataplane values are specified outside of the yaml, as illustrated below:
