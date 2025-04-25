@@ -69,7 +69,7 @@ The following table includes details on all of the configurable `network` fields
 
 ## CNI providers configuration
 
-### Kuberouter
+### Kube-router
 
 Configuration for the kube-router CNI can be done by referring to the
 documentation in https://github.com/cloudnativelabs/kube-router/blob/master/docs/user-guide.md#command-line-options. 
