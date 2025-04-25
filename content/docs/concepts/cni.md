@@ -9,7 +9,7 @@ and management within a cluster.
 
 {{< callout type="warning" >}}
 
-Only Calico OSS CNI is supported for migrating configuration during the MKE3 to MKE4 upgrade.
+Calico OSS is the only CNI that is supported for migrating configuration during an MKE3 to MKE4 upgrade.
 
 {{< /callout >}}
 
