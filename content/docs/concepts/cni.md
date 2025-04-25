@@ -168,7 +168,7 @@ for:
 You can view the full `values.yaml` specification for the Helm chart needed to install Tigera Operator at the [Project Calico GitHub](https://github.com/projectcalico/calico/blob/master/charts/tigera-operator/values.yaml).
 
 {{< /callout >}}
-The network configuration generated as a result of upgrading to MKE 4 from an existing MKE 3 cluster always uses yaml. As such clusters have at least one existing IP pool, however, the CIDR and dataplane values are specified outside of the yaml, as illustrated below:
+The network configuration generated as a result of upgrading to MKE 4 from an existing MKE 3 cluster always uses YAML. As such clusters have at least one existing IP pool, however, the CIDR and dataplane values are specified outside of the YAML, as illustrated below:
 
 ```yaml
   network:
