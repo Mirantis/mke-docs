@@ -2,10 +2,16 @@
 name: Deploy Hugo site to Pages
 
 on:
+  # Allows this workflow to be called by another workflow
   workflow_call:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+
+  # Allows this workflow to run automatically when pushing to the main branch
+  push:
+    branches:
+      - main
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -57,7 +63,8 @@ jobs:
       - name: Upload artifact
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_CI_BOUNDLESS }}
-        uses: actions/upload-pages-artifact@v2
+        # Version depends on actions/deploy-pages version below
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
@@ -72,4 +79,5 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        # Version depends on actions/upload-pages-artifact version below
+        uses: actions/deploy-pages@v4

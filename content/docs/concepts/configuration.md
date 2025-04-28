@@ -21,7 +21,7 @@ blueprint that contains the granular details on how to set up the cluster.
 1. Generate the default MKE configuration file by running:
 
     ```commandline
-    mkectl init > mke.yaml
+    mkectl init > mke4.yaml
     ```
 
 2. Modify the `hosts` section of the MKE configuration file, to apply the

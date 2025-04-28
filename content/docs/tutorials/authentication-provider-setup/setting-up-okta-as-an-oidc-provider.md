@@ -1,6 +1,6 @@
 ---
 title: Setting up Okta as an OIDC provider
-weight: 1
+weight: 3
 ---
 
 To configure an Okta application to serve as your [OIDC authentication](../../../../docs/configuration/authentication/oidc) provider for MKE 4:
