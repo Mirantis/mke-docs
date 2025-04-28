@@ -18,22 +18,23 @@ details, refer to the  [System requirements](system-requirements).
 
 ### Install the MKE CLI and other dependencies
 
-[Install the MKE Command Line Interface (CLI)](install-mke-cli), which is essential for managing
-your MKE installation. The CLI provides a convenient and powerful way to
-interact with your cluster, perform administrative tasks, and automate
-workflows.
+[Install the MKE Command Line Interface (CLI)](install-mke-cli), which is
+essential for managing your MKE installation. The CLI provides a convenient and
+powerful way to interact with your cluster, perform administrative tasks, and
+automate workflows.
 
 ### License MKE 4
 
-You must have a valid license to lawfully run MKE 4. Refer to [Licensing MKE 4](licensing-mke4)
-for information on how to obtain and add a license to your MKE 4 installation.
+You must have a valid license to lawfully run MKE 4. Refer to [Licensing MKE
+4](licensing-mke4) for information on how to obtain and add a license to your
+MKE 4 installation.
 
 ### Create a cluster
 
-The [creation of an MKE 4 cluster](create-cluster) involves configuring the cluster settings,
-specifying the number of nodes, and setting up networking and storage options.
-Use the MKE CLI to initialize and configure the cluster according to your
-requirements.
+The [creation of an MKE 4 cluster](create-cluster) involves configuring the
+cluster settings, specifying the number of nodes, and setting up networking and
+storage options. Use the MKE CLI to initialize and configure the cluster
+according to your requirements.
 
 ### Interact with the cluster
 
@@ -44,15 +45,16 @@ container orchestration and management.
 {{% /steps %}}
 
 In addition, this **Getting started** section offers such other key MKE 4
-information as
-[how to remove a node from an MKE 4 cluster](remove-node-from-mke4-cluster),
-[how to obtain the current MKE 4 configuration file](get-current-mke-config),
-and [how to uninstall a cluster](uninstall-cluster).
+information as [how to use kubectl to access and manage
+your cluster](access-manage-cluster-kubectl), [how to add and remove cluster
+nodes](add-and-remove-cluster-nodes), [how to obtain the current MKE 4
+configuration file](get-current-mke-config), and [how to uninstall a
+cluster](uninstall-cluster).
 
-   {{< callout type="info" >}}
+{{< callout type="info" >}}
 
-   For detail and set up information for the various MKE 4 features, refer to
-   the [Configuration](../configuration) documentation, as well as
-   the topics offered in [Tutorials](../tutorials).
+For detail and set up information for the various MKE 4 features, refer to
+the [Configuration](../configuration) documentation, as well as
+the topics offered in [Tutorials](../tutorials).
 
-   {{< /callout >}}
+{{< /callout >}}
