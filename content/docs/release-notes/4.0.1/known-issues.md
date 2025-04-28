@@ -5,6 +5,18 @@ weight: 4
 
 The MKE 4 known issues with available workarounds are described herein.
 
+## [BOP-2030] Upgrade may fail on clusters with two manager nodes
+
+MKE 3 upgrades to MKE 4 may fail on clusters that have only two manager nodes.
+
+{{< callout type="info" >}}
+
+Mirantis does not sanction upgrading MKE 3 clusters that have an even number of
+manager nodes. In general, having an even number of manager nodes is avoided in
+clustering systems due to quorum and availability factors.
+
+{{< /callout >}}
+
 ## [BOP-583] LDAP settings fail to migrate during upgrade from MKE 3
 
 LDAP configurations are not stored in MKE 3 configuration files, and thus they

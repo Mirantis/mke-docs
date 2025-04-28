@@ -2,11 +2,11 @@
 weight: 3
 ---
 
-# 4.0.1
+# 4.1.0
 
 | Release date | Version | Highlights                                                                                                                          |
 |--------------|---------|-------------------------------------------------------------------------------------------------------------------------------------|
-| 27&#8209;JAN&#8209;2025  | 4.0.1   | Patch MKE 4.0.1 release introducing the following enhancements:<br>- Introduction of Tigera Operator<br>- Upgrade process improvements<br>- Telemetry data element additions<br>- Augmentations to MKE web UI |
+| 2&#8209;MAY&#8209;2025  | 4.1.0   | MKE 4 release introducing the following enhancements:<br>- Introduction of Tigera Operator<br>- Offline installation capability<br>- Upgrade process improvements<br>- Telemetry data element additions<br>- Augmentations to MKE web UI |
 
 {{< cards >}}
   {{< card link="enhancements" title="Enhancements" icon="support" >}}
