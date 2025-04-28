@@ -104,7 +104,7 @@ for the Calico provider.
 |---------|--------------|---------------|--------------|
 | `enabled` | Sets the name of the external storage provider. AWS is currently the only available option. | `true` | `true` |
 | `clusterCIDRIPv4` | Sets the IP pool in the Kubernetes cluster from which Pods are allocated. | Valid IPv4 CIDR | `192.168.0.0/16` <br><br>You can easily modify `clusterCIDRIPv4` prior to cluster deployment. Contact Mirantis Support, however, if you need to modify `clusterCIDRIPv4` once your cluster has been deployed.|
-| `enablewireguard` | Sets whehter  traffic encryption over an underlay network is permitted. | `false` | `false` |
+| `enablewireguard` | Sets whether  traffic encryption over an underlay network is permitted. | `false` | `false` |
 | `ipAutodetectionMethod` | Sets the autodetecting method for the IPv4 address for the host. | Provider specific[^0] | None |
 | `mode` | Sets the IPv4 overlay networking mode.[^1] | `ipip`, `vxlan` | `vxlan` |
 | `overlay` | Set to enable inter workload communication across networks that are not aware of workload IPs | `Always`, `CrossSubnet`, `Never` | `Always` |
