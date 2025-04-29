@@ -96,7 +96,7 @@ Verify that you have the following components in place before you begin upgradin
   Example output:
 
   ```shell
-  Version: v4.0.0
+  Version: v4.1.0
   ```
 
 - A `hosts.yaml` file, to provide the information required by `mkectl` to
