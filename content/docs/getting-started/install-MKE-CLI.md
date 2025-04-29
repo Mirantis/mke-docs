@@ -50,7 +50,7 @@ can do it manually.
    {{< /callout >}}
 
 The `install.sh` script detects the operating system and the
-underlying architecture, based on which it will install the `mkectl` binaries in `/usr/local/bin`. Thus, you must ensure that
+underlying architecture, based on which it will install the `mkectl` binary in `/usr/local/bin`. Thus, you must ensure that
 `/usr/local/bin` is in your `PATH` environment variable.
 
 You can now proceed with MKE cluster creation.
