@@ -106,7 +106,7 @@ how to create a `mke4.yaml` configuration file.
 MKE 3 requires the use of the `docker load` command to load offline bundles
 directly into Docker on every cluster node. While this approach does not
 require you to have a private registry, it also means that the cluster cannot
-repull the image should any of the loaded images go missing. As such, MKE 3
+re-pull the image should any of the loaded images go missing. As such, MKE 3
 users must disable Kubernetes garbage collection, which can sometimes prune
 images of optional components that are not always enabled. This is not an issue
 with MKE 4, as images are pulled from a private registry that the customer
