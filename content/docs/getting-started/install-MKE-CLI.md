@@ -38,7 +38,7 @@ can do it manually.
    Expected output:
 
    ```shell
-   Version: v4.0.0
+   Version: v4.1.0
    ```
 
    <!-- Remember to update the dependency version and to keep them in sync with the version cited in the Install Manually section below. -->
