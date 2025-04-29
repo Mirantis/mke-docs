@@ -89,7 +89,7 @@ upgrade](../../migrate-from-mke-3/#offline-upgrade).
 {{< /callout >}}
 
 1. Refer to the [Create a Cluster](../create-cluster/#initialize-deployment) procedure for detail on
-how to create a `mke4.yaml` configuration file.
+how to create an `mke4.yaml` configuration file.
 
 2. Add the following additional settings to the `mke4.yaml` configuration file:
 
