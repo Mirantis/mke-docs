@@ -45,7 +45,7 @@ can do it manually.
 
    {{< callout type="info" >}}
 
-   By default, the script installs mkectl v4.0.0.
+   By default, the script installs mkectl v4.1.0.
 
    {{< /callout >}}
 
