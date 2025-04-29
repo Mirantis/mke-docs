@@ -19,7 +19,7 @@ can do it manually.
    `MKECTL_VERSION` as required. For example:
 
    ```shell
-   sudo MKECTL_VERSION=4.0.1 /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/MirantisContainers/mke-release/refs/heads/main/install.sh)"
+   sudo MKECTL_VERSION=4.1.0 /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/MirantisContainers/mke-release/refs/heads/main/install.sh)"
    ```
 
    If you prefer to run the script in the debug mode for more detailed output and logging,
