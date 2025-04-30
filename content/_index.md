@@ -49,8 +49,8 @@ layout: hextra-home
   >}}
 
   {{< hextra/feature-card
-    title="Upgrade from MKE 3.x"
-    subtitle="Existing MKE 3.x users can easily upgrade in place to MKE 4 without any downtime. MKE 4 has feature parity with MKE 3.x, plus additional capabilities"
+    title="Upgrade from MKE 3.7 and 3.8"
+    subtitle="Existing MKE 3.7/3.8 users can easily upgrade in place to MKE 4 without any downtime. MKE 4 has feature parity with MKE 3.7/3.8, plus additional capabilities"
   >}}
 
 {{< /hextra/feature-grid >}}

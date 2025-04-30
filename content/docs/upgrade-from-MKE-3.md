@@ -162,7 +162,7 @@ Verify that you have the following components in place before you begin upgradin
      ```shell
      $ AUTHTOKEN=$(curl --silent --insecure --data '{"username":"'$MKE_USERNAME'","password":"'$MKE_PASSWORD'"}' https://$MKE_HOST/auth/login | jq --raw-output .auth_token)
      $ curl --silent --insecure -X PUT -H "accept: application/toml" -H "Authorization: Bearer $AUTHTOKEN" --upload-file 'mke-config.toml' https://$MKE_HOST/api/ucp/config-toml
-     {"message":"Calico datastore upgrade from etcd to kdd successful"}
+     {"message":"Calico datastore migration from etcd to kdd successful"}
      ```
 
 {{< callout type="info" >}} The conversion of the Calico datastore from etcd to
