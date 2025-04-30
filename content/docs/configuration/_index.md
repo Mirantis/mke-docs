@@ -12,6 +12,7 @@ The information herein is designed to guide you in setting up, maintaining, and 
 {{< card link="ingress" title="Ingress controller" icon="cog" >}}
 {{< card link="metallb" title="MetalLB load balancer" icon="cog" >}}
 {{< card link="monitoring" title="Monitoring" icon="cog" >}}
+{{< card link="k0rdent-capi-providers" title="k0rdent CAPI providers" icon="cog" >}}
 {{< card link="support-bundle" title="Support bundle" icon="cog" >}}
 {{< card link="telemetry" title="Telemetry" icon="cog" >}}
 {{< card link="coredns-lameduck" title="CoreDNS Lameduck" icon="cog" >}}
