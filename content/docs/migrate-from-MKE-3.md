@@ -4,7 +4,7 @@ weight: 4
 ---
 
 Comprehensive information is offered herein on how to migrate your existing MKE
-3.7 cluster to the MKE 4.x version.
+3.7 or 3.8 cluster to the MKE 4.x version.
 
 {{< callout type="important" >}}
 
@@ -54,7 +54,7 @@ Following a successful migration:
 
   MKE3 Cleanup
   ---------------
-  MKE 3.7.15 was uninstalled from the cluster successfully.
+  MKE 3.8.5 was uninstalled from the cluster successfully.
   ```
 
   {{< /details >}}
@@ -174,62 +174,6 @@ completion, the following confirmation displays:
 ```
 {{< /callout >}}
 
-## Migrate configuration
-
-In migrating to MKE 4 from MKE 3, you can directly transfer settings using `mkectl`.
-
-**To convert a local MKE 3 configuration for MKE 4:** set the `--mke3-config` flag
-to convert a downloaded MKE 3 configuration file into a valid MKE 4 configuration
-file:
-
-```bash
-mkectl init --mke3-config </path/to/mke3-config.toml>
-```
-
-{{< callout type="info" >}} To upgrade an MKE 3 cluster with GPU enabled,
-ensure you complete the [GPU prerequisites](../configuration/nvidia-gpu/#prerequisites) before
-starting the upgrade process. {{< /callout >}}
-
-### Kubernetes Custom Flags
-
-MKE 3 and MKE 4 both support the application of additional flags to Kubernetes components that have the following fields in the MKE configuration file, each specified as a list of strings:
-```
-custom_kube_api_server_flags
-custom_kube_controller_manager_flags
-custom_kubelet_flags
-custom_kube_scheduler_flags
-custom_kube_proxy_flags
-```
-
-MKE 4 supports an `extraArgs` field for each of these components, though, which accepts a map of key-value pairs. During upgrade from MKE 3, MKE 4 converts these custom flags to the corresponding `extraArgs` field. Any flags that cannot be automatically converted are listed in the upgrade summary.
-
-Example of custom flags conversion:
-
-- MKE 3 configuration file:
-
-  ```
-  [cluster_config.custom_kube_api_server_flags] = ["--enable-garbage-collector=false"]
-  ```
-
-- MKE 4 configuration file:
-
-  ```
-  spec:
-    apiServer:
-      extraArgs:
-        enable-garbage-collector: false
-  ```
-
-### Kubelet Custom Flag Profiles
-
-MKE 3 supports a map of kubelet flag profiles to specific nodes using the `custom_kubelet_flags_profiles` setting in the toml configuration file.
-
-MKE 4 does not support kubelet flag profiles, but you can use [Kubelet custom profiles](../configuration/kubernetes/kubelet.md#kubelet-custom-profiles) to map `KubeletConfiguration` values to specific nodes. MKE 4 does support the migration of MKE 3 kubelet flag profiles to kubelet custom profiles.
-
-The conversion of flags to `KubeletConfiguration` values is best-effort, and any flags that cannot be
-converted are listed in the upgrade summary. Hosts with a custom flag profile label are marked for the
-corresponding kubelet custom profile.
-
 ## Perform the migration
 
 An upgrade from MKE 3 to MKE 4 consists of the following steps, all of which
@@ -292,7 +236,7 @@ Example output:
 
 ```shell
 WARN[0096] Initiating rollback because of upgrade failure. upgradeErr = aborting upgrade due to signal interrupt 
-INFO[0096] Initiating rollback of MKE to version: 3.7.15 
+INFO[0096] Initiating rollback of MKE to version: 3.8.5 
 INFO[0096] Step 1 of 2: [Rollback Upgrade Tasks]        
 INFO[0096] Resetting k0s using k0sctl ...               
 INFO[0106] ==> Running phase: Connect to hosts          
@@ -340,7 +284,7 @@ INFO[0131] etcd health check succeeded!
 INFO[0178] [Rollback Upgrade Tasks] Completed           
 INFO[0178] Step 2 of 2: [Rollback Pre Upgrade Tasks]    
 INFO[0178] [Rollback Pre Upgrade Tasks] Completed       
-INFO[0178] Rollback to MKE version 3.7.15 completed successfully ... 
+INFO[0178] Rollback to MKE version 3.8.5 completed successfully ... 
 FATA[0178] Upgrade failed due to error: aborting upgrade due to signal interrupt 
 ```
 
@@ -476,3 +420,9 @@ $ AUTHTOKEN=$(curl --silent --insecure --data '{"username":"'$MKE_USERNAME'","pa
 $ curl --silent --insecure -X PUT -H "accept: application/toml" -H "Authorization: Bearer $AUTHTOKEN" --upload-file 'mke-config.toml' https://$MKE_HOST/api/ucp/config-toml
 {"message":"Calico datastore migration from etcd to kdd successful"}
 ```
+
+{{< callout type="important" >}}
+
+To migrate an etcd-backed cluster to KDD, contact Mirantis support.
+
+{{< /callout >}}
