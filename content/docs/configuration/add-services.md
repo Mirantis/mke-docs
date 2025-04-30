@@ -9,7 +9,6 @@ weight: 3
 
 {{< /callout >}}
 
-
 Through the use of the `services` section of the `mke4.yaml` configuration
 file, you can add additional components to your MKE 4 installation. This section will pass the input values through to k0rdent, following the
 typical [k0rdent services
@@ -23,3 +22,6 @@ services:
       name: ingress-nginx
       namespace: ingress
 ```
+
+To learn more about the services sanctioned by k0rdent, refer to the [k0rdent
+catalog](https://catalog.k0rdent.io/latest/).
