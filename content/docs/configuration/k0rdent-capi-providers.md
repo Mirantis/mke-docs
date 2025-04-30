@@ -30,50 +30,52 @@ k0rdent:
 The offline configuration differs somewhat:
 
 ```yaml
-providers:
-    - name: k0smotron-bootstrap
-      config:
-        images:
-          k0smotronManager:
-            repo: registry.local/k0rdent-enterprise
-          kubeRbacProxyKubeRbacProxy:
-            repo: registry.local/k0rdent-enterprise
-    - name: k0smotron-control-plane
-      config:
-        images:
-          k0smotronManager:
-            repo: registry.local/k0rdent-enterprise
-          kubeRbacProxyKubeRbacProxy:
-            repo: registry.local/k0rdent-enterprise
-    - name: k0smotron-infrastructure
-      config:
-        images:
-          k0smotronManager:
-            repo: registry.local/k0rdent-enterprise
-          kubeRbacProxyKubeRbacProxy:
-            repo: registry.local/k0rdent-enterprise
-    - name: cluster-api-provider-aws
-      config:
-        images:
-          clusterApiAwsControllerManager:
-            repo: registry.local/k0rdent-enterprise
-    - name: cluster-api-provider-azure
-      config:
-        images:
-          azureserviceoperatorManager:
-            repo: registry.local/k0rdent-enterprise
-          clusterApiAzureControllerManager:
-            repo: registry.local/k0rdent-enterprise
-    - name: cluster-api-provider-openstack
-      config:
-        images:
-          capiOpenstackControllerManager:
-            repo: registry.local/k0rdent-enterprise
-    - name: cluster-api-provider-vsphere
-      config:
-        images:
-          clusterApiVsphereControllerManager:
-            repo: registry.local/k0rdent-enterprise
+k0rdent:
+  enabled: true
+  providers:
+      - name: k0smotron-bootstrap
+        config:
+          images:
+            k0smotronManager:
+              repo: registry.local/k0rdent-enterprise
+            kubeRbacProxyKubeRbacProxy:
+              repo: registry.local/k0rdent-enterprise
+      - name: k0smotron-control-plane
+        config:
+          images:
+            k0smotronManager:
+              repo: registry.local/k0rdent-enterprise
+            kubeRbacProxyKubeRbacProxy:
+              repo: registry.local/k0rdent-enterprise
+      - name: k0smotron-infrastructure
+        config:
+          images:
+            k0smotronManager:
+              repo: registry.local/k0rdent-enterprise
+            kubeRbacProxyKubeRbacProxy:
+              repo: registry.local/k0rdent-enterprise
+      - name: cluster-api-provider-aws
+        config:
+          images:
+            clusterApiAwsControllerManager:
+              repo: registry.local/k0rdent-enterprise
+      - name: cluster-api-provider-azure
+        config:
+          images:
+            azureserviceoperatorManager:
+              repo: registry.local/k0rdent-enterprise
+            clusterApiAzureControllerManager:
+              repo: registry.local/k0rdent-enterprise
+      - name: cluster-api-provider-openstack
+        config:
+          images:
+            capiOpenstackControllerManager:
+              repo: registry.local/k0rdent-enterprise
+      - name: cluster-api-provider-vsphere
+        config:
+          images:
+            clusterApiVsphereControllerManager:
+              repo: registry.local/k0rdent-enterprise
 ```
 
 Currently, several CAPI providers are installed at cluster creation; however,
