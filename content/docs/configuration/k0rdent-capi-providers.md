@@ -5,7 +5,7 @@ weight: 6
 
 Most k0rdent CAPI (Cluster API) providers are disabled in MKE4 by default. To
 enable these providers, create a `k0rdent.providers` section in the `mke4.yaml`
-configuration file and add them to it. The CAPI providers use the same strings/names as those found in the k0rdent product.
+configuration file and add them to it. The CAPI providers use the [same strings/names as those found in the k0rdent product](https://github.com/k0rdent/kcm?tab=readme-ov-file#extended-management-configuration).
 
 ```yaml
 k0rdent:
@@ -14,12 +14,7 @@ k0rdent:
     - name: cluster-api-provider-azure
 ```
 
-{{< callout type="info" >}}
-
-MKE 4 always adds and enables the `sveltos` CAPI provider, as this provider is
-a product dependency.
-
-{{< /callout >}}
-
-Currently, all CAPI providers are installed at cluster creation, however once
-the cluster is up and running the providers are disabled.
+Currently, all CAPI providers are installed at cluster creation; however, once
+the cluster is up and running, these providers are disabled. The one exception
+is the Sveltos CAPI provider, which MKE 4 always adds and enables, as it is a
+product dependency.
