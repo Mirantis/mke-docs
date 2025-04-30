@@ -162,27 +162,20 @@ completion, the following confirmation displays:
 
 {{< /callout >}}
 
-## Prepare the MKE 3 backup
+## Considerations
 
-Before you upgrade to MKE 4, verify that you have a backup of the MKE 3 cluster. Also, review the
-[MKE 3 disaster recovery documentation](https://docs.mirantis.com/mke/3.8/ops/disaster-recovery.html),
-as it pertains to backing up MKE 3.
+Before you upgrade to MKE 4, confirm the existence of a backup of your MKE 3 cluster and review
+the [Back up MKE](https://docs.mirantis.com/mke/current/ops/disaster-recovery.html) disaster
+recovery documentation for MKE 3.
 
 {{< callout type="info" >}}
 
-The upgrade migration process will also remove the Swarm cluster.
-This includes removing all Swarm nodes, services, tasks, configs, secrets, and networks.
+The Swarm cluster and all associated artifacts are not included in the upgrade from MKE 3 to MKE 4.
 
 {{< /callout >}}
 
-As for non-MKE components, be sure to back these up separately, checking both manager and worker nodes.
-
-{{< callout type="warning" >}}
-
-Non-MKE 3 components, such as bespoke containers and volumes, may be at risk of being deleted
-rather than migrated to MKE 4.
-
-{{< /callout >}}
+Back up all non-MKE components separately, making sure to check both manager and worker nodes, as
+these are at risk of being deleted rather than migrated during the upgrade to MKE 4.
 
 ## Migrate configuration
 
