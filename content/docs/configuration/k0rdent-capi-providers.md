@@ -34,6 +34,16 @@ The offline configuration differs somewhat.
 
 <summary>Supported k0rdent CAPI providers with additional airgap-specific settings</summary>
 
+{{< callout type="important" >}}
+
+For the detailed providers, `<registry-address>/<registry-project-path>` must
+be the same registry and path to which you uploaded the offline bundle when
+[preparing your offline
+environment](../../getting-started/offline-installation/#preparation).
+
+{{< /callout >}}
+
+
 ```yaml
 k0rdent:
   enabled: true
