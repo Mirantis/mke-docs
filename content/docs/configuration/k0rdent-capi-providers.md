@@ -42,49 +42,49 @@ k0rdent:
       config:
         images:
           k0smotronManager:
-            repo: <registry-address>/k0rdent-enterprise
+            repo: <registry-address>/<registry-project-path>
           kubeRbacProxyKubeRbacProxy:
-            repo: <registry-address>/k0rdent-enterprise
+            repo: <registry-address>/<registry-project-path>
     - name: k0smotron-control-plane
       config:
         images:
           k0smotronManager:
-            repo: <registry-address>/k0rdent-enterprise
+            repo: <registry-address>/<registry-project-path>
           kubeRbacProxyKubeRbacProxy:
-            repo: <registry-address>/k0rdent-enterprise
+            repo: <registry-address>/<registry-project-path>
     - name: k0smotron-infrastructure
       config:
         images:
           k0smotronManager:
-            repo: <registry-address>/k0rdent-enterprise
+            repo: <registry-address>/<registry-project-path>
           kubeRbacProxyKubeRbacProxy:
-            repo: <registry-address>/k0rdent-enterprise
+            repo: <registry-address>/<registry-project-path>
     - name: cluster-api-provider-aws
       config:
         images:
           clusterApiAwsControllerManager:
-            repo: <registry-address>/k0rdent-enterprise
+            repo: <registry-address>/<registry-project-path>
     - name: cluster-api-provider-azure
       config:
         images:
           azureserviceoperatorManager:
-            repo: <registry-address>/k0rdent-enterprise
+            repo: <registry-address>/<registry-project-path>
           clusterApiAzureControllerManager:
-            repo: <registry-address>/k0rdent-enterprise
+            repo: <registry-address>/<registry-project-path>
     - name: cluster-api-provider-openstack
       config:
         images:
           capiOpenstackControllerManager:
-            repo: <registry-address>/k0rdent-enterprise
+            repo: <registry-address>/<registry-project-path>
     - name: cluster-api-provider-vsphere
       config:
         images:
           clusterApiVsphereControllerManager:
-            repo: <registry-address>/k0rdent-enterprise
+            repo: <registry-address>/<registry-project-path>
 ```
 </details>
 
-Currently, several CAPI providers are installed at cluster creation; however,
+Currently, all CAPI providers are installed at cluster creation; however,
 once the cluster is up and running, these providers are disabled. A number of
 CAPI providers are MKE 4 dependencies and are thus always added and enabled,
 including Sveltos, CAPI, KCM, and mke-operator.
