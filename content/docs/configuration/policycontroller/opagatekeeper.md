@@ -39,17 +39,21 @@ spec:
       - <Namespace2>
 ```
 
-The `exemptNamespaces` field lists the namespaces that are exempt from policy enforcement.
-The following namespaces are added by default, and thus cannot be removed:
+The `exemptNamespaces` field lists the namespaces that are exempt from policy
+enforcement. The following namespaces are added by default, and thus cannot be
+removed:
 
-- `mke`
-- `kube-system`
-- `kube-public`
-- `kube-node-lease`
-- `k0s-system`
-- `k0s-autopilot`
-- `flux-system`
-- `blueprint-system`
+-	`kube-system`
+-	`kube-public`
+-	`kube-node-lease`
+-	`k0s-system`
+-	`k0s-autopilot`
+-	`flux-system`
+-	`blueprint-system`
+-	`mke`
+-	`tigera-operator`
+-	`calico-system`
+-	`calico-apiserver`
 
 ## Migration from MKE 3
 

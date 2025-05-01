@@ -50,13 +50,13 @@ template](../k0rdent-templates) that contains the granular details on how to set
       role: worker
     ```
 
-## Choose addons
+## Choose services
 
-A core component of MKE 4 is a default set of curated and tested addons that you
-can install by running `mkectl init` and subsequently applying the generated
-configuration file.
+A core component of MKE 4 is a default set of curated and tested services that
+you can install by running `mkectl init` and subsequently applying the
+generated configuration file.
 
-Using the MKE configuration file, you can enable and disable the MKE 4 addons,
-as well as modify their settings.
+Using the MKE configuration file, you can enable and disable a number of the
+available MKE 4 services, as well as modify the settings of those services.
 
 <!-- Discuss with SME NNeisen moving "Create configuration" to "Getting Started" -->

@@ -12,7 +12,7 @@ enables convenient lifecycle management of services on MKE 4k clusters.
 {{< /callout >}}
 
 k0rdent templates are re-usable text definitions of components that you can use
-to install services on MKE 4 clusters. These templates provide a declarative way
+to install services. These templates provide a declarative way
 for you to install and manage the lifecycles of components while greatly
 reducing the number of parameters that require hands-on configuration.
 
