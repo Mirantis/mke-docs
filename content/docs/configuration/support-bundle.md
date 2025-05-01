@@ -123,7 +123,7 @@ method that was used to install the plugin.
     
     - Collects basic information about the cluster.
     - Enumerates all available resources in the cluster.
-    - Collects logs from the ``blueprint-controller-manager`` pods, in the ``logs/`` directory of the output.
+    - Collects logs from the ``mke-controller-manager`` pods, in the ``logs/`` directory of the output.
     
     ```yaml
     apiVersion: troubleshoot.sh/v1beta2
