@@ -36,10 +36,9 @@ The offline configuration differs somewhat.
 
 {{< callout type="important" >}}
 
-For the detailed providers, `<registry-address>/<registry-project-path>` must
-be the same registry and path to which you uploaded the offline bundle when
-[preparing your offline
-environment](../../getting-started/offline-installation/#preparation).
+For the providers detailed herein, `<registry-address>/<registry-project-path>`
+must be the same registry and path to which you uploaded the offline bundle
+when [preparing your offline environment](../../getting-started/offline-installation/#preparation).
 
 {{< /callout >}}
 
