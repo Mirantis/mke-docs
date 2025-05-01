@@ -13,8 +13,8 @@ With the MKE configuration file, you can:
 - Enable or disable certain MKE components.
 - Configure MKE component features
 
-Once set, the MKE configuration file is translated into a more complex
-blueprint that contains the granular details on how to set up the cluster.
+Once set, the MKE configuration file is translated into a more complex [k0rdent
+template](../k0rdent-templates) that contains the granular details on how to set up the cluster.
 
 ## Create configuration
 
@@ -57,8 +57,6 @@ can install by running `mkectl init` and subsequently applying the generated
 configuration file.
 
 Using the MKE configuration file, you can enable and disable the MKE 4 addons,
-as well as modify their settings. In addition, you can use the
-`mkectl init` command with the `--blueprint` option to print the generated
-blueprint that reflects your current MKE 4 configuration.
+as well as modify their settings.
 
 <!-- Discuss with SME NNeisen moving "Create configuration" to "Getting Started" -->
