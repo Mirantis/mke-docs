@@ -96,5 +96,4 @@ FTL Upgrade failed due to error: failed to run step [Install MKE 4 Components]: 
 
 **Workaround:**
 
-After a successful rollback, try the upgrade again with no changes to the upgrade command.
-Due to the flaky nature of the issue, the upgrade will most likely succeed.
+Following a successful rollback, attempt the upgrade again, with no changes to the `mkectl upgrade` command.
