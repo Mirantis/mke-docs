@@ -4,7 +4,7 @@ weight: 4
 ---
 
 Comprehensive information is offered herein on how to migrate your existing MKE
-3.7 or 3.8 cluster to the MKE 4k 4.1.0 version or above.
+3.7 or 3.8 cluster to MKE 4k.
 
 {{< callout type="important" >}}
 
