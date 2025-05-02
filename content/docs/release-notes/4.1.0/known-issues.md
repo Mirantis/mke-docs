@@ -14,7 +14,7 @@ file after the initial MKE 4k installation require a restart of k0s on every
 cluster node. To do this:
 
 1. Wait for a short time, roughly 60 seconds after the application of the
-   mkectl apply command, to give the Pods time to enter their Running state.
+   `mkectl apply` command, to give the Pods time to enter their `Running` state.
 
 2. Run the `systemctl restart k0scontroller` command on all manager nodes and
    the  `systemctl restart k0scontroller` command on all worker nodes.
