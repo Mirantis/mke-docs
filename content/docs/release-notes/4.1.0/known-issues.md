@@ -83,3 +83,16 @@ applied in the MKE 4 configuration file, as this can cause the MKE cluster to
 malfunction.
 
 No workaround is available at this time.
+
+<!--- [BOP-1983] -->
+
+## NVIDIA GPU Operator is not supported in an offline cluster
+
+MKE 4k does not currently provide the necessary tooling to make it possible to
+use the NVIDIA GPU Operator in an air-gapped cluster.
+
+**Workaround:**
+
+Deploy a package registry and mirror the drivers to it, as described in the
+official NVIDIA documentation, [Install NVIDIA GPU Operator in Air-Gapped
+Environments - Local Package Repository](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/install-gpu-operator-air-gapped.html#local-package-repository).
