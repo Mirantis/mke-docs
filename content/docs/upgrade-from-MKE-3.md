@@ -1,10 +1,10 @@
 ---
-title: Upgrade from MKE 3.x
+title: Upgrade from MKE 3.7 or 3.8
 weight: 4
 ---
 
 Comprehensive information is offered herein on how to upgrade your existing MKE
-3.7 cluster to the MKE 4.x version.
+3.7 or MKE 3.8 cluster to the MKE 4k version.
 
 {{< callout type="important" >}}
 
