@@ -3,7 +3,19 @@ title: Known issues
 weight: 4
 ---
 
-The MKE 4 known issues with available workarounds are described herein.
+The MKE 4k known issues with available workarounds are described herein.
+
+## [BOP-2046] Post-install kubelet parameter modifications require k0s restart
+
+Modifications made to the kubelet parameters in the `mke4.yaml` configuration
+file after the initial MKE 4k installation require a restart of k0s on every
+cluster node. To do this:
+
+1. Run  wait for a minute seconds after the `kubectl apply` command and wait 60
+   seconds.
+
+2. Run the `systemctl restart k0scontroller` command on all manager nodes and
+   the  `systemctl restart k0scontroller` command on all worker nodes.
 
 ## [BOP-2030] Upgrade may fail on clusters with two manager nodes
 
@@ -16,22 +28,6 @@ manager nodes. In general, having an even number of manager nodes is avoided in
 clustering systems due to quorum and availability factors.
 
 {{< /callout >}}
-
-## [BOP-583] LDAP settings fail to migrate during upgrade from MKE 3
-
-LDAP configurations are not stored in MKE 3 configuration files, and thus they
-are not included when you upgrade to MKE 4 from an MKE 3 installation.
-
-**Workaround:**
-
-When upgrading from MKE 3, you must manually add the LDAP configuration.
-
-1. Make a request to ``https://{{host}}/enzi/v0/config/auth/ldap`` on the MKE 3
-cluster prior to the migration. For more information, refer to the [MKE 3
-LDAP Configuration through API documentation](https://docs.mirantis.com/mke/3.7/ops/administer-cluster/integrate-with-LDAP-directory/configure-ldap-integration.html#ldap-configuration-through-api).
-
-2. Convert the LDAP response to the MKE 4 LDAP settings.
-3. Apply the translated LDAP settings to the cluster following migration.
 
 ## [BOP-898][BOP-899] Calico eBPF and IPVS modes are not supported
 
