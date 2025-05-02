@@ -242,4 +242,4 @@ The network configuration generated as a result of upgrading to MKE 4 from an ex
 
 - MKE4 does not support Calico Enterprise. 
 - Only clusters that use the default Kubernetes proxier `iptables` can be upgraded from MKE3 to MKE4.
-- Only KDD-backed MKE 3 clusters can be upgraded to MKE 4.
+- Only KDD-backed MKE 3 clusters can be upgraded to MKE 4. Refer to [Upgrade from MKE 3.x](../../upgrade-from-MKE-3) for more information.
