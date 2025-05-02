@@ -25,4 +25,4 @@ middleware components included in the MKE 4k 4.1.0 release.
 | MKE 4 Dashboard                          | 1.6.2   |
 | Dex HTTP Server                          | 0.3.0   |
 | Kubernetes                               | 1.32.3  |
-| k0s                                      | v1.31.3+k0s.0  |
+| k0s                                      | v1.32.3+k0s.0  |
