@@ -11,8 +11,8 @@ provider, the [MinIO add-on](https://min.io/).
 {{< /callout >}}
 
 {{< callout type="info" >}} The offered instructions assume that you have
-   created a cluster with the default MKE backup configuration. {{< /callout
->}}
+   created a cluster with the default MKE backup configuration. 
+{{< /callout >}}
 
 ## Create an in-cluster backup
 
