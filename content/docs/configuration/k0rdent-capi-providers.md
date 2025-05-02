@@ -5,7 +5,9 @@ weight: 6
 
 {{< callout type="info" >}}
 
-**[k0rdent](https://k0rdent.io) is a Mirantis-initiated open source project that enables lifecycle management for services on MKE 4k clusters.**
+[k0rdent](https://k0rdent.io) is a Mirantis-initiated open source project with which platform engineers can build, automate, and manage Kubernetes platforms at scale. MKE 4 is adopting k0rdent technology to enable installation and management of services and components in a template-driven manner. **k0rdent is available in MKE 4k as a technical preview only.**
+
+For more information on MKE 4k and k0rdent, [contact Mirantis Sales]([mirantis.com/contact).
 
 {{< /callout >}}
 
