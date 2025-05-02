@@ -45,7 +45,7 @@ container orchestration and management.
 {{% /steps %}}
 
 In addition, this **Getting started** section offers such other key MKE 4
-information as [how to use kubectl to access and manage
+information as [how to perform an offline installation](offline-installation), [how to use kubectl to access and manage
 your cluster](access-manage-cluster-kubectl), [how to add and remove cluster
 nodes](add-and-remove-cluster-nodes), [how to obtain the current MKE 4
 configuration file](get-current-mke-config), and [how to uninstall a

@@ -3,6 +3,12 @@ title: Create a cluster
 weight: 3
 ---
 
+{{< callout type="info" >}}
+
+For information on how to create a cluster in an airgapped environment, refer to [Offline installation](../offline-installation).
+
+{{< /callout >}}
+
 ## Install dependecies
 
 Verify that you have installed `mkectl` and other dependencies on your system

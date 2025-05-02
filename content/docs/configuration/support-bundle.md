@@ -123,26 +123,20 @@ method that was used to install the plugin.
     
     - Collects basic information about the cluster.
     - Enumerates all available resources in the cluster.
-    - Collects logs from the ``blueprint-controller-manager`` and
-      ``blueprint-operator-webhook`` pods, in the ``logs/`` directory of the output.
+    - Collects logs from the ``mke-controller-manager`` pods, in the ``logs/`` directory of the output.
     
     ```yaml
-      apiVersion: troubleshoot.sh/v1beta2
-      kind: SupportBundle
-      metadata:
-        name: sample
-      spec:
-        collectors:
-          - logs:
-              selector:
-                - app.kubernetes.io/name=blueprint-webhook
-            namespace: blueprint-system
-            name: logs/blueprint-system
-          - logs:
-              selector:
-                - control-plane=controller-manager
-              namespace: blueprint-system
-              name: logs/blueprint-system
+    apiVersion: troubleshoot.sh/v1beta2
+     kind: SupportBundle
+     metadata:
+       name: sample
+     spec:
+       collectors:
+         - logs:
+             selector:
+               - control-plane=controller-manager
+             namespace: mke
+             name: logs/mke
     ```
 
 2. Generate the support bundle:

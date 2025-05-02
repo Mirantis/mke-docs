@@ -3,8 +3,8 @@ title: Upgrade from MKE 3.7 or 3.8
 weight: 4
 ---
 
-Comprehensive information is offered herein on how to upgrade your existing MKE
-3.7 or MKE 3.8 cluster to the MKE 4k version.
+Comprehensive information is offered herein on how to migrate your existing MKE
+3.7 or 3.8 cluster to MKE 4k.
 
 {{< callout type="important" >}}
 
@@ -54,7 +54,7 @@ Following a successful upgrade:
 
   MKE3 Cleanup
   ---------------
-  MKE 3.7.15 was uninstalled from the cluster successfully.
+  MKE 3.8.5 was uninstalled from the cluster successfully.
   ```
 
   {{< /details >}}
@@ -96,20 +96,7 @@ Verify that you have the following components in place before you begin upgradin
   Example output:
 
   ```shell
-  Version: v4.0.0
-  ```
-
-- `k0sctl` version `0.19.0`, installed on your local environment:
-
-  ```shell
-  k0sctl version
-  ```
-
-  Example output:
-
-  ```shell
-  version: v0.19.4
-  commit: a06d3f6
+  Version: v4.1.0
   ```
 
 - A `hosts.yaml` file, to provide the information required by `mkectl` to
@@ -174,63 +161,7 @@ completion, the following confirmation displays:
 ```
 {{< /callout >}}
 
-## Upgrade configuration
-
-In migrating to MKE 4 from MKE 3, you can directly transfer settings using `mkectl`.
-
-**To convert a local MKE 3 configuration for MKE 4:** set the `--mke3-config` flag
-to convert a downloaded MKE 3 configuration file into a valid MKE 4 configuration
-file:
-
-```bash
-mkectl init --mke3-config </path/to/mke3-config.toml>
-```
-
-{{< callout type="info" >}} To upgrade an MKE 3 cluster with GPU enabled,
-ensure you complete the [GPU prerequisites](../configuration/nvidia-gpu/#prerequisites) before
-starting the upgrade process. {{< /callout >}}
-
-### Kubernetes Custom Flags
-
-MKE 3 and MKE 4 both support the application of additional flags to Kubernetes components that have the following fields in the MKE configuration file, each specified as a list of strings:
-```
-custom_kube_api_server_flags
-custom_kube_controller_manager_flags
-custom_kubelet_flags
-custom_kube_scheduler_flags
-custom_kube_proxy_flags
-```
-
-MKE 4 supports an `extraArgs` field for each of these components, though, which accepts a map of key-value pairs. During upgrade from MKE 3, MKE 4 converts these custom flags to the corresponding `extraArgs` field. Any flags that cannot be automatically converted are listed in the upgrade summary.
-
-Example of custom flags conversion:
-
-- MKE 3 configuration file:
-
-  ```
-  [cluster_config.custom_kube_api_server_flags] = ["--enable-garbage-collector=false"]
-  ```
-
-- MKE 4 configuration file:
-
-  ```
-  spec:
-    apiServer:
-      extraArgs:
-        enable-garbage-collector: false
-  ```
-
-### Kubelet Custom Flag Profiles
-
-MKE 3 supports a map of kubelet flag profiles to specific nodes using the `custom_kubelet_flags_profiles` setting in the toml configuration file.
-
-MKE 4 does not support kubelet flag profiles, but you can use [Kubelet custom profiles](../configuration/kubernetes/kubelet.md#kubelet-custom-profiles) to map `KubeletConfiguration` values to specific nodes. MKE 4 does support the migration of MKE 3 kubelet flag profiles to kubelet custom profiles.
-
-The conversion of flags to `KubeletConfiguration` values is best-effort, and any flags that cannot be
-converted are listed in the upgrade summary. Hosts with a custom flag profile label are marked for the
-corresponding kubelet custom profile.
-
-## Perform the upgrade
+## Perform the migration
 
 An upgrade from MKE 3 to MKE 4 consists of the following steps, all of which
 are performed through the use of the `mkectl` tool:
@@ -254,7 +185,8 @@ mkectl upgrade --hosts-path <path-to-hosts-yaml> \
 ```
 
 The external address is the domain name of the load balancer. For details,
-see [System requirements: Load balancer requirements](../getting-started/system-requirements#load-balancer-requirements).
+see [System requirements: Load balancer
+requirements](../getting-started/system-requirements#load-balancer-requirements).
 
 The `--config-out` flag allows you to specify a path where the MKE 4 configuration
 file will be automatically created and saved during upgrade. If not specified,
@@ -283,7 +215,24 @@ client bundle. The docker swarm cluster will no longer be accessible as well.
 
 {{< /callout >}}
 
-### Upgrade failure
+### Offline upgrade
+
+To perform an offline upgrade from MKE 3 to MKE 4k, [prepare your environment
+as described in Offline
+installation](../getting-started/offline-installation/#preparation), and add
+the following flags to the `mkectl upgrade` command:
+
+* `--image-registry=<registry_full_path>`
+* `--chart-registry=oci://<registry_full_path>`
+* `--mke3-airgapped=true`
+
+| Setting                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--image-registry` | Sets your registry address with a project path that contains your MKE 4 images. For example, `private-registry.example.com:8080/mke`. <br><br>The setting must not end with a slash `/`.<br><br>The port is optional.                                                                                                                                                                                                                                                                   |
+| `--chart-registry` | Sets your registry address with a project path that contains your MKE 4 helm charts in OCI format. For example, `oci://private-registry.example.com:8080/mke`.<br><br>The setting must always start with `oci://`, and it must not end with a slash `/` .<br><br>If you uploaded the bundle as previously described, the registry address and path will be the same for chart and image registry, with the only difference being the `oci://` prefix in the chart registry URL. |
+| `--mke3-airgapped=true`        | Indicates that your environment is airgapped.                                                                                                                                                                                                                                                                                                                   |
+
+### Migration failure
 
 In the event of an upgrade failure, the upgrade process rolls back,
 restoring the MKE 3 cluster to its original state.
@@ -292,9 +241,8 @@ Example output:
 
 ```shell
 WARN[0096] Initiating rollback because of upgrade failure. upgradeErr = aborting upgrade due to signal interrupt 
-INFO[0096] Initiating rollback of MKE to version: 3.7.15 
+INFO[0096] Initiating rollback of MKE to version: 3.8.5 
 INFO[0096] Step 1 of 2: [Rollback Upgrade Tasks]        
-INFO[0096] Resetting k0s using k0sctl ...               
 INFO[0106] ==> Running phase: Connect to hosts          
 INFO[0106] [ssh] 54.151.30.20:22: connected             
 INFO[0106] [ssh] 54.215.145.126:22: connected           
@@ -340,7 +288,7 @@ INFO[0131] etcd health check succeeded!
 INFO[0178] [Rollback Upgrade Tasks] Completed           
 INFO[0178] Step 2 of 2: [Rollback Pre Upgrade Tasks]    
 INFO[0178] [Rollback Pre Upgrade Tasks] Completed       
-INFO[0178] Rollback to MKE version 3.7.15 completed successfully ... 
+INFO[0178] Rollback to MKE version 3.8.5 completed successfully ... 
 FATA[0178] Upgrade failed due to error: aborting upgrade due to signal interrupt 
 ```
 
@@ -476,3 +424,9 @@ $ AUTHTOKEN=$(curl --silent --insecure --data '{"username":"'$MKE_USERNAME'","pa
 $ curl --silent --insecure -X PUT -H "accept: application/toml" -H "Authorization: Bearer $AUTHTOKEN" --upload-file 'mke-config.toml' https://$MKE_HOST/api/ucp/config-toml
 {"message":"Calico datastore upgrade from etcd to kdd successful"}
 ```
+
+{{< callout type="important" >}}
+
+To migrate an etcd-backed cluster to KDD, contact Mirantis support.
+
+{{< /callout >}}
