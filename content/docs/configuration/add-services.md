@@ -19,8 +19,8 @@ Example:
 ```yaml
 services:
    - template: project-ingress-nginx-4.11.0
-      name: ingress-nginx
-      namespace: ingress
+     name: ingress-nginx
+     namespace: ingress
 ```
 
 To learn more about the services sanctioned by k0rdent, refer to the [k0rdent
