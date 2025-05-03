@@ -465,7 +465,11 @@ parameters between MKE 3 and MKE 4:
 You can address various potential MKE upgrade issues using the tips and
 suggestions detailed herein.
 
-### MKE 3 `etcdv3` backend is unsupported for MKE 4 upgrade
+{{< callout type="important" >}}
+
+The MKE 3 `etcdv3` backend is not supported for upgrade to MKE 4k.
+
+{{< /callout >}}
 
 During the upgrade from MKE 3 to MKE 4, which defaults to the `etcdv3`
 backend, you may receive the following error:
