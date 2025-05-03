@@ -28,7 +28,7 @@ Detail on the enhancements introduced in MKE 4k 4.1.0 includes:
 
 <!--- [BOP-1021] -->
 
-- Telemetry data now contains the MKE 4 version number.
+- Telemetry data now contains the MKE 4k version number.
 
   Example:
 

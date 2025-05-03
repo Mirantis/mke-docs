@@ -3,14 +3,14 @@ title: Setting up Okta as a SAML provider
 weight: 4
 ---
 
-To configure an Okta application to serve as your [SAML authentication](../../../../docs/configuration/authentication/saml) provider for MKE 4:
+To configure an Okta application to serve as your [SAML authentication](../../../../docs/configuration/authentication/saml) provider for MKE 4k:
 
 1. Navigate to (Okta)[https://www.okta.com/] and sign in to your account dashboard.
 2. Select **SAML 2.0** for **Sign-in method**.
 3. Enter an **App name** that is easy to remember.
 4. Configure the host for your redirect URLs:
-   - Single sign-on URL: `http://{MKE hostname}/dex/callback`
-   - Audience URI (SP Entity ID): `http://{MKE hostname}/dex/callback`
+   - Single sign-on URL: `http://<MKE 4k hostname>/dex/callback`
+   - Audience URI (SP Entity ID): `http://<MKE 4k hostname>/dex/callback`
    - Attribute statements:
      - Name: email
        <br>Value: user.email
@@ -33,11 +33,10 @@ To configure an Okta application to serve as your [SAML authentication](../../..
 
 {{< tabs items="SSO metadata URL,manual" >}}
 
-{{< tab >}}
-Okta provides a metadata URL with which you can configure SAML for MKE 4.
-MKE is able to obtain information for all SAML configurations in your MKE cluster through that URL,
-which you configure to the `ssoMetadataURL` parameter in the `authentication` section of the MKE
-configuration file.
+{{< tab >}} Okta provides a metadata URL with which you can configure SAML for
+MKE 4k. MKE 4k is able to obtain information for all SAML configurations in
+your MKE 4k cluster through that URL, which you configure to the
+`ssoMetadataURL` parameter in the `authentication` section of the `mke4.yaml` configuration file.
 
 ```yaml
 authentication:
@@ -72,9 +71,9 @@ Example `ssoMetadataURL` information:
 
 {{< tab >}}
 
-Set up the SAML service manually in MKE to gain more control over the configuration.
+Set up the SAML service manually in MKE 4k to gain more control over the configuration.
 
-An example follows of the `saml` section of the MKE 4 configuration file under `authentication`:
+An example follows of the `saml` section of the `mke4.yaml` configuration file under `authentication`:
 
 ```yaml
 authentication:
@@ -110,20 +109,20 @@ The table that follows provides detail on how to obtain the information for the 
 |    Parameter   | Detail                                                                                                                                                                                                                                                                                                         |
 |:--------------:|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  `ssoURL`      | Obtain the `ssoURL` and certificate information from Okta:<br>  1. Navigate to **Applications -> Applications -> Your application**.<br>  2. Click the **Sign On** tab.<br>  3. Click the **View SAML setup instructions** link. The `ssoURL` displays in the `Identity Provider Single Sign-On URL` section. |
-| `usernameAttr` | Attribute that maps the username to the MKE user.                                                                                                                                                                                                                                                            |
-| `emailAttr`    | Attribute that maps the email address to the MKE user.                                                                                                                                                                                                                                                         |
+| `usernameAttr` | Attribute that maps the username to the MKE 4k user.                                                                                                                                                                                                                                                            |
+| `emailAttr`    | Attribute that maps the email address to the MKE 4k user.                                                                                                                                                                                                                                                         |
 | `caData`       | Obtain the Certificate information from Okta:<br>  1. Navigate to **Applications -> Applications -> Your application**.<br>  2. Click the **Sign On** tab.<br>  3. Click the **View SAML setup instructions** link. The certificate displays in the `X.509 Certificate` section.                              |
 
 {{< /tab >}}
 
 {{< /tabs >}}
 
-Once the `saml` section of the MKE 4 configuration file is set, run it with the `mkectl apply` command.
+Once the `saml` section of the `mke4.yaml` configuration file is set, run it with the `mkectl apply` command.
 
 ## Test authentication flow
 
-1. Navigate to the MKE dashboard: `https://{MKE hostname}`
+1. Navigate to the MKE 4k dashboard: `https://<MKE 4k hostname>`
 2. Select **Log in with OIDC**. This will redirect you to the Okta
    login page for your application.
 3. Enter your credentials and click **Sign In**. If authentication is successful,
-   you will be redirected to the MKE dashboard.
+   you will be redirected to the MKE 4k dashboard.

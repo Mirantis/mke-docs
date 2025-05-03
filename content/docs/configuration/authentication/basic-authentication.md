@@ -14,11 +14,11 @@ later. Thus, if the password is not saved in the install output logs, you must r
 {{< /callout >}}
 
 An admin user can create users, change user passwords, and delete users from
-the MKE system.
+the MKE 4k system.
 
 ## Create users
 
-1. Log in to the MKE Dashboard as an administrator.
+1. Log in to the MKE 4k Dashboard as an administrator.
 
 2. Navigate to **Access Control** --> **Users** to access the **user** page.
 
@@ -32,7 +32,7 @@ the MKE system.
 
    {{< callout type="info" >}}
    You can enter the name of the user into the **name** field, however this is
-   optional and the input is not in use in MKE.
+   optional and the input is not in use in MKE 4k.
    {{< /callout >}}
 
 5. Optional. If the user you are creating is to be an admin, tick the
@@ -40,7 +40,7 @@ the MKE system.
 
 ## Change a password
 
-1. Log in to the MKE Dashboard as an administrator.
+1. Log in to the MKE 4k Dashboard as an administrator.
 
 2. Navigate to **Access Control** --> **Users** to access the **user** page.
 
@@ -57,7 +57,7 @@ the MKE system.
 
 ## Delete users
 
-1. Log in to the MKE Dashboard as an administrator.
+1. Log in to the MKE 4k Dashboard as an administrator.
 
 2. Navigate to **Access Control** --> **Users** to access the **user** page.
 
@@ -67,7 +67,7 @@ the MKE system.
 4. Click the **actions** dropdown at the far top right of the page and select
    **remove**. A **Delete** confirmation dialog will display.
 
-5. Click **Delete** to remove the user from the MKE system.
+5. Click **Delete** to remove the user from the MKE 4k system.
 
 Alternately, you can delete a user from their dedicated user page:
 
@@ -77,4 +77,4 @@ user page.
 2. Click **Delete** at the far top right of the page. A **Delete** confirmation
    dialog will display.
 
-3. Click **Delete** to remove the user from the MKE system.
+3. Click **Delete** to remove the user from the MKE 4k system.

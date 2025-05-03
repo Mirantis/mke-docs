@@ -1,5 +1,5 @@
 ---
-title: Create a Kubernetes cluster in single node and install MKE
+title: Create a Kubernetes cluster in single node and install MKE 4k
 weight: 2
 ---
 
@@ -9,8 +9,8 @@ environment. It is intended for testing purposes only.
 {{< /callout >}}
 
 ## Prerequisites
-In addition to ensuring that the MKE [dependencies](../../../getting-started/install-mke-cli)
-and MKE [system requirements](../../../getting-started/system-requirements)
+In addition to ensuring that the MKE 4k [dependencies](../../../getting-started/install-mke-cli)
+and MKE 4k [system requirements](../../../getting-started/system-requirements)
 are met, perform the following actions:
 
 - Provide a virtual machine, either locally or on a provider that has an accessible IP address
@@ -22,7 +22,7 @@ are met, perform the following actions:
 - Configure SSH access by way of an SSH-key
 
 
-## Install MKE on k0s
+## Install MKE 4k on k0s
 
 1. Generate a sample configuration file named `mke4.yaml`:
 
@@ -64,14 +64,14 @@ are met, perform the following actions:
     ```
     
 
-4. Create the MKE cluster:
+4. Create the MKE 4k cluster:
 
    ```shell
    mkectl apply -f mke4.yaml
    ```
 
    {{< callout type="info" >}}
-   A username and password are automatically generated and displayed upon successful completion of the MKE 4 cluster. 
+   A username and password are automatically generated and displayed upon successful completion of the MKE 4k cluster. 
    To explicitly set a password that differs from the one automatically generated, run: 
    ```shell
    mkectl apply -f mke4.yaml --admin-password <PW>
@@ -84,7 +84,7 @@ are met, perform the following actions:
 
     - To configure an external load balancer, such as ELB or Octavia, refer to the [Load balancer requirements](../../../getting-started/system-requirements/#load-balancer-requirements).
 
-    - If you are running an MKE installation prior to 4.0.1, unless you are using a regular FQDN you must add your load balancer IP/proxy or public address to the `ipAddresses` section of the certificate object:
+    - If you are running an MKE 4k installation prior to 4.0.1, unless you are using a regular FQDN you must add your load balancer IP/proxy or public address to the `ipAddresses` section of the certificate object:
 
       ```shell
       kubectl edit certificate -n mke mke-ingress-cert
@@ -151,5 +151,5 @@ are met, perform the following actions:
       systemctl restart haproxy
       ````
 
-6. Access the MKE Dashboard at `https://<IP>`. Be aware that as the
+6. Access the MKE 4k Dashboard at `https://<IP>`. Be aware that as the
    certificates are self-signed, you must accept the displayed warning.

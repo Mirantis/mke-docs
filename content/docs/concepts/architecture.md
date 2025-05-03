@@ -3,15 +3,15 @@ title: Architecture
 weight: 1
 ---
 
-Mirantis Kubernetes Engine (MKE) 4 is an enterprise-grade, production-ready
+Mirantis Kubernetes Engine (MKE) 4k is an enterprise-grade, production-ready
 Kubernetes platform that is designed to be secure, scalable, and reliable.
 
-You can manage the entire MKE cluster through the MKE configuration file.
-Refer to [Configuration](../configuration) for details.
+You can manage the entire MKE 4k cluster through the mke4.yaml configuration
+file. Refer to [Configuration](../configuration) for details.
 
 ## Components
 
-MKE 4 is built on top of k0s, a lightweight Kubernetes distribution.
+MKE 4k is built on top of k0s, a lightweight Kubernetes distribution.
 To learn more, refer to [k0s documentation](https://docs.k0sproject.io/v1.29.3+k0s.0/).
 
 <!-- ### Control plane -->
@@ -36,11 +36,11 @@ Refer to [Container Network Interface](../cni) for the network configuration det
 
 <!-- ## High-Level Diagram -->
 
-<!-- [Include a high-level diagram illustrating the MKE architecture] -->
+<!-- [Include a high-level diagram illustrating the MKE 4k architecture] -->
 
 <!-- ## Deployment considerations -->
 
-<!-- [Highlight any important considerations for deploying MKE] -->
+<!-- [Highlight any important considerations for deploying MKE 4k] -->
 
 <!-- ## Conclusion [Wrap up the document with a conclusion or summary] -->
 

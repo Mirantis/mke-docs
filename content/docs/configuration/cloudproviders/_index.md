@@ -3,10 +3,10 @@ title: Cloud providers
 weight: 9
 ---
 
-With MKE 4, you can deploy a cloud provider to integrate your MKE cluster with cloud provider service APIs.
+With MKE 4, you can deploy a cloud provider to integrate your MKE 4k cluster with cloud provider service APIs.
 
 {{< callout type="info" >}}
-AWS is currently the only managed cloud service provider add-on that MKE 4 supports. You can use a different cloud service provider; however, you must change the `provider` parameter under `cloudProvider` in the MKE configuration file to `external` prior to installing that provider:
+AWS is currently the only managed cloud service provider add-on that MKE 4k supports. You can use a different cloud service provider; however, you must change the `provider` parameter under `cloudProvider` in the `mke4.yaml` configuration file to `external` prior to installing that provider:
 
 ```yaml
   cloudProvider:
@@ -19,11 +19,11 @@ AWS is currently the only managed cloud service provider add-on that MKE 4 suppo
 
 Refer to the documentation for your chosen cloud service provider to ascertain any proprietary requirements.
 
-To use the MKE managed AWS Cloud Provider, you must first ensure that your nodes have certain IAM policies. For detailed information, refer to the official AWS Cloud Provider documentation [IAM Policies](https://cloud-provider-aws.sigs.k8s.io/prerequisites/#iam-policies).
+To use the MKE 4k managed AWS Cloud Provider, you must first ensure that your nodes have certain IAM policies. For detailed information, refer to the official AWS Cloud Provider documentation [IAM Policies](https://cloud-provider-aws.sigs.k8s.io/prerequisites/#iam-policies).
 
 ## Configuration
 
-To enable cloud provider support, which is disabled by default, change the `enabled` parameter under `cloudProvider` in the MKE configuration file to `true`:
+To enable cloud provider support, which is disabled by default, change the `enabled` parameter under `cloudProvider` in the `mke4.yaml` configuration file to `true`:
 
 ```yaml
   cloudProvider:
@@ -35,15 +35,16 @@ The `cloudProvider` configuration parameters are detailed in the following table
 
 | Field      | Description                                                                                                             | Default   |
 |------------|-------------------------------------------------------------------------------------------------------------------------|-----------|
-| `enabled`  | Enables cloud provider flags on MKE components.                                                                         | `false`   |
+| `enabled`  | Enables cloud provider flags on MKE 4k components.                                                                         | `false`   |
 | `provider` | Either `aws` or `external`. If "external" is specified the user is responsible for installing their own cloud provider. | ""    ``  |
 
 
 ## Create an NLB with AWS Cloud Provider
 
-The example below illustrates how you can use cloud provider AWS to create a Network Load Balancer (NLB) in your MKE cluster. 
+The example below illustrates how you can use cloud provider AWS to create a
+Network Load Balancer (NLB) in your MKE 4k cluster. 
 
-Once you have enabled the cloud provider through the MKE configuration file and have applied it, you can create an NLB as follows:
+Once you have enabled the cloud provider through the `mke4.yaml` configuration file and have applied it, you can create an NLB as follows:
 
 
 1. Create a sample nginx deployment:

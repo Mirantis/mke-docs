@@ -7,7 +7,7 @@ MetalLB is a load balancer designed for bare metal Kubernetes clusters that uses
 
 ## Prerequisites
 
-- An MKE cluster that does not already have load-balancing functionality.
+- An MKE 4k cluster that does not already have load-balancing functionality.
 
 - A MetalLB-compatible cluster network configuration.
 
@@ -17,8 +17,7 @@ MetalLB is a load balancer designed for bare metal Kubernetes clusters that uses
 
 ## Configuration
 
-MetalLB is configured through the `addons` section of the MKE 4 configuration
-file. The function is disabled by default, and thus to use MetalLB you must set
+MetalLB is configured through the `addons` section of the `mke4.yaml` configuration file. The function is disabled by default, and thus to use MetalLB you must set
 the `enabled` parameter to `true`.
 
 MetalLB example configuration:
@@ -51,7 +50,7 @@ that is deployed by a Helm chart within the cluster. Free Range Routing (FRR) mo
 
 To configure MetalLB:
 
-1. Obtain the default MKE 4 configuration file:
+1. Obtain the default `mke4.yaml` configuration file:
 
    ```bash
    mkectl init
@@ -104,7 +103,7 @@ The default configuration parameters for the MetalLB add-on are detailed in the 
 
 An MKE version comparison for MetalLB configuration parameters is offered in the following table:
 
-| MKE-3                                                          | MKE-4                                   |
+| MKE 3                                                          | MKE 4k                                   |
 |----------------------------------------------------------------|-----------------------------------------|
 | `[cluster_config.metallb_config.enabled]`                        | `addons.metallb.enabled`                  |
 | `[[cluster_config.metallb_config.metallb_ip_addr_pool]]`         | `Deprecated`                            |
@@ -112,7 +111,7 @@ An MKE version comparison for MetalLB configuration parameters is offered in the
 ## IP address pool configuration
 
   <callout type="info"> Support for IP address pool configuration is deprecated in
-  MKE 4, and as such the configuration must now be managed independently. </callout>
+  MKE 4k, and as such the configuration must now be managed independently. </callout>
 
 ### Create IP address pools in a fresh installation
 
@@ -143,7 +142,7 @@ As necessary, refer to the official MetalLB documentation, [Advanced AddressPool
 
 ### Managing IP address pools during upgrade
 
- During an upgrade from MKE 3 to MKE 4, if metalLB is enabled in the former the
+ During an upgrade from MKE 3 to MKE 4k, if metalLB is enabled in the former the
  configured IP address pool details display in the upgrade summary.
 
 The following example configuration presents MetalLB enabled in MKE 3:
@@ -234,7 +233,7 @@ For more information, refer to the official MetalLB documentation [Requesting sp
 
 ## Uninstall MetalLB
 
-1. Obtain the MKE 4 configuration file.
+1. Obtain the `mke4.yaml` configuration file.
 
 2. Set the `enabled` field to `false` to disable MetalLB.
 

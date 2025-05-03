@@ -13,11 +13,12 @@ refer to the [Multus CNI GitHub repository](https://github.com/k8snetworkplumbin
 
 ## Enable Multus
 
-Multus is disabled in MKE 4 by default. To enable the function, you must obtain
-the MKE 4 configuration file, locate the `network.multus.enabled` section, set
-the `enabled` parameter to `true`, and apply the new configuration.
+Multus is disabled in MKE 4k by default. To enable the function, you must
+obtain the `mke4.yaml` configuration file, locate the `network.multus.enabled`
+section, set the `enabled` parameter to `true`, and apply the new
+configuration.
 
-1. Obtain the default MKE 4 configuration file:
+1. Obtain the default `mke4.yaml` configuration file:
 
    ```
    mkectl init
@@ -57,7 +58,7 @@ the `enabled` parameter to `true`, and apply the new configuration.
    ```
 
 {{< callout type="tip" >}}
-In MKE 4, you can disable Multus at any time, as opposed to MKE 3 where once
+In MKE 4k, you can disable Multus at any time, as opposed to MKE 3 where once
 Multus is installed it cannot be disabled.
 {{< /callout >}}
 
@@ -195,7 +196,7 @@ Multus is installed it cannot be disabled.
 
 ## Uninstall Multus
 
-1. Obtain the MKE 4 configuration file.
+1. Obtain the MKE 4k configuration file.
 
 2. Set the enabled field to false to disable Multus.
 

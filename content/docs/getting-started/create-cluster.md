@@ -12,7 +12,7 @@ For information on how to create a cluster in an airgapped environment, refer to
 ## Install dependecies
 
 Verify that you have installed `mkectl` and other dependencies on your system
-as described in [Install MKE CLI](../install-mke-cli).
+as described in [Install MKE 4k CLI](../install-mke-cli).
 
 ## Configure cluster nodes
 
@@ -26,7 +26,7 @@ for an example.
 
 ## Initialize deployment
 
-MKE streamlines the cluster deployment through the use of a single YAML file, which
+MKE 4k streamlines the cluster deployment through the use of a single YAML file, which
 details the desired cluster configuration. This approach simplifies the setup
 process and ensures consistency in cluster deployments.
 
@@ -57,7 +57,7 @@ process and ensures consistency in cluster deployments.
 
 {{< callout type="warning" >}}
 
-Before you create a new MKE cluster you must first verify that a cluster does
+Before you create a new MKE 4k cluster you must first verify that a cluster does
 not already exist in the system. If you attempt to create a cluster where a
 cluster is already present, even through the use of a different configuration
 file, you will lose the ability to use `mkectl` to access the original cluster.

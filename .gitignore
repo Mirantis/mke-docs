@@ -10,7 +10,7 @@
 **/VMs.yaml
 **/aws_private.pem
 
-# MKE 4 config files
+# MKE 4k config files
 
 **/mke4.yaml
 **/mke.yaml

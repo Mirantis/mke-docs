@@ -4,13 +4,13 @@ weight: 6
 ---
 
 Adding lameduck to the health plugin minimizes DNS resolution failures during a CoreDNS pod restart or deployment rollout. 
-Mirantis Kubernetes Engine (MKE) supports enabling lameduck for the default server block.
+Mirantis Kubernetes Engine (MKE) 4k supports enabling lameduck for the default server block.
 
 
 ## Configuration
 
 CoreDNS lameduck support is disabled by default. To enable lameduck, configure
-the `lameduck` section of the MKE configuration file under `dns`:
+the `lameduck` section of the `mke4.yaml` configuration file under `dns`:
 
 ```yaml
   dns:
@@ -27,7 +27,11 @@ the `lameduck` section of the MKE configuration file under `dns`:
 | duration                   | Length of time during which lameduck will run, expressed with integers and time suffixes, such as s for seconds and m for minutes.                                            | 7s      |
 
 
-<callout type="info"> MKE 4 does not support the use of the `kubectl edit` command to edit the CoreDNS config map outside of MKE for the purpose of configuring the lameduck function. Any such changes will be overwritten by the values set in the MKE configuration file whenever you execute the `mkectl apply` command.</callout>
+<callout type="info"> MKE 4k does not support the use of the `kubectl edit`
+command to edit the CoreDNS config map outside of MKE 4k for the purpose of
+configuring the lameduck function. Any such changes will be overwritten by the
+values set in the `mke4.yaml` configuration file whenever you execute the
+`mkectl apply` command.</callout>
 
 ## Applying configuration
 

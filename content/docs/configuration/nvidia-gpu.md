@@ -3,14 +3,14 @@ title: NVIDIA GPU Workloads
 weight: 6
 ---
 
-Mirantis Kubernetes Engine (MKE) supports running workloads on NVIDIA GPU nodes.
-Current support is limited to NVIDIA GPUs.
+Mirantis Kubernetes Engine (MKE) 4k supports running workloads on NVIDIA GPU
+nodes. Current support is limited to NVIDIA GPUs.
 
 {{< callout type="info" >}}
 GPU Feature Discovery (GFD) is enabled by default.
 {{< /callout >}}
 
-To manage your GPU resources and enable GPU support, MKE installs the NVIDIA
+To manage your GPU resources and enable GPU support, MKE 4k installs the NVIDIA
 GPU Operator on your cluster. The use of this resource causes the following
 resources to be installed and configured on each node:
 
@@ -43,7 +43,7 @@ Environments - Local Package Repository](https://docs.nvidia.com/datacenter/clou
 
 ## Configuration
 
-NVIDIA GPU support is disabled in MKE 4 by default.
+NVIDIA GPU support is disabled in MKE 4k by default.
 
 **To enable NVIDIA GPU support:**
 

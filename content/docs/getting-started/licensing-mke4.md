@@ -1,24 +1,24 @@
 ---
-title: Licensing MKE 4
+title: Licensing MKE 4k
 weight: 2
 ---
 
 {{< callout type="warning" >}}
 
-You must have a valid license to lawfully run MKE4. For more
+You must have a valid license to lawfully run MKE 4k. For more
 information, refer to [Mirantis Agreements and Terms](https://legal.mirantis.com/).
 
 {{< /callout >}}
 
-## Obtain your MKE4 license
+## Obtain your MKE 4k license
 
-[Install the MKE CLI](../install-mke-cli) prior to downloading your MKE4 license.
+[Install the MKE 4k CLI](../install-mke-cli) prior to downloading your MKE 4k license.
 
 1. Locate the Welcome to Mirantis' CloudCare Portal email sent to you from Mirantis
    Support. If you do not have the email, confirm with your Designated Administrator
    that you have been added as a Designated Contact.
 
-2. Click **Environments** in the top navigation bar of the MKE web UI.
+2. Click **Environments** in the top navigation bar of the MKE 4k web UI.
 
 3. Click the **Cloud Name** that is associated with the license you want to download.
 
@@ -29,7 +29,7 @@ information, refer to [Mirantis Agreements and Terms](https://legal.mirantis.com
 
 {{< callout type="info" >}}
 
-Though MKE4 is generally a subscription-only service, you can obtain a free trial license from Mirantis. Make your request using the [Mirantis contact form](https://www.mirantis.com/contact).
+Though MKE 4k is generally a subscription-only service, you can obtain a free trial license from Mirantis. Make your request using the [Mirantis contact form](https://www.mirantis.com/contact).
 
 {{< /callout >}}
 
@@ -44,11 +44,11 @@ Though MKE4 is generally a subscription-only service, you can obtain a free tria
 
    ![Add a license](img/add-a-license.png)
 
-4. Click **Save settings** to update the MKE4 license.
+4. Click **Save settings** to update the MKE 4k license.
 
 ## Set the license in the configuration
 
-1. Insert the license into ``spec.license.token`` in the MKE4
+1. Insert the license into ``spec.license.token`` in the `mke4.yaml`
    configuration file:
 
     ```yaml

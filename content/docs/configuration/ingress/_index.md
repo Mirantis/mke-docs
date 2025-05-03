@@ -4,19 +4,19 @@ weight: 3
 ---
 
 Traffic that originates outside of your cluster, *ingress* traffic, is managed
-through the use of an ingress controller. By default, MKE 4 offers NGINX
+through the use of an ingress controller. By default, MKE 4k offers NGINX
 Ingress Controller, which manages ingress traffic using the [Kubernetes
 Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 rules.
 
-NGINX Ingress Controller is the only one ingress controller that MKE 4
+NGINX Ingress Controller is the only one ingress controller that MKE 4k
 currently supports.
 
 ## Configuration
 
 You can configure NGINX Ingress Controller through the `ingressController`
-section of the MKE 4 configuration file. The function is enabled by default
-and must not be disabled for the cluster to function correctly.
+section of the `mke4.yaml` configuration file. The function is enabled by
+default and must not be disabled for the cluster to function correctly.
 
 Ingress controller parameters that you can configure are
 detailed in the following table.
@@ -37,16 +37,16 @@ detailed in the following table.
 | configMap                       | Adds custom configuration options to Nginx.  <br/><br/>  For a complete list of available options, refer to the [NGINX Ingress Controller ConfigMap](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#configuration-options).                                                                                                                               | {} (empty)                                                                         |
 | tcpServices                     | Sets TCP service key-value pairs; enables TCP services. [Example](../ingress/tcp-udp-services) <br/> <br/>  Refer to the NGINX Ingress documentation [Exposing TCP and UDP services](https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/exposing-tcp-udp-services.md) for more information. for more information.                                                            | {} (empty)                                                                         |
 | udpServices                     | Sets UDP service key-value pairs; enables UDP services. [Example](../ingress/tcp-udp-services) <br/> <br/>  Refer to the NGINX Ingress documentation [Exposing TCP and UDP services](https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/exposing-tcp-udp-services.md) for more information.                                                                                  | {} (empty)                                                                         |
-| nodePorts                       | Sets the node ports for the external HTTP/HTTPS/TCP/UDP listener. You should not change the HTTPS port, but if you do so, make sure to change the target port of the MKE Dashboard in your load balancer configuration. Refer to [System requirements](../../getting-started/system-requirements) for more information.                                                                         | HTTP: 33000, HTTPS: 33001                                                          |
+| nodePorts                       | Sets the node ports for the external HTTP/HTTPS/TCP/UDP listener. You should not change the HTTPS port, but if you do so, make sure to change the target port of the MKE 4k Dashboard in your load balancer configuration. Refer to [System requirements](../../getting-started/system-requirements) for more information.                                                                         | HTTP: 33000, HTTPS: 33001                                                          |
 | ports                           | Sets the port for the internalHTTP/HTTPS listener.                                                                                                                                                                                                                                                                                                                                              | HTTP: 80, HTTPS: 443                                                               |
 | disableHttp                     | Disables the HTTP listener.                                                                                                                                                                                                                                                                                                                                                                     | false                                                                              |
 
-### Node ports operation for MKE 3 to MKE 4 upgrade
+### Node ports operation for MKE 3 to MKE 4k upgrade
 
-The handling of node ports during an upgrade from MKE 3 to MKE 4 differs,
+The handling of node ports during an upgrade from MKE 3 to MKE 4k differs,
 depending on several factors, as illustrated below:
 
-|MKE 3&nbsp;NodePort&nbsp;Range | 	Ingress&nbsp;Controller in MKE 3 |	Ingress NodePorts&nbsp;in&nbsp;MKE 4                                                             |
+|MKE 3&nbsp;NodePort&nbsp;Range | 	Ingress&nbsp;Controller in MKE 3 |	Ingress NodePorts&nbsp;in&nbsp;MKE 4k                                                             |
 |----------------------|-----------------------------|---------------------------------------------------------------------------------------------|
 |Default              | 	Enabled                     |	Uses the ports set in MKE 3.                                           |
 |Default              |	Disabled	                    |   Default ports:<br><br>HTTP: 33000<br>HTTPS: 33001                                               |
@@ -66,7 +66,8 @@ Thus, if the NodePort range is `30000-32767`, the NodePorts for the ingress cont
 ### Affinity
 
 You can specify node affinities using the
-`ingressController.affinity.nodeAffinity` field in the MKE configuration file.
+`ingressController.affinity.nodeAffinity` field in the `mke4.yaml`
+configuration file.
 
 The following example uses `requiredDuringSchedulingIgnoredDuringExecution` to
 schedule the ingress controller pods.
@@ -88,7 +89,7 @@ ingressController:
 ### Tolerations
 
 You can set Node tolerations for server scheduling to nodes with taints using
-the `ingressController.tolerations` field in the MKE configuration file.
+the `ingressController.tolerations` field in the `mke4.yaml` configuration file.
 
 The following example uses a toleration with `NoExecute` effect.
 
@@ -152,7 +153,7 @@ ingressController:
 
 ## MKE version comparison: Ingress configuration parameters
 
-| MKE-3                                                                                                                                                                        | MKE-4                                                                                                                                                                                                                                                                                                                                                                                                                |
+| MKE 3                                                                                                                                                                        | MKE 4k                                                                                                                                                                                                                                                                                                                                                                                                                |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [cluster_config.ingress_controller.enabled]                                                                                                                                  | ingressController.enabled                                                                                                                                                                                                                                                                                                                                                                                            |
  | [cluster_config.ingress_controller.ingress_num_replicas]                                                                                                                     | ingressController.numReplicas                                                                                                                                                                                                                                                                                                                                                                                        |
@@ -164,4 +165,4 @@ ingressController:
  | [cluster_config.ingress_controller.ingress_udp_services] <br/> 5005 = "default/udp-listener:5005"                                                                            | ingressController.udpServices:<br/> 5005: "default/udp-listener:5005"                                                                                                                                                                                                                                                                                                                                                |
  | [cluster_config.ingress_controller.ingress_extra_args] <br/> http_port = 8080 <br/> https_port = 4443 <br/> enable_ssl_passthrough = true <br/> default_ssl_certificate = "" | ingressController.extraArgs: <br/> httpPort: 0 <br/> httpsPort: 0 <br/> enableSslPassthrough: true <br/> defaultSslCertificate: ""                                                                                                                                                                                                                                                                                   |
  | [cluster_config.ingress_controller.ingress_node_affinity]                                                                                                                    | ingressController.affinity                                                                                                                                                                                                                                                                                                                                                                                           |                                                                                                        |                                                                                                                                    |
- | [[cluster_config.ingress_controller.ingress_exposed_ports]] <br/> name = "http2" <br/> port = 80 <br/> target_port = 8080 <br/> node_port = 33001 <br/> protocol = ""        | Deprecated in MKE 4.<br/>  <br/> The http and https ports are enabled by default on 80 and 443 respectively.  If the user wants to change it, they can use ingressController.ports.<br><br/> NodePorts for http and https can be configured via ingressController.nodePorts. The default values are 33000 and 33001 respectively. <br><br> For information on how to configure TCP/UDP ports, refer to the [TCP and UDP services documentation](../ingress/tcp-udp-services). |
+ | [[cluster_config.ingress_controller.ingress_exposed_ports]] <br/> name = "http2" <br/> port = 80 <br/> target_port = 8080 <br/> node_port = 33001 <br/> protocol = ""        | Deprecated in MKE 4k.<br/>  <br/> The http and https ports are enabled by default on 80 and 443 respectively.  If the user wants to change it, they can use ingressController.ports.<br><br/> NodePorts for http and https can be configured via ingressController.nodePorts. The default values are 33000 and 33001 respectively. <br><br> For information on how to configure TCP/UDP ports, refer to the [TCP and UDP services documentation](../ingress/tcp-udp-services). |

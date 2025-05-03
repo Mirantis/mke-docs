@@ -3,12 +3,12 @@ title: Monitoring
 weight: 4
 ---
 
-The MKE 4 monitoring setup is based on the [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack),
+The MKE 4k monitoring setup is based on the [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack),
 offering a comprehensive solution for collecting, storing, and visualizing metrics.
 
 ## Monitoring tools
 
-Detail for the MKE 4 monitor tools is provided in the following table:
+Detail for the MKE 4k monitor tools is provided in the following table:
 
 | Monitoring tool | Default state | Configuration key           | Description                                                                           |
 |-----------------|---------------|-----------------------------|---------------------------------------------------------------------------------------|
@@ -40,7 +40,7 @@ To access the Prometheus dashboard:
 [Grafana](https://grafana.com/) is an open-source monitoring platform that provides a rich set of tools for visualizing time-series data. It
 includes a variety of graph types and dashboards.
 
-Grafana is enabled in MKE by default and may be disabled through the MKE configuration file:
+Grafana is enabled in MKE 4k by default and may be disabled through the `mke4.yaml` configuration file:
 
 ```yaml
 monitoring:
@@ -72,7 +72,7 @@ To access the Grafana dashboard:
 [cAdvisor](https://github.com/google/cadvisor) is an open-source tool that collects, aggregates, processes, 
 and exports information in reference to running containers.
 
-cAdvisor is disabled in MKE by default. You can enable the tool through the MKE configuration file:
+cAdvisor is disabled in MKE 4k by default. You can enable the tool through the `mke4.yaml` configuration file:
 
 ```yaml
 monitoring:
@@ -83,10 +83,10 @@ monitoring:
 
 [Mirantis OpsCare](https://www.mirantis.com/resources/opscare-datasheet/) is
 an advanced monitoring and alerting solution. Once it is integrated, Mirantis OpsCare will enhance the monitoring
-capabilities of MKE 4 by incorporating additional tools and features, such as
+capabilities of MKE 4k by incorporating additional tools and features, such as
 [Prometheus Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/).
 
-Disabled by default, you can enable Mirantis OpsCare through the MKE configuration file.
+Disabled by default, you can enable Mirantis OpsCare through the `mke4.yaml` configuration file.
 
 ```yaml
 monitoring:

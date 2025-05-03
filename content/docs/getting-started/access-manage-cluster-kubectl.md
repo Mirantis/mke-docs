@@ -7,10 +7,10 @@ weight: 5
 not accessible from outside of the cluster, as the certificates issued through
 the procedures herein can be used to access it. {{< /callout >}}
 
-In addition to the MKE Dashboard, you can access and manage your MKE 4
+In addition to the MKE 4k Dashboard, you can access and manage your MKE 4k
 cluster using kubectl with a [kubeconfig file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/).
 
-In MKE 4, the kubeconfig file provides everything you need, as all of the
+In MKE 4k, the kubeconfig file provides everything you need, as all of the
 necessary certificates are embedded therein. This is counter to MKE 3, which
 requires that you download client certificate bundles that contain kubeconfig
 files, as well as the certificate files that are required to configure the
@@ -21,10 +21,10 @@ kubeconfig files. As previously created kubeconfig files cannot be viewed or
 revoked, the expiration time of the certificates used in the
 kubeconfig files must be set appropriately.{{< /callout >}}
 
-The following table illustrates the differences between MKE 4 kubeconfig files
+The following table illustrates the differences between MKE 4k kubeconfig files
 and MKE 3 client bundles:
 
-| Function                                                                                                                                 | <center>MKE 4<br>kubeconfig files</center> | <center>MKE 3<br>client bundles</center> |
+| Function                                                                                                                                 | <center>MKE 4k<br>kubeconfig files</center> | <center>MKE 3<br>client bundles</center> |
 |------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|-------------------------|
 | Create by admins for other users                                                                                                         | <center>✅</center>                         | <center>✅</center>                       |
 | Create by admins for themselves                                                                                                          | <center>✅</center>                         | <center>✅</center>                       |
@@ -32,7 +32,7 @@ and MKE 3 client bundles:
 | View previously created bundles                                                                                                          | <center>❌</center>                         | <center>✅</center>                       |
 | Revoke previously created bundles                                                                                                        | <center>❌</center>                         | <center>✅</center>                       |
 | Set expiration time of certificates                                                                                                      | <center>✅</center>                         | <center>❌</center>                       |
-| Can be generated from MKE UI                                                                                                             | <center>❌</center>                         | <center>✅</center>                       |
+| Can be generated from MKE 4k UI                                                                                                             | <center>❌</center>                         | <center>✅</center>                       |
 | Non-admin certs are issued by a <br>separate CA that is trusted by <br>kube API server, but not trusted <br>by other components like kubelet | <center>❌</center>                         | <center>✅</center>                       |
 
 ## Create a kubeconfig file
@@ -43,7 +43,7 @@ kubeconfig files for specific users.{{< /callout >}}
 Verify the installation of [OpenSSL](https://github.com/openssl/openssl) and
 [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).
 
-Use your terminal to run the following procedure from the MKE 4 cluster that you
+Use your terminal to run the following procedure from the MKE 4k cluster that you
 previously configured with the `mkectl apply` command.
 
 1. Configure the username:
@@ -110,9 +110,9 @@ previously configured with the `mkectl apply` command.
    ```
 
 Once the `<username>.kubeconfig` file is generated, send it to the target user,
-who can thereafter use it to access the MKE 4 cluster with the `kubectl --kubeconfig` command.
+who can thereafter use it to access the MKE 4k cluster with the `kubectl --kubeconfig` command.
 
 ## List or revoke kubeconfig files
 
 Currently, it is not possible to list or revoke previously created kubeconfig
-files in MKE 4.
+files in MKE 4k.

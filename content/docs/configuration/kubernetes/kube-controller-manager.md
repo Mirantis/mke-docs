@@ -12,7 +12,7 @@ endpoints controller, namespace controller, and the service accounts
 controller.
 
 You can configure all Kubernetes controllers through the `controllerManager`
-section of the MKE configuration file, an example of which follows:
+section of the `mke4.yaml` configuration file, an example of which follows:
 
 ```yaml
 spec:

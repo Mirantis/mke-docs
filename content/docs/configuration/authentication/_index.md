@@ -3,12 +3,12 @@ title: Authentication
 weight: 1
 ---
 
-MKE uses [Dex](https://dexidp.io/) for authentication. Dex serves as a proxy
-between your MKE cluster and your authentication providers, combining the
+MKE 4k uses [Dex](https://dexidp.io/) for authentication. Dex serves as a proxy
+between your MKE 4k cluster and your authentication providers, combining the
 configuration of multiple authentication providers into a single configuration
 while also handling the complexity of the various protocols.
 
-Mirantis Kubernetes Engine (MKE) supports the following authentication
+Mirantis Kubernetes Engine (MKE) 4k supports the following authentication
 protocols:
 
 - OpenID Connect (OIDC)
@@ -27,8 +27,8 @@ protocol you choose to deploy.
 
 ## Configuration
 
-You configure authentication for MKE through the `authentication` section
-of the MKE configuration file.
+You configure authentication for MKE 4k through the `authentication` section
+of the `mke4.yaml` configuration file.
 
 Authentication is always enabled, however, the settings for each of the
 individual authentication protocols are disabled. To enable and install an
@@ -71,7 +71,7 @@ The following table shows all of the available fields for the `expiry` section.
 
 ## Unsupported functions
 
-Authentication functions that are not supported in MKE 4 include:
+Authentication functions that are not supported in MKE 4k include:
 
 * OIDC proxies
 * SAML proxies

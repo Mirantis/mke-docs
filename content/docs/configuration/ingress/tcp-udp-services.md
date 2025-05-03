@@ -10,8 +10,7 @@ TCP/UDP port mappings.
 
 ## Expose a TCP service
 
-To expose TCP services, set the following parameters in the MKE 4 configuration
-file.
+To expose TCP services, set the following parameters in the `mke4.yaml` configuration file.
 
 | Field                           | Description                                        |
 |---------------------------------|----------------------------------------------------|
@@ -94,8 +93,9 @@ In the example procedure, a `tcp-echo` service that is running in the default na
 4. Configure Ingress Controller to expose the TCP service:
 
    1. Verify that the `enabled` parameter for the `ingressController` option in
-      the MKE configuration file is set to `true`.
-   2. Modify the MKE configuration file to expose the newly created TCP service:
+      the `mke4.yaml` configuration file is set to `true`.
+   2. Modify the `mke4.yaml` configuration file to expose the newly created TCP
+      service:
 
       ```yaml
       ingressController:
@@ -107,7 +107,7 @@ In the example procedure, a `tcp-echo` service that is running in the default na
             9000: 33011
       ```
 
-5. Apply the MKE configuration file:
+5. Apply the `mke4.yaml` configuration file:
 
    ```shell
    mkectl apply  -f mke4.yaml
@@ -159,8 +159,7 @@ In the example procedure, a `tcp-echo` service that is running in the default na
    ```
 ## Expose a UDP service
 
-To expose UDP services, set the following parameters in the MKE 4 configuration
-file.
+To expose UDP services, set the following parameters in the `mke4.yaml` configuration file.
 
 | Field                           | Description                                       |
 |---------------------------------|---------------------------------------------------|
@@ -250,9 +249,9 @@ In the example procedure, a `udp-listener` service running in the default namesp
 4. Configure Ingress Controller to expose the UDP service:
 
    1. Verify that the `enabled` parameter for the `ingressController` option in
-      the MKE configuration file is set to `true`.
+      the `mke4.yaml` configuration file is set to `true`.
 
-   2. Modify the MKE configuration file to expose the newly created UDP
+   2. Modify the `mke4.yaml` configuration file to expose the newly created UDP
       service:
 
       ```yaml
@@ -265,7 +264,7 @@ In the example procedure, a `udp-listener` service running in the default namesp
             5005: 33012
       ```
 
-5. Apply the MKE configuration file:
+5. Apply the `mke4.yaml` configuration file:
 
    ```shell
    mkectl apply  -f mke4.yaml

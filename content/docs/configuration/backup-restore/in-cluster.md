@@ -3,7 +3,7 @@ title: Back up with an in-cluster storage provider
 weight: 2
 ---
 
-By default, MKE 4 stores backups and restores using the in-cluster storage
+By default, MKE 4k stores backups and restores using the in-cluster storage
 provider, the [MinIO add-on](https://min.io/).
 
 {{< callout type="info" >}}
@@ -11,7 +11,7 @@ provider, the [MinIO add-on](https://min.io/).
 {{< /callout >}}
 
 {{< callout type="info" >}} The offered instructions assume that you have
-   created a cluster with the default MKE backup configuration. 
+   created a cluster with the default MKE 4k backup configuration. 
 {{< /callout >}}
 
 ## Create an in-cluster backup

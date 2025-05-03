@@ -9,7 +9,8 @@ server performs REST operations while also serving as the frontend to the
 shared state of a cluster, through which the other components interact.
 
 You can configure the Kubernetes API server for all controllers through the
-`apiServer` section of the MKE configuration file, an example of which follows:
+`apiServer` section of the `mke4.yaml` configuration file, an example of which
+follows:
 
 ```yaml
 spec:
