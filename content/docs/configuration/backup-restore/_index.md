@@ -3,12 +3,12 @@ title: Backup and restore
 weight: 1
 ---
 
-MKE 4 supports backup and restoration of cluster data through the use of the
+MKE 4k supports backup and restoration of cluster data through the use of the
 [Velero](https://velero.io/) add-on. System backup is enabled by default.
 
 ## Backup configuration
 
-The `backup` section of the MKE 4 configuration file renders as follows:
+The `backup` section of the `mke4.yaml` configuration file renders as follows:
 
 ```yaml
 backup:
@@ -20,9 +20,9 @@ backup:
       distributed: false
 ```
 
-By default, MKE 4 supports backups that use the in-cluster storage
+By default, MKE 4k supports backups that use the in-cluster storage
 provider, as shown in the `type.InCluster` field.
-In-cluster backups for MKE 4 are implemented using the
+In-cluster backups for MKE 4k are implemented using the
 [MinIO add-on](https://min.io/).
 
 Set `enable_ui` to `true` to expose the MinIO Console through the Ingress and
@@ -95,7 +95,7 @@ provider types, refer to:
 
 ## Existing limitations
 
-- MKE 4 does not currently support:
+- MKE 4k does not currently support:
 
   - scheduled backups
   - backup to NFS storage

@@ -8,7 +8,7 @@ and software requirements.
 
 ## Hardware requirements
 
-MKE uses [k0s](https://k0sproject.io/) as the underlying Kubernetes
+MKE 4k uses [k0s](https://k0sproject.io/) as the underlying Kubernetes
 distribution. To learn the k0s hardware requirements, refer to the [k0s
 documentation](https://docs.k0sproject.io/v1.29.4+k0s.0/system-requirements/).
 
@@ -27,9 +27,9 @@ documentation](https://docs.k0sproject.io/v1.29.4+k0s.0/system-requirements/).
 The load balancer can be implemented in many different ways. For example, you can use
 HAProxy, NGINX, or the load balancer of your cloud provider.
 
-To ensure the MKE Dashboard functions properly, MKE requires a TCP load balancer.
+To ensure the MKE 4k Dashboard functions properly, MKE 4k requires a TCP load balancer.
 This load balancer acts as a single point of contact to access the controllers.
-With the default MKE configuration, the load balancer must allow and route traffic
+With the default MKE 4k configuration, the load balancer must allow and route traffic
 to each controller through the following ports:
 
 | Listen port | Target port | Purpose             | Configurable         |

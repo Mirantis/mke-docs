@@ -3,7 +3,7 @@ title: Uninstall a cluster
 weight: 8
 ---
 
-1. Destroy the last MKE cluster you created using the `reset` command:
+1. Destroy the last MKE 4k cluster you created using the `reset` command:
 
    ```shell
    mkectl reset -f mke4.yaml

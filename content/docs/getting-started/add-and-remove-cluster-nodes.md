@@ -5,18 +5,18 @@ weight: 6
 
 {{< callout type="info" >}}
 
-To avoid unexpected complications, make sure that you have an MKE 4 cluster
+To avoid unexpected complications, make sure that you have an MKE 4k cluster
 up and running before you follow the procedures herein for adding and
 removing nodes.
 
 {{< /callout >}}
 
-## Add nodes to an MKE 4 cluster
+## Add nodes to an MKE 4k cluster
 
-1. [Obtain the MKE configuration file for your cluster](../get-current-mke-config).
+1. [Obtain the `mke4.yaml` configuration file for your cluster](../get-current-mke-config).
 
 2. Append the host information for the new node to the `hosts` section of the
-   MKE configuration file in the following format:
+   `mke4.yaml` configuration file in the following format:
 
    ```
    - role: worker
@@ -29,16 +29,16 @@ removing nodes.
 
 3. Run `mkectl apply` command to add the new node.
 
-## Remove nodes from an MKE 4 cluster
+## Remove nodes from an MKE 4k cluster
 
-The method for removing nodes from an MKE cluster differs, depending on whether
+The method for removing nodes from an MKEk cluster differs, depending on whether
 the node is a control plane node or a worker node.
 
 ### Remove a control plane node
 
 Refer to the k0s documentation, [Remove or replace a
 controller](https://docs.k0sproject.io/stable/remove_controller/) for
-information on how to remove a control plane node from an MKE 4 cluster.
+information on how to remove a control plane node from an MKE 4k cluster.
 
 ### Remove a worker node
 
@@ -57,10 +57,10 @@ information on how to remove a control plane node from an MKE 4 cluster.
    reboot
    ```
 
-3. [Obtain the MKE configuration file for your cluster](../get-current-mke-config).
+3. [Obtain the `mke4.yaml` configuration file for your cluster](../get-current-mke-config).
 
 4. Delete the host information for the deleted node from the `hosts` section
-   of the MKE configuration file, to circumvent any potential mkectl issues.
+   of the `mke4.yaml` configuration file, to circumvent any potential mkectl issues.
 
 5. Apply the configuration:
 

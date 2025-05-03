@@ -11,7 +11,7 @@ registry from which to pull the MKE 4k images and charts.
 
 {{< callout type="info" >}}
 
-You can download the MKE 4 artifacts from the [mke-release GitHub repo](https://github.com/MirantisContainers/mke-release/releases).
+You can download the MKE 4k artifacts from the [mke-release GitHub repo](https://github.com/MirantisContainers/mke-release/releases).
 
 {{< /callout >}}
 
@@ -19,7 +19,7 @@ You can download the MKE 4 artifacts from the [mke-release GitHub repo](https://
 
 - [skopeo](https://github.com/containers/skopeo) 1.6.1 or later
 - An OCI-based private registry that is accessible from all cluster nodes.
-  - All MKE 4 images and charts must be publicly accessible, with no required authentication.
+  - All MKE 4k images and charts must be publicly accessible, with no required authentication.
   - The registry must use HTTPS, and the TLS certificates of the registry server
   must be signed by a publicly trusted Certificate Authority. Private certificate authorities or self-signed certificates are not currently supported.
   - The registry must support multi-level nesting. For example,
@@ -53,7 +53,7 @@ You can download the MKE 4 artifacts from the [mke-release GitHub repo](https://
 | Environment variable                             | Description                                                                                                                                                                                                                                                                                 |
 |--------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | REGISTRY_ADDRESS=' <registry_address> '          | Registry hostname (required) and port (optional). The value must not end with a slash '/'.<br><br>Example: `private-registry.example.com:8080`                                                                                                                                              |
-| REGISTRY_PROJECT_PATH= '<registry-path>'         | Path to the registry project that will store all MKE 4 artifacts. The registry address and path should comprise the full registry path. The value must not end with a slash '/'.<br><br>Example: `REGISTRY_ADDRESS + '/' + REGISTRY_PROJECT_PATH == 'private-registry.example.com:8080/mke` |
+| REGISTRY_PROJECT_PATH= '<registry-path>'         | Path to the registry project that will store all MKE 4k artifacts. The registry address and path should comprise the full registry path. The value must not end with a slash '/'.<br><br>Example: `REGISTRY_ADDRESS + '/' + REGISTRY_PROJECT_PATH == 'private-registry.example.com:8080/mke` |
 | REGISTRY_USERNAME= '<username>'                  | Username for the account that is allowed to push.                                                                                                                                                                                                                                           |
 | REGISTRY_PASSWORD= '<password>'                  | Password for the account that is allowed to push.                                                                                                                                                                                                                                           |
 | BUNDLE_NAME= 'mke_bundle_v<mke4-version>.tar.gz' | The name of previously downloaded bundle file, which must be located in the same directory in which you run the preparation steps.                                                                                                                                                          |
@@ -95,13 +95,13 @@ how to create an `mke4.yaml` configuration file.
 
    | Setting                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                   |
    |------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | `.spec.registries.imageRegistry.URL` | Sets your registry address with a project path that contains your MKE 4 images. For example, `private-registry.example.com:8080/mke`. <br><br>The setting must not end with a slash `/`.<br><br>The port is optional.                                                                                                                                                                                                                                                                   |
-   | `.spec.registries.chartRegistry.URL` | Sets your registry address with a project path that contains your MKE 4 helm charts in OCI format. For example, `oci://private-registry.example.com:8080/mke`.<br><br>The setting must always start with `oci://`, and it must not end with a slash `/` .<br><br>If you uploaded the bundle as previously described, the registry address and path will be the same for chart and image registry, with the only difference being the `oci://` prefix in the chart registry URL. |
+   | `.spec.registries.imageRegistry.URL` | Sets your registry address with a project path that contains your MKE 4k images. For example, `private-registry.example.com:8080/mke`. <br><br>The setting must not end with a slash `/`.<br><br>The port is optional.                                                                                                                                                                                                                                                                   |
+   | `.spec.registries.chartRegistry.URL` | Sets your registry address with a project path that contains your MKE 4k helm charts in OCI format. For example, `oci://private-registry.example.com:8080/mke`.<br><br>The setting must always start with `oci://`, and it must not end with a slash `/` .<br><br>If you uploaded the bundle as previously described, the registry address and path will be the same for chart and image registry, with the only difference being the `oci://` prefix in the chart registry URL. |
    | `.spec.airgap.enabled = true`        | Indicates that your environment is airgapped.                                                                                                                                                                                                                                                                                                                   |
 
 3. Run the `mkectl apply` command.
 
-## MKE 4 versus MKE 3 ##
+## MKE 4k versus MKE 3 ##
 
 MKE 3 requires the use of the `docker load` command to load offline bundles
 directly into Docker on every cluster node. While this approach does not

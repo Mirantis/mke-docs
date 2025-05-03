@@ -1,11 +1,11 @@
 ---
-title: Install the MKE CLI
+title: Install the MKE 4k CLI
 weight: 2
 ---
 
-Before you can proceed with the MKE installation, you must download and install
-`mkectl`. You can do this automatically using an `install.sh` script, or you
-can do it manually.
+Before you can proceed with the MKE 4k installation, you must download and
+install `mkectl`. You can do this automatically using an `install.sh` script,
+or you can do it manually.
 
 ## Install automatically with a script
 
@@ -53,7 +53,7 @@ The `install.sh` script detects the operating system and the
 underlying architecture, based on which it will install the `mkectl` binary in `/usr/local/bin`. Thus, you must ensure that
 `/usr/local/bin` is in your `PATH` environment variable.
 
-You can now proceed with MKE cluster creation.
+You can now proceed with MKE 4k cluster creation.
 
 ## Install using Homebrew
 

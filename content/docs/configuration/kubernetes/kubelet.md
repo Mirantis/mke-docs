@@ -6,8 +6,7 @@ weight: 2
 The kubelet component runs on each node in a Kubernetes cluster, which serves
 as the primary administrative agent for each node, monitoring application
 servers and routing administrative requests to servers. You can configure
-kubelet for all cluster nodes through the `kubelet` section of the MKE
-configuration file, an example of which follows:
+kubelet for all cluster nodes through the `kubelet` section of the `mke4.yaml` configuration file, an example of which follows:
 
 ```yaml
 spec:
@@ -58,8 +57,8 @@ configuration that is applied to a target node.
 ### Create a custom profile
 
 You can specify custom profiles in the `kubelet.customProfiles` section of the
-MKE configuration file. Profiles must each have a unique name, and values can
-refer to fields in the kubelet configuration file.
+`mke4.yaml` configuration file. Profiles must each have a unique name, and
+values can refer to fields in the kubelet configuration file.
 
 For detail on all possible values, refer to the official Kubernetes
 documentation [Set Kubelet Parameters Via A Configuration
@@ -94,8 +93,7 @@ To ensure your custom profile works correctly:
 
 ### Apply a custom profile to a node
 
-You can assign a custom profile through the `hosts` section of the MKE
-configuration file, whereas the profile name is an installation time argument
+You can assign a custom profile through the `hosts` section of the `mke4.yaml` configuration file, whereas the profile name is an installation time argument
 for the host.
 
 The following example configuration applies the `worker_profile_1` custom profile to
@@ -144,10 +142,10 @@ k0s[1619032]: time="2024-11-11 22:25:03" level=error msg="Failed to recover from
 ## Precedence of kubelet configuration
 
 The kubelet configuration of each node is created by merging several different
-configuration sources. For MKE 4, the order is as follows:
+configuration sources. For MKE 4k, the order is as follows:
 
 1. Structured configuration values specified in the `kubelet` section of the
-   MKE configuration, which is the lowest precedence.
+   `mke4.yaml` configuration file, which is the lowest precedence.
 2. Custom profile values specified in `kublelet.customProfiles`.
 3. Runtime flags specified in `kubelet.extraArgs`, which is the highest
    precedence.

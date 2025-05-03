@@ -1,12 +1,13 @@
 ---
-title: Create a Kubernetes cluster in AWS using Terraform and install MKE
+title: Create a Kubernetes cluster in AWS using Terraform and install MKE 4k
 weight: 1
 ---
 
 ## Prerequisites
 
-In addition to the MKE [dependencies](../../../getting-started/install-mke-cli),
-you need to do the following:
+In addition to the MKE 4k
+[dependencies](../../../getting-started/install-mke-cli), you need to do the
+following:
 
 - Install [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
   (required for creating VMs in AWS)
@@ -50,7 +51,7 @@ by selecting the desired region from the dropdown menu in the top-right corner.
 
 {{< /callout >}}
 
-## Install MKE on k0s
+## Install MKE 4k on k0s
 
 1. Generate a sample `mke4.yaml` file:
 
@@ -86,15 +87,15 @@ by selecting the desired region from the dropdown menu in the top-right corner.
    If you do not have the `yq` tool installed, edit the `mke4.yaml` file manually
    setting `apiServer.externalAddress` to the output of the `terraform output -raw lb_dns_name` command.
 
-4. Create the MKE cluster:
+4. Create the MKE 4k cluster:
 
    ```shell
    mkectl apply -f mke4.yaml
    ```
 
-   {{< callout type="info" >}}
-   Upon successful completion of the MKE 4 installation, a username and password
-   will be automatically generated and displayed once for you to use.
+   {{< callout type="info" >}} Upon successful completion of the MKE 4k
+   installation, a username and password will be automatically generated and
+   displayed once for you to use.
 
    To explicitly set a password value, run `mkectl apply -f mke4.yaml --admin-password <password>` .
    {{< /callout >}}

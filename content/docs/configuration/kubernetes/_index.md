@@ -3,7 +3,7 @@ title: Kubernetes components
 weight: 2
 ---
 
-MKE 4 uses K0s to deploy core Kubernetes components, including:
+MKE 4k uses K0s to deploy core Kubernetes components, including:
 
 - [kubelet](../../configuration/kubernetes/kubelet)
 - [kube-apiserver](../../configuration/kubernetes/kube-apiserver)
@@ -11,5 +11,4 @@ MKE 4 uses K0s to deploy core Kubernetes components, including:
 - [kube-scheduler](../../configuration/kubernetes/kube-scheduler)
 - [etcd](../../configuration/kubernetes/etcd)
 
-You can configure all of the Kubernetes components through the MKE
-configuration file.
+You can configure all of the Kubernetes components through the `mke4.yaml` configuration file.

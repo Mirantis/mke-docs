@@ -3,8 +3,9 @@ title: LDAP
 weight: 3
 ---
 
-You can configure LDAP (Lightweight Directory Access Protocol) for MKE 4 through
-the `authentication.ldap` section of the MKE configuration file.
+You can configure LDAP (Lightweight Directory Access Protocol) for MKE 4k
+through the `authentication.ldap` section of the `mke4.yaml` configuration
+file.
 
 LDAP example configuration:
 
@@ -28,7 +29,7 @@ authentication:
 
 ## Configure LDAP service for MKE
 
-In the MKE configuration file `authentication.ldap` section, enable your
+In the `mke4.yaml` configuration file `authentication.ldap` section, enable your
 LDAP service by setting `enabled` to `true`. Use the remaining fields, which
 are defined in the following table, to configure
 the interactions with your LDAP server.

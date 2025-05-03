@@ -11,10 +11,10 @@ in its work.
 
 ## Configuration
 
-MKE 4 supports the deployment of NFD as an add-on. Enabled by default, the NFD
+MKE 4k supports the deployment of NFD as an add-on. Enabled by default, the NFD
 add-on deploys as a helm chart, version `0.16.1` in the `mke` namespace.
 
-{{< callout type="info" >}} The MKE 4 configuration file does not expose
+{{< callout type="info" >}} The `mke4.yaml` configuration file does not expose
 parameters for the NFD add-on. {{< /callout >}}
 
 1. Obtain the default configuration file:

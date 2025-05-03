@@ -11,7 +11,7 @@ layout: hextra-home
 
 <div class="hx-mb-12">
 {{< hextra/hero-subtitle >}}
-  **Mirantis Kubernetes Engine (MKE) 4** is an evolution of the industry-leading enterprise container platform, redesigned with open source k0s Kubernetes at the core and fully composable architecture to deliver the highest levels of security, stability, and performance for your specific use case and deployment requirements.
+  **Mirantis Kubernetes Engine (MKE) 4k** is an evolution of the industry-leading enterprise container platform, redesigned with open source k0s Kubernetes at the core and fully composable architecture to deliver the highest levels of security, stability, and performance for your specific use case and deployment requirements.
 {{< /hextra/hero-subtitle >}}
 </div>
 
@@ -25,7 +25,7 @@ layout: hextra-home
 {{< hextra/feature-grid >}}
   {{< hextra/feature-card
     title="Open source components"
-    subtitle="Deliver cloud native applications faster: engineer use-case-optimized MKE 4 platforms from CNCF open source components, then manage them declaratively."
+    subtitle="Deliver cloud native applications faster: engineer use-case-optimized MKE 4k platforms from CNCF open source components, then manage them declaratively."
   >}}
 
   {{< hextra/feature-card
@@ -50,7 +50,7 @@ layout: hextra-home
 
   {{< hextra/feature-card
     title="Upgrade from MKE 3.7 and 3.8"
-    subtitle="Existing MKE 3.7/3.8 users can easily upgrade in place to MKE 4 without any downtime. MKE 4 has feature parity with MKE 3.7/3.8, plus additional capabilities"
+    subtitle="Existing MKE 3.7/3.8 users can easily upgrade in place to MKE 4k without any downtime. MKE 4k has feature parity with MKE 3.7/3.8, plus additional capabilities"
   >}}
 
 {{< /hextra/feature-grid >}}

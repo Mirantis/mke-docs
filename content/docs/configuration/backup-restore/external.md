@@ -3,11 +3,11 @@ title: Back up using an external storage provider
 weight: 2
 ---
 
-You can configure MKE 4 to externally store backups and restores, for example,
+You can configure MKE 4k to externally store backups and restores, for example,
 in object storage provided by a public cloud provider.
 
 {{< callout type="info" >}}
-   AWS S3 is currently the only external backup storage supported by MKE 4.
+   AWS S3 is currently the only external backup storage supported by MKE 4k.
 {{< /callout >}}
 
 ## Configure an external storage provider
@@ -17,8 +17,8 @@ credentials file.
 
     ![AWS console](aws-console-credentials.png)
 
-2. Edit the `storage_provider` section of the MKE configuration file to point
-to the IAM credentials file, including the profile name.
+2. Edit the `storage_provider` section of the `mke4.yaml` configuration file to
+point to the IAM credentials file, including the profile name.
 
     Example configuration:
     

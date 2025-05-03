@@ -10,7 +10,7 @@ weight: 3
 {{< /callout >}}
 
 Through the use of the `services` section of the `mke4.yaml` configuration
-file, you can add additional components to your MKE 4 installation. This section will pass the input values through to k0rdent, following the
+file, you can add additional components to your MKE 4k installation. This section will pass the input values through to k0rdent, following the
 typical [k0rdent services
 format](https://docs.k0rdent.io/latest/user/services/).
 

@@ -13,7 +13,7 @@ You can use multiple different schedulers within a cluster; kube-scheduler is
 the reference implementation.
 
 You can configure all Kubernetes controllers through the `scheduler` section of
-the MKE configuration file, an example of which follows:
+the `mke4.yaml` configuration file, an example of which follows:
 
 ```yaml
 spec:

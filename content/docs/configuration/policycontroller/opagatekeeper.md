@@ -3,7 +3,7 @@ title: OPA Gatekeeper
 weight: 2
 ---
 
-MKE 4 supports the use of OPA Gatekeeper for purposes of policy control.
+MKE 4k supports the use of OPA Gatekeeper for purposes of policy control.
 
 [Open Policy Agent (OPA)](https://open-policy-agent.github.io/gatekeeper/website/docs/) is an open source policy engine that facilitates policy-based control for cloud native environments. OPA introduces a high-level declarative language called Rego that decouples policy decisions from enforcement.
 
@@ -27,7 +27,7 @@ Using OPA Gatekeeper, you can enforce a wide range of policies against your Kube
 
 ## Configuration
 
-To configure OPA Gatekeeper in MKE, set the following fields in the MKE 4 configuration file:
+To configure OPA Gatekeeper in MKE 4k, set the following fields in the `mke4.yaml` configuration file:
 
 ```yaml
 spec:
@@ -103,7 +103,7 @@ Error from server (Forbidden): error when creating "https://raw.githubuserconten
 
 ## MKE version comparison
 
-| MKE 3                                                              | MKE 4                                           |
+| MKE 3                                                              | MKE 4k                                           |
 |--------------------------------------------------------------------|-------------------------------------------------|
 | [cluster_config.policy_enforcement.gatekeeper.enabled]             | policyController.opaGatekeeper.enabled          |
 | [cluster_config.policy_enforcement.gatekeeper.excluded_namespaces] | policyController.opaGatekeeper.exemptNamespaces |

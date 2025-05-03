@@ -4,7 +4,7 @@ weight: 5
 ---
 
 To create a basic OpenLDAP server to test
-[LDAP](../../../../docs/configuration/authentication/ldap) with MKE 4:
+[LDAP](../../../../docs/configuration/authentication/ldap) with MKE 4k:
 
 {{< callout type="info" >}}
 To run the OpenLDAP server you must have [Docker and Docker Compose](https://docs.docker.com/engine/install/) installed on your system.
@@ -102,9 +102,9 @@ To run the OpenLDAP server you must have [Docker and Docker Compose](https://doc
 
    The Docker Compose file copies in the `config-ldap.ldif` configuration file and uses it to set up the LDAP server, which exposes the LDAP service on port `389` for non-TLS and `636` for TLS.
 
-## Configure MKE to use LDAP
+## Configure MKE 4k to use LDAP
 
-An example MKE4 configuration for LDAP is shown below, for the exemplified LDAP server:
+An example MKE 4k configuration for LDAP is shown below, for the exemplified LDAP server:
 
 ```yaml
 authentication:
@@ -125,7 +125,8 @@ authentication:
       nameAttr: cn
 ```
 
-Run the `mkectl apply` command using the configuration file to apply the configuration to MKE.
+Run the `mkectl apply` command using the configuration file to apply the
+configuration to MKE 4k.
 
 ```bash
 mkectl apply -f config.yaml
@@ -133,7 +134,7 @@ mkectl apply -f config.yaml
 
 ## Test authentication flow
 
-1. Navigate to the MKE dashboard: `https://{MKE hostname}`
+1. Navigate to the MKE 4k dashboard: `https://<MKE 4k hostname>`
 2. Select **Log in with LDAP** to access the LDAP login page.
 3. Enter your credentials and click **Sign In**. If authentication is successful,
-   you will be redirected to the MKE dashboard.
+   you will be redirected to the MKE 4k dashboard.

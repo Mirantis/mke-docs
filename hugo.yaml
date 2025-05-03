@@ -1,6 +1,6 @@
 # Configuration
 baseURL: "https://mirantis.github.io/mke-docs"
-title: "Mirantis Kubernetes Engine 4"
+title: "Mirantis Kubernetes Engine 4k"
 theme: hextra
 
 # enableRobotsTXT: true

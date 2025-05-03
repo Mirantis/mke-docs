@@ -22,7 +22,7 @@ middleware components included in the MKE 4k 4.1.0 release.
 | Multus                                   | 0.0.1   |
 | MetalLB                                  | 0.14.7  |
 | Tigera Operator                          | 3.29.3  |
-| MKE 4 Dashboard                          | 1.6.2   |
+| MKE 4k Dashboard                         | 1.6.2   |
 | Dex HTTP Server                          | 0.3.0   |
 | Kubernetes                               | 1.32.3  |
 | k0s                                      | v1.32.3+k0s.0  |

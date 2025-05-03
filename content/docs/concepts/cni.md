@@ -3,19 +3,20 @@ title: Container Network Interface
 weight: 4
 ---
 
-MKE supports both the Kube-router and Calico OSS Container Network Interface (CNI) plugins,
-to enable the networking functionalities needed for container communication
-and management within a cluster.
+MKE 4k supports both the Kube-router and Calico OSS Container Network Interface
+(CNI) plugins, to enable the networking functionalities needed for container
+communication and management within a cluster.
 
 {{< callout type="warning" >}}
 
-Calico OSS is the only CNI that is supported for migrating configuration during an MKE3 to MKE4 upgrade.
+Calico OSS is the only CNI that is supported for migrating configuration during
+an MKE3 to MKE 4k upgrade.
 
 {{< /callout >}}
 
 ## Configuration example
 
-The `network` section of the MKE configuration file renders as follows:
+The `network` section of the mke4.yaml configuration file renders as follows:
 
 ```yaml
  network:
@@ -90,7 +91,7 @@ for the Calico provider.
 | `linuxDataplane` | Sets the dataplane for Calico CNI. | Iptables | Iptables|
 | `loglevel` | Sets the log level for the CNI components. | Info, Debug | Info|
 
-The default network configuration described herein offers a serviceable, low maintenance solution. If, however, you want more control over your network configuration environment, MKE 4 exposes maximal configuration for the Calico CNI through which you can configure your networking to the fullest extent allowed by the provider. For this, you will use the `values.yaml` key, in which case an example networking would resemble the following:
+The default network configuration described herein offers a serviceable, low maintenance solution. If, however, you want more control over your network configuration environment, MKE 4k exposes maximal configuration for the Calico CNI through which you can configure your networking to the fullest extent allowed by the provider. For this, you will use the `values.yaml` key, in which case an example networking would resemble the following:
 
 ```yaml
  network:
@@ -154,7 +155,7 @@ The default network configuration described herein offers a serviceable, low mai
 {{< callout type="important" >}}
 
 - You must choose whether to specify an exact YAML specification for the Helm installation of Tigera Operator during the initial cluster installation.
-- The supplied YAML for `values.yaml` must include the exact first line `kubeletVolumePluginPath: /var/lib/k0s/kubelet`, otherwise the MKE 4 installation will fail.
+- The supplied YAML for `values.yaml` must include the exact first line `kubeletVolumePluginPath: /var/lib/k0s/kubelet`, otherwise the MKE 4k installation will fail.
 
 {{< /callout >}}
 
@@ -168,7 +169,7 @@ for:
 You can view the full `values.yaml` specification for the Helm chart needed to install Tigera Operator at the [Project Calico GitHub](https://github.com/projectcalico/calico/blob/master/charts/tigera-operator/values.yaml).
 
 {{< /callout >}}
-The network configuration generated as a result of upgrading to MKE 4 from an existing MKE 3 cluster always uses YAML. As such clusters have at least one existing IP pool, however, the CIDR and dataplane values are specified outside of the YAML, as illustrated below:
+The network configuration generated as a result of upgrading to MKE 4k from an existing MKE 3 cluster always uses YAML. As such clusters have at least one existing IP pool, however, the CIDR and dataplane values are specified outside of the YAML, as illustrated below:
 
 ```yaml
   network:
@@ -234,12 +235,14 @@ The network configuration generated as a result of upgrading to MKE 4 from an ex
 
 
 {{< callout type="info" >}}
-- MKE4 uses a static port range for Kubernetes NodePorts, from  `32768` to `35535`. 
-- Following a successful MKE3 to MKE4 upgrade, a list displays that presents the ports that no longer need to be opened on manager or worker nodes. These ports can be blocked.
+- MKE 4k uses a static port range for Kubernetes NodePorts, from  `32768` to `35535`. 
+- Following a successful MKE 3 to MKE 4k upgrade, a list displays that presents the ports that no longer need to be opened on manager or worker nodes. These ports can be blocked.
 {{< /callout >}}
 
 ## Limitations
 
-- MKE4 does not support Calico Enterprise. 
-- Only clusters that use the default Kubernetes proxier `iptables` can be upgraded from MKE3 to MKE4.
-- Only KDD-backed MKE 3 clusters can be upgraded to MKE 4. Refer to [Upgrade from MKE 3.x](../../upgrade-from-MKE-3) for more information.
+- MKE 4k does not support Calico Enterprise. 
+- Only clusters that use the default Kubernetes proxier `iptables` can be
+  upgraded from MKE3 to MKE 4k.
+- Only KDD-backed MKE 3 clusters can be upgraded to MKE 4k. Refer to [Upgrade
+  from MKE 3.7 or 3.8](../../upgrade-from-MKE-3) for more information.

@@ -35,18 +35,18 @@ Following a successful upgrade:
   ---------------
   Users found in the MKE3 cluster: 1
 
-  All users were upgraded to the MKE4 cluster successfully.
+  All users were upgraded to the MKE 4k cluster successfully.
 
   Authorization
   ---------------
   Organizations found in the MKE3 cluster: 1
   Teams found in the MKE3 cluster: 0
 
-  All organizations and teams were translated to aggregated roles in the MKE4 cluster successfully.
+  All organizations and teams were translated to aggregated roles in the MKE 4k cluster successfully.
 
   Ports
   ---------------
-  The following MKE3 ports are no longer used by MKE4 and (unless otherwise needed) may be made unavailable on all nodes: [2377,6444,7946,9055,12376,12378,12379,12380,12381,12382,12383,12384,12385,12386,12387,12388,12389,12391,12392,179,12390,2376,443]
+  The following MKE3 ports are no longer used by MKE 4k and (unless otherwise needed) may be made unavailable on all nodes: [2377,6444,7946,9055,12376,12378,12379,12380,12381,12382,12383,12384,12385,12386,12387,12388,12389,12391,12392,179,12390,2376,443]
 
   MCR
   ---------------
@@ -129,7 +129,7 @@ Verify that you have the following components in place before you begin upgradin
 
 - Calico KDD (Kubernetes Datastore Driver), enabled:
 
-  1. Verify that the MKE 3.x instance being upgraded to MKE 4 is running the
+  1. Verify that the MKE 3.x instance being upgraded to MKE 4k is running the
      latest 3.7.x or 3.8.x release.
 
   2. Obtain the MKE 3 configuration file:
@@ -163,16 +163,16 @@ completion, the following confirmation displays:
 
 ## Perform the migration
 
-An upgrade from MKE 3 to MKE 4 consists of the following steps, all of which
+An upgrade from MKE 3 to MKE 4k consists of the following steps, all of which
 are performed through the use of the `mkectl` tool:
 
 - Run pre-upgrade checks to verify the upgradability of the cluster.
 - Carry out pre-upgrade migrations to prepare the cluster for an upgrade from
-  a hyperkube-based MKE 3 cluster to a k0s-based MKE 4 cluster.
+  a hyperkube-based MKE 3 cluster to a k0s-based MKE 4k cluster.
 - Upgrade manager nodes to k0s.
 - Upgrade worker nodes to k0s.
 - Carry out post-upgrade cleanup to remove MKE 3 components.
-- Output the new MKE 4 config file.
+- Output the new `mke4.yaml` configuration file.
 
 To upgrade an MKE 3 cluster, use the `mkectl upgrade` command:
 
@@ -188,13 +188,13 @@ The external address is the domain name of the load balancer. For details,
 see [System requirements: Load balancer
 requirements](../getting-started/system-requirements#load-balancer-requirements).
 
-The `--config-out` flag allows you to specify a path where the MKE 4 configuration
+The `--config-out` flag allows you to specify a path where the MKE 4k configuration
 file will be automatically created and saved during upgrade. If not specified,
 the configuration file prints to your console on completion. In this case, save
 the output to a file for future reference
 
 The upgrade process requires time to complete. Once the process is complete,
-run the following command to verify that the MKE 4 cluster is operating:
+run the following command to verify that the MKE 4k cluster is operating:
 
 ```shell
 sudo k0s kc get nodes
@@ -228,8 +228,8 @@ the following flags to the `mkectl upgrade` command:
 
 | Setting                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 |------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--image-registry` | Sets your registry address with a project path that contains your MKE 4 images. For example, `private-registry.example.com:8080/mke`. <br><br>The setting must not end with a slash `/`.<br><br>The port is optional.                                                                                                                                                                                                                                                                   |
-| `--chart-registry` | Sets your registry address with a project path that contains your MKE 4 helm charts in OCI format. For example, `oci://private-registry.example.com:8080/mke`.<br><br>The setting must always start with `oci://`, and it must not end with a slash `/` .<br><br>If you uploaded the bundle as previously described, the registry address and path will be the same for chart and image registry, with the only difference being the `oci://` prefix in the chart registry URL. |
+| `--image-registry` | Sets your registry address with a project path that contains your MKE 4k images. For example, `private-registry.example.com:8080/mke`. <br><br>The setting must not end with a slash `/`.<br><br>The port is optional.                                                                                                                                                                                                                                                                   |
+| `--chart-registry` | Sets your registry address with a project path that contains your MKE 4k helm charts in OCI format. For example, `oci://private-registry.example.com:8080/mke`.<br><br>The setting must always start with `oci://`, and it must not end with a slash `/` .<br><br>If you uploaded the bundle as previously described, the registry address and path will be the same for chart and image registry, with the only difference being the `oci://` prefix in the chart registry URL. |
 | `--mke3-airgapped=true`        | Indicates that your environment is airgapped.                                                                                                                                                                                                                                                                                                                   |
 
 ### Migration failure
@@ -294,7 +294,7 @@ FATA[0178] Upgrade failed due to error: aborting upgrade due to signal interrupt
 
 ## Revert the upgrade
 
-To revert a cluster upgraded to MKE 4 back to MKE 3:
+To revert a cluster upgraded to MKE 4k back to MKE 3:
 
 1. [Uninstall MKE 4](../getting-started/uninstall-cluster).
 
@@ -303,14 +303,14 @@ To revert a cluster upgraded to MKE 4 back to MKE 3:
 
 ## RBAC upgrades
 
-As MKE 4 does not support Swarm mode, the platform uses standard [Kubernetes
+As MKE 4k does not support Swarm mode, the platform uses standard [Kubernetes
 RBAC authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 As such, the Swarm authorization configuration that is in place for MKE 3 is not present in MKE 4.
 
 ### Groups
 
 To enable the same RBAC hierarchy as in MKE 3 with `orgs` and `teams` groups, but
-without the two-level limitation, MKE 4 replaces `orgs` and `teams` with
+without the two-level limitation, MKE 4k replaces `orgs` and `teams` with
 the Kubernetes `AggregatedRoles`.
 
 **Authorization structure comparison:**
@@ -376,12 +376,12 @@ structural integrity.
 
 ## CoreDNS Lameduck upgrade
 
-MKE 4 supports upgrading from MKE 3 systems that are running with CoreDNS and
+MKE 4k supports upgrading from MKE 3 systems that are running with CoreDNS and
 Lameduck enabled. Refer
 to the table below for a comparison of the CoreDNS Lameduck configuration
 parameters between MKE 3 and MKE 4:
 
-| MKE 3                                              | MKE 4                 |
+| MKE 3                                              | MKE 4k                 |
 | -------------------------------------------------- | --------------------- |
 | [cluster_config.core_dns_lameduck_config.enabled]  | dns.lameduck.enabled  |
 | [cluster_config.core_dns_lameduck_config.duration] | dns.lameduck.duration |
@@ -391,7 +391,7 @@ parameters between MKE 3 and MKE 4:
 You can address various potential MKE upgrade issues using the tips and
 suggestions detailed herein.
 
-### MKE 3 ``etcdv3`` backend is unsupported for MKE 4 upgrade
+### MKE 3 ``etcdv3`` backend is unsupported for MKE 4k upgrade
 
 During the upgrade from MKE 3 to MKE 4, which defaults to the ``etcdv3``
 backend, you may receive the following error:

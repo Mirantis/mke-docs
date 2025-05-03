@@ -3,25 +3,25 @@ title: TLS certificates
 weight: 10
 ---
 
-To ensure all communications between clients and MKE are encrypted, MKE
+To ensure all communications between clients and MKE 4k are encrypted, MKE 4k
 services are exposed using HTTPS. By default, this is done using self-signed
 TLS certificates that are not trusted by client tools such as web browsers.
-Thus, when you try to access MKE, your browser warns that it does not trust MKE
-or that MKE has an invalid certificate.
+Thus, when you try to access MKE 4k, your browser warns that it does not trust
+MKE 4k or that MKE 4k has an invalid certificate.
 
-You can configure MKE to use your own TLS certificates. As a result, your
-browser and other client tools will trust your MKE installation.
+You can configure MKE 4k to use your own TLS certificates. As a result, your
+browser and other client tools will trust your MKE 4k installation.
 
 Mirantis recommends that you make TLS certificate changes outside of peak business hours.
 Your applications will continue to run normally. However, the Ingress
 Controller will restart, and applications exposed through it may experience a
 short period of unavailability.
 
-## Use the MKE web UI to align TLS artifacts
+## Use the MKE 4k web UI to align TLS artifacts
 
-To configure MKE with the MKE web UI to use your own TLS certificates and keys:
+To configure MKE 4k with the MKE 4k web UI to use your own TLS certificates and keys:
 
-1. Log in to the MKE web UI as an administrator.
+1. Log in to the MKE 4k web UI as an administrator.
 
 2. In the left-side navigation panel, navigate to **Admin Settings** > **Certificates**.
 
@@ -45,14 +45,14 @@ To configure MKE with the MKE web UI to use your own TLS certificates and keys:
     | Type               | Description   |
     |--------------------|---------------|
     | Private key        | The unencrypted private key for MKE. This key must correspond to the public key used in the server certificate. This key does not use a password.<br/><br/>Click **Upload Key** to upload a PEM file.                                                       |
-    | Server certificate | The MKE public key certificate, which establishes a chain of trust up to the root CA certificate. It is followed by the certificates of any intermediate certificate authorities.<br/><br/>Click **Upload Certificate** to upload a PEM file.               |
-    | CA certificate     | The public key certificate of the root certificate authority that issued the MKE server certificate. If you do not have a CA certificate, use the top-most intermediate certificate instead.<br/><br/>Click **Upload CA Certificate** to upload a PEM file. |
+    | Server certificate | The MKE 4k public key certificate, which establishes a chain of trust up to the root CA certificate. It is followed by the certificates of any intermediate certificate authorities.<br/><br/>Click **Upload Certificate** to upload a PEM file.               |
+    | CA certificate     | The public key certificate of the root certificate authority that issued the MKE 4k server certificate. If you do not have a CA certificate, use the top-most intermediate certificate instead.<br/><br/>Click **Upload CA Certificate** to upload a PEM file. |
 
 4. Click **Save**.
 
 ## Use the CLI to align TLS artifacts
 
-To configure MKE with the CLI to use your own TLS certificates and keys:
+To configure MKE 4k with the CLI to use your own TLS certificates and keys:
 
 1. All keys and certificates must be uploaded in PEM format, and the
    certificates must include the following SANs:
@@ -108,7 +108,7 @@ To configure MKE with the CLI to use your own TLS certificates and keys:
    yq -i '.spec.ingressController.extraArgs.defaultSslCertificate = "mke/user-provided-ingress-cert"' mke4.yaml
    ```
 
-   Example MKE configuration file `ingressController` section:
+   Example `mke4.yaml` configuration file `ingressController` section:
     
    ```yaml
    spec:

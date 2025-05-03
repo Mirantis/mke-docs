@@ -5,7 +5,7 @@ weight: 6
 
 {{< callout type="info" >}}
 
-[k0rdent](https://k0rdent.io) is a Mirantis-initiated open source project with which platform engineers can build, automate, and manage Kubernetes platforms at scale. MKE 4 is adopting k0rdent technology to enable installation and management of services and components in a template-driven manner. **k0rdent is available in MKE 4k as a technical preview only.**
+[k0rdent](https://k0rdent.io) is a Mirantis-initiated open source project with which platform engineers can build, automate, and manage Kubernetes platforms at scale. MKE 4k is adopting k0rdent technology to enable installation and management of services and components in a template-driven manner. **k0rdent is available in MKE 4k as a technical preview only.**
 
 For more information on MKE 4k and k0rdent, [contact Mirantis Sales]([mirantis.com/contact).
 
@@ -14,7 +14,7 @@ For more information on MKE 4k and k0rdent, [contact Mirantis Sales]([mirantis.c
 k0rdent CAPI (Cluster API) providers allow for the creation and management of
 child clusters directly in popular infrastructures.
 
-Most k0rdent CAPI providers are disabled in MKE4 by default. To
+Most k0rdent CAPI providers are disabled in MKE 4k by default. To
 enable these providers, create a `k0rdent.providers` section in the `mke4.yaml`
 configuration file and add them to it. The CAPI providers use the [same
 strings/names as those found in the k0rdent
@@ -97,7 +97,7 @@ k0rdent:
 
 Currently, all CAPI providers are installed at cluster creation; however,
 once the cluster is up and running, these providers are disabled. A number of
-CAPI providers are MKE 4 dependencies and are thus always added and enabled,
+CAPI providers are MKE 4k dependencies and are thus always added and enabled,
 including Sveltos, CAPI, KCM, and mke-operator.
 
 For information on each of the k0rdent CAPI providers, refer to the official
