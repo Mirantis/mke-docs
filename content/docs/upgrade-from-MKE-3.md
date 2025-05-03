@@ -137,7 +137,7 @@ Verify that you have the following components in place before you begin upgradin
      ```shell
      export MKE_USERNAME=<mke-username>
      export MKE_PASSWORD=<mke-password>
-     export MKE_HOST=<mke-fqdm-or-ip-address>
+     export MKE_HOST=<mke-fqdn-or-ip-address>
      curl --silent --insecure -X GET "https://$MKE_HOST/api/ucp/config-toml" -H "accept: application/toml" -H "Authorization: Bearer $AUTHTOKEN" > mke-config.toml
      ```
 
