@@ -26,7 +26,7 @@ and automate workflows.
 ### License MKE 4k
 
 You must have a valid license to lawfully run MKE 4k. Refer to [Licensing MKE
-4](licensing-mke4) for information on how to obtain and add a license to your
+4k](licensing-mke4) for information on how to obtain and add a license to your
 MKE 4k installation.
 
 ### Create a cluster
