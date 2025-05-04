@@ -3,7 +3,7 @@ title: MKE 4k Documentation
 weight: 2
 ---
 
-The Mirantis Kubernetes Engine 4 documentation set is provided to help system
+The Mirantis Kubernetes Engine 4k documentation set is provided to help system
 administrators and DevOps professionals to configure, install, and operate MKE
 4k, covering key concepts and functionalities.
 

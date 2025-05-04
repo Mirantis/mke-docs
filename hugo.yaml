@@ -59,8 +59,11 @@ menu:
     - name: MKE 3.7 documentation
       weight: 2
       url: "https://docs.mirantis.com/mke/3.7/overview.html"
-    - name: Mirantis products
+    - name: MKE 3.8 documentation
       weight: 3
+      url: "https://docs.mirantis.com/mke/3.8/overview.html"
+    - name: Mirantis products
+      weight: 4
       url: "https://www.mirantis.com/"
 
 params:
