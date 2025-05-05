@@ -12,48 +12,176 @@ in object storage provided by a public cloud provider.
 
 ## Configure an external storage provider
 
-1. Copy the credentials information from the AWS console to create an IAM
-credentials file.
+{{< callout type="info" >}}
 
-    ![AWS console](aws-console-credentials.png)
+AWS store backups in an object storage bucket. Mirantis recommends that each of
+these buckets be unique for each Kubernetes cluster.
 
-2. Edit the `storage_provider` section of the `mke4.yaml` configuration file to
-point to the IAM credentials file, including the profile name.
+{{< /callout >}}
 
-    Example configuration:
-    
-    ```yaml
-      storage_provider:
-        type: External
-        external_options:
-          provider: aws
-          bucket: bucket_name
-          region: us-west-2
-          credentials_file_path: "/path/to/iamcredentials"
-          credentials_file_profile: "386383511305_docker-testing"
-    ```
-
-3. Create an S3 bucket.
-
-4. Point the configuration to the S3 bucket and region.
-
-5. Verify the existence of the `BackupStorageLocation` custom resource:
-
-    ```shell
-    kubectl --kubeconfig <path-to-kubeconfig> get backupstoragelocation -n mke
-    ```
-6. Apply the configuration:
+1. Create an S3 bucket:
 
    ```shell
-    mkectl apply
+   aws s3api create-bucket \
+       --bucket <BUCKET_NAME> \
+       --region <AWS_REGION> \
+       --create-bucket-configuration LocationConstraint=<BUCKET_NAME>
+   ```
+
+   The `us-east-1` region does not support a `LocationConstraint` setting. As such, if your region is `us-east-1`, omit the bucket configuration
+
+   ```shell
+   aws s3api create-bucket \
+       --bucket <BUCKET_NAME> \
+       --region us-east-1
+   ```
+
+2. Create an IAM user:
+
+   ```shell
+   aws iam create-user --user-name mke4backup
+   ```
+
+   {{< callout type="tip" >}}
+
+   To deploy multiple MKE 4k clusters, you may want to create a unique
+   username per cluster instead of the default `mke4backup`. For more
+   information, refer to the official AWS documentation, [What is IAM?](http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html).
+
+   {{< /callout >}}
+
+3. Attach a policy to affix the necessary permissions to the IAM user.
+
+   {{< callout type="info" >}}
+
+   <details>
+
+   <summary>Click for example policy</summary>
+
+   Be aware that `s3:PutObjectTagging` is only necessary if you make use of the
+   `config.tagging` field in the `BackupStorageLocation` specification.
+
+      ```shell
+      cat > mke4backup-policy.json <<EOF
+      {
+          "Version": "2012-10-17",
+          "Statement": [
+              {
+                  "Effect": "Allow",
+                  "Action": [
+                      "ec2:DescribeVolumes",
+                      "ec2:DescribeSnapshots",
+                      "ec2:CreateTags",
+                      "ec2:CreateVolume",
+                      "ec2:CreateSnapshot",
+                      "ec2:DeleteSnapshot"
+                  ],
+                  "Resource": "*"
+              },
+              {
+                  "Effect": "Allow",
+                  "Action": [
+                      "s3:GetObject",
+                      "s3:DeleteObject",
+                      "s3:PutObject",
+                      "s3:PutObjectTagging",
+                      "s3:AbortMultipartUpload",
+                      "s3:ListMultipartUploadParts"
+                  ],
+                  "Resource": [
+                      "arn:aws:s3:::${BUCKET}/*"
+                  ]
+              },
+              {
+                  "Effect": "Allow",
+                  "Action": [
+                      "s3:ListBucket"
+                  ],
+                  "Resource": [
+                      "arn:aws:s3:::${BUCKET}"
+                  ]
+              }
+          ]
+      }
+      EOF
+      ```
+
+   </details>
+
+   {{< /callout >}}
+
+   ```shell
+   aws iam put-user-policy \
+     --user-name mke4backup \
+     --policy-name mke4backup \
+     --policy-document file://mke4backup-policy.json
+   ```
+
+4. Create a access key for the IAM user:
+
+   ```shell
+   aws iam create-access-key --user-name mke4backup
+   ```
+
+   Example output:
+
+   ```
+   {
+     "AccessKey": {
+           "UserName": "mke4backup",
+           "Status": "Active",
+           "CreateDate": "2017-07-31T22:24:41.576Z",
+           "SecretAccessKey": <AWS_SECRET_ACCESS_KEY>,
+           "AccessKeyId": <AWS_ACCESS_KEY_ID>
+      }
+   }
+
+5. Create a mke4backup-specific credentials file named `credentials-mke4backup`
+   in your local directory, in which the access key id and secret are the values returned from the `create-access-key` command:
+
+   ```
+   [mke4backup-profile]
+   aws_access_key_id=<AWS_ACCESS_KEY_ID>
+   aws_secret_access_key=<AWS_SECRET_ACCESS_KEY>
+   ```
+
+6. Edit the `storage_provider` section of the `mke4.yaml` configuration file,
+   adding the AWS bucket name, bucket region, IAM credentials file path, and
+   IAM credentials profile.
+
+   Example:
+
+   ```
+   spec:
+     backup:
+       storage_provider:
+         type: External
+         external_options:
+           provider: aws
+           bucket: <BUCKET_NAME>
+           region: <BUCKET_REGION>
+           credentials_file_path: </PATH/TO/CREDENTIALS-MKE4BACKUP>
+           credentials_file_profile: "mke4backup-profile"
+   ```
+
+7. Apply the configuration:
+
+   ```shell
+   mkectl apply
+   ```
+
+8. Verify the existence of the `BackupStorageLocation` custom resource:
+
+   ```shell
+   kubectl --kubeconfig <path-to-kubeconfig> get backupstoragelocation -n mke
    ```
    
-    Example output:
+   Example output:
 
-    ```shell
-    NAME      PHASE       LAST VALIDATED   AGE   DEFAULT
-    default   Available   20s              32s   true
-    ```
+   ```shell
+   NAME      PHASE       LAST VALIDATED   AGE   DEFAULT
+   default   Available   20s              32s   true
+   ```
    
    The output may require a few minutes to display.
 
