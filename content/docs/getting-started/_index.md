@@ -18,7 +18,7 @@ details, refer to the  [System requirements](system-requirements).
 
 ### Install the MKE 4k CLI and other dependencies
 
-[Install the MKE 4k Command Line Interface (CLI)](install-MKE-4k-CLI), which is
+[Install the MKE 4k Command Line Interface (CLI)](install-mke-4k-cli), which is
 essential for managing your MKE 4k installation. The CLI provides a convenient
 and powerful way to interact with your cluster, perform administrative tasks,
 and automate workflows.
