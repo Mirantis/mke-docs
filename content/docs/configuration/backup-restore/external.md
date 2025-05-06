@@ -58,9 +58,6 @@ these buckets be unique for each Kubernetes cluster.
 
    <summary>Click for example policy</summary>
 
-   Be aware that `s3:PutObjectTagging` is only necessary if you make use of the
-   `config.tagging` field in the `BackupStorageLocation` specification.
-
       ```shell
       cat > mke4backup-policy.json <<EOF
       {
@@ -84,7 +81,6 @@ these buckets be unique for each Kubernetes cluster.
                       "s3:GetObject",
                       "s3:DeleteObject",
                       "s3:PutObject",
-                      "s3:PutObjectTagging",
                       "s3:AbortMultipartUpload",
                       "s3:ListMultipartUploadParts"
                   ],
@@ -117,7 +113,7 @@ these buckets be unique for each Kubernetes cluster.
      --policy-document file://mke4backup-policy.json
    ```
 
-4. Create a access key for the IAM user:
+4. Create an access key for the IAM user:
 
    ```shell
    aws iam create-access-key --user-name mke4backup
