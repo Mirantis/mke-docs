@@ -28,7 +28,7 @@ these buckets be unique for each Kubernetes cluster.
        --create-bucket-configuration LocationConstraint=<BUCKET_NAME>
    ```
 
-   The `us-east-1` region does not support a `LocationConstraint` setting. As such, if your region is `us-east-1`, omit the bucket configuration
+   The `us-east-1` region does not support a `LocationConstraint` setting. As such, if your region is `us-east-1`, omit the bucket configuration.
 
    ```shell
    aws s3api create-bucket \
@@ -44,7 +44,7 @@ these buckets be unique for each Kubernetes cluster.
 
    {{< callout type="tip" >}}
 
-   To deploy multiple MKE 4k clusters, you may want to create a unique
+   To deploy multiple MKE 4k clusters, you can create a unique
    username per cluster instead of the default `mke4backup`. For more
    information, refer to the official AWS documentation, [What is IAM?](http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html).
 
@@ -132,8 +132,8 @@ these buckets be unique for each Kubernetes cluster.
       }
    }
 
-5. Create a mke4backup-specific credentials file named `credentials-mke4backup`
-   in your local directory, in which the access key id and secret are the values returned from the `create-access-key` command:
+5. Create an mke4backup-specific credentials file named `credentials-mke4backup`
+   in your local directory, in which the access key ID and secret are the values returned from the `create-access-key` command:
 
    ```
    [mke4backup-profile]
