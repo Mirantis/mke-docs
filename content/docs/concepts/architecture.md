@@ -11,24 +11,40 @@ file. Refer to [Configuration](../configuration) for details.
 
 ## Components
 
-MKE 4k is built on top of k0s, a lightweight Kubernetes distribution.
-To learn more, refer to [k0s documentation](https://docs.k0sproject.io/v1.29.3+k0s.0/).
+MKE4k cluster is composed of following components:
 
-<!-- ### Control plane -->
+### k0s (Kubernetes)
+A lightweight and open-source Kubernetes distribution that acts as the foundational runtime for MKE4k clusters.
+To learn more, refer to [k0s documentation](https://docs.k0sproject.io/stable//).
 
-<!-- [Discuss the control plane component and its function] -->
+#### Networking
 
-### Networking
+By default, MKE4k includes Calico CNI, deployed and managed using the Tigera Operator, to provide secure, scalable, and policy-driven networking.
 
-By default, Calico is installed as the Container Network Interface (CNI) plugin,
-with the following configuration:
-
+Calico is installed as the Container Network Interface (CNI) plugin, with the following configuration:
 - IPv4 only, with a fixed Pod CIDR of `192.168.0.0/16`.
 - The datastore mode set to `kdd`.
 - `kube-proxy` set to `iptables` mode.
 - A `vxlan` backend, which uses the default port of `4789` for traffic and default virtual network ID of `4096`.
 
 Refer to [Container Network Interface](../cni) for the network configuration details
+
+### MKE4k Control Plane: `mke-operator` + `k0rdent`
+
+The MKE4k Control Plane is responsible for orchestrating, managing, and maintaining the lifecycle of MKE4k cluster and services:
+
+* `mke-operator`: A Kubernetes-native operator that automates installation, upgrades, configuration of system and user services 
+* `k0rdent`: An open-source component that manages lifecycle for the services configured by `mke-operator`
+
+
+## System and User Services
+
+These are Kubernetes workloads that run within the cluster—ranging from system-level services (monitoring, logging, ingress) to user-defined applications. 
+Their deployment and lifecycle are managed by the MKE4k control plane (`mke-operator` and `k0rdent`).
+
+## Architecture Diagram
+
+![img.png](img.png)
 
 <!-- ### Data Plane -->
 
