@@ -26,7 +26,7 @@ with the following configuration:
 - IPv4 only, with a fixed Pod CIDR of `192.168.0.0/16`.
 - The datastore mode set to `kdd`.
 - `kube-proxy` set to `iptables` mode.
-- A `vxlan` backend, which uses the default port of `4789` for traffic and default virtual network ID of `4096`.
+- A `vxlan` backend, which uses the default port of `4789` for traffic and default virtual network ID of `10000`.
 
 Refer to [Container Network Interface](../cni) for the network configuration details
 
