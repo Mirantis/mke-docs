@@ -34,12 +34,12 @@ The Calico configuration at installation is as follows:
 
 Refer to [Container Network Interface](../cni) for the network configuration details
 
-### MKE4k Control Plane: `mke-operator` + `k0rdent`
+### MKE 4k Control Plane
 
-The MKE4k Control Plane is responsible for orchestrating, managing, and maintaining the lifecycle of MKE4k cluster and services:
+The MKE 4k Control Plane, which is comprised of 'mke-operator` and `kordent`, is used to orchestrate, manage, and maintain the lifecycle of the MKE 4k cluster and services.
 
-* `mke-operator`: A Kubernetes-native operator that automates installation, upgrades, configuration of system and user services 
-* `k0rdent`: An open-source component that manages lifecycle for the services configured by `mke-operator`
+- `mke-operator`: A Kubernetes-native operator that automates installation, upgrades, system configuration, and user services .
+- `k0rdent`: An open-source component that performs lifecycle management for the services that `mke-operator` configures.
 
 
 ## System and User Services
