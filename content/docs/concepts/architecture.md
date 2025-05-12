@@ -19,9 +19,8 @@ An MKE 4k cluster is comprised of the following components:
 - System and user services
 
 
-### k0s (Kubernetes)
-A lightweight and open-source Kubernetes distribution that acts as the foundational runtime for MKE4k clusters.
-To learn more, refer to [k0s documentation](https://docs.k0sproject.io/stable//).
+### k0s
+k0s is a lightweight and open-source Kubernetes distribution that acts as the foundational runtime for MKE 4k clusters. For more information, refer to the [k0s documentation](https://docs.k0sproject.io/stable//).
 
 #### Networking
 
