@@ -42,7 +42,7 @@ The MKE 4k Control Plane, which is comprised of 'mke-operator` and `kordent`, is
 - `k0rdent`: An open-source component that performs lifecycle management for the services that `mke-operator` configures.
 
 
-## System and User Services
+### System and User Services
 
 These are Kubernetes workloads that run within the cluster—ranging from system-level services (monitoring, logging, ingress) to user-defined applications. 
 Their deployment and lifecycle are managed by the MKE4k control plane (`mke-operator` and `k0rdent`).
