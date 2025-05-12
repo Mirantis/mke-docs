@@ -11,39 +11,58 @@ file. Refer to [Configuration](../configuration) for details.
 
 ## Components
 
-MKE 4k is built on top of k0s, a lightweight Kubernetes distribution.
-To learn more, refer to [k0s documentation](https://docs.k0sproject.io/v1.29.3+k0s.0/).
+An MKE 4k cluster is comprised of the following components:
 
-<!-- ### Control plane -->
+- k0s Kubernetes distribution
+- Calico CNI
+- MKE 4k Control Plane
+- System and user services
 
-<!-- [Discuss the control plane component and its function] -->
+### k0s Kubernetes distribution
 
-### Networking
+k0s is a lightweight and open-source Kubernetes distribution that acts as the
+foundational runtime for MKE 4k clusters. For more information, refer to the
+[k0s documentation](https://docs.k0sproject.io/stable//).
 
-By default, Calico is installed as the Container Network Interface (CNI) plugin,
-with the following configuration:
+### Calico CNI
 
-- IPv4 only, with a fixed Pod CIDR of `192.168.0.0/16`.
-- The datastore mode set to `kdd`.
-- `kube-proxy` set to `iptables` mode.
-- A `vxlan` backend, which uses the default port of `4789` for traffic and default virtual network ID of `10000`.
+MKE 4k provides secure, scalable, policy-driven networking through the Calico
+container network interface (CNI).
 
-Refer to [Container Network Interface](../cni) for the network configuration details
+The Calico configuration at installation is as follows:
 
-<!-- ### Data Plane -->
+- IPv4 only, with a fixed Pod CIDR of `192.168.0.0/16`
+- Datastore mode set to `kdd`
+- `kube-proxy` mode set to `iptables`
+- A `vxlan` backend that uses the default port of `4789` for traffic and the
+  default virtual network ID of `4096`
 
-<!-- [Discuss the data plane components and their functions] -->
+Refer to [Container Network Interface](../cni) for the network configuration
+details.
 
-<!-- ## High-Level Diagram -->
+### MKE 4k Control Plane
 
-<!-- [Include a high-level diagram illustrating the MKE 4k architecture] -->
+The MKE 4k Control Plane, which is comprised of `mke-operator` and `kordent`,
+is used to orchestrate, manage, and maintain the lifecycle of the MKE 4k
+cluster and services.
 
-<!-- ## Deployment considerations -->
+- `mke-operator`: A Kubernetes-native operator that automates installation,
+  upgrades, system configuration, and user services .
+- `k0rdent`: An open-source component that performs lifecycle management for
+  the services that `mke-operator` configures.
 
-<!-- [Highlight any important considerations for deploying MKE 4k] -->
+### System and User Services
 
-<!-- ## Conclusion [Wrap up the document with a conclusion or summary] -->
+The system and user services are Kubernetes workloads that run within the
+cluster, such as monitoring, logging, ingress, and user-defined applications.
+Use the MKE 4 control plane to manage the deployment and lifecycle of these
+workloads.
 
-<!-- ### Control plane -->
+The system and user services are Kubernetes workloads that run within the MKE
+4k cluster. On the system side, these services include monitoring, logging, and
+ingress, among others. On the user side, the services are typically
+user-defined applications.  Using the MKE 4 control plane, you can manage the
+deployment and lifecycle of the various workloads.
 
-<!-- [Discuss the control plane component and its function] -->
+## Architecture Diagram
+
