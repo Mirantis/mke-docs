@@ -44,8 +44,9 @@ The MKE 4k Control Plane, which is comprised of 'mke-operator` and `kordent`, is
 
 ### System and User Services
 
-These are Kubernetes workloads that run within the cluster—ranging from system-level services (monitoring, logging, ingress) to user-defined applications. 
-Their deployment and lifecycle are managed by the MKE4k control plane (`mke-operator` and `k0rdent`).
+The system and user services are Kubernetes workloads that run within the cluster, such as monitoring, logging, ingress, and user-defined applications.  Use the MKE 4 control plane to manage the deployment and lifecycle of these workloads.
+
+The system and user services are Kubernetes workloads that run within the MKE 4k cluster. On the system side, these services include monitoring, logging, and ingress, among others. On the user side, the services are typically user-defined applications.  Using the MKE 4 control plane, you can manage the deployment and lifecycle of the various workloads.
 
 ## Architecture Diagram
 
