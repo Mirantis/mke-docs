@@ -25,7 +25,7 @@ To learn more, refer to [k0s documentation](https://docs.k0sproject.io/stable//)
 
 #### Networking
 
-By default, MKE4k includes Calico CNI, deployed and managed using the Tigera Operator, to provide secure, scalable, and policy-driven networking.
+MKE 4k provides secure, scalable, policy-driven networking through the Calico container network interface (CNI).
 
 Calico is installed as the Container Network Interface (CNI) plugin, with the following configuration:
 - IPv4 only, with a fixed Pod CIDR of `192.168.0.0/16`.
