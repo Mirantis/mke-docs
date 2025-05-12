@@ -9,7 +9,7 @@ environment. It is intended for testing purposes only.
 {{< /callout >}}
 
 ## Prerequisites
-In addition to ensuring that the MKE 4k [dependencies](../../../getting-started/install-mke-cli)
+In addition to ensuring that the MKE 4k [dependencies](../../../getting-started/install-mke-4k-cli)
 and MKE 4k [system requirements](../../../getting-started/system-requirements)
 are met, perform the following actions:
 

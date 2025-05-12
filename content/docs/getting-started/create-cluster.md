@@ -12,7 +12,7 @@ For information on how to create a cluster in an airgapped environment, refer to
 ## Install dependecies
 
 Verify that you have installed `mkectl` and other dependencies on your system
-as described in [Install MKE 4k CLI](../install-mke-cli).
+as described in [Install MKE 4k CLI](../install-mke-4k-cli).
 
 ## Configure cluster nodes
 

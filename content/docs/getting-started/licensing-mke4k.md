@@ -12,7 +12,8 @@ information, refer to [Mirantis Agreements and Terms](https://legal.mirantis.com
 
 ## Obtain your MKE 4k license
 
-[Install the MKE 4k CLI](../install-mke-cli) prior to downloading your MKE 4k license.
+[Install the MKE 4k CLI](../install-mke-4k-cli) prior to downloading your MKE
+4k license.
 
 1. Locate the Welcome to Mirantis' CloudCare Portal email sent to you from Mirantis
    Support. If you do not have the email, confirm with your Designated Administrator

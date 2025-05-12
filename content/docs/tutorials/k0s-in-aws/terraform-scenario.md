@@ -6,7 +6,7 @@ weight: 1
 ## Prerequisites
 
 In addition to the MKE 4k
-[dependencies](../../../getting-started/install-mke-cli), you need to do the
+[dependencies](../../../getting-started/install-mke-4k-cli), you need to do the
 following:
 
 - Install [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
