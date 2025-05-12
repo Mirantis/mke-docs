@@ -11,7 +11,13 @@ file. Refer to [Configuration](../configuration) for details.
 
 ## Components
 
-MKE4k cluster is composed of following components:
+An MKE 4k cluster is comprised of the following components:
+
+- k0s Kubernetes distribution
+- Calico CNI
+- MKE 4k Control Plane
+- System and user services
+
 
 ### k0s (Kubernetes)
 A lightweight and open-source Kubernetes distribution that acts as the foundational runtime for MKE4k clusters.
