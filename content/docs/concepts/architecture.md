@@ -22,7 +22,7 @@ An MKE 4k cluster is comprised of the following components:
 ### k0s
 k0s is a lightweight and open-source Kubernetes distribution that acts as the foundational runtime for MKE 4k clusters. For more information, refer to the [k0s documentation](https://docs.k0sproject.io/stable//).
 
-#### Networking
+### Calico CNI
 
 MKE 4k provides secure, scalable, policy-driven networking through the Calico container network interface (CNI).
 
