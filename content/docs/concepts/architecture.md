@@ -66,3 +66,4 @@ deployment and lifecycle of the various workloads.
 
 ## Architecture Diagram
 
+![mke4-architecture.drawio.svg](mke4-architecture.drawio.svg)
