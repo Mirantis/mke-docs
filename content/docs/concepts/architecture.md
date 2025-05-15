@@ -11,12 +11,15 @@ file. Refer to [Configuration](../configuration) for details.
 
 ## Components
 
-An MKE 4k cluster is comprised of the following components:
+MKE 4k clusters are comprised of the following components:
 
 - k0s Kubernetes distribution
-- Calico CNI
+- Container Network Interface (CNI)
 - MKE 4k Control Plane
-- System and user services
+  - `mke-operator`
+  - `kordent`
+- System services
+- User services
 
 ### k0s Kubernetes distribution
 
@@ -24,21 +27,15 @@ k0s is a lightweight and open-source Kubernetes distribution that acts as the
 foundational runtime for MKE 4k clusters. For more information, refer to the
 [k0s documentation](https://docs.k0sproject.io/stable//).
 
-### Calico CNI
+### Container Network Interface (CNI)
 
-MKE 4k provides secure, scalable, policy-driven networking through the Calico
-container network interface (CNI).
+MKE 4k supports Container Network Interface (CNI) plugins, to provide
+networking function within a cluster that is secure, scalable, and
+policy-driven.
 
-The Calico configuration at installation is as follows:
-
-- IPv4 only, with a fixed Pod CIDR of `192.168.0.0/16`
-- Datastore mode set to `kdd`
-- `kube-proxy` mode set to `iptables`
-- A `vxlan` backend that uses the default port of `4789` for traffic and the
-  default virtual network ID of `4096`
-
-Refer to [Container Network Interface](../cni) for the network configuration
-details.
+MKE 4k installs with the Calico CNI by default. Other CNI options, though, such
+as Kube-router, are also available. Refer to [Container Network
+Interface](../cni) for the network configuration details.
 
 ### MKE 4k Control Plane
 
@@ -51,18 +48,18 @@ cluster and services.
 - `k0rdent`: An open-source component that performs lifecycle management for
   the services that `mke-operator` configures.
 
-### System and User Services
+### System services
 
-The system and user services are Kubernetes workloads that run within the
-cluster, such as monitoring, logging, ingress, and user-defined applications.
-Use the MKE 4 control plane to manage the deployment and lifecycle of these
-workloads.
+A key benefit of MKE 4k is that it supports various system services that are
+characteristic to clusters, thus ensuring their ease of configuration and use.
+These services are Kubernetes workloads that run within the cluster, which you
+can manage using the MKE 4k control plane. They include authorization, ingress,
+monitoring, and backups, among others.
 
-The system and user services are Kubernetes workloads that run within the MKE
-4k cluster. On the system side, these services include monitoring, logging, and
-ingress, among others. On the user side, the services are typically
-user-defined applications.  Using the MKE 4 control plane, you can manage the
-deployment and lifecycle of the various workloads.
+### User Services
+
+Typically, user services are user-defined applications that run within the MKE
+4k cluster, which you manage using the MKE 4k control plane.
 
 ## Architecture Diagram
 
