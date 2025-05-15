@@ -44,17 +44,17 @@ is used to orchestrate, manage, and maintain the lifecycle of the MKE 4k
 cluster and services.
 
 - `mke-operator`: A Kubernetes-native operator that automates installation,
-  upgrades, system configuration, and user services .
+  upgrades, system configuration, and user services.
 - `k0rdent`: An open-source component that performs lifecycle management for
   the services that `mke-operator` configures.
 
 ### System services
 
-A key benefit of MKE 4k is that it supports various system services that are
-characteristic to clusters, thus ensuring their ease of configuration and use.
-These services are Kubernetes workloads that run within the cluster, which you
-can manage using the MKE 4k control plane. They include authorization, ingress,
-monitoring, and backups, among others.
+A key benefit of MKE 4k is that it includes various services that are typically
+standard to a cluster, thus ensuring that they integrate well and are easy to
+use and configure. These services are Kubernetes workloads that run within the
+cluster, which you can manage using the MKE 4k control plane. They include
+authorization, ingress, monitoring, and backups, among others.
 
 ### User Services
 
