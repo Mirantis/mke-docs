@@ -29,8 +29,8 @@ foundational runtime for MKE 4k clusters. For more information, refer to the
 
 ### Container Network Interface (CNI)
 
-MKE 4k supports Container Network Interface (CNI) plugins, to provide
-networking function within a cluster that is secure, scalable, and
+MKE 4k supports Container Network Interface (CNI) plugins. Such components
+provide networking functionality within a cluster that is secure, scalable, and
 policy-driven.
 
 MKE 4k installs with the Calico CNI by default. Other CNI options, though, such
