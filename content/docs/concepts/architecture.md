@@ -11,7 +11,7 @@ file. Refer to [Configuration](../configuration) for details.
 
 ## Components
 
-MKE 4k clusters are comprised of the following components:
+The following components constitute an MKE 4k cluster:
 
 - k0s Kubernetes distribution
 - Container Network Interface (CNI)
@@ -25,7 +25,7 @@ MKE 4k clusters are comprised of the following components:
 
 k0s is a lightweight and open-source Kubernetes distribution that acts as the
 foundational runtime for MKE 4k clusters. For more information, refer to the
-[k0s documentation](https://docs.k0sproject.io/stable//).
+[k0s documentation](https://docs.k0sproject.io/stable/).
 
 ### Container Network Interface (CNI)
 
@@ -39,7 +39,7 @@ Interface](../cni) for the network configuration details.
 
 ### MKE 4k Control Plane
 
-The MKE 4k Control Plane, which is comprised of `mke-operator` and `kordent`,
+The MKE 4k Control Plane, which comprises `mke-operator` and `kordent`,
 is used to orchestrate, manage, and maintain the lifecycle of the MKE 4k
 cluster and services.
 
