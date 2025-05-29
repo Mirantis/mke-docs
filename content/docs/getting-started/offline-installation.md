@@ -84,7 +84,7 @@ You can download the MKE 4k artifacts from the [mke-release GitHub repo](https:/
 
 For information on performing an upgrade to an existing MKE 3 installation in an
 airgap environment, refer to [Offline
-upgrade](../../migrate-from-mke-3/#offline-upgrade).
+upgrade](../../upgrade-from-mke-3/#offline-upgrade).
 
 {{< /callout >}}
 
