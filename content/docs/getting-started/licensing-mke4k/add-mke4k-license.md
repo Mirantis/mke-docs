@@ -1,6 +1,6 @@
 ---
-title: Licensing MKE 4k
-weight: 2
+title: Add your MKE 4k license
+weight: 3
 ---
 
 {{< callout type="warning" >}}
@@ -9,32 +9,6 @@ You must have a valid license to lawfully run MKE 4k. For more
 information, refer to [Mirantis Agreements and Terms](https://legal.mirantis.com/).
 
 {{< /callout >}}
-
-## Obtain your MKE 4k license
-
-[Install the MKE 4k CLI](../install-mke-4k-cli) prior to downloading your MKE
-4k license.
-
-1. Locate the Welcome to Mirantis' CloudCare Portal email sent to you from Mirantis
-   Support. If you do not have the email, confirm with your Designated Administrator
-   that you have been added as a Designated Contact.
-
-2. Click **Environments** in the top navigation bar of the MKE 4k web UI.
-
-3. Click the **Cloud Name** that is associated with the license you want to download.
-
-4. Scroll down to **License Information** and click the **License File URL**. 
-   A new tab opens in your browser.
-
-5. Click **View file** to download your license file.
-
-{{< callout type="info" >}}
-
-Though MKE 4k is generally a subscription-only service, you can obtain a free trial license from Mirantis. Make your request using the [Mirantis contact form](https://www.mirantis.com/contact).
-
-{{< /callout >}}
-
-## Add the license
 
 1. Log in to the MKE web UI with an administrator account.
 2. In the left-side navigation panel, navigate to **Admin Settings** -> **License**.
@@ -116,41 +90,3 @@ Though MKE 4k is generally a subscription-only service, you can obtain a free tr
    </style>
 
 4. Click **Save settings** to update the MKE 4k license.
-
-## Set the license in the configuration
-
-1. Insert the license into ``spec.license.token`` in the `mke4.yaml`
-   configuration file:
-
-    ```yaml
-    spec:
-      license:
-        token: <your-license-file>
-    ```
-
-2. Apply the license:
-
-   ```commandline
-   mkectl apply
-   ```
-
-3. Check the license status:
-
-   ```commandline
-   kubectl -n mke get mkeconfig mke -ojsonpath="{.status.licenseStatus}" | jq 
-   ```
-
-   Example output:
-   
-   ```json
-   {
-     "expiration": "2027-10-10T07:00:00Z",
-     "licenseType": "Offline",
-     "maxEngines": 10,
-     "scanningEnabled": true,
-     "subject": "example",
-     "tier": "Production"
-   }
-   ```
-
-
