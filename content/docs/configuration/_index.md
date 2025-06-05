@@ -8,6 +8,7 @@ The information herein is designed to guide you in setting up, maintaining, and 
 {{< cards >}}
 {{< card link="authentication" title="Authentication" icon="cog" >}}
 {{< card link="backup-restore" title="Backup and restore" icon="cog" >}}
+{{< card link="cluster-configuration" title="Cluster configuration" icon="cog" >}}
 {{< card link="kubernetes" title="Kubernetes Components" icon="cog" >}}
 {{< card link="ingress" title="Ingress controller" icon="cog" >}}
 {{< card link="metallb" title="MetalLB load balancer" icon="cog" >}}
