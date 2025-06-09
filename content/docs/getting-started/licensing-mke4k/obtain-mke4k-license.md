@@ -3,6 +3,13 @@ title: Obtain your MKE 4k license
 weight: 2
 ---
 
+{{< callout type="warning" >}}
+
+You must have a valid license to lawfully run MKE 4k. For more
+information, refer to [Mirantis Agreements and Terms](https://legal.mirantis.com/).
+
+{{< /callout >}}
+
 [Install the MKE 4k CLI](../install-mke-4k-cli) prior to downloading your MKE
 4k license.
 

@@ -23,10 +23,15 @@ essential for managing your MKE 4k installation. The CLI provides a convenient
 and powerful way to interact with your cluster, perform administrative tasks,
 and automate workflows.
 
-### Obtain an MKE 4k License
+### Obtain and apply an MKE 4k License
 
-You must have a valid license to lawfully run MKE 4k. Refer to [Obtain your MKE
-4k license](licensing-mke4k/obtain-mke4k-license) for information on how to obtain your license.
+You must [have a valid license to lawfully run MKE 4k](licensing-mke4k).
+
+{{< callout type="info" >}} Mirantis recommends that you set the license in the
+MKE 4k configuration file prior to the creation of your MKE 4k cluster. You can, however, [apply the
+license following cluster creation using the MKE 4k web
+UI](licensing-mke4k/apply-mke4k-license-post-installation).
+{{< /callout >}}
 
 ### Create a cluster
 
@@ -34,13 +39,6 @@ The [creation of an MKE 4k cluster](create-cluster) involves configuring the
 cluster settings, specifying the number of nodes, and setting up networking and
 storage options. Use the MKE 4k CLI to initialize and configure the cluster
 according to your requirements.
-
-### Add your license and set it in your configuration
-
-Following cluster creation, use the MKE 4k web UI to [add your MKE 4k
-license](licensing-mke4k/add-mke4k-license) and then [set
-it](licensing-mke4k/set-license-in-configuration) in the `mke4.yaml`
-configuration file to apply it.
 
 ### Interact with the cluster
 

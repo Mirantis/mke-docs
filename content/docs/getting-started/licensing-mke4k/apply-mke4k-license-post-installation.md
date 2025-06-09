@@ -1,6 +1,6 @@
 ---
-title: Add your MKE 4k license
-weight: 3
+title: Apply an MKE 4k license following installation
+weight: 4
 ---
 
 {{< callout type="warning" >}}
@@ -9,6 +9,9 @@ You must have a valid license to lawfully run MKE 4k. For more
 information, refer to [Mirantis Agreements and Terms](https://legal.mirantis.com/).
 
 {{< /callout >}}
+
+If you did not set your MKE 4k license in the MKE 4k configuration file prior
+to installation, you can use the MKE 4k web UI to apply the license:
 
 1. Log in to the MKE web UI with an administrator account.
 2. In the left-side navigation panel, navigate to **Admin Settings** -> **License**.

@@ -10,8 +10,15 @@ information, refer to [Mirantis Agreements and Terms](https://legal.mirantis.com
 
 {{< /callout >}}
 
-The licensing of MKE 4k is a three-step process:
+To license MKE 4k:
 
 1. [Obtain your MKE 4k license.](obtain-mke4k-license)
-2. [Add the license to your MKE 4k cluster.](add-mke4k-license)
-3. [Set the license in your configuration.](set-license-in-configuration)
+
+2. [Set the license in your configuration.](set-license-in-configuration)
+
+{{< callout type="info" >}} Mirantis recommends that you set the license in the
+MKE 4k configuration file prior to the creation of your MKE 4k cluster. You can, however, [apply the
+license following cluster creation using the MKE 4k web
+UI](apply-mke4k-license-post-installation).
+{{< /callout >}}
+

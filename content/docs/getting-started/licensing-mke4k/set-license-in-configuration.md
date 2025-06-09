@@ -1,6 +1,6 @@
 ---
 title: Set your license in the configuration
-weight: 4
+weight: 3
 ---
 
 {{< callout type="warning" >}}
@@ -9,6 +9,8 @@ You must have a valid license to lawfully run MKE 4k. For more
 information, refer to [Mirantis Agreements and Terms](https://legal.mirantis.com/).
 
 {{< /callout >}}
+
+To ensure that your MKE 4k cluster is licensed upon installation:
 
 1. Insert the license into ``spec.license.token`` in the `mke4.yaml`
    configuration file:
