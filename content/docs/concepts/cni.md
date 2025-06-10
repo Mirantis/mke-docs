@@ -90,11 +90,16 @@ The following table includes details on all of the configurable `network` fields
 Configuration for the Kube-router CNI can be done by referring to the
 documentation in https://github.com/cloudnativelabs/kube-router/blob/master/docs/user-guide.md#command-line-options. 
 
-Two parameters [cidrV4 and v] are used to specify the ipv4 cidr and log level for the cluster.
-Any other parameters specified in the extraConfig section of the CNI are passed as-is in the form 
-of a key value pair by appending '--' before the key.
+Two parameters [cidrV4 and v] are used to specify the ipv4 cidr and log level
+for the cluster. Any other parameters specified in the extraConfig section of
+the CNI are passed as-is in the form of a key value pair by appending '--'
+before the key.
 
 ### Calico OSS
+<br>
+<details>
+
+<summary><b>Calico CNI configuration parameters</b></summary>
 
 The following table includes details on the configurable settings
 for the Calico provider.
@@ -105,6 +110,8 @@ for the Calico provider.
 | `cidrV4` | Sets the IP pool in the Kubernetes cluster from which Pods are allocated. | Valid IPv4 CIDR | `192.168.0.0/16` <br><br>You can easily modify `cidrV4` prior to cluster deployment. Contact Mirantis Support, however, if you need to modify `clusterCIDRIPv4` once your cluster has been deployed.|
 | `linuxDataplane` | Sets the dataplane for Calico CNI. | Iptables | Iptables|
 | `loglevel` | Sets the log level for the CNI components. | Info, Debug | Info|
+
+</details>
 
 The default network configuration described herein offers a serviceable, low maintenance solution. If, however, you want more control over your network configuration environment, MKE 4k exposes maximal configuration for the Calico CNI through which you can configure your networking to the fullest extent allowed by the provider. For this, you will use the `values.yaml` key, in which case an example networking would resemble the following:
 
@@ -255,8 +262,58 @@ The network configuration generated as a result of upgrading to MKE 4k from an e
 
 ### Cilium
 
+To configure the Cilium CNI for MKE 4k:
+
+1. Obtain the default `mke4.yaml` configuration file:
+
+   ```
+   mkectl init
+   ```
+
+2. In the `providers` section of the `mke4.yaml` configuration file, set the
+   `enabled` parameter for `cilium` to `true` and the `enabled` parameter for
+   `calico` to `false`.
+
+3. Apply the configuration:
+
+   ```
+   mkectl apply -f mke4.yaml
+   ```
+
+4. Verify the successful deployment of Cilium in the MKE 4k cluster:
+
+   ```
+   kubectl get pods,services,deployments -n kube-system -l app.kubernetes.io/part-of=cilium
+   ```
+
+Example output:
+
+```
+NAME                                   READY   STATUS    RESTARTS   AGE
+pod/cilium-czvp8                       1/1     Running   0          3m16s
+pod/cilium-dktxt                       1/1     Running   0          3m16s
+pod/cilium-envoy-kvb8c                 1/1     Running   0          3m16s
+pod/cilium-envoy-mnqfr                 1/1     Running   0          3m18s
+pod/cilium-envoy-s79wl                 1/1     Running   0          3m16s
+pod/cilium-operator-6fdb8667cc-rqxdh   1/1     Running   0          3m19s
+pod/cilium-operator-6fdb8667cc-xfzc9   1/1     Running   0          3m19s
+pod/cilium-pfl27                       1/1     Running   0          3m18s
+
+NAME                   TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+service/cilium-envoy   ClusterIP   None            <none>        9964/TCP   3m22s
+service/hubble-peer    ClusterIP   10.96.156.194   <none>        443/TCP    3m22s
+
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/cilium-operator   2/2     2            2           3m22s
+```
+
+<details>
+
+<summary><b>Cilium CNI configuration parameters</b></summary>
+
+<br>
 The following table includes details on the configurable settings
-for the Cilium CNI provider.
+for the Cilium CNI provider.<br>
 
 | Field   | Description  | Values        |  Default     |
 |---------|--------------|---------------|--------------|
@@ -267,6 +324,8 @@ for the Cilium CNI provider.
 | `extraConfig.ciliumTunnelProtocol` | Defines the underlying encapsulation protocol for Pod traffic between nodes when tunneling is enabled.| `vxlan`, `geneve` | `vxlan` |
 | `extraConfig.ciliumCNIExclusive` | Set to run Cilium in exclusive mode. |  Boolean | `True` |
 | `extraConfig.values.yaml` | User-defined Cilium configuration. | String | Empty |
+
+</details>
 
 The default network configuration for Cilium CNI provides a reliable,
 low-maintenance setup. MKE 4k, though, exposes the full range of configuration
