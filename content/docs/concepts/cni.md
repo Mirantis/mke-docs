@@ -242,7 +242,6 @@ The network configuration generated as a result of upgrading to MKE 4k from an e
 ## Limitations
 
 - MKE4k supports integration with other CNIs (for example Calico Enterprise) as custom CNI - where deployment and management of such component is customer managed.
-  with unmanaged CNIs are subject to engagement by roadmap and Professional Services.
 - Only clusters that use the default Kubernetes proxier `iptables` can be
   upgraded from MKE3 to MKE 4k.
 - Only KDD-backed MKE 3 clusters can be upgraded to MKE 4k. Refer to [Upgrade
