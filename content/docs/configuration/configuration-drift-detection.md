@@ -13,16 +13,10 @@ is detected in a specified resource, such as a label or specification, the
 service state is automatically synced back to its original state as described
 in the `mke4.yaml` configuration file.
 
-## Disable drift detection
-
-{{< callout type="warning" >}}
-Disabling drift detection and making changes to services can cause MKE cluster
-to become unstable.
-{{< /callout >}}
-
-It is not possible to fully disable configuration drift detection in MKE 4k.
-You can, however, configure the system to ignore certain resources and specify
-certain resource fields for exclusion from the detection process.
+By design, you cannot fully disable configuration drift detection, as doing so
+could cause your MKE 4k cluster to become unstable. You can, however, configure
+the system to ignore certain resources and specify certain resource fields for
+exclusion from the detection process.
 
 ### Ignore specified resources
 
