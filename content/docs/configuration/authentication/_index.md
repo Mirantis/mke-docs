@@ -69,7 +69,7 @@ The following table shows all of the available fields for the `expiry` section.
 | `expiry.refreshTokens.disableRotation`   | Disable every-request rotation.                                          |
 | `expiry.refreshTokens.reuseInterval`     | Interval for obtaining the same refresh token from the refresh endpoint. |
 
-## Add Third-Party Client applications
+## Add Third-Party Client Applications
 
 You can use third-party client applications with MKE 4k, each with the ability
 to use the same authentication options that are available in the MKE 4k
