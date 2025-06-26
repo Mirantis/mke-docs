@@ -57,7 +57,7 @@ The patch selector parameters are detailed in the following table:
 | `version`            | Version of the API group from which to select resources.                                          |
 | `kind`               | Type of API group from which to select resources.                                           |
 | `name`               | Name with which to match resources.                                                              |
-| `namespace`          | namespace from which to select resources.                                                        |
+| `namespace`          | The namespace from which to select resources.                                                        |
 | `annotationSelector` | A string that follows the label selection expression, which matches with resource annotations. |
 | `labelSelector`      | A string that follows the label selection expression, which matches with resource labels.      |
 
