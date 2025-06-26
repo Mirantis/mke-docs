@@ -20,7 +20,7 @@ Disabling drift detection and making changes to services can cause MKE cluster
 to become unstable.
 {{< /callout >}}
 
-it is not possible to fully disable configuration drift detection in MKE 4k.
+It is not possible to fully disable configuration drift detection in MKE 4k.
 You can, however, configure the system to ignore certain resources and specify
 certain resource fields for exclusion from the detection process.
 
