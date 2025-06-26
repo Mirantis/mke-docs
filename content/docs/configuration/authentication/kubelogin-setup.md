@@ -8,9 +8,11 @@ that you can use to authenticate and set up a kubeconfig file for the purpose
 of configuring kubectl for use with MKE 4k. Using it, you can add
 an authentication client application and audience to your MKE 4k cluster.
 
-To enable the use of kubelogin, edit the `authentication.kubelogin` parameter in
-the `mke4.yaml` configuration file to `true`. For security purposes, the
-parameter is disabled by default.
+To enable the use of kubelogin, edit For security purposes, the
+`authentication.kubelogin` parameter in the `mke4.yaml` configuration file is
+disabled by default. To enable kubelogin, change the setting to `true`. As a
+result, MKE 4k will immediately generate the necessary audience and client
+application for kubelogin function.
 
 Because it is so popular with our customers, we have added a way to easily add a client and audience to the cluster that works with the suggested setup in the kubelogin setup guide. We should make sure and provide a link to
 
