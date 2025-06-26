@@ -1,5 +1,5 @@
 ---
-title: Drift Detection
+title: Configuration Drift Detection
 weight: 12
 ---
 
