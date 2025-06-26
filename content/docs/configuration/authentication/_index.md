@@ -69,6 +69,50 @@ The following table shows all of the available fields for the `expiry` section.
 | `expiry.refreshTokens.disableRotation`   | Disable every-request rotation.                                          |
 | `expiry.refreshTokens.reuseInterval`     | Interval for obtaining the same refresh token from the refresh endpoint. |
 
+## Add Third-Party Client Applications
+
+You can use third-party client applications with MKE 4k, each with the ability
+to use the same authentication options that are available in the MKE 4k
+cluster. To do this, obtain the current `mke4.yaml` configuration file, add a
+list of the client applications to the file, and reapply the file to the MKE 4k
+cluster.
+
+Example configuration:
+
+```yaml
+authentication:
+    clients:
+    - id: example
+      name:"Example Client"
+      redirectURIs:
+      - localhost:8080
+      secret: ZXhhbXBsZS1hcHAtc2VjcmV0
+```
+
+| Field                                    | Description                                                              |
+| ---------------------------------------- | ------------------------------------------------------------------------ |
+| `clients`                                 | Section for the various client settings, within which each client is represented as a list.                                 |
+| `clients.id`                                 | Unique ID for the client, which must match the ID passed by the client during authentication.                                 |
+| `clients.name`                                 | Human-readable name for the client.                                 |
+| `clients.redirectURIs`                                 | A list of URIs for the client from which an authentication will accept auth requests and to which an authentication will return successful auths to.                                 |
+| `clients.secret`                                 | A `secret` that is passed by the client to validate that it is allowed to use authentication. Its intended use is with backend client applications that can keep the secret hidden.                                 |
+| `clients.public`                                 | Eliminates the need for a secret that must be shared with each client setup.                                 |
+
+## Add Audiences
+
+Audiences determine which parties are permitted to make requests to the
+cluster API. Adding the client as an audience allows it to leverage the Kubernetes API to display and edit cluster information.
+
+```yaml
+authentication:
+    audience:
+    - kubelogin
+```
+| Field                                    | Description                                                              |
+| ---------------------------------------- | ------------------------------------------------------------------------ |
+| `audience`                                 | A list of audience names.                                 |
+
+
 ## Unsupported functions
 
 Authentication functions that are not supported in MKE 4k include:
