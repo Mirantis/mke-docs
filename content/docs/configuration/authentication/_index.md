@@ -79,7 +79,7 @@ cluster.
 
 Example configuration:
 
-```
+```yaml
 authentication:
     clients:
     - id: example
