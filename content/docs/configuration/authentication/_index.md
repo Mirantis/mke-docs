@@ -95,7 +95,7 @@ authentication:
 | `clients.id`                                 | Unique ID for the client, which must match the ID passed by the client during authentication.                                 |
 | `clients.name`                                 | Human-readable name for the client.                                 |
 | `clients.redirectURIs`                                 | A list of URIs for the client from which an authentication will accept auth requests and to which an authentication will return successful auths to.                                 |
-| `clients.secret`                                 | A `secret` that is passed by the client to validate that it is allowed to use authentication. Its intended use is with back end client applications that can keep the secret hidden.                                 |
+| `clients.secret`                                 | A `secret` that is passed by the client to validate that it is allowed to use authentication. Its intended use is with backend client applications that can keep the secret hidden.                                 |
 | `clients.public`                                 | Eliminates the need for a secret that must be shared with each client setup.                                 |
 
 ## Add Audiences
