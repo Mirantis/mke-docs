@@ -25,4 +25,5 @@ icon="cog" >}}
 {{< card link="cloudproviders" title="Cloud Providers" icon="cog" >}}
 {{< card link="tls-certificates" title="TLS certificates" icon="cog" >}}
 {{< card link="multus" title="Multus" icon="cog" >}}
+{{< card link="configuration-drift-detection" title="Configuration drift detection" icon="cog" >}}
 {{< /cards >}}
