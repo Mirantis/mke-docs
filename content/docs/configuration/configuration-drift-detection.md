@@ -10,7 +10,7 @@ inconsistent and unpredictable.
 In MKE 4k clusters, drift detection is enabled by default for system services
 and services that are specified in the cluster configuration. When any change
 is detected in a specified resource, such as a label or specification, the
-service state is automatically synched back to its original state as described
+service state is automatically synced back to its original state as described
 in the `mke4.yaml` configuration file.
 
 ## Disable drift detection
