@@ -101,8 +101,7 @@ authentication:
 ## Add Audiences
 
 Audiences determine which parties are permitted to make requests to the
-cluster API. Pairing an audience with a client application enables those
-clients that display or change information about the cluster.
+cluster API. Adding the client as an audience allows it to leverage the Kubernetes API to display and edit cluster information.
 
 ```yaml
 authentication:
