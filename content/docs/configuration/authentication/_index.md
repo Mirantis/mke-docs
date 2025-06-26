@@ -104,7 +104,7 @@ Audiences determine which parties are permitted to make requests to the
 cluster API. Pairing an audience with a client application enables those
 clients that display or change information about the cluster.
 
-```
+```yaml
 authentication:
     audience:
     - kubelogin
