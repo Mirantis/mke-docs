@@ -70,7 +70,7 @@ required cluster resources. {{< /callout >}}
 
 In addition to setting drift detection to ignore specified resources, you can
 also use JSON Pointers to specify that only certain fields be excluded from
-drift detection..
+drift detection.
 
 Example MKE 4k configuration:
 
