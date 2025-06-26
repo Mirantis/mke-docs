@@ -63,7 +63,7 @@ The patch selector parameters are detailed in the following table:
 
 {{< callout type="warning" >}} You cannot filter resources by service using
 patch selector parameters. Thus, if you decide to disable drift detection for
-specific resources, ensure that the patch selector is set to fiilter only
+specific resources, ensure that the patch selector is set to filter only
 required cluster resources. {{< /callout >}}
 
 ### Exclude specified fields
