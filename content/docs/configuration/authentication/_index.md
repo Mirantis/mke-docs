@@ -73,7 +73,7 @@ The following table shows all of the available fields for the `expiry` section.
 
 You can use third-party client applications with MKE 4k, each with the ability
 to use the same authentication options that are available in the MKE 4k
-cluster. To do this, you obtain the current MKE4.yaml configuration file, add a
+cluster. To do this, obtain the current `mke4.yaml` configuration file, add a
 list of the client applications to the file, and reapply the file to the MKE 4k
 cluster.
 
