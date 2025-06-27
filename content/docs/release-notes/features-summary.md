@@ -32,6 +32,12 @@ Features that are available in MKE 4k are detailed in the following table:
 | Policy Controller                 | MKE 4k allows installation of third-party policy controllers for Kubernetes. Currently, OPA Gatekeeper is the only supported policy controller.                                                                                                                                                          | [OPA Gatekeeper](../../configuration/policycontroller/opagatekeeper)                                                                                                                                                                                                                                                                                                                                                                                            |
 | Support Bundle                    | Support bundles for MKE 4k can be generated directly from the command line.                                                                                                                                                                                                                              | [Create a support bundle](../../configuration/support-bundle#create-a-support-bundle)                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Telemetry                         | MKE 4k can be set to automatically record and transmit data to Mirantis through an encrypted channel, for monitoring and analysis purposes.                                                                                                                                                              | [Enable telemetry through the MKE 4k CLI](../../configuration/telemetry/#enable-telemetry-through-the-mke-cli),   [Enable telemetry through the MKE 4k web UI](../../configuration/telemetry/#enable-telemetry-through-the-mke-web-ui)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Airgap (offline bundle) | MKE 4k can be deployed in an airgap environment | |
+| Networking: Multus | Multus CNI support | |
+| Audit Logging | Shipping in 4.1.1 | |
+| Networking: Cillium | Cillium CNI support | |
+
+
 
 Features under development
 --------------------------
@@ -40,27 +46,19 @@ New features that Mirantis plans to introduce in upcoming MKE 4k releases
 include:
 
 * Additional cloud providers
-* Custom admission controllers: OPA Gatekeeper or Kyverno EE or CE only
-* Life Cycle Management for components
-* Networking: Cillium
-* Offline Bundle
 * Scheduled backups
-* STIG
 
 In addition, Mirantis is working to integrate various key MKE 3 features into
 MKE 4k, including:
 
 * [Two-factor authentication (2FA)](https://docs.mirantis.com/mke/3.8/ops/administer-cluster/two-factor-authentication.html?highlight=2fa)
-* [Audit
-  logging](https://docs.mirantis.com/mke/3.8/ops/administer-cluster/mke-audit-logging.html)
-* [etcd enhancements](https://docs.mirantis.com/mke/3.8/ops/administer-cluster/manage-etcd.html)
+* * [etcd enhancements](https://docs.mirantis.com/mke/3.8/ops/administer-cluster/manage-etcd.html)
 * [CIS Benchmarks](https://docs.mirantis.com/mke/3.8/cis-benchmarks.html)
 * [Client
   bundle](https://docs.mirantis.com/mke/3.8/ops/access-cluster/download-configure-client-bundle.html)
 * [Image
   pruning](https://docs.mirantis.com/mke/3.8/ops/administer-cluster/schedule-image-pruning.html?highlight=image%20pruning)
 * [KMS/Vault](https://docs.mirantis.com/mke/3.8/ops/administer-cluster/mke-kms-plugin-support.html?highlight=kms)
-* [Networking: Multus](https://docs.mirantis.com/mke/3.8/install/predeployment/configure-networking/multus-cni-installation-enablement.html?highlight=multus)
 * [Node Local DNS](https://kubernetes.io/docs/tasks/administer-cluster/nodelocaldns/)
 * [OpsCare Plus](https://docs.mirantis.com/mke/3.8/ops/administer-cluster/configure-opscare.html)
 * [Storage
@@ -72,7 +70,7 @@ Unsupported features
 
 Mirantis does not support the following functions:
 
-* Networking: IPVS, eBPF, Unmanaged CNI
+* Networking: IPVS, eBPF
 * Profiling on Kubernetes and MKE 4k components
 * Custom feedback UI
 * Account Lockout
