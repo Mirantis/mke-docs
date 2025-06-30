@@ -31,7 +31,7 @@ registry from which to pull the MKE 4k images and charts.
      DOWNLOAD_URL="https://packages.mirantis.com/caas/mke_bundle_v${MKE_VERSION}.tar.gz"
      BUNDLE_NAME="mke_bundle_v${MKE_VERSION}.tar.gz"
 
-     MKE4_VERSION="$MKE_VERSION" curl -L "$DOWNLOAD_URL" -o "$BUNDLE_NAME"
+     curl -L "$DOWNLOAD_URL" -o "$BUNDLE_NAME"
      ```
 
 2. Transfer the bundle file to a machine that can access your private registry.
