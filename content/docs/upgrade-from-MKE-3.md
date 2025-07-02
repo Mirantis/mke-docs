@@ -138,6 +138,7 @@ Verify that you have the following components in place before you begin upgradin
      export MKE_USERNAME=<mke-username>
      export MKE_PASSWORD=<mke-password>
      export MKE_HOST=<mke-fqdn-or-ip-address>
+     AUTHTOKEN=$(curl --silent --insecure --data '{"username":"'$MKE_USERNAME'","password":"'$MKE_PASSWORD'"}' https://$MKE_HOST/auth/login | jq --raw-output .auth_token)
      curl --silent --insecure -X GET "https://$MKE_HOST/api/ucp/config-toml" -H "accept: application/toml" -H "Authorization: Bearer $AUTHTOKEN" > mke-config.toml
      ```
 
@@ -147,7 +148,6 @@ Verify that you have the following components in place before you begin upgradin
   4. Apply the modified MKE 3 configuration file:
 
      ```shell
-     $ AUTHTOKEN=$(curl --silent --insecure --data '{"username":"'$MKE_USERNAME'","password":"'$MKE_PASSWORD'"}' https://$MKE_HOST/auth/login | jq --raw-output .auth_token)
      $ curl --silent --insecure -X PUT -H "accept: application/toml" -H "Authorization: Bearer $AUTHTOKEN" --upload-file 'mke-config.toml' https://$MKE_HOST/api/ucp/config-toml
      {"message":"Calico datastore migration from etcd to kdd successful"}
      ```
