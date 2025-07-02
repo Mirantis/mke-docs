@@ -9,12 +9,6 @@ scenario. While the online installation typically uses
  4k materials, with the offline scenario you instead specify a private
 registry from which to pull the MKE 4k images and charts.
 
-{{< callout type="info" >}}
-
-You can download the MKE 4k artifacts from the [mke-release GitHub repo](https://github.com/MirantisContainers/mke-release/releases).
-
-{{< /callout >}}
-
 ## Dependencies ##
 
 - [skopeo](https://github.com/containers/skopeo) 1.6.1 or later
@@ -30,12 +24,14 @@ You can download the MKE 4k artifacts from the [mke-release GitHub repo](https:/
 
 ## Preparation ##
 
-1. Download the offline bundle, either from the [mke-release GitHub
-   repo](https://github.com/MirantisContainers/mke-release/releases), or
-   from the command line as follows:
+1. Download the offline bundle from the command line as follows:
 
      ```bash
-     curl -L https://packages.mirantis.com/caas/mke_bundle_v<mke-4-version>.tar.gz -o mke_bundle_v<mke-4-version>.tar.gz
+     MKE_VERSION="4.1.0"
+     DOWNLOAD_URL="https://packages.mirantis.com/caas/mke_bundle_v${MKE_VERSION}.tar.gz"
+     BUNDLE_NAME="mke_bundle_v${MKE_VERSION}.tar.gz"
+
+     curl -L "$DOWNLOAD_URL" -o "$BUNDLE_NAME"
      ```
 
 2. Transfer the bundle file to a machine that can access your private registry.
@@ -43,20 +39,21 @@ You can download the MKE 4k artifacts from the [mke-release GitHub repo](https:/
 3. On the machine with registry access, set the environment variables:
 
    ```bash
+   MKE_VERSION="4.1.0"
    export REGISTRY_ADDRESS='<registry_address>'
    export REGISTRY_PROJECT_PATH='<registry-path>'
    export REGISTRY_USERNAME='<username>'
    export REGISTRY_PASSWORD='<password>'
-   export BUNDLE_NAME='mke_bundle_v<mke-4-version>.tar.gz'
+   export BUNDLE_NAME="mke_bundle_v${MKE_VERSION}.tar.gz"
    ```
 
 | Environment variable                             | Description                                                                                                                                                                                                                                                                                 |
 |--------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| REGISTRY_ADDRESS=' <registry_address> '          | Registry hostname (required) and port (optional). The value must not end with a slash '/'.<br><br>Example: `private-registry.example.com:8080`                                                                                                                                              |
-| REGISTRY_PROJECT_PATH= '<registry-path>'         | Path to the registry project that will store all MKE 4k artifacts. The registry address and path should comprise the full registry path. The value must not end with a slash '/'.<br><br>Example: `REGISTRY_ADDRESS + '/' + REGISTRY_PROJECT_PATH == 'private-registry.example.com:8080/mke` |
-| REGISTRY_USERNAME= '<username>'                  | Username for the account that is allowed to push.                                                                                                                                                                                                                                           |
-| REGISTRY_PASSWORD= '<password>'                  | Password for the account that is allowed to push.                                                                                                                                                                                                                                           |
-| BUNDLE_NAME= 'mke_bundle_v<mke4-version>.tar.gz' | The name of previously downloaded bundle file, which must be located in the same directory in which you run the preparation steps.                                                                                                                                                          |
+| REGISTRY_ADDRESS       | Registry hostname (required) and port (optional). The value must not end with a slash '/'.<br><br>Example: `private-registry.example.com:8080`                                                                                                                                              |
+| REGISTRY_PROJECT_PATH        | Path to the registry project that will store all MKE 4k artifacts. The registry address and path should comprise the full registry path. The value must not end with a slash '/'.<br><br>Example: `REGISTRY_ADDRESS + '/' + REGISTRY_PROJECT_PATH == 'private-registry.example.com:8080/mke` |
+| REGISTRY_USERNAME                | Username for the account that is allowed to push.                                                                                                                                                                                                                                           |
+| REGISTRY_PASSWORD        | Password for the account that is allowed to push.                                                                                                                                                                                                                                           |
+| BUNDLE_NAME| The name of previously downloaded bundle file, which must be located in the same directory in which you run the preparation steps.                                                                                                                                                          |
 
 4. Upload the MKE 4k images and helm charts to your private registry:
 
