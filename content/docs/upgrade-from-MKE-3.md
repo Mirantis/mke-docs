@@ -59,8 +59,11 @@ Following a successful upgrade:
 
   {{< /details >}}
 
-Be aware that any workloads running in your MKE 3 system will not be available
-during the upgrade process.
+{{< callout type="important" >}}
+
+The upgrade process results in a complete system outage.
+
+{{< /callout >}}
 
 The upgrade period depends on the size of your cluster. You can track the
 progress of your upgrade by way of the terminal, which displays step-by-step
