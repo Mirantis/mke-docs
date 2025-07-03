@@ -87,7 +87,7 @@ Verify that you have the following components in place before you begin upgradin
 - A backup of the MKE cluster. For comprehensive instruction on how to create
   an MKE 3 back up, refer to [Back up MKE](https://docs.mirantis.com/mke/current/ops/disaster-recovery/back-up-mke.html).
 
-- The latest `mkectl` binary, installed on your local environment:
+- The latest `mkectl` binary, [installed on your local environment](../getting-started/install-mke-4k-cli):
 
   ```shell
   mkectl version
