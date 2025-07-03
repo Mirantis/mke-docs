@@ -8,9 +8,27 @@ and software requirements.
 
 ## Hardware requirements
 
-MKE 4k uses [k0s](https://k0sproject.io/) as the underlying Kubernetes
-distribution. To learn the k0s hardware requirements, refer to the [k0s
-documentation](https://docs.k0sproject.io/v1.29.4+k0s.0/system-requirements/).
+MKE 4k uses [k0s](https://k0sproject.io/) as the underlying Kubernetes distribution. 
+To ensure successful installations and upgrades with stable performance, the following 
+hardware specifications are required for MKE 4k nodes. These requirements are based on 
+internal testing and differ from the generic k0s documentation due to MKE 4k's specific 
+resource demands.
+
+### Recommended Hardware Requirements
+
+For optimal performance and reliable upgrades, the following configuration is recommended:
+- vCPUs: 8 vCPUs per node
+- RAM: 32 GB per node
+
+### Validated Test Configurations
+
+The following configurations have been tested internally for MKE 4k upgrades:
+
+| Configuration | vCPUs | RAM | Result |
+| ----------- | --| ------|----| 
+|             | 2 | 8 GB  | Repeated upgrade failures |
+| Recommended | 8 | 32 GB | Successful upgrades, stable |
+
 
 ## Software requirements
 
