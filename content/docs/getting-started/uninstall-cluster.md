@@ -6,7 +6,7 @@ weight: 8
 1. Destroy the last MKE 4k cluster you created using the `reset` command:
 
    ```shell
-   mkectl reset -f mke4.yaml
+   mkectl reset --force -f mke4.yaml
    ```
 
 2. Confirm cluster deletion.

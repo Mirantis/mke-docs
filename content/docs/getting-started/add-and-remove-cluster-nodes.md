@@ -52,9 +52,9 @@ information on how to remove a control plane node from an MKE 4k cluster.
    k0s:
 
    ```bash
-   k0s stop
-   k0s reset
-   reboot
+   sudo k0s stop
+   sudo k0s reset
+   sudo reboot
    ```
 
 3. [Obtain the `mke4.yaml` configuration file for your cluster](../get-current-mke-config).
