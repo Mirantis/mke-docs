@@ -55,12 +55,11 @@ process and ensures consistency in cluster deployments.
 
 {{< callout type="important" >}}
 You may need to add the SSH private key to your identity manager in order for mkectl to connect to it.
-
-With ssh-agent:
-
-ssh-add <path_to_your_SSH_private_key>
-Without ssh-agent, ensure that the SSH private key is accessible at the path specified in the keyPath field of the mke4.yaml configuration file.
-
+- With ssh-agent:
+  ```
+  ssh-add <path_to_your_SSH_private_key>
+  ```
+- Without ssh-agent, ensure that the SSH private key is accessible at the path specified in the keyPath field of the mke4.yaml configuration file.
 {{< /callout >}}
 
 ## Create a cluster
