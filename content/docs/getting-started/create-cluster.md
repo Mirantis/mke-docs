@@ -51,7 +51,16 @@ process and ensures consistency in cluster deployments.
 
    - Specify the external address in the in `apiServer.externalAddress` field.
      The external address is the domain name of the load balancer configured
-     as described in [System Requirements: Load balancer](../system-requirements#load-balancer-requirements).  
+     as described in [System Requirements: Load balancer](../system-requirements#load-balancer-requirements).
+
+{{< callout type="important" >}}
+You may need to add the SSH private key to your identity manager in order for mkectl to connect to it.
+- With ssh-agent:
+  ```
+  ssh-add <path_to_your_SSH_private_key>
+  ```
+- Without ssh-agent, ensure that the SSH private key is accessible at the path specified in the keyPath field of the mke4.yaml configuration file.
+{{< /callout >}}
 
 ## Create a cluster
 
