@@ -53,15 +53,15 @@ process and ensures consistency in cluster deployments.
      The external address is the domain name of the load balancer configured
      as described in [System Requirements: Load balancer](../system-requirements#load-balancer-requirements).
 
-3. You may need to add the SSH keys to your identity manager for `mkectl` to be able to connect to them.
+{{< callout type="important" >}}
+You may need to add the SSH private key to your identity manager in order for mkectl to connect to it.
 
-   If you are using `ssh-agent`, you can add the keys with the following command:
+With ssh-agent:
 
-   ```shell
-   ssh-add <path_to_your_private_key>
-   ```
+ssh-add <path_to_your_SSH_private_key>
+Without ssh-agent, ensure that the SSH private key is accessible at the path specified in the keyPath field of the mke4.yaml configuration file.
 
-   If you are not using `ssh-agent`, ensure that the private key is accessible at the path specified in the `keyPath` field of the configuration file.
+{{< /callout >}}
 
 ## Create a cluster
 
